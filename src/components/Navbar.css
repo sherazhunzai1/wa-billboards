@@ -6,6 +6,8 @@
   z-index: 1000;
   padding: 20px 0;
   transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
 }
 
 .navbar--scrolled {
@@ -53,19 +55,34 @@
   border-radius: var(--radius-full);
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--gray-600);
+  color: rgba(255, 255, 255, 0.85);
   transition: all 0.2s ease;
 }
 
 .navbar__link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.navbar__link--active {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+}
+
+/* Scrolled state: switch links to dark */
+.navbar--scrolled .navbar__link {
+  color: var(--gray-600);
+}
+
+.navbar--scrolled .navbar__link:hover {
   color: var(--orange);
   background: rgba(255, 107, 53, 0.08);
 }
 
-.navbar__link--active {
+.navbar--scrolled .navbar__link--active {
   color: var(--orange);
   background: rgba(255, 107, 53, 0.1);
-  font-weight: 600;
 }
 
 .navbar__cta {
@@ -78,10 +95,15 @@
   display: none;
   background: none;
   border: none;
-  color: var(--gray-800);
+  color: white;
   cursor: pointer;
   z-index: 1001;
   padding: 4px;
+  transition: color 0.3s ease;
+}
+
+.navbar--scrolled .navbar__toggle {
+  color: var(--gray-800);
 }
 
 /* Mobile */
