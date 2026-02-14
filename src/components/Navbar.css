@@ -21,9 +21,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0px;
 }
 
 .navbar__logo {
+  margin: 0px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -31,13 +33,15 @@
   font-weight: 700;
   font-size: 1.3rem;
   z-index: 1001;
+  padding: 0px;
 }
 
 .navbar__logo-img {
-  height: 44px;
-  width: auto;
+  height: 80px;
+  width: 170px;
   transition: opacity 0.2s ease;
-  filter: brightness(0) invert(1);
+  margin: 0px;
+  padding: 0px;
 }
 
 .navbar--scrolled .navbar__logo-img {
