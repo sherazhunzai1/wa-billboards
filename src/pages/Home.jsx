@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { HiArrowRight, HiPlay, HiLocationMarker, HiStar, HiGlobe } from 'react-icons/hi'
+import { motion, AnimatePresence } from 'framer-motion'
+import { HiArrowRight, HiPlay, HiLocationMarker, HiStar, HiGlobe, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { FaRoad, FaPlane, FaDesktop } from 'react-icons/fa'
 import BillboardCard from '../components/BillboardCard'
-import { billboardImages, galleryImages } from '../assets/billboardImages'
+import { billboardImages, galleryImages, heroImages } from '../assets/billboardImages'
 import './Home.css'
 
 const stats = [
@@ -40,83 +40,109 @@ const services = [
 
 const partners = ['oOh! Media', 'JCDecaux']
 
+const heroSlides = [
+  { image: heroImages[0], label: 'Perth Metro Billboard' },
+  { image: heroImages[1], label: 'Karratha Regional Billboard' },
+  { image: heroImages[2], label: 'Northbridge City Billboard' },
+]
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % galleryImages.length)
-    }, 4000)
-    return () => clearInterval(timer)
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
   }, [])
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
+  }, [])
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000)
+    return () => clearInterval(timer)
+  }, [nextSlide])
 
   return (
     <main className="home">
-      {/* Hero Section */}
+      {/* Hero Section - Full Width Billboard Slideshow */}
       <section className="hero">
-        <div className="hero__bg">
-          {galleryImages.slice(0, 3).map((img, i) => (
+        {/* Full-screen billboard slides */}
+        <div className="hero__slideshow">
+          {heroSlides.map((slide, i) => (
             <div
               key={i}
-              className={`hero__bg-slide ${currentSlide % 3 === i ? 'hero__bg-slide--active' : ''}`}
-              style={{ backgroundImage: `url(${img})` }}
-            />
+              className={`hero__slide ${currentSlide === i ? 'hero__slide--active' : ''}`}
+            >
+              <img
+                src={slide.image}
+                alt={slide.label}
+                className="hero__slide-img"
+              />
+            </div>
           ))}
-          <div className="hero__bg-overlay" />
         </div>
 
-        <div className="hero__content container">
-          <motion.div
-            className="hero__text"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="hero__badge">
-              WA's Largest Outdoor Media Company
-            </span>
-            <h1 className="hero__title">
-              Make Your Brand
-              <span className="hero__title-highlight"> Impossible </span>
-              to Ignore
-            </h1>
-            <p className="hero__subtitle">
-              Captivating billboard advertising across Western Australia.
-              From Perth metro to the Kimberley — we put your brand in front
-              of the right audience, every day.
-            </p>
-            <div className="hero__actions">
-              <Link to="/contact" className="btn btn-primary btn-lg">
-                Get Started <HiArrowRight />
-              </Link>
-              <Link to="/services" className="btn btn-outline btn-lg">
-                <HiPlay /> Our Services
-              </Link>
-            </div>
-          </motion.div>
+        {/* Bottom gradient for text readability */}
+        <div className="hero__gradient-bottom" />
 
-          <motion.div
-            className="hero__visual"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <div className="hero__image-stack">
-              <div className="hero__image-card hero__image-card--1">
-                <img src={galleryImages[0]} alt="Billboard showcase" />
+        {/* Content overlay at the bottom */}
+        <div className="hero__overlay-content">
+          <div className="container">
+            <motion.div
+              className="hero__text"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="hero__badge">
+                WA's Largest Outdoor Media Company
+              </span>
+              <h1 className="hero__title">
+                Make Your Brand
+                <span className="hero__title-highlight"> Impossible </span>
+                to Ignore
+              </h1>
+              <p className="hero__subtitle">
+                Captivating billboard advertising across Western Australia.
+                From Perth metro to the Kimberley — we put your brand in front
+                of the right audience, every day.
+              </p>
+              <div className="hero__actions">
+                <Link to="/contact" className="btn btn-primary btn-lg">
+                  Get Started <HiArrowRight />
+                </Link>
+                <Link to="/services" className="btn btn-outline btn-lg">
+                  <HiPlay /> Our Services
+                </Link>
               </div>
-              <div className="hero__image-card hero__image-card--2">
-                <img src={galleryImages[1]} alt="Billboard showcase" />
-              </div>
-              <div className="hero__image-card hero__image-card--3">
-                <img src={galleryImages[2]} alt="Billboard showcase" />
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
 
-        <div className="hero__scroll-indicator">
-          <div className="hero__scroll-line" />
+        {/* Slide navigation arrows */}
+        <button className="hero__arrow hero__arrow--prev" onClick={prevSlide} aria-label="Previous slide">
+          <HiChevronLeft size={32} />
+        </button>
+        <button className="hero__arrow hero__arrow--next" onClick={nextSlide} aria-label="Next slide">
+          <HiChevronRight size={32} />
+        </button>
+
+        {/* Slide dots + current label */}
+        <div className="hero__slide-nav">
+          <span className="hero__slide-label">{heroSlides[currentSlide].label}</span>
+          <div className="hero__dots">
+            {heroSlides.map((_, i) => (
+              <button
+                key={i}
+                className={`hero__dot ${currentSlide === i ? 'hero__dot--active' : ''}`}
+                onClick={() => setCurrentSlide(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+          <span className="hero__slide-counter">
+            {String(currentSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+          </span>
         </div>
       </section>
 
