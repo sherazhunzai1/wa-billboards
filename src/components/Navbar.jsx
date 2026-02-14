@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
+import wabLogo from '../assets/images/logo/WAB-Grey-Logo-Small.png'
 import './Navbar.css'
 
 const navLinks = [
@@ -31,10 +32,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container container">
         <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-icon">WA</span>
-          <span className="navbar__logo-text">
-            Billboards
-          </span>
+          <img src={wabLogo} alt="WA Billboards" className="navbar__logo-img" />
         </Link>
 
         <div className={`navbar__links ${mobileOpen ? 'navbar__links--open' : ''}`}>

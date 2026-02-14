@@ -31,22 +31,15 @@
   z-index: 1001;
 }
 
-.navbar__logo-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  background: var(--gradient-primary);
-  color: white;
-  border-radius: var(--radius-md);
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+.navbar__logo-img {
+  height: 44px;
+  width: auto;
+  transition: opacity 0.2s ease;
+  filter: brightness(0) invert(1);
 }
 
-.navbar__logo-text {
-  color: var(--gray-900);
+.navbar--scrolled .navbar__logo-img {
+  filter: none;
 }
 
 .navbar__links {

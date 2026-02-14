@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi'
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import wabLogo from '../assets/images/logo/WAB-Grey-Logo-Small.png'
 import './Footer.css'
 
 export default function Footer() {
@@ -17,8 +18,7 @@ export default function Footer() {
           <div className="footer__grid">
             <div className="footer__brand">
               <div className="footer__logo">
-                <span className="footer__logo-icon">WA</span>
-                <span className="footer__logo-text">Billboards</span>
+                <img src={wabLogo} alt="WA Billboards" className="footer__logo-img" />
               </div>
               <p className="footer__description">
                 Western Australia's largest privately owned outdoor media company.
