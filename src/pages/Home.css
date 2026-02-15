@@ -31,17 +31,18 @@
   object-position: center;
 }
 
-/* Bottom gradient - subtle so images stay visible */
+/* Bottom gradient - darkened for text readability */
 .hero__gradient-bottom {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 70%;
+  height: 80%;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.75) 0%,
-    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.55) 40%,
+    rgba(0, 0, 0, 0.15) 70%,
     transparent 100%
   );
   z-index: 1;
@@ -83,7 +84,7 @@
   color: white;
   margin-bottom: 20px;
   line-height: 1.1;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero__title-highlight {
@@ -110,7 +111,7 @@
   line-height: 1.7;
   margin-bottom: 32px;
   max-width: 520px;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .hero__actions {
