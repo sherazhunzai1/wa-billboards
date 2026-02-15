@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { HiStar, HiShieldCheck, HiLightningBolt, HiHeart } from 'react-icons/hi'
 import { FaPlane, FaTools, FaHandshake } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
+import aboutHeroImg from '../assets/images/about us/IMG_6101-1-1536x624.jpg'
 import './About.css'
 
 const timeline = [
@@ -28,7 +29,7 @@ export default function About() {
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={galleryImages[0]} alt="WA Billboards" />
+          <img src={aboutHeroImg} alt="WA Billboards" />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">
