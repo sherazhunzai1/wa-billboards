@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiLocationMarker, HiArrowRight } from 'react-icons/hi'
@@ -35,6 +35,15 @@ export default function Locations() {
   const filtered = activeFilter === 'all'
     ? locations
     : locations.filter(l => l.type === activeFilter)
+
+  const mapSrc = useMemo(() => {
+    if (activeLocation) {
+      const { lat, lng, name } = activeLocation
+      return `https://www.google.com/maps?q=${lat},${lng}&z=10&output=embed`
+    }
+    // Default: centered on Western Australia
+    return `https://www.google.com/maps?q=-25.5,122&z=5&output=embed`
+  }, [activeLocation])
 
   return (
     <main className="locations">
@@ -83,85 +92,14 @@ export default function Locations() {
 
           <div className="locations-map__layout">
             <div className="locations-map__map-container">
-              {/* SVG Map of Australia with location pins */}
-              <svg
-                viewBox="0 0 100 100"
-                className="locations-map__svg"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Australia outline (simplified) */}
-                <path
-                  className="locations-map__australia"
-                  d="M25,30 C22,32 18,35 16,40 C14,45 13,50 13,55 C13,60 14,65 15,70 C16,75 18,80 20,83 C22,86 25,88 28,90 C31,92 35,93 38,93 C41,93 44,92 47,90 C50,88 52,86 53,84 C54,82 55,80 57,78 C59,76 62,75 65,75 C68,75 70,76 72,74 C74,72 75,69 76,66 C77,63 77,60 78,57 C79,54 80,51 80,48 C80,45 79,42 77,40 C75,38 72,37 69,36 C66,35 63,35 60,34 C57,33 54,32 52,31 C50,30 48,29 46,29 C44,29 42,30 40,31 C38,32 36,33 34,33 C32,33 30,32 28,31 C26,30 25,30 25,30 Z"
-                  fill="#FFF5F0"
-                  stroke="#FFD4C0"
-                  strokeWidth="0.5"
-                />
-
-                {/* Tasmania */}
-                <path
-                  className="locations-map__tasmania"
-                  d="M64,90 C63,89 62,89 61,90 C60,91 60,92 61,93 C62,94 63,94 64,93 C65,92 65,91 64,90 Z"
-                  fill="#FFF5F0"
-                  stroke="#FFD4C0"
-                  strokeWidth="0.3"
-                />
-
-                {/* WA State highlight */}
-                <path
-                  className="locations-map__wa-highlight"
-                  d="M25,30 C22,32 18,35 16,40 C14,45 13,50 13,55 C13,60 14,65 15,70 C16,75 18,80 20,83 C22,86 25,88 28,90 C31,92 35,93 38,93 C40,93 42,92 43,90 L43,30 C40,31 38,32 36,33 C34,33 32,33 30,32 C28,31 26,30 25,30 Z"
-                  fill="rgba(255,107,53,0.08)"
-                  stroke="var(--orange)"
-                  strokeWidth="0.4"
-                  strokeDasharray="2,1"
-                />
-
-                {/* Location Pins */}
-                {filtered.map((loc) => (
-                  <g
-                    key={loc.id}
-                    className={`locations-map__pin ${activeLocation?.id === loc.id ? 'locations-map__pin--active' : ''}`}
-                    onClick={() => setActiveLocation(loc)}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <circle
-                      cx={loc.x}
-                      cy={loc.y}
-                      r={activeLocation?.id === loc.id ? 2.5 : 1.8}
-                      fill={loc.type === 'airport' ? 'var(--coral)' : 'var(--orange)'}
-                      stroke="white"
-                      strokeWidth="0.5"
-                    >
-                      <animate
-                        attributeName="r"
-                        values={activeLocation?.id === loc.id ? "2.5;3;2.5" : "1.8;2.2;1.8"}
-                        dur="2s"
-                        repeatCount="indefinite"
-                      />
-                    </circle>
-                    <circle
-                      cx={loc.x}
-                      cy={loc.y}
-                      r="4"
-                      fill={loc.type === 'airport' ? 'rgba(255,72,88,0.15)' : 'rgba(255,107,53,0.15)'}
-                    >
-                      <animate
-                        attributeName="r"
-                        values="3;5;3"
-                        dur="2s"
-                        repeatCount="indefinite"
-                      />
-                      <animate
-                        attributeName="opacity"
-                        values="0.6;0;0.6"
-                        dur="2s"
-                        repeatCount="indefinite"
-                      />
-                    </circle>
-                  </g>
-                ))}
-              </svg>
+              <iframe
+                className="locations-map__google-map"
+                src={mapSrc}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="WA Billboards Locations"
+              />
 
               {/* Map Legend */}
               <div className="locations-map__legend">

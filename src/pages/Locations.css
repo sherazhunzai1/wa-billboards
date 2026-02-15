@@ -49,27 +49,21 @@
   align-items: start;
 }
 
-/* SVG Map */
+/* Google Map */
 .locations-map__map-container {
   position: relative;
   background: white;
   border-radius: var(--radius-xl);
   border: 1px solid var(--gray-200);
-  padding: 32px;
+  overflow: hidden;
   box-shadow: var(--shadow-md);
 }
 
-.locations-map__svg {
+.locations-map__google-map {
   width: 100%;
-  height: auto;
-}
-
-.locations-map__pin {
-  transition: all 0.2s ease;
-}
-
-.locations-map__pin:hover circle:first-child {
-  filter: brightness(1.2);
+  height: 500px;
+  border: none;
+  display: block;
 }
 
 .locations-map__legend {
