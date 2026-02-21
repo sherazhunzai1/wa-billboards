@@ -3,13 +3,18 @@ import { motion } from 'framer-motion'
 import { HiArrowRight, HiMail, HiPhone } from 'react-icons/hi'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
+import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
+import teamAshleigh from '../assets/images/team/ashlegh.jpeg'
+import teamChris from '../assets/images/team/chris.jpeg'
+import teamDefault from '../assets/images/team/default.jpg'
+import teamWhole from '../assets/images/team/whole team.jpeg'
 import './Team.css'
 
 const teamMembers = [
   {
     name: 'Stephen Robinson',
     role: 'Founder & Managing Director',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
+    image: teamStephen,
     bio: 'Stephen founded WA Billboards in 1991 after entering the outdoor media industry in 1984. He holds a commercial pilot\'s license with an instrument rating for all weather operations. His vision and industry expertise have grown WA Billboards into WA\'s largest domestic outdoor media operator.',
     highlights: ['Founded WA Billboards in 1991', 'Commercial Pilot\'s License', '40+ years industry experience'],
     color: '#FF6B35',
@@ -17,7 +22,7 @@ const teamMembers = [
   {
     name: 'Kerry Robinson',
     role: 'Co-Founder & Director',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
+    image: teamDefault,
     bio: 'Kerry co-founded WA Billboards with Stephen in 1991, bringing her extensive business acumen from her senior position at the Commonwealth Bank. Her financial expertise and strategic thinking have been instrumental in the company\'s sustained growth.',
     highlights: ['Co-founded WA Billboards', 'Former Senior Executive at Commonwealth Bank', 'Strategic Business Development'],
     color: '#FF4858',
@@ -25,7 +30,7 @@ const teamMembers = [
   {
     name: 'Christopher Robinson',
     role: 'Operations Manager',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face',
+    image: teamChris,
     bio: 'Christopher joined the WA Billboards team in 2010 and runs the operational aspects of the business including site maintenance and material changes. He holds a full private pilot\'s license and ASIC card for airport access.',
     highlights: ['Joined the team in 2010', 'Full Private Pilot\'s License', 'Site Maintenance & Operations'],
     color: '#E040FB',
@@ -33,7 +38,7 @@ const teamMembers = [
   {
     name: 'Mitchell Robinson',
     role: 'Business Development',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+    image: teamDefault,
     bio: 'Mitchell is the newest family member to join the WA Billboards team, contributing to the continued growth and expansion of the business. His fresh perspective brings new energy to the company\'s development initiatives.',
     highlights: ['Second generation team member', 'Business Growth & Expansion', 'Client Relations'],
     color: '#FFC857',
@@ -41,7 +46,7 @@ const teamMembers = [
   {
     name: 'Sales & Marketing',
     role: 'Sales & Marketing Manager',
-    image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400&h=400&fit=crop&crop=face',
+    image: teamAshleigh,
     bio: 'Our dedicated Sales & Marketing Manager works closely with advertising agencies and direct clients at state level, managing campaigns and ensuring clients get the best return on their outdoor advertising investment.',
     highlights: ['State-level client management', 'Agency relationships', 'Campaign optimization'],
     color: '#00E5FF',
@@ -156,9 +161,9 @@ export default function Team() {
       {/* Image Strip */}
       <section className="team-images">
         <div className="team-images__strip">
-          {galleryImages.slice(0, 5).map((img, i) => (
+          {[teamWhole, teamStephen, teamChris, teamAshleigh, teamDefault].map((img, i) => (
             <div key={i} className="team-images__item">
-              <img src={img} alt={`Billboard ${i + 1}`} loading="lazy" />
+              <img src={img} alt={`Team ${i + 1}`} loading="lazy" />
             </div>
           ))}
         </div>
