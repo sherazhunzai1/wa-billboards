@@ -1,14 +1,23 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { HiLocationMarker } from 'react-icons/hi'
 import './BillboardCard.css'
 
 export default function BillboardCard({ image, index = 0 }) {
   const [imgError, setImgError] = useState(false)
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    if (image.locationId) {
+      navigate(`/locations?location=${image.locationId}`)
+    }
+  }
 
   return (
     <div
       className="billboard-card"
-      style={{ animationDelay: `${index * 0.1}s` }}
+      style={{ animationDelay: `${index * 0.1}s`, cursor: image.locationId ? 'pointer' : 'default' }}
+      onClick={handleClick}
     >
       <div className="billboard-card__image-wrapper">
         {imgError ? (

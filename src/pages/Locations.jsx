@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useMemo, useEffect, useRef } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiLocationMarker, HiArrowRight } from 'react-icons/hi'
 import { FaPlane, FaRoad, FaDesktop } from 'react-icons/fa'
@@ -29,8 +29,26 @@ const filters = [
 ]
 
 export default function Locations() {
+  const [searchParams, setSearchParams] = useSearchParams()
   const [activeFilter, setActiveFilter] = useState('all')
   const [activeLocation, setActiveLocation] = useState(null)
+  const mapRef = useRef(null)
+
+  useEffect(() => {
+    const locationId = searchParams.get('location')
+    if (locationId) {
+      const loc = locations.find(l => l.id === Number(locationId))
+      if (loc) {
+        setActiveLocation(loc)
+        // Scroll to map section
+        setTimeout(() => {
+          mapRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 100)
+      }
+      // Clean up the query param
+      setSearchParams({}, { replace: true })
+    }
+  }, [])
 
   const filtered = activeFilter === 'all'
     ? locations
@@ -69,7 +87,7 @@ export default function Locations() {
       </section>
 
       {/* Map Section */}
-      <section className="locations-map">
+      <section className="locations-map" ref={mapRef}>
         <div className="container">
           <div className="locations-map__header">
             <span className="section-tag">Interactive Map</span>

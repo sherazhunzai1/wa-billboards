@@ -13,6 +13,7 @@ export const billboardImages = [
     src: billboardSchweppes,
     alt: 'Schweppes Rooftop Billboard - WA Billboards',
     location: 'Perth Metro, WA',
+    locationId: 1,
     fallbackColor: '#FF6B35',
   },
   {
@@ -20,6 +21,7 @@ export const billboardImages = [
     src: billboardKarratha,
     alt: 'Regional Billboard - Karratha WA',
     location: 'Karratha, WA',
+    locationId: 2,
     fallbackColor: '#FF4858',
   },
   {
@@ -27,6 +29,7 @@ export const billboardImages = [
     src: billboardNorthbridge,
     alt: 'RAC Billboard - Northbridge Perth',
     location: 'Northbridge, Perth',
+    locationId: 1,
     fallbackColor: '#E040FB',
   },
   {
@@ -34,6 +37,7 @@ export const billboardImages = [
     src: billboardSchweppes,
     alt: 'Billboard Advertising - Perth',
     location: 'Kalgoorlie-Boulder, WA',
+    locationId: 5,
     fallbackColor: '#FFC857',
   },
   {
@@ -41,6 +45,7 @@ export const billboardImages = [
     src: billboardKarratha,
     alt: 'Regional Highway Billboard',
     location: 'Port Hedland, WA',
+    locationId: 3,
     fallbackColor: '#00E5FF',
   },
   {
@@ -48,6 +53,7 @@ export const billboardImages = [
     src: billboardNorthbridge,
     alt: 'City Billboard Display',
     location: 'Great Eastern Highway, Perth',
+    locationId: 1,
     fallbackColor: '#1DE9B6',
   },
   {
@@ -55,6 +61,7 @@ export const billboardImages = [
     src: billboardKarratha,
     alt: 'South West Billboard',
     location: 'Bunbury, WA',
+    locationId: 10,
     fallbackColor: '#FF8F5E',
   },
   {
@@ -62,6 +69,7 @@ export const billboardImages = [
     src: billboardSchweppes,
     alt: 'Geraldton Billboard Display',
     location: 'Geraldton, WA',
+    locationId: 6,
     fallbackColor: '#FFD980',
   },
 ]
