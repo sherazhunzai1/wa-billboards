@@ -20,21 +20,21 @@ const services = [
     title: 'Billboards',
     description: 'Extensive inventory across WA - from Kimberley through Goldfields to South West.',
     color: '#FF6B35',
-    link: '/services',
+    link: '/services#billboards',
   },
   {
     icon: <FaPlane size={32} />,
     title: 'Airports',
     description: 'Advertising rights to most of WA\'s regional airports for maximum exposure.',
     color: '#FF4858',
-    link: '/services',
+    link: '/services#airports',
   },
   {
     icon: <FaDesktop size={32} />,
     title: 'Digital',
     description: 'Moving to digital with multi-faced screens across regional WA locations.',
     color: '#E040FB',
-    link: '/services',
+    link: '/services#digital',
   },
 ]
 

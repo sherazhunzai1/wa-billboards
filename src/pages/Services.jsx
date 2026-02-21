@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
 import { FaRoad, FaPlane, FaDesktop } from 'react-icons/fa'
@@ -32,6 +33,19 @@ const digitalFeatures = [
 ]
 
 export default function Services() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 100)
+    }
+  }, [hash])
+
   return (
     <main className="services">
       {/* Page Header */}
