@@ -4,9 +4,9 @@ import { HiArrowRight, HiMail, HiPhone } from 'react-icons/hi'
 import { FaLinkedinIn } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
 import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
-import teamAshleigh from '../assets/images/team/ashlegh.jpeg'
-import teamChris from '../assets/images/team/chris.jpeg'
-import teamDefault from '../assets/images/team/default.jpg'
+import teamChristopher from '../assets/images/team/Christopher Robinson.jpeg'
+import teamMitchell from '../assets/images/team/Mitchell Robinson.jpeg'
+import teamRebecca from '../assets/images/team/Rebecca Zaubzer.jpeg'
 import teamWhole from '../assets/images/team/whole team.jpeg'
 import './Team.css'
 
@@ -20,17 +20,9 @@ const teamMembers = [
     color: '#FF6B35',
   },
   {
-    name: 'Kerry Robinson',
-    role: 'Co-Founder & Director',
-    image: teamDefault,
-    bio: 'Kerry co-founded WA Billboards with Stephen in 1991, bringing her extensive business acumen from her senior position at the Commonwealth Bank. Her financial expertise and strategic thinking have been instrumental in the company\'s sustained growth.',
-    highlights: ['Co-founded WA Billboards', 'Former Senior Executive at Commonwealth Bank', 'Strategic Business Development'],
-    color: '#FF4858',
-  },
-  {
     name: 'Christopher Robinson',
     role: 'Operations Manager',
-    image: teamChris,
+    image: teamChristopher,
     bio: 'Christopher joined the WA Billboards team in 2010 and runs the operational aspects of the business including site maintenance and material changes. He holds a full private pilot\'s license and ASIC card for airport access.',
     highlights: ['Joined the team in 2010', 'Full Private Pilot\'s License', 'Site Maintenance & Operations'],
     color: '#E040FB',
@@ -38,15 +30,15 @@ const teamMembers = [
   {
     name: 'Mitchell Robinson',
     role: 'Business Development',
-    image: teamDefault,
+    image: teamMitchell,
     bio: 'Mitchell is the newest family member to join the WA Billboards team, contributing to the continued growth and expansion of the business. His fresh perspective brings new energy to the company\'s development initiatives.',
     highlights: ['Second generation team member', 'Business Growth & Expansion', 'Client Relations'],
     color: '#FFC857',
   },
   {
-    name: 'Sales & Marketing',
+    name: 'Rebecca Zaubzer',
     role: 'Sales & Marketing Manager',
-    image: teamAshleigh,
+    image: teamRebecca,
     bio: 'Our dedicated Sales & Marketing Manager works closely with advertising agencies and direct clients at state level, managing campaigns and ensuring clients get the best return on their outdoor advertising investment.',
     highlights: ['State-level client management', 'Agency relationships', 'Campaign optimization'],
     color: '#00E5FF',
@@ -161,7 +153,7 @@ export default function Team() {
       {/* Image Strip */}
       <section className="team-images">
         <div className="team-images__strip">
-          {[teamWhole, teamStephen, teamChris, teamAshleigh, teamDefault].map((img, i) => (
+          {[teamWhole, teamStephen, teamChristopher, teamMitchell, teamRebecca].map((img, i) => (
             <div key={i} className="team-images__item">
               <img src={img} alt={`Team ${i + 1}`} loading="lazy" />
             </div>
