@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { HiArrowRight, HiPhone, HiMail, HiDownload } from 'react-icons/hi'
 import { FaHandshake, FaMoneyBillWave, FaCalendarAlt } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
+import landOwnersPdf from '../assets/pdf/Land-Owners.pdf'
 import './LandOwners.css'
 
 const benefits = [
@@ -142,7 +143,7 @@ export default function LandOwners() {
                 </a>
               </div>
               <div className="landowners-cta__actions">
-                <a href="/landowners-info.pdf" download className="btn btn-secondary btn-lg">
+                <a href={landOwnersPdf} download="Land-Owners.pdf" className="btn btn-secondary btn-lg">
                   <HiDownload /> Download PDF
                 </a>
                 <Link to="/contact" className="btn btn-outline btn-lg">
