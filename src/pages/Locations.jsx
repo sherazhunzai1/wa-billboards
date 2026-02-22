@@ -69,7 +69,7 @@ export default function Locations() {
       <SEO
         title="Billboard Locations"
         path="/locations"
-        description="Explore WA Billboards' 200+ billboard locations across Western Australia. Perth Metro, Karratha, Port Hedland, Newman, Kalgoorlie, Geraldton & more."
+        description="Find 200+ WA Billboards locations — the largest network of west Australia billboards. Browse billboards in Australia across Perth, Karratha, Port Hedland, Kalgoorlie & more at wabillboards.com.au."
       />
       {/* Page Header */}
       <section className="page-header">

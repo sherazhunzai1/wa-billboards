@@ -30,7 +30,7 @@ export default function About() {
       <SEO
         title="About Us"
         path="/about"
-        description="Learn about WA Billboards — Western Australia's largest privately owned outdoor media company. Family-owned since 1991 with 200+ billboard sites and 6 regional airports."
+        description="Learn about WA Billboards — a family-owned operator of billboards in Australia since 1991. Discover how wabillboards grew into the largest west Australia billboards network with 200+ sites."
       />
       {/* Page Header */}
       <section className="page-header">

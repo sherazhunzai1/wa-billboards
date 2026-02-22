@@ -59,7 +59,7 @@ export default function Team() {
       <SEO
         title="Our Team"
         path="/team"
-        description="Meet the WA Billboards family team — Stephen, Christopher, Mitchell Robinson & Rebecca Zaubzer. Family-owned outdoor media experts since 1991."
+        description="Meet the WA Billboards family team — the people behind the largest billboards Australia has in private ownership. Stephen, Christopher & Mitchell Robinson run west Australia billboards since 1991."
       />
       {/* Page Header */}
       <section className="page-header">

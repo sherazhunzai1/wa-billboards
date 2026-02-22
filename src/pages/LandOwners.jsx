@@ -31,7 +31,7 @@ export default function LandOwners() {
       <SEO
         title="Land Owners"
         path="/land-owners"
-        description="Generate steady income from your commercial property with WA Billboards. Flexible contracts from 3 years. Contact Steve at 0411 518 049."
+        description="Partner with WA Billboards — earn steady income hosting billboards Australia's leading outdoor media company needs. West Australia billboards need your site. Contact wabillboards at 0411 518 049."
       />
       {/* Page Header */}
       <section className="page-header">

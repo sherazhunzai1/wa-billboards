@@ -52,7 +52,7 @@ export default function Services() {
       <SEO
         title="Advertising Services"
         path="/services"
-        description="Explore WA Billboards advertising solutions: 200+ billboard sites, 6 regional airport terminals & digital displays across Western Australia."
+        description="WA Billboards advertising services — billboards Australia metro & regional, airport terminals & digital displays. Explore west Australia billboards from Perth to the Kimberley at wabillboards.com.au."
       />
       {/* Page Header */}
       <section className="page-header">

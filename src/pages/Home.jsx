@@ -84,7 +84,7 @@ export default function Home() {
     <main className="home">
       <SEO
         path="/"
-        description="Make your brand impossible to ignore with WA Billboards. 200+ billboard sites, 6 regional airports & digital displays across Western Australia since 1991."
+        description="WA Billboards — the leading billboards in Australia for outdoor advertising. 200+ west Australia billboards, 6 regional airports & digital displays. Visit wabillboards.com.au for billboards Australia-wide."
       />
       {/* Hero Section - Full Width Billboard Slideshow */}
       <section className="hero">

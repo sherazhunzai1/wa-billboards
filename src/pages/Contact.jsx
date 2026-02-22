@@ -64,7 +64,7 @@ export default function Contact() {
       <SEO
         title="Contact Us"
         path="/contact"
-        description="Contact WA Billboards for outdoor advertising enquiries. Phone: (08) 9248 6600. Email: info@wabillboards.com.au. Office: Boulder Road, Malaga WA 6090."
+        description="Contact WA Billboards for billboards in Australia enquiries. Phone (08) 9248 6600 or email info@wabillboards.com.au. West Australia billboards office: Boulder Road, Malaga WA 6090."
       />
       {/* Page Header */}
       <section className="page-header">

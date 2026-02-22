@@ -59,7 +59,7 @@ export default function BiosentryIDS() {
       <SEO
         title="Biosentry IDS - Intelligent Disinfectant Station"
         path="/biosentry-ids"
-        description="Biosentry Disinfectant Station by WA Billboards. 99.9% effective against bacteria and viruses. Zero cost to facilities with advertising-funded model."
+        description="Biosentry IDS by WA Billboards — 99.9% effective disinfectant stations with advertising screens. A unique billboards Australia innovation from wabillboards, zero cost to west Australia facilities."
       />
       {/* Page Header */}
       <section className="page-header">

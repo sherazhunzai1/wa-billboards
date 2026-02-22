@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 const defaults = {
   siteName: 'WA Billboards',
   siteUrl: 'https://wabillboards.com.au',
-  defaultDescription: "Western Australia's largest privately owned outdoor media company. Billboard advertising, airport ads & digital displays across WA since 1991.",
+  defaultDescription: "WA Billboards — the largest billboards in Australia owned by a single family operator. West Australia billboards for metro & regional outdoor advertising, airport ads & digital displays since 1991.",
   defaultImage: '/og-image.jpg',
 }
 
