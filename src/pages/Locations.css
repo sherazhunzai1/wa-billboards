@@ -27,19 +27,23 @@
   font-weight: 500;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: var(--font-body);
 }
 
 .locations-map__filter:hover {
   border-color: var(--orange-light);
   color: var(--orange);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
 }
 
 .locations-map__filter--active {
   background: var(--gradient-primary);
   color: white;
   border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
 }
 
 .locations-map__layout {
@@ -57,6 +61,12 @@
   border: 1px solid var(--gray-200);
   overflow: hidden;
   box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.locations-map__map-container:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
 }
 
 .locations-map__google-map {
@@ -86,6 +96,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  animation: glow-pulse 2s ease-in-out infinite;
 }
 
 /* Location List */
@@ -122,6 +133,7 @@
   font-weight: 700;
   border-radius: var(--radius-full);
   padding: 0 8px;
+  animation: pop 0.4s ease both;
 }
 
 .locations-list__item {
@@ -131,11 +143,12 @@
   padding: 14px 12px;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .locations-list__item:hover {
   background: var(--gray-50);
+  transform: translateX(6px);
 }
 
 .locations-list__item-icon {
@@ -149,6 +162,12 @@
   border-radius: var(--radius-sm);
   flex-shrink: 0;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.locations-list__item:hover .locations-list__item-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, rgba(255,107,53,0.2), rgba(255,72,88,0.2));
 }
 
 .locations-list__item-info h4 {
@@ -166,11 +185,12 @@
   margin-left: auto;
   color: var(--gray-300);
   flex-shrink: 0;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .locations-list__item:hover .locations-list__item-arrow {
   color: var(--orange);
+  transform: translateX(4px);
 }
 
 /* Location Detail */

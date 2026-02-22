@@ -12,6 +12,7 @@
 .footer__wave svg {
   width: 100%;
   height: auto;
+  animation: float-gentle 6s ease-in-out infinite;
 }
 
 .footer__content {
@@ -34,6 +35,11 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.footer__logo:hover {
+  transform: scale(1.05);
 }
 
 .footer__logo-img {
@@ -63,14 +69,15 @@
   border-radius: var(--radius-full);
   background: var(--gray-800);
   color: var(--gray-400);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1rem;
 }
 
 .footer__social:hover {
   background: var(--gradient-primary);
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
 }
 
 .footer__heading {
@@ -89,11 +96,12 @@
   color: var(--gray-400);
   font-size: 0.95rem;
   padding: 6px 0;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .footer__link:hover {
   color: var(--orange-light);
+  transform: translateX(6px);
 }
 
 .footer__contact-item {
@@ -110,6 +118,11 @@
   font-size: 1.1rem;
   margin-top: 3px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.footer__contact-item:hover .footer__contact-icon {
+  transform: scale(1.2) rotate(5deg);
 }
 
 .footer__bottom {
