@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { HiLocationMarker, HiPhone, HiMail, HiClock, HiCheckCircle } from 'react-icons/hi'
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
+import SEO from '../components/SEO'
 import './Contact.css'
 
 const contactInfo = [
@@ -60,10 +61,15 @@ export default function Contact() {
 
   return (
     <main className="contact">
+      <SEO
+        title="Contact Us"
+        path="/contact"
+        description="Contact WA Billboards for outdoor advertising enquiries. Phone: (08) 9248 6600. Email: info@wabillboards.com.au. Office: Boulder Road, Malaga WA 6090."
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={galleryImages[7]} alt="Contact Us" />
+          <img src={galleryImages[7]} alt="Contact WA Billboards for outdoor advertising enquiries" />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">
@@ -131,7 +137,7 @@ export default function Contact() {
               </p>
 
               <div className="contact-form-section__image">
-                <img src={galleryImages[8]} alt="WA Billboards office" />
+                <img src={galleryImages[8]} alt="WA Billboards office and billboard operations in Malaga WA" />
               </div>
 
               <div className="contact-form-section__socials">

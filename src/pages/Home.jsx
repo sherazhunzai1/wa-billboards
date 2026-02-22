@@ -17,6 +17,7 @@ import {
   galleryImages,
   heroImages,
 } from "../assets/billboardImages";
+import SEO from "../components/SEO";
 import "./Home.css";
 
 const stats = [
@@ -81,6 +82,10 @@ export default function Home() {
 
   return (
     <main className="home">
+      <SEO
+        path="/"
+        description="Make your brand impossible to ignore with WA Billboards. 200+ billboard sites, 6 regional airports & digital displays across Western Australia since 1991."
+      />
       {/* Hero Section - Full Width Billboard Slideshow */}
       <section className="hero">
         {/* Full-screen billboard slides */}
@@ -276,7 +281,7 @@ export default function Home() {
           <div className="marquee__track">
             {[...galleryImages, ...galleryImages].map((img, i) => (
               <div key={i} className="marquee__item">
-                <img src={img} alt={`Billboard ${i + 1}`} loading="lazy" />
+                <img src={img} alt={`WA Billboards outdoor advertising showcase ${i + 1}`} loading="lazy" />
               </div>
             ))}
           </div>
@@ -353,17 +358,17 @@ export default function Home() {
               <div className="why-us__image-grid">
                 <img
                   src={galleryImages[3]}
-                  alt="WA Billboards"
+                  alt="Billboard advertising on busy Western Australia highway"
                   className="why-us__img why-us__img--1"
                 />
                 <img
                   src={galleryImages[4]}
-                  alt="WA Billboards"
+                  alt="WA Billboards regional billboard site at sunset"
                   className="why-us__img why-us__img--2"
                 />
                 <img
                   src={galleryImages[5]}
-                  alt="WA Billboards"
+                  alt="WA Billboards team servicing remote billboard location"
                   className="why-us__img why-us__img--3"
                 />
                 <div className="why-us__img-accent" />

@@ -5,6 +5,7 @@ import { HiLocationMarker, HiArrowRight } from 'react-icons/hi'
 import { FaPlane, FaRoad, FaDesktop } from 'react-icons/fa'
 import { billboardImages, galleryImages } from '../assets/billboardImages'
 import BillboardCard from '../components/BillboardCard'
+import SEO from '../components/SEO'
 import './Locations.css'
 
 const locations = [
@@ -65,10 +66,15 @@ export default function Locations() {
 
   return (
     <main className="locations">
+      <SEO
+        title="Billboard Locations"
+        path="/locations"
+        description="Explore WA Billboards' 200+ billboard locations across Western Australia. Perth Metro, Karratha, Port Hedland, Newman, Kalgoorlie, Geraldton & more."
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={galleryImages[3]} alt="Our Locations" />
+          <img src={galleryImages[3]} alt="Billboard locations map across Western Australia" />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">

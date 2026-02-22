@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wabillboards.com.au/sitemap.xml

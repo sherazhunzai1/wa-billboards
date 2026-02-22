@@ -5,6 +5,7 @@ import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
 import { FaRoad, FaPlane, FaDesktop } from 'react-icons/fa'
 import { billboardImages, airportImages, digitalImages, galleryImages } from '../assets/billboardImages'
 import BillboardCard from '../components/BillboardCard'
+import SEO from '../components/SEO'
 import './Services.css'
 
 const billboardFeatures = [
@@ -48,10 +49,15 @@ export default function Services() {
 
   return (
     <main className="services">
+      <SEO
+        title="Advertising Services"
+        path="/services"
+        description="Explore WA Billboards advertising solutions: 200+ billboard sites, 6 regional airport terminals & digital displays across Western Australia."
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={galleryImages[1]} alt="Our Services" />
+          <img src={galleryImages[1]} alt="Billboard and outdoor advertising services across Western Australia" />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">

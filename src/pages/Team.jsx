@@ -8,6 +8,7 @@ import teamChristopher from '../assets/images/team/Christopher Robinson.jpeg'
 import teamMitchell from '../assets/images/team/Mitchell Robinson.jpeg'
 import teamRebecca from '../assets/images/team/Rebecca Zaubzer.jpeg'
 import teamWhole from '../assets/images/team/whole team.jpeg'
+import SEO from '../components/SEO'
 import './Team.css'
 
 const teamMembers = [
@@ -55,10 +56,15 @@ const qualities = [
 export default function Team() {
   return (
     <main className="team">
+      <SEO
+        title="Our Team"
+        path="/team"
+        description="Meet the WA Billboards family team — Stephen, Christopher, Mitchell Robinson & Rebecca Zaubzer. Family-owned outdoor media experts since 1991."
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={galleryImages[5]} alt="Our Team" />
+          <img src={galleryImages[5]} alt="WA Billboards team members at outdoor billboard site" />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">
@@ -155,7 +161,7 @@ export default function Team() {
         <div className="team-images__strip">
           {[teamWhole, teamStephen, teamChristopher, teamMitchell, teamRebecca].map((img, i) => (
             <div key={i} className="team-images__item">
-              <img src={img} alt={`Team ${i + 1}`} loading="lazy" />
+              <img src={img} alt={`WA Billboards team member ${['group photo', 'Stephen Robinson', 'Christopher Robinson', 'Mitchell Robinson', 'Rebecca Zaubzer'][i]}`} loading="lazy" />
             </div>
           ))}
         </div>

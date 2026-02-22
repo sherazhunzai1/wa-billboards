@@ -4,6 +4,7 @@ import { HiArrowRight, HiPhone, HiMail, HiDownload } from 'react-icons/hi'
 import { FaHandshake, FaMoneyBillWave, FaCalendarAlt } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
 import landOwnersPdf from '../assets/pdf/Land-Owners.pdf'
+import SEO from '../components/SEO'
 import './LandOwners.css'
 
 const benefits = [
@@ -27,10 +28,15 @@ const benefits = [
 export default function LandOwners() {
   return (
     <main className="landowners">
+      <SEO
+        title="Land Owners"
+        path="/land-owners"
+        description="Generate steady income from your commercial property with WA Billboards. Flexible contracts from 3 years. Contact Steve at 0411 518 049."
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={galleryImages[4]} alt="Land Owners" />
+          <img src={galleryImages[4]} alt="Billboard site on commercial property in Western Australia" />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">
@@ -89,7 +95,7 @@ export default function LandOwners() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img src={galleryImages[2]} alt="Billboard site" />
+              <img src={galleryImages[2]} alt="WA Billboards rooftop billboard installed on commercial property" />
             </motion.div>
           </div>
         </div>

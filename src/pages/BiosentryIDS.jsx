@@ -4,6 +4,7 @@ import { HiArrowRight, HiPhone, HiMail } from 'react-icons/hi'
 import { FaShieldAlt, FaCheckCircle, FaSprayCan, FaUsers, FaClock, FaBullhorn } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
 import biosentryImg from '../assets/images/Biosentry/4-scaled.jpg'
+import SEO from '../components/SEO'
 import './BiosentryIDS.css'
 
 const features = [
@@ -55,10 +56,15 @@ const highlights = [
 export default function BiosentryIDS() {
   return (
     <main className="biosentry">
+      <SEO
+        title="Biosentry IDS - Intelligent Disinfectant Station"
+        path="/biosentry-ids"
+        description="Biosentry Disinfectant Station by WA Billboards. 99.9% effective against bacteria and viruses. Zero cost to facilities with advertising-funded model."
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={galleryImages[0]} alt="Biosentry IDS" />
+          <img src={galleryImages[0]} alt="Biosentry IDS intelligent disinfectant station at mining facility" />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">

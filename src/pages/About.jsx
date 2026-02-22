@@ -3,6 +3,7 @@ import { HiStar, HiShieldCheck, HiLightningBolt, HiHeart } from 'react-icons/hi'
 import { FaPlane, FaTools, FaHandshake } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
 import aboutHeroImg from '../assets/images/about us/IMG_6101-1-1536x624.jpg'
+import SEO from '../components/SEO'
 import './About.css'
 
 const timeline = [
@@ -26,10 +27,15 @@ const values = [
 export default function About() {
   return (
     <main className="about">
+      <SEO
+        title="About Us"
+        path="/about"
+        description="Learn about WA Billboards — Western Australia's largest privately owned outdoor media company. Family-owned since 1991 with 200+ billboard sites and 6 regional airports."
+      />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={aboutHeroImg} alt="WA Billboards" />
+          <img src={aboutHeroImg} alt="WA Billboards office and billboard operations in Western Australia" />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">
@@ -87,8 +93,8 @@ export default function About() {
               viewport={{ once: true }}
             >
               <div className="about-story__image-stack">
-                <img src={galleryImages[2]} alt="WA Billboards" className="about-story__img about-story__img--1" />
-                <img src={galleryImages[4]} alt="Our operations" className="about-story__img about-story__img--2" />
+                <img src={galleryImages[2]} alt="Rooftop billboard advertising in Perth metropolitan area" className="about-story__img about-story__img--1" />
+                <img src={galleryImages[4]} alt="WA Billboards regional operations and billboard maintenance" className="about-story__img about-story__img--2" />
                 <div className="about-story__img-badge">
                   <span className="about-story__badge-number">30+</span>
                   <span className="about-story__badge-text">Years of Excellence</span>
@@ -173,7 +179,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img src={galleryImages[6]} alt="Aircraft" className="about-aviation__img" />
+              <img src={galleryImages[6]} alt="WA Billboards aircraft fleet at Jandakot Airport hangar" className="about-aviation__img" />
             </motion.div>
             <motion.div
               className="about-aviation__content"
