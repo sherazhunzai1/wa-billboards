@@ -1,66 +1,83 @@
-import { useState, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { HiArrowRight, HiPlay, HiLocationMarker, HiStar, HiGlobe, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
-import { FaRoad, FaPlane, FaDesktop } from 'react-icons/fa'
-import BillboardCard from '../components/BillboardCard'
-import { billboardImages, galleryImages, heroImages } from '../assets/billboardImages'
-import './Home.css'
+import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  HiArrowRight,
+  HiPlay,
+  HiLocationMarker,
+  HiStar,
+  HiGlobe,
+  HiChevronLeft,
+  HiChevronRight,
+} from "react-icons/hi";
+import { FaRoad, FaPlane, FaDesktop } from "react-icons/fa";
+import BillboardCard from "../components/BillboardCard";
+import {
+  billboardImages,
+  galleryImages,
+  heroImages,
+} from "../assets/billboardImages";
+import "./Home.css";
 
 const stats = [
-  { number: '30+', label: 'Years Experience', icon: <HiStar /> },
-  { number: '200+', label: 'Billboard Sites', icon: <HiLocationMarker /> },
-  { number: '6', label: 'Regional Airports', icon: <FaPlane /> },
-  { number: '100%', label: 'WA Owned', icon: <HiGlobe /> },
-]
+  { number: "30+", label: "Years Experience", icon: <HiStar /> },
+  { number: "200+", label: "Billboard Sites", icon: <HiLocationMarker /> },
+  { number: "6", label: "Regional Airports", icon: <FaPlane /> },
+  { number: "100%", label: "WA Owned", icon: <HiGlobe /> },
+];
 
 const services = [
   {
     icon: <FaRoad size={32} />,
-    title: 'Billboards',
-    description: 'Extensive inventory across WA - from Kimberley through Goldfields to South West.',
-    color: '#FF6B35',
-    link: '/services#billboards',
+    title: "Billboards",
+    description:
+      "Extensive inventory across WA - from Kimberley through Goldfields to South West.",
+    color: "#FF6B35",
+    link: "/services#billboards",
   },
   {
     icon: <FaPlane size={32} />,
-    title: 'Airports',
-    description: 'Advertising rights to most of WA\'s regional airports for maximum exposure.',
-    color: '#FF4858',
-    link: '/services#airports',
+    title: "Airports",
+    description:
+      "Advertising rights to most of WA's regional airports for maximum exposure.",
+    color: "#FF4858",
+    link: "/services#airports",
   },
   {
     icon: <FaDesktop size={32} />,
-    title: 'Digital',
-    description: 'Moving to digital with multi-faced screens across regional WA locations.',
-    color: '#E040FB',
-    link: '/services#digital',
+    title: "Digital",
+    description:
+      "Moving to digital with multi-faced screens across regional WA locations.",
+    color: "#E040FB",
+    link: "/services#digital",
   },
-]
+];
 
-const partners = ['oOh! Media', 'JCDecaux']
+const partners = ["oOh! Media", "JCDecaux"];
 
 const heroSlides = [
-  { image: heroImages[0], label: 'Perth Metro Billboard' },
-  { image: heroImages[1], label: 'Karratha Regional Billboard' },
-  { image: heroImages[2], label: 'Northbridge City Billboard' },
-]
+  { image: heroImages[0], label: "Perth Metro Billboard" },
+  { image: heroImages[1], label: "Karratha Regional Billboard" },
+  { image: heroImages[2], label: "Northbridge City Billboard" },
+];
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
-  }, [])
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)
-  }, [])
+    setCurrentSlide(
+      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length,
+    );
+  }, []);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000)
-    return () => clearInterval(timer)
-  }, [nextSlide])
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
 
   return (
     <main className="home">
@@ -71,7 +88,7 @@ export default function Home() {
           {heroSlides.map((slide, i) => (
             <div
               key={i}
-              className={`hero__slide ${currentSlide === i ? 'hero__slide--active' : ''}`}
+              className={`hero__slide ${currentSlide === i ? "hero__slide--active" : ""}`}
             >
               <img
                 src={slide.image}
@@ -103,9 +120,9 @@ export default function Home() {
                 to Ignore
               </h1>
               <p className="hero__subtitle">
-                Captivating billboard advertising across Western Australia.
-                From Perth metro to the Kimberley — we put your brand in front
-                of the right audience, every day.
+                Captivating billboard advertising across Western Australia. From
+                Perth metro to the Kimberley — we put your brand in front of the
+                right audience, every day.
               </p>
               <div className="hero__actions">
                 <Link to="/contact" className="btn btn-primary btn-lg">
@@ -120,28 +137,39 @@ export default function Home() {
         </div>
 
         {/* Slide navigation arrows */}
-        <button className="hero__arrow hero__arrow--prev" onClick={prevSlide} aria-label="Previous slide">
+        <button
+          className="hero__arrow hero__arrow--prev"
+          onClick={prevSlide}
+          aria-label="Previous slide"
+        >
           <HiChevronLeft size={32} />
         </button>
-        <button className="hero__arrow hero__arrow--next" onClick={nextSlide} aria-label="Next slide">
+        <button
+          className="hero__arrow hero__arrow--next"
+          onClick={nextSlide}
+          aria-label="Next slide"
+        >
           <HiChevronRight size={32} />
         </button>
 
         {/* Slide dots + current label */}
         <div className="hero__slide-nav">
-          <span className="hero__slide-label">{heroSlides[currentSlide].label}</span>
+          <span className="hero__slide-label">
+            {heroSlides[currentSlide].label}
+          </span>
           <div className="hero__dots">
             {heroSlides.map((_, i) => (
               <button
                 key={i}
-                className={`hero__dot ${currentSlide === i ? 'hero__dot--active' : ''}`}
+                className={`hero__dot ${currentSlide === i ? "hero__dot--active" : ""}`}
                 onClick={() => setCurrentSlide(i)}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}
           </div>
           <span className="hero__slide-counter">
-            {String(currentSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+            {String(currentSlide + 1).padStart(2, "0")} /{" "}
+            {String(heroSlides.length).padStart(2, "0")}
           </span>
         </div>
       </section>
@@ -174,11 +202,12 @@ export default function Home() {
           <div className="home-services__header">
             <span className="section-tag">What We Offer</span>
             <h2 className="section-title">
-              Outdoor Advertising <span className="gradient-text">Solutions</span>
+              Outdoor Advertising{" "}
+              <span className="gradient-text">Solutions</span>
             </h2>
             <p className="section-subtitle">
-              From traditional billboards to cutting-edge digital displays,
-              we have the perfect advertising solution for your business.
+              From traditional billboards to cutting-edge digital displays, we
+              have the perfect advertising solution for your business.
             </p>
           </div>
 
@@ -194,7 +223,10 @@ export default function Home() {
                 <Link to={service.link} className="service-card">
                   <div
                     className="service-card__icon"
-                    style={{ background: `${service.color}15`, color: service.color }}
+                    style={{
+                      background: `${service.color}15`,
+                      color: service.color,
+                    }}
                   >
                     {service.icon}
                   </div>
@@ -219,7 +251,8 @@ export default function Home() {
               Featured <span className="gradient-text">Locations</span>
             </h2>
             <p className="section-subtitle">
-              Explore our extensive network of billboard locations across Western Australia.
+              Explore our extensive network of billboard locations across
+              Western Australia.
             </p>
           </div>
 
@@ -262,29 +295,46 @@ export default function Home() {
             >
               <span className="section-tag">Why WA Billboards</span>
               <h2 className="section-title">
-                The Last <span className="gradient-text">Privately Owned</span> Outdoor Media Company in WA
+                One of the Last{" "}
+                <span className="gradient-text">Privately Owned</span> Outdoor
+                Media Company in WA
               </h2>
               <p className="why-us__text">
-                Since 1991, WA Billboards has been the trusted name in outdoor advertising.
-                Our independence means we can react quickly to client needs and offer
-                competitive rates without corporate red tape.
+                Since 1991, WA Billboards has been the trusted name in outdoor
+                advertising. Our independence means we can react quickly to
+                client needs and offer competitive rates without corporate red
+                tape.
               </p>
 
               <div className="why-us__features">
                 <div className="why-us__feature">
-                  <div className="why-us__feature-dot" style={{ background: 'var(--orange)' }} />
+                  <div
+                    className="why-us__feature-dot"
+                    style={{ background: "var(--orange)" }}
+                  />
                   <span>Family-owned & operated since 1991</span>
                 </div>
                 <div className="why-us__feature">
-                  <div className="why-us__feature-dot" style={{ background: 'var(--coral)' }} />
-                  <span>Australia-wide representation via oOh! Media & JCDecaux</span>
+                  <div
+                    className="why-us__feature-dot"
+                    style={{ background: "var(--coral)" }}
+                  />
+                  <span>
+                    Australia-wide representation via oOh! Media & JCDecaux
+                  </span>
                 </div>
                 <div className="why-us__feature">
-                  <div className="why-us__feature-dot" style={{ background: 'var(--magenta)' }} />
+                  <div
+                    className="why-us__feature-dot"
+                    style={{ background: "var(--magenta)" }}
+                  />
                   <span>Cyclone-rated billboards built in-house</span>
                 </div>
                 <div className="why-us__feature">
-                  <div className="why-us__feature-dot" style={{ background: 'var(--yellow)' }} />
+                  <div
+                    className="why-us__feature-dot"
+                    style={{ background: "var(--yellow)" }}
+                  />
                   <span>Own aircraft fleet with CASA approved maintenance</span>
                 </div>
               </div>
@@ -301,9 +351,21 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <div className="why-us__image-grid">
-                <img src={galleryImages[3]} alt="WA Billboards" className="why-us__img why-us__img--1" />
-                <img src={galleryImages[4]} alt="WA Billboards" className="why-us__img why-us__img--2" />
-                <img src={galleryImages[5]} alt="WA Billboards" className="why-us__img why-us__img--3" />
+                <img
+                  src={galleryImages[3]}
+                  alt="WA Billboards"
+                  className="why-us__img why-us__img--1"
+                />
+                <img
+                  src={galleryImages[4]}
+                  alt="WA Billboards"
+                  className="why-us__img why-us__img--2"
+                />
+                <img
+                  src={galleryImages[5]}
+                  alt="WA Billboards"
+                  className="why-us__img why-us__img--3"
+                />
                 <div className="why-us__img-accent" />
               </div>
             </motion.div>
@@ -331,9 +393,7 @@ export default function Home() {
           <div className="home-cta__card">
             <div className="home-cta__bg" />
             <div className="home-cta__content">
-              <h2 className="home-cta__title">
-                Ready to Make an Impact?
-              </h2>
+              <h2 className="home-cta__title">Ready to Make an Impact?</h2>
               <p className="home-cta__text">
                 Let's find the perfect billboard location for your business.
                 Contact us today for a free consultation.
@@ -351,5 +411,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  )
+  );
 }
