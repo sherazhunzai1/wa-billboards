@@ -11,6 +11,7 @@ const navLinks = [
   { path: '/locations', label: 'Locations' },
   { path: '/team', label: 'Team' },
   { path: '/land-owners', label: 'Land Owners' },
+  { path: '/biosentry-ids', label: 'Biosentry IDS' },
   { path: '/contact', label: 'Contact' },
 ]
 

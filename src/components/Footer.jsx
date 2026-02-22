@@ -39,6 +39,7 @@ export default function Footer() {
               <Link to="/locations" className="footer__link">Locations</Link>
               <Link to="/team" className="footer__link">Our Team</Link>
               <Link to="/land-owners" className="footer__link">Land Owners</Link>
+              <Link to="/biosentry-ids" className="footer__link">Biosentry IDS</Link>
               <Link to="/contact" className="footer__link">Contact</Link>
             </div>
 
