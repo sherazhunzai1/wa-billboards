@@ -9,6 +9,7 @@ import Team from "./pages/Team";
 import LandOwners from "./pages/LandOwners";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <Chatbot />
     </>
   );
 }
