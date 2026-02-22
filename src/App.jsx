@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Locations from "./pages/Locations";
 import Team from "./pages/Team";
+import LandOwners from "./pages/LandOwners";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/locations" element={<Locations />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/land-owners" element={<LandOwners />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
