@@ -9,6 +9,9 @@ import {
   HiGlobe,
   HiChevronLeft,
   HiChevronRight,
+  HiCalendar,
+  HiUser,
+  HiClock,
 } from "react-icons/hi";
 import { FaRoad, FaPlane, FaDesktop } from "react-icons/fa";
 import BillboardCard from "../components/BillboardCard";
@@ -17,6 +20,7 @@ import {
   galleryImages,
   heroImages,
 } from "../assets/billboardImages";
+import posts from "../data/posts";
 import SEO from "../components/SEO";
 import "./Home.css";
 
@@ -388,6 +392,83 @@ export default function Home() {
                 {partner}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News Highlights */}
+      <section className="home-news">
+        <div className="container">
+          <div className="home-news__header">
+            <span className="section-tag">News Highlights</span>
+            <h2 className="section-title">
+              Latest <span className="gradient-text">Updates</span>
+            </h2>
+            <p className="section-subtitle">
+              Stay informed with the latest projects and announcements from WA
+              Billboards.
+            </p>
+          </div>
+
+          <div className="home-news__grid">
+            {posts.slice(0, 3).map((post, i) => (
+              <motion.article
+                key={post.id}
+                className="news-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Link
+                  to={`/news/${post.slug}`}
+                  className="news-card__image-wrap"
+                >
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="news-card__image"
+                    loading="lazy"
+                  />
+                  <div className="news-card__image-overlay">
+                    <div className="news-card__category">{post.category}</div>
+                    <h2 className="news-card__image-title">{post.title}</h2>
+                  </div>
+                </Link>
+
+                <div className="news-card__body">
+                  <div className="news-card__meta">
+                    <span className="news-card__meta-item">
+                      <HiCalendar /> {post.date}
+                    </span>
+                    <span className="news-card__meta-item">
+                      <HiUser /> {post.author}
+                    </span>
+                    <span className="news-card__meta-item">
+                      <HiClock /> {post.readTime}
+                    </span>
+                  </div>
+
+                  <Link to={`/news/${post.slug}`}>
+                    <h2 className="news-card__title">{post.title}</h2>
+                  </Link>
+
+                  <p className="news-card__excerpt">{post.excerpt}</p>
+                  <Link
+                    to={`/news/${post.slug}`}
+                    className="news-card__toggle"
+                  >
+                    Read More <HiArrowRight />
+                  </Link>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          <div className="home-news__cta">
+            <Link to="/news" className="btn btn-primary">
+              View All News <HiArrowRight />
+            </Link>
           </div>
         </div>
       </section>
