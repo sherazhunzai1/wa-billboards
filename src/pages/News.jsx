@@ -23,6 +23,10 @@ export default function News() {
         title="News"
         path="/news"
         description="Latest news and updates from WA Billboards — billboards Australia industry insights, new west Australia billboards installations, airport advertising and digital display projects."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'News', path: '/news' },
+        ]}
       />
 
       {/* Page Header */}

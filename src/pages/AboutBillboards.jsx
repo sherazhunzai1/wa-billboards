@@ -65,6 +65,10 @@ export default function AboutBillboards() {
         title="About Billboards"
         path="/about-billboards"
         description="Learn about billboard formats from WA Billboards — 24 Sheet, Super 8, Supersite, Spectacular & Digital. West Australia billboards in every size for billboards Australia-wide campaigns."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About Billboards', path: '/about-billboards' },
+        ]}
       />
 
       {/* Page Header */}

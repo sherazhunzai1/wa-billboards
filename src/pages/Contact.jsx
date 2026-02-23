@@ -65,6 +65,10 @@ export default function Contact() {
         title="Contact Us"
         path="/contact"
         description="Contact WA Billboards for billboards in Australia enquiries. Phone (08) 9248 6600 or email info@wabillboards.com.au. West Australia billboards office: Boulder Road, Malaga WA 6090."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Contact Us', path: '/contact' },
+        ]}
       />
       {/* Page Header */}
       <section className="page-header">

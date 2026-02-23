@@ -32,6 +32,10 @@ export default function LandOwners() {
         title="Land Owners"
         path="/land-owners"
         description="Partner with WA Billboards — earn steady income hosting billboards Australia's leading outdoor media company needs. West Australia billboards need your site. Contact wabillboards at 0411 518 049."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Land Owners', path: '/land-owners' },
+        ]}
       />
       {/* Page Header */}
       <section className="page-header">

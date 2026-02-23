@@ -46,6 +46,21 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://wabillboards.com.au/news/newman-airport-lounge-entirely-digital</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wabillboards.com.au/news/out-with-the-old-in-with-the-new-newman-airport</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wabillboards.com.au/news/exciting-new-arrival-at-newman-airport</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://wabillboards.com.au/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

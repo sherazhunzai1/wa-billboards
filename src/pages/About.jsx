@@ -31,6 +31,10 @@ export default function About() {
         title="About Us"
         path="/about"
         description="Learn about WA Billboards — a family-owned operator of billboards in Australia since 1991. Discover how wabillboards grew into the largest west Australia billboards network with 200+ sites."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'About Us', path: '/about' },
+        ]}
       />
       {/* Page Header */}
       <section className="page-header">

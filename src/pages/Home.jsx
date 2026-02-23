@@ -86,6 +86,30 @@ export default function Home() {
       <SEO
         path="/"
         description="WA Billboards — the leading billboards in Australia for outdoor advertising. 200+ west Australia billboards, 6 regional airports & digital displays. Visit wabillboards.com.au for billboards Australia-wide."
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'WA Billboards',
+          url: 'https://wabillboards.com.au',
+          logo: 'https://wabillboards.com.au/og-image.jpg',
+          description: 'The largest billboards in Australia owned by a single family operator. Outdoor advertising, airport ads & digital displays since 1991.',
+          foundingDate: '1991',
+          areaServed: {
+            '@type': 'State',
+            name: 'Western Australia',
+          },
+          address: {
+            '@type': 'PostalAddress',
+            addressRegion: 'WA',
+            addressCountry: 'AU',
+          },
+          sameAs: [],
+          contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'sales',
+            email: 'sales@wabillboards.com.au',
+          },
+        }}
       />
       {/* Hero Section - Full Width Billboard Slideshow */}
       <section className="hero">
