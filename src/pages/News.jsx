@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { HiArrowRight, HiCalendar, HiUser, HiTag, HiClock } from 'react-icons/hi'
 import { galleryImages } from '../assets/billboardImages'
 import blog1Img from '../assets/images/blogs/blog 1.jpg'
+import blog2Img from '../assets/images/blogs/blog 2.jpg'
 import SEO from '../components/SEO'
 import './News.css'
 
@@ -24,6 +25,19 @@ This site is now up and running and is in high demand! If you are interested, pl
     date: 'December 15, 2021',
     category: 'Uncategorized',
     readTime: '2 min read',
+  },
+  {
+    id: 2,
+    slug: 'out-with-the-old-in-with-the-new-newman-airport',
+    title: 'Out with the Old, in with the New at Newman Airport!',
+    excerpt:
+      'It was time for an update on our old baggage belt signs at Newman Airport. Our staff flew up in our company aircraft and replaced them all with brand new lightboxes.',
+    content: `It was time for an update on our old baggage belt signs at Newman Airport. Our staff flew up in our company aircraft and replaced them all with brand new lightboxes. Email sales@wabillboards.com.au for information on advertising in these spaces!`,
+    image: blog2Img,
+    author: 'Amy Campbell',
+    date: 'April 13, 2021',
+    category: 'Uncategorized',
+    readTime: '1 min read',
   },
 ]
 
