@@ -1,51 +1,16 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiArrowRight, HiCalendar, HiUser, HiTag, HiClock } from 'react-icons/hi'
+import { HiArrowRight, HiCalendar, HiUser, HiClock } from 'react-icons/hi'
 import { galleryImages } from '../assets/billboardImages'
-import blog1Img from '../assets/images/blogs/blog 1.jpg'
-import blog2Img from '../assets/images/blogs/blog 2.jpg'
+import posts from '../data/posts'
 import SEO from '../components/SEO'
 import './News.css'
-
-const posts = [
-  {
-    id: 1,
-    slug: 'newman-airport-lounge-entirely-digital',
-    title: 'Newman Airport Lounge Entirely Digital',
-    excerpt:
-      'On the 2nd of December our team flew up to the Newman Airport to replace a softface billboard with a brand new digital display — the last softface in the departure lounge has been replaced!',
-    content: `On the 2nd of December our team flew up to the Newman Airport to replace a 2920mm x 850mm softface billboard with a brand new 3700mm x 700mm digital display! This is the last softface in the departure lounge at Newman Airport which has been replaced with a digital screen.
-
-This project took place in the very busy departure lounge which is often crammed with people when flights occur in the morning and afternoon. It was so busy when we needed to fly out that there was a waiting line just to get in to the lounge!
-
-This site is now up and running and is in high demand! If you are interested, please contact us at sales@wabillboards.com.au.`,
-    image: blog1Img,
-    author: 'Amy Campbell',
-    date: 'December 15, 2021',
-    category: 'Uncategorized',
-    readTime: '2 min read',
-  },
-  {
-    id: 2,
-    slug: 'out-with-the-old-in-with-the-new-newman-airport',
-    title: 'Out with the Old, in with the New at Newman Airport!',
-    excerpt:
-      'It was time for an update on our old baggage belt signs at Newman Airport. Our staff flew up in our company aircraft and replaced them all with brand new lightboxes.',
-    content: `It was time for an update on our old baggage belt signs at Newman Airport. Our staff flew up in our company aircraft and replaced them all with brand new lightboxes. Email sales@wabillboards.com.au for information on advertising in these spaces!`,
-    image: blog2Img,
-    author: 'Amy Campbell',
-    date: 'April 13, 2021',
-    category: 'Uncategorized',
-    readTime: '1 min read',
-  },
-]
 
 const categories = ['All', ...new Set(posts.map((p) => p.category))]
 
 export default function News() {
   const [activeCategory, setActiveCategory] = useState('All')
-  const [expandedPost, setExpandedPost] = useState(null)
 
   const filtered =
     activeCategory === 'All'
@@ -114,13 +79,13 @@ export default function News() {
               {filtered.map((post, i) => (
                 <motion.article
                   key={post.id}
-                  className={`news-card ${expandedPost === post.id ? 'news-card--expanded' : ''}`}
+                  className="news-card"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <div className="news-card__image-wrap">
+                  <Link to={`/news/${post.slug}`} className="news-card__image-wrap">
                     <img
                       src={post.image}
                       alt={post.title}
@@ -128,7 +93,7 @@ export default function News() {
                       loading="lazy"
                     />
                     <div className="news-card__category">{post.category}</div>
-                  </div>
+                  </Link>
 
                   <div className="news-card__body">
                     <div className="news-card__meta">
@@ -143,33 +108,14 @@ export default function News() {
                       </span>
                     </div>
 
-                    <h2 className="news-card__title">{post.title}</h2>
+                    <Link to={`/news/${post.slug}`}>
+                      <h2 className="news-card__title">{post.title}</h2>
+                    </Link>
 
-                    {expandedPost === post.id ? (
-                      <div className="news-card__full-content">
-                        {post.content.split('\n\n').map((para, j) => (
-                          <p key={j} className="news-card__paragraph">
-                            {para}
-                          </p>
-                        ))}
-                        <button
-                          className="news-card__toggle"
-                          onClick={() => setExpandedPost(null)}
-                        >
-                          Show Less
-                        </button>
-                      </div>
-                    ) : (
-                      <>
-                        <p className="news-card__excerpt">{post.excerpt}</p>
-                        <button
-                          className="news-card__toggle"
-                          onClick={() => setExpandedPost(post.id)}
-                        >
-                          Read More <HiArrowRight />
-                        </button>
-                      </>
-                    )}
+                    <p className="news-card__excerpt">{post.excerpt}</p>
+                    <Link to={`/news/${post.slug}`} className="news-card__toggle">
+                      Read More <HiArrowRight />
+                    </Link>
                   </div>
                 </motion.article>
               ))}

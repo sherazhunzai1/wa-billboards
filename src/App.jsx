@@ -11,6 +11,7 @@ import LandOwners from "./pages/LandOwners";
 import Contact from "./pages/Contact";
 import BiosentryIDS from "./pages/BiosentryIDS";
 import News from "./pages/News";
+import NewsPost from "./pages/NewsPost";
 import ScrollToTop from "./components/ScrollToTop";
 import Chatbot from "./components/Chatbot";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/biosentry-ids" element={<BiosentryIDS />} />
         <Route path="/news" element={<News />} />
+        <Route path="/news/:slug" element={<NewsPost />} />
       </Routes>
       <Footer />
       <Chatbot />
