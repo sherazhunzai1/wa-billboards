@@ -142,7 +142,7 @@ export default function NewsPost() {
                       <span className="news-post__related-date">{rp.date}</span>
                       <h3 className="news-post__related-title">{rp.title}</h3>
                       <span className="news-post__related-link">
-                        Read Article <HiArrowRight />
+                        Read News <HiArrowRight />
                       </span>
                     </div>
                   </Link>
