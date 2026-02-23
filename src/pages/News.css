@@ -74,7 +74,6 @@
   border-color: transparent;
 }
 
-
 /* Card Image */
 .news-card__image-wrap {
   position: relative;
@@ -99,7 +98,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 28px;
+  padding: 10px 0px;
 }
 
 .news-card__category {
@@ -168,7 +167,6 @@
 .news-card:hover .news-card__title {
   color: var(--orange);
 }
-
 
 /* Excerpt & Content */
 .news-card__excerpt {
