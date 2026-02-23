@@ -92,7 +92,10 @@ export default function News() {
                       className="news-card__image"
                       loading="lazy"
                     />
-                    <div className="news-card__category">{post.category}</div>
+                    <div className="news-card__image-overlay">
+                      <div className="news-card__category">{post.category}</div>
+                      <h2 className="news-card__image-title">{post.title}</h2>
+                    </div>
                   </Link>
 
                   <div className="news-card__body">
