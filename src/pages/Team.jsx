@@ -5,7 +5,6 @@ import { FaLinkedinIn } from 'react-icons/fa'
 import { galleryImages } from '../assets/billboardImages'
 import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
 import teamChristopher from '../assets/images/team/Christopher Robinson.jpeg'
-import teamMitchell from '../assets/images/team/Mitchell Robinson.jpeg'
 import teamRebecca from '../assets/images/team/Rebecca Zaubzer.jpeg'
 import teamWhole from '../assets/images/team/whole team.jpeg'
 import SEO from '../components/SEO'
@@ -31,7 +30,7 @@ const teamMembers = [
   {
     name: 'Mitchell Robinson',
     role: 'Business Development',
-    image: teamMitchell,
+    image: null,
     bio: 'Mitchell is the newest family member to join the WA Billboards team, contributing to the continued growth and expansion of the business. His fresh perspective brings new energy to the company\'s development initiatives.',
     highlights: ['Second generation team member', 'Business Growth & Expansion', 'Client Relations'],
     color: '#FFC857',
@@ -106,7 +105,15 @@ export default function Team() {
                 transition={{ delay: i * 0.1 }}
               >
                 <div className="team-card__image-wrap">
-                  <img src={member.image} alt={member.name} className="team-card__image" />
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} className="team-card__image" />
+                  ) : (
+                    <div className="team-card__placeholder" style={{ background: `${member.color}15`, color: member.color }}>
+                      <span className="team-card__placeholder-initials">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                  )}
                   <div className="team-card__image-border" style={{ borderColor: member.color }} />
                 </div>
                 <div className="team-card__content">
@@ -159,9 +166,9 @@ export default function Team() {
       {/* Image Strip */}
       <section className="team-images">
         <div className="team-images__strip">
-          {[teamWhole, teamStephen, teamChristopher, teamMitchell, teamRebecca].map((img, i) => (
+          {[teamWhole, teamStephen, teamChristopher, teamRebecca].map((img, i) => (
             <div key={i} className="team-images__item">
-              <img src={img} alt={`WA Billboards team member ${['group photo', 'Stephen Robinson', 'Christopher Robinson', 'Mitchell Robinson', 'Rebecca Zaubzer'][i]}`} loading="lazy" />
+              <img src={img} alt={`WA Billboards team member ${['group photo', 'Stephen Robinson', 'Christopher Robinson', 'Rebecca Zaubzer'][i]}`} loading="lazy" />
             </div>
           ))}
         </div>
