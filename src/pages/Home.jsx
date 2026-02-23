@@ -9,9 +9,6 @@ import {
   HiGlobe,
   HiChevronLeft,
   HiChevronRight,
-  HiCalendar,
-  HiUser,
-  HiClock,
 } from "react-icons/hi";
 import { FaRoad, FaPlane, FaDesktop } from "react-icons/fa";
 import BillboardCard from "../components/BillboardCard";
@@ -412,56 +409,29 @@ export default function Home() {
 
           <div className="home-news__grid">
             {posts.slice(0, 3).map((post, i) => (
-              <motion.article
+              <motion.div
                 key={post.id}
-                className="news-card"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
                 <Link
                   to={`/news/${post.slug}`}
-                  className="news-card__image-wrap"
+                  className="home-news__card"
                 >
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="news-card__image"
-                    loading="lazy"
-                  />
-                  <div className="news-card__image-overlay">
-                    <div className="news-card__category">{post.category}</div>
-                    <h2 className="news-card__image-title">{post.title}</h2>
+                  <div className="home-news__img-wrap">
+                    <img src={post.image} alt={post.title} loading="lazy" />
+                  </div>
+                  <div className="home-news__body">
+                    <span className="home-news__date">{post.date}</span>
+                    <h3 className="home-news__title">{post.title}</h3>
+                    <span className="home-news__link">
+                      Read News <HiArrowRight />
+                    </span>
                   </div>
                 </Link>
-
-                <div className="news-card__body">
-                  <div className="news-card__meta">
-                    <span className="news-card__meta-item">
-                      <HiCalendar /> {post.date}
-                    </span>
-                    <span className="news-card__meta-item">
-                      <HiUser /> {post.author}
-                    </span>
-                    <span className="news-card__meta-item">
-                      <HiClock /> {post.readTime}
-                    </span>
-                  </div>
-
-                  <Link to={`/news/${post.slug}`}>
-                    <h2 className="news-card__title">{post.title}</h2>
-                  </Link>
-
-                  <p className="news-card__excerpt">{post.excerpt}</p>
-                  <Link
-                    to={`/news/${post.slug}`}
-                    className="news-card__toggle"
-                  >
-                    Read More <HiArrowRight />
-                  </Link>
-                </div>
-              </motion.article>
+              </motion.div>
             ))}
           </div>
 
