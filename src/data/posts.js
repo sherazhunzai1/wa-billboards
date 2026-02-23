@@ -1,5 +1,6 @@
 import blog1Img from '../assets/images/blogs/blog 1.jpg'
 import blog2Img from '../assets/images/blogs/blog 2.jpg'
+import blog3Img from '../assets/images/blogs/blog 3.jpg'
 
 const posts = [
   {
@@ -30,6 +31,19 @@ This site is now up and running and is in high demand! If you are interested, pl
     author: 'Amy Campbell',
     date: 'April 13, 2021',
     category: 'Uncategorized',
+    readTime: '1 min read',
+  },
+  {
+    id: 3,
+    slug: 'exciting-new-arrival-at-newman-airport',
+    title: 'Exciting New Arrival at Newman Airport',
+    excerpt:
+      'Due to popular demand, WA Billboards have installed a new 3-panelled digital bank into the Departure Lounge at Newman Airport.',
+    content: `Due to popular demand, WA Billboards have installed a new 3-panelled digital bank into the Departure Lounge at Newman Airport. This video wall allows the opportunity for you to connect with passengers waiting to board their flight. If you are interested in making a booking please contact us at sales@wabillboards.com.au.`,
+    image: blog3Img,
+    author: 'Amy Campbell',
+    date: 'December 04, 2020',
+    category: 'Announcement',
     readTime: '1 min read',
   },
 ]
