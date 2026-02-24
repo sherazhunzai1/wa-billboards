@@ -57,6 +57,30 @@ export default function Services() {
           { name: 'Home', path: '/' },
           { name: 'Advertising Services', path: '/services' },
         ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          provider: {
+            '@type': 'LocalBusiness',
+            name: 'WA Billboards',
+            url: 'https://wabillboards.com.au',
+          },
+          name: 'Outdoor Advertising Services',
+          description: 'Comprehensive outdoor media advertising including billboards, airport advertising, and digital displays across Western Australia.',
+          areaServed: {
+            '@type': 'State',
+            name: 'Western Australia',
+          },
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'Advertising Services',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Billboard Advertising', description: '200+ metro and regional billboard sites across all of Western Australia.' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Airport Advertising', description: 'Advertising rights to 6 regional WA airports including Karratha, Port Hedland, Newman, Kalgoorlie, Geraldton and Onslow.' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Displays', description: 'Multi-faced digital screens at Karratha Airport, Newman and Kalgoorlie.' } },
+            ],
+          },
+        }}
       />
       {/* Page Header */}
       <section className="page-header">

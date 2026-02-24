@@ -53,6 +53,16 @@ const sections = [
     description:
       'High-impact billboard advertising across Perth and metropolitan Western Australia.',
     images: [metro1, metro2, metro3, metro4, metro5, metro6, metro7, metro8],
+    alts: [
+      'Large billboard on Perth metropolitan freeway',
+      'Roadside metro billboard advertising near busy intersection',
+      'Illuminated billboard on major Perth highway at dusk',
+      'Double-sided metro billboard on Mitchell Freeway corridor',
+      'High-visibility billboard alongside Perth urban road',
+      'Metro billboard targeting peak-hour commuter traffic',
+      'Billboard advertising at key Perth metro location',
+      'Rooftop billboard in Perth metropolitan commercial area',
+    ],
   },
   {
     key: 'regional',
@@ -61,6 +71,16 @@ const sections = [
     description:
       'Reaching audiences across regional WA — from the Kimberley through Goldfields to the South West.',
     images: [regional1, regional2, regional3, regional4, regional5, regional6, regional7, regional8],
+    alts: [
+      'Regional billboard on outback Western Australia highway',
+      'Billboard advertising in Goldfields region along main road',
+      'Cyclone-rated billboard in Kimberley region WA',
+      'Regional roadside billboard targeting long-distance travellers',
+      'South West WA billboard near country town',
+      'Billboard installation on regional WA route',
+      'Outback billboard advertising for remote area exposure',
+      'Regional WA billboard serviced by WA Billboards aircraft',
+    ],
   },
   {
     key: 'airport',
@@ -69,6 +89,16 @@ const sections = [
     description:
       'Captivating travellers at major regional airports throughout Western Australia.',
     images: [airport1, airport2, airport3, airport4, airport5, airport6, airport7, airport8],
+    alts: [
+      'Airport terminal advertising display at WA regional airport',
+      'Lightbox advertisement inside airport arrivals hall',
+      'Digital advertising screen at airport passenger lounge',
+      'Billboard advertising outside regional airport terminal',
+      'Airport baggage claim area advertising panel',
+      'Terminal walkway advertising at Karratha Airport',
+      'Airport departure lounge billboard display',
+      'Advertising display at WA regional airport entrance',
+    ],
   },
   {
     key: 'ambient',
@@ -77,12 +107,22 @@ const sections = [
     description:
       'Creative ambient media placements that connect brands with audiences in unexpected ways.',
     images: [ambient1, ambient2, ambient3, ambient4, ambient5, ambient6, ambient7, ambient8],
+    alts: [
+      'Creative ambient advertising installation in public space',
+      'Ambient media placement at high-traffic WA location',
+      'Unconventional advertising display on commercial building',
+      'Ambient brand activation at outdoor event venue',
+      'Street-level ambient advertising engaging pedestrians',
+      'Ambient advertising on building facade in WA',
+      'Creative out-of-home media placement in urban setting',
+      'Ambient advertising display at shopping precinct entrance',
+    ],
   },
 ]
 
 // Build flat list for lightbox navigation
 const allImages = sections.flatMap((s) =>
-  s.images.map((src) => ({ src, category: `${s.title} ${s.highlight}` }))
+  s.images.map((src, i) => ({ src, alt: s.alts[i] }))
 )
 
 export default function Gallery() {
@@ -174,7 +214,7 @@ export default function Gallery() {
                 viewport={{ once: true }}
                 onClick={() => openLightbox(sIdx, 0)}
               >
-                <img src={section.images[0]} alt={`${section.title} ${section.highlight} - WA Billboards`} loading="lazy" />
+                <img src={section.images[0]} alt={section.alts[0]} loading="lazy" />
                 <div className="gallery-section__img-overlay" />
               </motion.div>
 
@@ -190,7 +230,7 @@ export default function Gallery() {
                     transition={{ delay: i * 0.05 }}
                     onClick={() => openLightbox(sIdx, i + 1)}
                   >
-                    <img src={img} alt={`${section.title} ${section.highlight} - WA Billboards`} loading="lazy" />
+                    <img src={img} alt={section.alts[i + 1]} loading="lazy" />
                     <div className="gallery-section__img-overlay" />
                   </motion.div>
                 ))}
@@ -229,7 +269,7 @@ export default function Gallery() {
             <motion.img
               key={lightbox.index}
               src={allImages[lightbox.index]?.src}
-              alt={`${allImages[lightbox.index]?.category} - WA Billboards`}
+              alt={allImages[lightbox.index]?.alt}
               className="gallery-lightbox__img"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

@@ -69,6 +69,34 @@ export default function Contact() {
           { name: 'Home', path: '/' },
           { name: 'Contact Us', path: '/contact' },
         ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'LocalBusiness',
+          name: 'WA Billboards',
+          description: "Western Australia's largest privately owned outdoor media company.",
+          url: 'https://wabillboards.com.au',
+          telephone: '08 9248 5070',
+          email: 'sales@wabillboards.com.au',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '40B Boulder Road',
+            addressLocality: 'Malaga',
+            addressRegion: 'WA',
+            postalCode: '6090',
+            addressCountry: 'AU',
+          },
+          openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '08:30',
+            closes: '17:00',
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: -31.8587,
+            longitude: 115.8985,
+          },
+        }}
       />
       {/* Page Header */}
       <section className="page-header">

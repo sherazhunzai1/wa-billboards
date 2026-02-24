@@ -64,6 +64,15 @@ export default function BiosentryIDS() {
           { name: 'Home', path: '/' },
           { name: 'Biosentry IDS', path: '/biosentry-ids' },
         ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'VideoObject',
+          name: 'Biosentry IDS Demo — Intelligent Disinfectant Station',
+          description: 'See how Biosentry IDS intelligent disinfectant stations work — 99.9% effective protection against bacteria and viruses with built-in advertising screens.',
+          thumbnailUrl: 'https://wabillboards.com.au/og-image.jpg',
+          embedUrl: 'https://player.vimeo.com/video/476761049?h=ca5e174e71',
+          uploadDate: '2020-11-01',
+        }}
       />
       {/* Page Header */}
       <section className="page-header">

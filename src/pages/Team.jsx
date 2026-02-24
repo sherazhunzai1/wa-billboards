@@ -63,6 +63,18 @@ export default function Team() {
           { name: 'Home', path: '/' },
           { name: 'Our Team', path: '/team' },
         ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'WA Billboards',
+          url: 'https://wabillboards.com.au',
+          member: [
+            { '@type': 'Person', name: 'Stephen Robinson', jobTitle: 'Founder & Managing Director', worksFor: { '@type': 'Organization', name: 'WA Billboards' } },
+            { '@type': 'Person', name: 'Christopher Robinson', jobTitle: 'Operations Manager', worksFor: { '@type': 'Organization', name: 'WA Billboards' } },
+            { '@type': 'Person', name: 'Mitchell Robinson', jobTitle: 'Business Development', worksFor: { '@type': 'Organization', name: 'WA Billboards' } },
+            { '@type': 'Person', name: 'Rebecca Zaubzer', jobTitle: 'Sales & Marketing Manager', worksFor: { '@type': 'Organization', name: 'WA Billboards' } },
+          ],
+        }}
       />
       {/* Page Header */}
       <section className="page-header">
