@@ -60,6 +60,10 @@ export default function BiosentryIDS() {
         title="Biosentry IDS - Intelligent Disinfectant Station"
         path="/biosentry-ids"
         description="Biosentry IDS by WA Billboards — 99.9% effective disinfectant stations with advertising screens. A unique billboards Australia innovation from wabillboards, zero cost to west Australia facilities."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Biosentry IDS', path: '/biosentry-ids' },
+        ]}
       />
       {/* Page Header */}
       <section className="page-header">

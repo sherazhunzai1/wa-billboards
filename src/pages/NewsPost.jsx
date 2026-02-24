@@ -26,6 +26,41 @@ export default function NewsPost() {
         title={post.title}
         path={`/news/${post.slug}`}
         description={post.excerpt}
+        type="article"
+        article={{
+          publishedTime: new Date(post.date).toISOString(),
+          author: post.author,
+          section: post.category,
+        }}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'News', path: '/news' },
+          { name: post.title, path: `/news/${post.slug}` },
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'NewsArticle',
+          headline: post.title,
+          description: post.excerpt,
+          image: `https://wabillboards.com.au${post.image}`,
+          datePublished: new Date(post.date).toISOString(),
+          author: {
+            '@type': 'Person',
+            name: post.author,
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'WA Billboards',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://wabillboards.com.au/og-image.jpg',
+            },
+          },
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://wabillboards.com.au/news/${post.slug}`,
+          },
+        }}
       />
 
       {/* Hero Image */}

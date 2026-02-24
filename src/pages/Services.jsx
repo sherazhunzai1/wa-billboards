@@ -53,6 +53,10 @@ export default function Services() {
         title="Advertising Services"
         path="/services"
         description="WA Billboards advertising services — billboards Australia metro & regional, airport terminals & digital displays. Explore west Australia billboards from Perth to the Kimberley at wabillboards.com.au."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Advertising Services', path: '/services' },
+        ]}
       />
       {/* Page Header */}
       <section className="page-header">

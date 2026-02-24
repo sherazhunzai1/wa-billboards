@@ -70,6 +70,10 @@ export default function Locations() {
         title="Billboard Locations"
         path="/locations"
         description="Find 200+ WA Billboards locations — the largest network of west Australia billboards. Browse billboards in Australia across Perth, Karratha, Port Hedland, Kalgoorlie & more at wabillboards.com.au."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Billboard Locations', path: '/locations' },
+        ]}
       />
       {/* Page Header */}
       <section className="page-header">
