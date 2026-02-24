@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { HiLocationMarker, HiPhone, HiMail, HiClock, HiCheckCircle } from 'react-icons/hi'
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+
 import { galleryImages } from '../assets/billboardImages'
 import SEO from '../components/SEO'
 import './Contact.css'
@@ -172,14 +172,6 @@ export default function Contact() {
                 <img src={galleryImages[8]} alt="WA Billboards office and billboard operations in Malaga WA" />
               </div>
 
-              <div className="contact-form-section__socials">
-                <p>Follow us</p>
-                <div className="contact-form-section__social-links">
-                  <a href="#" className="contact-social" aria-label="Facebook"><FaFacebookF /></a>
-                  <a href="#" className="contact-social" aria-label="Instagram"><FaInstagram /></a>
-                  <a href="#" className="contact-social" aria-label="LinkedIn"><FaLinkedinIn /></a>
-                </div>
-              </div>
             </motion.div>
 
             <motion.div

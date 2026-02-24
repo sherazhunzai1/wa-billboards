@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiArrowRight, HiMail, HiPhone } from 'react-icons/hi'
-import { FaLinkedinIn } from 'react-icons/fa'
+
 import { galleryImages } from '../assets/billboardImages'
 import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
 import teamChristopher from '../assets/images/team/Christopher Robinson.jpeg'

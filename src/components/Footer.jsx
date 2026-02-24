@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { HiPhone, HiMail, HiLocationMarker } from 'react-icons/hi'
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+
 import wabLogo from '../assets/images/logo/WAB-Grey-Logo-Small.png'
 import './Footer.css'
 
@@ -24,11 +24,6 @@ export default function Footer() {
                 Western Australia's largest privately owned outdoor media company.
                 Delivering impactful advertising solutions since 1991.
               </p>
-              <div className="footer__socials">
-                <a href="#" className="footer__social" aria-label="Facebook"><FaFacebookF /></a>
-                <a href="#" className="footer__social" aria-label="Instagram"><FaInstagram /></a>
-                <a href="#" className="footer__social" aria-label="LinkedIn"><FaLinkedinIn /></a>
-              </div>
             </div>
 
             <div className="footer__section">

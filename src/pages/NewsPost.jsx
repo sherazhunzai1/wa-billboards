@@ -1,7 +1,7 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiArrowLeft, HiArrowRight, HiCalendar, HiUser, HiClock, HiTag } from 'react-icons/hi'
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+
 import posts from '../data/posts'
 import SEO from '../components/SEO'
 import './NewsPost.css'
@@ -115,12 +115,6 @@ export default function NewsPost() {
               <div className="news-post__tags">
                 <HiTag />
                 <span className="news-post__tag">{post.category}</span>
-              </div>
-              <div className="news-post__share">
-                <span className="news-post__share-label">Share:</span>
-                <a href="#" className="news-post__share-btn" aria-label="Share on Facebook"><FaFacebookF /></a>
-                <a href="#" className="news-post__share-btn" aria-label="Share on Twitter"><FaTwitter /></a>
-                <a href="#" className="news-post__share-btn" aria-label="Share on LinkedIn"><FaLinkedinIn /></a>
               </div>
             </div>
           </motion.article>
