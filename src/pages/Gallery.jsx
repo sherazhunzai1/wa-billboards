@@ -45,66 +45,66 @@ import ambient6 from '../assets/images/billboards/ambient6.jpg'
 import ambient7 from '../assets/images/billboards/ambient7.jpg'
 import ambient8 from '../assets/images/billboards/ambient8.jpg'
 
-const categories = [
-  {
-    key: 'all',
-    label: 'All',
-  },
+const sections = [
   {
     key: 'metro',
-    label: 'Metro Billboards',
+    title: 'Metro',
+    highlight: 'Billboards',
+    description:
+      'High-impact billboard advertising across Perth and metropolitan Western Australia.',
     images: [metro1, metro2, metro3, metro4, metro5, metro6, metro7, metro8],
   },
   {
     key: 'regional',
-    label: 'Regional Billboards',
+    title: 'Regional',
+    highlight: 'Billboards',
+    description:
+      'Reaching audiences across regional WA — from the Kimberley through Goldfields to the South West.',
     images: [regional1, regional2, regional3, regional4, regional5, regional6, regional7, regional8],
   },
   {
     key: 'airport',
-    label: 'Airport Billboards',
+    title: 'Airport',
+    highlight: 'Billboards',
+    description:
+      'Captivating travellers at major regional airports throughout Western Australia.',
     images: [airport1, airport2, airport3, airport4, airport5, airport6, airport7, airport8],
   },
   {
     key: 'ambient',
-    label: 'Ambient',
+    title: 'Ambient',
+    highlight: 'Advertising',
+    description:
+      'Creative ambient media placements that connect brands with audiences in unexpected ways.',
     images: [ambient1, ambient2, ambient3, ambient4, ambient5, ambient6, ambient7, ambient8],
   },
 ]
 
-function getAllImages() {
-  return categories
-    .filter((c) => c.key !== 'all')
-    .flatMap((c) => c.images.map((src) => ({ src, category: c.label })))
-}
+// Build flat list for lightbox navigation
+const allImages = sections.flatMap((s) =>
+  s.images.map((src) => ({ src, category: `${s.title} ${s.highlight}` }))
+)
 
 export default function Gallery() {
-  const [activeFilter, setActiveFilter] = useState('all')
   const [lightbox, setLightbox] = useState({ open: false, index: 0 })
 
-  const allImages = getAllImages()
+  const openLightbox = (sectionIdx, imgIdx) => {
+    const globalIdx = sectionIdx * 8 + imgIdx
+    setLightbox({ open: true, index: globalIdx })
+  }
 
-  const filtered =
-    activeFilter === 'all'
-      ? allImages
-      : allImages.filter(
-          (img) =>
-            img.category === categories.find((c) => c.key === activeFilter)?.label
-        )
-
-  const openLightbox = (index) => setLightbox({ open: true, index })
   const closeLightbox = () => setLightbox({ open: false, index: 0 })
 
   const goPrev = () =>
     setLightbox((prev) => ({
       ...prev,
-      index: prev.index === 0 ? filtered.length - 1 : prev.index - 1,
+      index: prev.index === 0 ? allImages.length - 1 : prev.index - 1,
     }))
 
   const goNext = () =>
     setLightbox((prev) => ({
       ...prev,
-      index: prev.index === filtered.length - 1 ? 0 : prev.index + 1,
+      index: prev.index === allImages.length - 1 ? 0 : prev.index + 1,
     }))
 
   return (
@@ -144,53 +144,61 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Filter Bar */}
-      <section className="gallery-filters">
-        <div className="container">
-          <div className="gallery-filters__bar">
-            {categories.map((cat) => (
-              <button
-                key={cat.key}
-                className={`gallery-filters__btn ${activeFilter === cat.key ? 'gallery-filters__btn--active' : ''}`}
-                onClick={() => setActiveFilter(cat.key)}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Category Sections */}
+      {sections.map((section, sIdx) => (
+        <section
+          key={section.key}
+          className={`gallery-section ${sIdx % 2 === 1 ? 'gallery-section--alt' : ''}`}
+        >
+          <div className="container">
+            <motion.div
+              className="gallery-section__header"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="section-tag">{section.title} {section.highlight}</span>
+              <h2 className="section-title">
+                {section.title}{' '}
+                <span className="gradient-text">{section.highlight}</span>
+              </h2>
+              <p className="section-subtitle">{section.description}</p>
+            </motion.div>
 
-      {/* Gallery Grid */}
-      <section className="gallery-grid-section">
-        <div className="container">
-          <motion.div className="gallery-grid" layout>
-            <AnimatePresence mode="popLayout">
-              {filtered.map((img, i) => (
-                <motion.div
-                  key={`${img.category}-${img.src}-${i}`}
-                  className="gallery-grid__item"
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3, delay: i * 0.03 }}
-                  onClick={() => openLightbox(i)}
-                >
-                  <img
-                    src={img.src}
-                    alt={`${img.category} - WA Billboards`}
-                    loading="lazy"
-                  />
-                  <div className="gallery-grid__overlay">
-                    <span className="gallery-grid__category">{img.category}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
-      </section>
+            <div className="gallery-section__grid">
+              {/* Featured large image */}
+              <motion.div
+                className="gallery-section__featured"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                onClick={() => openLightbox(sIdx, 0)}
+              >
+                <img src={section.images[0]} alt={`${section.title} ${section.highlight} - WA Billboards`} loading="lazy" />
+                <div className="gallery-section__img-overlay" />
+              </motion.div>
+
+              {/* Remaining images */}
+              <div className="gallery-section__thumbnails">
+                {section.images.slice(1).map((img, i) => (
+                  <motion.div
+                    key={i}
+                    className="gallery-section__thumb"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    onClick={() => openLightbox(sIdx, i + 1)}
+                  >
+                    <img src={img} alt={`${section.title} ${section.highlight} - WA Billboards`} loading="lazy" />
+                    <div className="gallery-section__img-overlay" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
 
       {/* Lightbox */}
       <AnimatePresence>
@@ -212,10 +220,7 @@ export default function Gallery() {
 
             <button
               className="gallery-lightbox__nav gallery-lightbox__nav--prev"
-              onClick={(e) => {
-                e.stopPropagation()
-                goPrev()
-              }}
+              onClick={(e) => { e.stopPropagation(); goPrev() }}
               aria-label="Previous image"
             >
               <HiChevronLeft />
@@ -223,8 +228,8 @@ export default function Gallery() {
 
             <motion.img
               key={lightbox.index}
-              src={filtered[lightbox.index]?.src}
-              alt={`${filtered[lightbox.index]?.category} - WA Billboards`}
+              src={allImages[lightbox.index]?.src}
+              alt={`${allImages[lightbox.index]?.category} - WA Billboards`}
               className="gallery-lightbox__img"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -235,17 +240,14 @@ export default function Gallery() {
 
             <button
               className="gallery-lightbox__nav gallery-lightbox__nav--next"
-              onClick={(e) => {
-                e.stopPropagation()
-                goNext()
-              }}
+              onClick={(e) => { e.stopPropagation(); goNext() }}
               aria-label="Next image"
             >
               <HiChevronRight />
             </button>
 
             <div className="gallery-lightbox__counter">
-              {lightbox.index + 1} / {filtered.length}
+              {lightbox.index + 1} / {allImages.length}
             </div>
           </motion.div>
         )}
