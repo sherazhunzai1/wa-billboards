@@ -129,7 +129,11 @@
 }
 
 .team-card__highlight:hover {
-  background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(255,72,88,0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.08),
+    rgba(255, 72, 88, 0.08)
+  );
   border-color: rgba(255, 107, 53, 0.3);
   color: var(--orange);
   transform: translateY(-2px);
@@ -203,6 +207,7 @@
 
 .team-images__strip {
   display: flex;
+  justify-content: center;
   gap: 16px;
 }
 
