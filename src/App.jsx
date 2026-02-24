@@ -10,6 +10,7 @@ import Team from "./pages/Team";
 import LandOwners from "./pages/LandOwners";
 import Contact from "./pages/Contact";
 import BiosentryIDS from "./pages/BiosentryIDS";
+import Gallery from "./pages/Gallery";
 import News from "./pages/News";
 import NewsPost from "./pages/NewsPost";
 import ScrollToTop from "./components/ScrollToTop";
@@ -30,6 +31,7 @@ function App() {
         <Route path="/land-owners" element={<LandOwners />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/biosentry-ids" element={<BiosentryIDS />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:slug" element={<NewsPost />} />
       </Routes>
