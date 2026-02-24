@@ -102,7 +102,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="navbar__toggle"
+          className={`navbar__toggle ${mobileOpen ? 'navbar__toggle--open' : ''}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
