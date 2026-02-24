@@ -10,7 +10,7 @@ const contactInfo = [
   {
     icon: <HiLocationMarker size={24} />,
     title: 'Office',
-    lines: ['Boulder Road', 'Malaga, WA'],
+    lines: ['40B Boulder Road', 'MALAGA 6090'],
     color: '#FF6B35',
   },
   {
@@ -22,13 +22,13 @@ const contactInfo = [
   {
     icon: <HiPhone size={24} />,
     title: 'Phone',
-    lines: ['(08) 9248 6600'],
+    lines: ['08 9248 5070'],
     color: '#E040FB',
   },
   {
     icon: <HiMail size={24} />,
     title: 'Email',
-    lines: ['info@wabillboards.com.au'],
+    lines: ['sales@wabillboards.com.au'],
     color: '#FFC857',
   },
   {
@@ -64,7 +64,7 @@ export default function Contact() {
       <SEO
         title="Contact Us"
         path="/contact"
-        description="Contact WA Billboards for billboards in Australia enquiries. Phone (08) 9248 6600 or email info@wabillboards.com.au. West Australia billboards office: Boulder Road, Malaga WA 6090."
+        description="Contact WA Billboards for billboards in Australia enquiries. Phone 08 9248 5070 or email sales@wabillboards.com.au. West Australia billboards office: 40B Boulder Road, MALAGA 6090."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Contact Us', path: '/contact' },
@@ -280,7 +280,7 @@ export default function Contact() {
             <div className="contact-map__placeholder">
               <HiLocationMarker size={48} />
               <h3>Our Office Location</h3>
-              <p>Boulder Road, Malaga WA 6090</p>
+              <p>40B Boulder Road, MALAGA 6090</p>
               <p className="contact-map__note">
                 Sales, Marketing, Operations & Administration
               </p>

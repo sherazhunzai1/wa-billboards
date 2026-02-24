@@ -149,7 +149,7 @@ const buildBotReply = (key, navigate) => {
 
     case 'contact':
       return {
-        text: "We'd love to hear from you!\n\nPhone: (08) 9248 6600\nEmail: info@wabillboards.com.au\nAddress: Boulder Road, Malaga, WA 6090\n\nBusiness Hours:\nMon-Fri: 8:30am - 5:00pm\nSat-Sun: Closed\n\nFor land owner enquiries:\nPhone: 0411 518 049\nEmail: steve@wabillboards.com.au",
+        text: "We'd love to hear from you!\n\nPhone: 08 9248 5070\nEmail: sales@wabillboards.com.au\nAddress: 40B Boulder Road, MALAGA 6090\n\nBusiness Hours:\nMon-Fri: 8:30am - 5pm\nSat-Sun: Closed",
         quickReplies: [
           { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
           { id: 'locations', label: 'Locations', icon: <FaMapMarkerAlt /> },
@@ -159,7 +159,7 @@ const buildBotReply = (key, navigate) => {
 
     case 'landowners':
       return {
-        text: "Own commercial land on a busy road? Generate steady income with a WA Billboards site!\n\nBenefits:\n- Steady income stream for contract duration\n- Flexible contracts starting at 3 years\n- Long-term relationships — some over 20 years!\n\nIdeal properties: Busy roads, blank walls/roofs facing traffic, vacant blocks.\n\nContact Steve directly:\nPhone: 0411 518 049\nEmail: steve@wabillboards.com.au",
+        text: "Own commercial land on a busy road? Generate steady income with a WA Billboards site!\n\nBenefits:\n- Steady income stream for contract duration\n- Flexible contracts starting at 3 years\n- Long-term relationships — some over 20 years!\n\nIdeal properties: Busy roads, blank walls/roofs facing traffic, vacant blocks.\n\nContact us:\nPhone: 08 9248 5070\nEmail: sales@wabillboards.com.au",
         quickReplies: [
           { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
           { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
@@ -169,7 +169,7 @@ const buildBotReply = (key, navigate) => {
 
     case 'pricing':
       return {
-        text: "Our rates are competitive and flexible! Pricing depends on:\n\n- Billboard location & size\n- Campaign duration\n- Type (static billboard, airport, or digital)\n\nWe'd love to put together a custom quote for your needs. Give us a call at (08) 9248 6600 or send an email to info@wabillboards.com.au!",
+        text: "Our rates are competitive and flexible! Pricing depends on:\n\n- Billboard location & size\n- Campaign duration\n- Type (static billboard, airport, or digital)\n\nWe'd love to put together a custom quote for your needs. Give us a call at 08 9248 5070 or send an email to sales@wabillboards.com.au!",
         quickReplies: [
           { id: 'contact', label: 'Get a Quote', icon: <FaPhoneAlt /> },
           { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
@@ -179,7 +179,7 @@ const buildBotReply = (key, navigate) => {
 
     case 'hours':
       return {
-        text: "Our business hours are:\n\nMonday - Friday: 8:30am - 5:00pm\nSaturday & Sunday: Closed\n\nFeel free to reach out during business hours:\nPhone: (08) 9248 6600\nEmail: info@wabillboards.com.au",
+        text: "Our business hours are:\n\nMonday - Friday: 8:30am - 5pm\nSaturday & Sunday: Closed\n\nFeel free to reach out during business hours:\nPhone: 08 9248 5070\nEmail: sales@wabillboards.com.au",
         quickReplies: [
           { id: 'contact', label: 'Contact Page', icon: <FaPhoneAlt /> },
           { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },

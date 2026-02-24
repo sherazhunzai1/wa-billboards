@@ -31,7 +31,7 @@ export default function LandOwners() {
       <SEO
         title="Land Owners"
         path="/land-owners"
-        description="Partner with WA Billboards — earn steady income hosting billboards Australia's leading outdoor media company needs. West Australia billboards need your site. Contact wabillboards at 0411 518 049."
+        description="Partner with WA Billboards — earn steady income hosting billboards Australia's leading outdoor media company needs. West Australia billboards need your site. Contact wabillboards at 08 9248 5070."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Land Owners', path: '/land-owners' },
@@ -145,11 +145,11 @@ export default function LandOwners() {
                 Download our PDF for more information or contact Steve directly.
               </p>
               <div className="landowners-cta__contact">
-                <a href="tel:0411518049" className="landowners-cta__contact-item">
-                  <HiPhone /> 0411 518 049
+                <a href="tel:0892485070" className="landowners-cta__contact-item">
+                  <HiPhone /> 08 9248 5070
                 </a>
-                <a href="mailto:steve@wabillboards.com.au" className="landowners-cta__contact-item">
-                  <HiMail /> steve@wabillboards.com.au
+                <a href="mailto:sales@wabillboards.com.au" className="landowners-cta__contact-item">
+                  <HiMail /> sales@wabillboards.com.au
                 </a>
               </div>
               <div className="landowners-cta__actions">

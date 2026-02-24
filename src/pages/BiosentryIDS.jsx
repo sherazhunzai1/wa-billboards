@@ -253,11 +253,11 @@ export default function BiosentryIDS() {
                 For more information on how you can get a Biosentry station for your facility, contact Steve directly.
               </p>
               <div className="biosentry-cta__contact">
-                <a href="tel:0411518049" className="biosentry-cta__contact-item">
-                  <HiPhone /> 0411 518 049
+                <a href="tel:0892485070" className="biosentry-cta__contact-item">
+                  <HiPhone /> 08 9248 5070
                 </a>
-                <a href="mailto:steve@wabillboards.com.au" className="biosentry-cta__contact-item">
-                  <HiMail /> steve@wabillboards.com.au
+                <a href="mailto:sales@wabillboards.com.au" className="biosentry-cta__contact-item">
+                  <HiMail /> sales@wabillboards.com.au
                 </a>
               </div>
               <div className="biosentry-cta__actions">

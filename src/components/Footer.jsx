@@ -56,15 +56,15 @@ export default function Footer() {
               <h4 className="footer__heading">Contact</h4>
               <div className="footer__contact-item">
                 <HiLocationMarker className="footer__contact-icon" />
-                <span>Boulder Road, Malaga WA</span>
+                <span>40B Boulder Road, MALAGA 6090</span>
               </div>
               <div className="footer__contact-item">
                 <HiPhone className="footer__contact-icon" />
-                <span>(08) 9248 6600</span>
+                <span>08 9248 5070</span>
               </div>
               <div className="footer__contact-item">
                 <HiMail className="footer__contact-icon" />
-                <span>info@wabillboards.com.au</span>
+                <span>sales@wabillboards.com.au</span>
               </div>
             </div>
           </div>
