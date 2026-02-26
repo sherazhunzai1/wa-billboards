@@ -808,7 +808,22 @@
   }
 
   .hero__overlay-content {
-    padding-bottom: 80px;
+    top: 0;
+    bottom: auto;
+    padding-top: 100px;
+    padding-bottom: 0;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .hero__gradient-bottom {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      rgba(0, 0, 0, 0.15) 70%,
+      transparent 100%
+    );
   }
 
   .hero__arrow {
