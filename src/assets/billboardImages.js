@@ -3,9 +3,14 @@ import billboardSchweppes from './images/billboards/IMG_7253-scaled.jpg'
 import billboardKarratha from './images/billboards/Karratha-LIA-C015B-scaled.jpg'
 import billboardNorthbridge from './images/billboards/Northbridge-Photograph-scaled.jpg'
 
+// High-resolution hero images
+import heroMetro from './images/billboards/metro1.jpg'
+import heroRegional from './images/billboards/regional1.jpg'
+import heroCity from './images/billboards/metro3.jpg'
+
 export const realBillboardImages = [billboardSchweppes, billboardKarratha, billboardNorthbridge]
 
-export const heroImages = [billboardSchweppes, billboardKarratha, billboardNorthbridge]
+export const heroImages = [heroMetro, heroRegional, heroCity]
 
 export const billboardImages = [
   {
