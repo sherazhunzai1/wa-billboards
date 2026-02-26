@@ -7,10 +7,13 @@ import billboardNorthbridge from './images/billboards/Northbridge-Photograph-sca
 import heroMetro from './images/billboards/metro1.jpg'
 import heroRegional from './images/billboards/regional1.jpg'
 import heroCity from './images/billboards/metro3.jpg'
+import heroAirport from './images/billboards/airport1.jpg'
+import heroRegional2 from './images/billboards/regional4.jpg'
+import heroMetro2 from './images/billboards/metro5.jpg'
 
 export const realBillboardImages = [billboardSchweppes, billboardKarratha, billboardNorthbridge]
 
-export const heroImages = [heroMetro, heroRegional, heroCity]
+export const heroImages = [heroMetro, heroRegional, heroCity, heroAirport, heroRegional2, heroMetro2]
 
 export const billboardImages = [
   {

@@ -61,6 +61,9 @@ const heroSlides = [
   { image: heroImages[0], label: "Perth Metro Billboard" },
   { image: heroImages[1], label: "Karratha Regional Billboard" },
   { image: heroImages[2], label: "Northbridge City Billboard" },
+  { image: heroImages[3], label: "Airport Advertising" },
+  { image: heroImages[4], label: "Regional Highway Billboard" },
+  { image: heroImages[5], label: "Metro Digital Display" },
 ];
 
 export default function Home() {
