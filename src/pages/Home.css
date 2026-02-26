@@ -816,12 +816,12 @@
   }
 
   .hero__text {
-    text-align: center;
+    text-align: left;
     max-width: 100%;
   }
 
   .hero__actions {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero__arrow {
