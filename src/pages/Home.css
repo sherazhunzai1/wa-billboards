@@ -820,6 +820,10 @@
     max-width: 100%;
   }
 
+  .hero__title-highlight {
+    display: block;
+  }
+
   .hero__actions {
     justify-content: flex-start;
   }
