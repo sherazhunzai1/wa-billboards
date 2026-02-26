@@ -20,9 +20,9 @@ export default function News() {
   return (
     <main className="news">
       <SEO
-        title="News"
+        title="News & Updates — Billboard Installations, Airport Ads & Industry Insights"
         path="/news"
-        description="Latest news and updates from WA Billboards — billboards Australia industry insights, new west Australia billboards installations, airport advertising and digital display projects."
+        description="Latest news from WA Billboards — new billboard installations, airport advertising upgrades at Newman, Karratha & Kalgoorlie airports, digital display projects & outdoor advertising industry insights."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'News', path: '/news' },

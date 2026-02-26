@@ -88,31 +88,90 @@ export default function Home() {
     <main className="home">
       <SEO
         path="/"
-        description="WA Billboards — the leading billboards in Australia for outdoor advertising. 200+ west Australia billboards, 6 regional airports & digital displays. Visit wabillboards.com.au for billboards Australia-wide."
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          name: 'WA Billboards',
-          url: 'https://wabillboards.com.au',
-          logo: 'https://wabillboards.com.au/og-image.jpg',
-          description: 'The largest billboards in Australia owned by a single family operator. Outdoor advertising, airport ads & digital displays since 1991.',
-          foundingDate: '1991',
-          areaServed: {
-            '@type': 'State',
-            name: 'Western Australia',
-          },
-          address: {
-            '@type': 'PostalAddress',
-            addressRegion: 'WA',
-            addressCountry: 'AU',
-          },
-          sameAs: [],
-          contactPoint: {
-            '@type': 'ContactPoint',
-            contactType: 'sales',
+        description="WA Billboards — Perth & Western Australia's #1 billboard advertising company since 1991. 200+ outdoor billboard sites, 6 regional airport terminals & digital displays. Get a free quote: 08 9248 5070."
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            '@id': 'https://wabillboards.com.au/#organization',
+            name: 'WA Billboards',
+            url: 'https://wabillboards.com.au',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://wabillboards.com.au/og-image.jpg',
+            },
+            description: "Western Australia's largest privately owned outdoor media company. Billboard advertising, airport ads & digital displays since 1991.",
+            foundingDate: '1991',
+            founder: {
+              '@type': 'Person',
+              name: 'Stephen Robinson',
+            },
+            areaServed: {
+              '@type': 'State',
+              name: 'Western Australia',
+            },
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '40B Boulder Road',
+              addressLocality: 'Malaga',
+              addressRegion: 'WA',
+              postalCode: '6090',
+              addressCountry: 'AU',
+            },
+            telephone: '+61-8-9248-5070',
             email: 'sales@wabillboards.com.au',
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'sales',
+              telephone: '+61-8-9248-5070',
+              email: 'sales@wabillboards.com.au',
+              areaServed: 'AU',
+              availableLanguage: 'English',
+            },
+            sameAs: [],
           },
-        }}
+          {
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            '@id': 'https://wabillboards.com.au/#localbusiness',
+            name: 'WA Billboards',
+            image: 'https://wabillboards.com.au/og-image.jpg',
+            url: 'https://wabillboards.com.au',
+            telephone: '+61-8-9248-5070',
+            email: 'sales@wabillboards.com.au',
+            priceRange: '$$',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: '40B Boulder Road',
+              addressLocality: 'Malaga',
+              addressRegion: 'WA',
+              postalCode: '6090',
+              addressCountry: 'AU',
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: -31.8587,
+              longitude: 115.8985,
+            },
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+              opens: '08:30',
+              closes: '17:00',
+            },
+            description: "Western Australia's largest privately owned outdoor media company offering billboard advertising, airport advertising and digital displays since 1991.",
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            '@id': 'https://wabillboards.com.au/#website',
+            name: 'WA Billboards',
+            url: 'https://wabillboards.com.au',
+            publisher: {
+              '@id': 'https://wabillboards.com.au/#organization',
+            },
+          },
+        ]}
       />
       {/* Hero Section - Full Width Billboard Slideshow */}
       <section className="hero">

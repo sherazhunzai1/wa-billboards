@@ -11,6 +11,7 @@ export default function NotFound() {
         title="Page Not Found"
         path="/404"
         description="The page you're looking for doesn't exist. Browse WA Billboards for outdoor advertising, billboard locations, airport ads and digital displays across Western Australia."
+        noindex={true}
       />
 
       <section className="not-found__section">

@@ -67,9 +67,9 @@ export default function Locations() {
   return (
     <main className="locations">
       <SEO
-        title="Billboard Locations"
+        title="200+ Billboard Locations Across Perth & Western Australia"
         path="/locations"
-        description="Find 200+ WA Billboards locations — the largest network of west Australia billboards. Browse billboards in Australia across Perth, Karratha, Port Hedland, Kalgoorlie & more at wabillboards.com.au."
+        description="Find 200+ billboard sites across WA — Perth metro, Karratha, Port Hedland, Newman, Kalgoorlie, Geraldton, Kimberley, Goldfields & South West. Interactive map of all WA Billboards locations."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Billboard Locations', path: '/locations' },

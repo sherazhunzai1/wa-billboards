@@ -26,6 +26,7 @@ export default function NewsPost() {
         title={post.title}
         path={`/news/${post.slug}`}
         description={post.excerpt}
+        image={post.image}
         type="article"
         article={{
           publishedTime: new Date(post.date).toISOString(),

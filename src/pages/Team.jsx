@@ -56,9 +56,9 @@ export default function Team() {
   return (
     <main className="team">
       <SEO
-        title="Our Team"
+        title="Our Team — The Robinson Family Behind WA's Largest Billboard Company"
         path="/team"
-        description="Meet the WA Billboards family team — the people behind the largest billboards Australia has in private ownership. Stephen, Christopher & Mitchell Robinson run west Australia billboards since 1991."
+        description="Meet the WA Billboards team — Stephen, Christopher & Mitchell Robinson, and Rebecca Zaubzer. Family-owned & operated since 1991, running Western Australia's largest private outdoor media company."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Our Team', path: '/team' },

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 const defaults = {
   siteName: 'WA Billboards',
   siteUrl: 'https://wabillboards.com.au',
-  defaultDescription: "WA Billboards — the largest billboards in Australia owned by a single family operator. West Australia billboards for metro & regional outdoor advertising, airport ads & digital displays since 1991.",
+  defaultDescription: "WA Billboards — Western Australia's largest privately owned outdoor media company since 1991. 200+ billboard sites, 6 regional airports & digital displays across Perth metro, Karratha, Port Hedland, Kalgoorlie & more.",
   defaultImage: '/og-image.jpg',
 }
 
@@ -16,19 +16,25 @@ export default function SEO({
   article,
   breadcrumbs,
   jsonLd,
+  noindex = false,
 }) {
   const fullTitle = title
     ? `${title} | ${defaults.siteName}`
-    : `${defaults.siteName} | Western Australia's Largest Outdoor Media Company`
+    : `${defaults.siteName} | Billboard Advertising Perth & Western Australia Since 1991`
   const desc = description || defaults.defaultDescription
   const url = `${defaults.siteUrl}${path}`
-  const ogImage = image || `${defaults.siteUrl}${defaults.defaultImage}`
+  const ogImage = image
+    ? (image.startsWith('http') ? image : `${defaults.siteUrl}${image}`)
+    : `${defaults.siteUrl}${defaults.defaultImage}`
 
   const schemas = []
 
-  // Organization schema (injected on homepage)
   if (jsonLd) {
-    schemas.push(jsonLd)
+    if (Array.isArray(jsonLd)) {
+      schemas.push(...jsonLd)
+    } else {
+      schemas.push(jsonLd)
+    }
   }
 
   // BreadcrumbList schema
@@ -51,6 +57,17 @@ export default function SEO({
       <meta name="description" content={desc} />
       <link rel="canonical" href={url} />
 
+      {/* Robots */}
+      {noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      )}
+
+      {/* Geo Meta Tags for Local SEO */}
+      <meta name="geo.region" content="AU-WA" />
+      <meta name="geo.placename" content="Malaga, Western Australia" />
+
       {/* Open Graph */}
       <meta property="og:type" content={type} />
       <meta property="og:locale" content="en_AU" />
@@ -59,6 +76,7 @@ export default function SEO({
       <meta property="og:description" content={desc} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:alt" content={title ? `${title} — WA Billboards` : 'WA Billboards outdoor advertising'} />
 
       {/* Article-specific OG tags */}
       {article && article.publishedTime && (

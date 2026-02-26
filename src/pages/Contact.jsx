@@ -62,9 +62,9 @@ export default function Contact() {
   return (
     <main className="contact">
       <SEO
-        title="Contact Us"
+        title="Contact Us — Get a Free Billboard Advertising Quote"
         path="/contact"
-        description="Contact WA Billboards for billboards in Australia enquiries. Phone 08 9248 5070 or email sales@wabillboards.com.au. West Australia billboards office: 40B Boulder Road, MALAGA 6090."
+        description="Contact WA Billboards for billboard advertising enquiries. Phone 08 9248 5070, email sales@wabillboards.com.au. Office: 40B Boulder Road, Malaga WA 6090. Free quotes for Perth & regional WA."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Contact Us', path: '/contact' },

@@ -29,9 +29,9 @@ export default function LandOwners() {
   return (
     <main className="landowners">
       <SEO
-        title="Land Owners"
+        title="Land Owners — Earn Income Hosting a Billboard on Your Property"
         path="/land-owners"
-        description="Partner with WA Billboards — earn steady income hosting billboards Australia's leading outdoor media company needs. West Australia billboards need your site. Contact wabillboards at 08 9248 5070."
+        description="Earn steady income from your commercial property with a WA Billboards partnership. Billboard hosting contracts from 3+ years. Call 08 9248 5070 for Perth metro & regional WA opportunities."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Land Owners', path: '/land-owners' },

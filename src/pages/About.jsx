@@ -28,9 +28,9 @@ export default function About() {
   return (
     <main className="about">
       <SEO
-        title="About Us"
+        title="About Us — Family-Owned Billboard Company Since 1991"
         path="/about"
-        description="Learn about WA Billboards — a family-owned operator of billboards in Australia since 1991. Discover how wabillboards grew into the largest west Australia billboards network with 200+ sites."
+        description="WA Billboards is Western Australia's largest privately owned outdoor media company, founded in 1991 by the Robinson family. 200+ billboard sites across Perth metro & regional WA with in-house manufacturing."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'About Us', path: '/about' },

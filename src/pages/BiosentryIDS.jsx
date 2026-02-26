@@ -57,9 +57,9 @@ export default function BiosentryIDS() {
   return (
     <main className="biosentry">
       <SEO
-        title="Biosentry IDS - Intelligent Disinfectant Station"
+        title="Biosentry IDS — Intelligent Disinfectant Station With Advertising Screens"
         path="/biosentry-ids"
-        description="Biosentry IDS by WA Billboards — 99.9% effective disinfectant stations with advertising screens. A unique billboards Australia innovation from wabillboards, zero cost to west Australia facilities."
+        description="Biosentry IDS — 99.9% effective contactless disinfectant stations with built-in advertising screens for mining camps & facilities. Zero cost to your facility. Provided by WA Billboards."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Biosentry IDS', path: '/biosentry-ids' },

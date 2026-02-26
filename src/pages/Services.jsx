@@ -50,9 +50,9 @@ export default function Services() {
   return (
     <main className="services">
       <SEO
-        title="Advertising Services"
+        title="Billboard Advertising Services — Billboards, Airport Ads & Digital Displays"
         path="/services"
-        description="WA Billboards advertising services — billboards Australia metro & regional, airport terminals & digital displays. Explore west Australia billboards from Perth to the Kimberley at wabillboards.com.au."
+        description="WA Billboards offers outdoor billboard advertising, airport terminal advertising at 6 WA airports & digital display screens. Serving Perth metro, Karratha, Port Hedland, Kalgoorlie & regional WA."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Advertising Services', path: '/services' },

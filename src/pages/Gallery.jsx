@@ -150,13 +150,25 @@ export default function Gallery() {
   return (
     <main className="gallery">
       <SEO
-        title="Gallery"
+        title="Billboard Gallery — Metro, Regional, Airport & Ambient Advertising Photos"
         path="/gallery"
-        description="Browse the WA Billboards gallery — metro billboards, regional billboards, airport billboards and ambient advertising across Western Australia."
+        description="Browse 30+ photos of WA Billboards installations — Perth metro billboards, regional highway billboards, airport terminal advertising & ambient media across Western Australia."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Gallery', path: '/gallery' },
         ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'ImageGallery',
+          name: 'WA Billboards Photo Gallery',
+          description: 'Photos of billboard advertising installations across Perth metro, regional Western Australia, airports and ambient locations.',
+          url: 'https://wabillboards.com.au/gallery',
+          publisher: {
+            '@type': 'Organization',
+            name: 'WA Billboards',
+            url: 'https://wabillboards.com.au',
+          },
+        }}
       />
 
       {/* Page Header */}

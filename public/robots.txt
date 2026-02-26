@@ -1,4 +1,8 @@
+# WA Billboards - https://wabillboards.com.au
 User-agent: *
 Allow: /
+Disallow: /assets/
+Disallow: /404
 
+# Sitemap
 Sitemap: https://wabillboards.com.au/sitemap.xml

@@ -62,13 +62,59 @@ export default function AboutBillboards() {
   return (
     <main className="about-billboards">
       <SEO
-        title="About Billboards"
+        title="Billboard Sizes & Formats — 24 Sheet, Super 8, Supersite, Spectacular & Digital"
         path="/about-billboards"
-        description="Learn about billboard formats from WA Billboards — 24 Sheet, Super 8, Supersite, Spectacular & Digital. West Australia billboards in every size for billboards Australia-wide campaigns."
+        description="Compare billboard sizes and formats: 24 Sheet (6m x 3m), Super 8 (8.3m x 2.2m), Supersite (12.6m x 3.3m), Spectacular (15m x 5m) & Digital. Perth & WA billboard advertising guide from WA Billboards."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'About Billboards', path: '/about-billboards' },
         ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'What is a 24 Sheet billboard?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'A 24 Sheet billboard measures 6m wide x 3m high and is the most common billboard format in Western Australia. The term "24 Sheet" dates back to when it took 24 sheets of paper to bill-post a board. This format is cost-effective for both local and national advertisers.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'What is a Super 8 billboard?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'A Super 8 billboard measures 8.3m wide x 2.2m high with a 4:1 ratio. It offers an alternative to full-size Supersites at a lower price point. A true Super 8 is placed on a major highway and includes flood lighting.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'What is a Supersite billboard?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'A Supersite billboard measures 12.6m wide x 3.3m high and is the standard for large format advertising. Supersites always include flood lighting for night-time viewing and are situated in urban, metropolitan and high-traffic locations.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'What are digital billboards?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Digital billboards offer versatile advertising with the ability to display still images and video. Advertisers can be selective, reactive and creative with their messaging. WA Billboards operates digital screens at Karratha Airport, Newman and Kalgoorlie.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'What billboard sizes does WA Billboards offer?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'WA Billboards offers five main billboard formats: 24 Sheet (6m x 3m), Super 8 (8.3m x 2.2m), Supersite (12.6m x 3.3m), Spectacular (15m x 5m), and various Digital display sizes across Perth metro and regional Western Australia.',
+              },
+            },
+          ],
+        }}
       />
 
       {/* Page Header */}
