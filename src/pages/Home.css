@@ -827,9 +827,8 @@
   .hero__arrow {
     width: 40px;
     height: 40px;
-    top: auto;
-    bottom: 80px;
-    transform: none;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .hero__arrow--prev {
