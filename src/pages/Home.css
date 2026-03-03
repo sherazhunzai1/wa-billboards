@@ -808,7 +808,7 @@
     inset: auto;
     width: 100%;
     aspect-ratio: 16 / 10;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    border-radius: 0;
     overflow: hidden;
   }
 
@@ -923,12 +923,22 @@
     font-size: 0.9rem;
   }
 
+  .hero__actions .btn-outline {
+    color: var(--gray-900);
+    border-color: var(--gray-300);
+  }
+
+  .hero__actions .btn-outline:hover {
+    background: var(--gray-100);
+    border-color: var(--gray-500);
+  }
+
   /* Slide nav bar below content card */
   .hero__slide-nav {
     position: relative;
     bottom: auto;
     padding: 16px 20px;
-    background: var(--gray-900);
+    background: white;
     justify-content: center;
     gap: 14px;
   }
@@ -948,10 +958,20 @@
   .hero__dot {
     width: 24px;
     height: 3px;
+    background: var(--gray-300);
+  }
+
+  .hero__dot:hover {
+    background: var(--gray-400);
   }
 
   .hero__dot--active {
     width: 36px;
+    background: var(--orange);
+  }
+
+  .hero__dot--active:hover {
+    background: var(--orange);
   }
 
   /* ---- Other mobile overrides ---- */
