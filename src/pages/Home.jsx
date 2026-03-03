@@ -91,84 +91,92 @@ export default function Home() {
         description="WA Billboards — Perth & Western Australia's #1 billboard advertising company since 1991. 200+ outdoor billboard sites, 6 regional airport terminals & digital displays. Get a free quote: 08 9248 5070."
         jsonLd={[
           {
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            '@id': 'https://wabillboards.com.au/#organization',
-            name: 'WA Billboards',
-            url: 'https://wabillboards.com.au',
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://wabillboards.com.au/#organization",
+            name: "WA Billboards",
+            url: "https://wabillboards.com.au",
             logo: {
-              '@type': 'ImageObject',
-              url: 'https://wabillboards.com.au/og-image.jpg',
+              "@type": "ImageObject",
+              url: "https://wabillboards.com.au/og-image.jpg",
             },
-            description: "Western Australia's largest privately owned outdoor media company. Billboard advertising, airport ads & digital displays since 1991.",
-            foundingDate: '1991',
+            description:
+              "Western Australia's largest privately owned outdoor media company. Billboard advertising, airport ads & digital displays since 1991.",
+            foundingDate: "1991",
             founder: {
-              '@type': 'Person',
-              name: 'Stephen Robinson',
+              "@type": "Person",
+              name: "Stephen Robinson",
             },
             areaServed: {
-              '@type': 'State',
-              name: 'Western Australia',
+              "@type": "State",
+              name: "Western Australia",
             },
             address: {
-              '@type': 'PostalAddress',
-              streetAddress: '40B Boulder Road',
-              addressLocality: 'Malaga',
-              addressRegion: 'WA',
-              postalCode: '6090',
-              addressCountry: 'AU',
+              "@type": "PostalAddress",
+              streetAddress: "40B Boulder Road",
+              addressLocality: "Malaga",
+              addressRegion: "WA",
+              postalCode: "6090",
+              addressCountry: "AU",
             },
-            telephone: '+61-8-9248-5070',
-            email: 'sales@wabillboards.com.au',
+            telephone: "+61-8-9248-5070",
+            email: "sales@wabillboards.com.au",
             contactPoint: {
-              '@type': 'ContactPoint',
-              contactType: 'sales',
-              telephone: '+61-8-9248-5070',
-              email: 'sales@wabillboards.com.au',
-              areaServed: 'AU',
-              availableLanguage: 'English',
+              "@type": "ContactPoint",
+              contactType: "sales",
+              telephone: "+61-8-9248-5070",
+              email: "sales@wabillboards.com.au",
+              areaServed: "AU",
+              availableLanguage: "English",
             },
             sameAs: [],
           },
           {
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            '@id': 'https://wabillboards.com.au/#localbusiness',
-            name: 'WA Billboards',
-            image: 'https://wabillboards.com.au/og-image.jpg',
-            url: 'https://wabillboards.com.au',
-            telephone: '+61-8-9248-5070',
-            email: 'sales@wabillboards.com.au',
-            priceRange: '$$',
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://wabillboards.com.au/#localbusiness",
+            name: "WA Billboards",
+            image: "https://wabillboards.com.au/og-image.jpg",
+            url: "https://wabillboards.com.au",
+            telephone: "+61-8-9248-5070",
+            email: "sales@wabillboards.com.au",
+            priceRange: "$$",
             address: {
-              '@type': 'PostalAddress',
-              streetAddress: '40B Boulder Road',
-              addressLocality: 'Malaga',
-              addressRegion: 'WA',
-              postalCode: '6090',
-              addressCountry: 'AU',
+              "@type": "PostalAddress",
+              streetAddress: "40B Boulder Road",
+              addressLocality: "Malaga",
+              addressRegion: "WA",
+              postalCode: "6090",
+              addressCountry: "AU",
             },
             geo: {
-              '@type': 'GeoCoordinates',
+              "@type": "GeoCoordinates",
               latitude: -31.8587,
               longitude: 115.8985,
             },
             openingHoursSpecification: {
-              '@type': 'OpeningHoursSpecification',
-              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-              opens: '08:30',
-              closes: '17:00',
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+              ],
+              opens: "08:30",
+              closes: "17:00",
             },
-            description: "Western Australia's largest privately owned outdoor media company offering billboard advertising, airport advertising and digital displays since 1991.",
+            description:
+              "Western Australia's largest privately owned outdoor media company offering billboard advertising, airport advertising and digital displays since 1991.",
           },
           {
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            '@id': 'https://wabillboards.com.au/#website',
-            name: 'WA Billboards',
-            url: 'https://wabillboards.com.au',
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://wabillboards.com.au/#website",
+            name: "WA Billboards",
+            url: "https://wabillboards.com.au",
             publisher: {
-              '@id': 'https://wabillboards.com.au/#organization',
+              "@id": "https://wabillboards.com.au/#organization",
             },
           },
         ]}
@@ -373,7 +381,11 @@ export default function Home() {
           <div className="marquee__track">
             {[...galleryImages, ...galleryImages].map((img, i) => (
               <div key={i} className="marquee__item">
-                <img src={img} alt={`WA Billboards outdoor advertising showcase ${i + 1}`} loading="lazy" />
+                <img
+                  src={img}
+                  alt={`WA Billboards outdoor advertising showcase ${i + 1}`}
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -394,7 +406,7 @@ export default function Home() {
               <h2 className="section-title">
                 One of the Last{" "}
                 <span className="gradient-text">Privately Owned</span> Outdoor
-                Media Company in WA
+                Media Companies in WA
               </h2>
               <p className="why-us__text">
                 Since 1991, WA Billboards has been the trusted name in outdoor
@@ -507,10 +519,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Link
-                  to={`/news/${post.slug}`}
-                  className="home-news__card"
-                >
+                <Link to={`/news/${post.slug}`} className="home-news__card">
                   <div className="home-news__img-wrap">
                     <img src={post.image} alt={post.title} loading="lazy" />
                   </div>

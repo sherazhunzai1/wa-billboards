@@ -1,29 +1,29 @@
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { HiArrowRight, HiPhone, HiMail, HiDownload } from 'react-icons/hi'
-import { FaHandshake, FaMoneyBillWave, FaCalendarAlt } from 'react-icons/fa'
-import { galleryImages } from '../assets/billboardImages'
-import landOwnersPdf from '../assets/pdf/Land-Owners.pdf'
-import SEO from '../components/SEO'
-import './LandOwners.css'
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { HiArrowRight, HiPhone, HiMail, HiDownload } from "react-icons/hi";
+import { FaHandshake, FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
+import { galleryImages } from "../assets/billboardImages";
+import landOwnersPdf from "../assets/pdf/Land-Owners.pdf";
+import SEO from "../components/SEO";
+import "./LandOwners.css";
 
 const benefits = [
   {
     icon: <FaMoneyBillWave size={28} />,
-    title: 'Steady Income',
-    desc: 'A strong and steady stream of income for the duration of your contract period.',
+    title: "Steady Income",
+    desc: "A strong and steady stream of income for the duration of your contract period.",
   },
   {
     icon: <FaCalendarAlt size={28} />,
-    title: 'Flexible Contracts',
-    desc: 'Contracts starting at 3 years with the option to extend further.',
+    title: "Flexible Contracts",
+    desc: "Contracts starting at 3 years with the option to extend further.",
   },
   {
     icon: <FaHandshake size={28} />,
-    title: 'Long-Term Relationships',
-    desc: 'We maintain strong relationships with our land owners, some for over 20 years.',
+    title: "Long-Term Relationships",
+    desc: "We maintain strong relationships with our land owners, some for over 20 years.",
   },
-]
+];
 
 export default function LandOwners() {
   return (
@@ -33,14 +33,17 @@ export default function LandOwners() {
         path="/land-owners"
         description="Earn steady income from your commercial property with a WA Billboards partnership. Billboard hosting contracts from 3+ years. Call 08 9248 5070 for Perth metro & regional WA opportunities."
         breadcrumbs={[
-          { name: 'Home', path: '/' },
-          { name: 'Land Owners', path: '/land-owners' },
+          { name: "Home", path: "/" },
+          { name: "Land Owners", path: "/land-owners" },
         ]}
       />
       {/* Page Header */}
       <section className="page-header">
         <div className="page-header__bg">
-          <img src={galleryImages[4]} alt="Billboard site on commercial property in Western Australia" />
+          <img
+            src={galleryImages[4]}
+            alt="Billboard site on commercial property in Western Australia"
+          />
           <div className="page-header__overlay" />
         </div>
         <div className="page-header__content container">
@@ -52,7 +55,8 @@ export default function LandOwners() {
             <span className="hero__badge">Partner With Us</span>
             <h1 className="page-header__title">Land Owners</h1>
             <p className="page-header__subtitle">
-              Turn your commercial property into a steady source of income with a WA Billboards partnership.
+              Turn your commercial property into a steady source of income with
+              a WA Billboards partnership.
             </p>
           </motion.div>
         </div>
@@ -70,26 +74,30 @@ export default function LandOwners() {
             >
               <span className="section-tag">Opportunity</span>
               <h2 className="section-title">
-                Your Property, Our <span className="gradient-text">Billboards</span>
+                Your Property, Our{" "}
+                <span className="gradient-text">Billboards</span>
               </h2>
               <p className="landowners-content__paragraph">
-                WA Billboards prides itself on providing clients with a vast range of billboards
-                across metro and regional Western Australia. By offering diverse sizes, directions,
-                areas and options WA Billboards has been successful in an otherwise competitive
-                Out of Home media industry. As a result we are constantly seeking new sites and
-                locations to add to our impressive inventory.
+                WA Billboards prides itself on providing clients with a vast
+                range of billboards across metro and regional Western Australia.
+                By offering diverse sizes, directions, areas and options WA
+                Billboards has been successful in an otherwise competitive Out
+                of Home media industry. As a result we are constantly seeking
+                new sites and locations to add to our impressive inventory.
               </p>
               <p className="landowners-content__paragraph">
-                If you are a commercial land owner on a busy road and have a blank wall or roof
-                angled towards passing cars, or if you have a vacant block of land which does not
-                currently have plans for redevelopment, then you may be the perfect candidate for
-                a billboard.
+                If you are a commercial land owner on a busy road and have a
+                blank wall or roof angled towards passing cars, or if you have a
+                vacant block of land which does not currently have plans for
+                redevelopment, then you may be the perfect candidate for a
+                billboard.
               </p>
               <p className="landowners-content__paragraph">
-                WA Billboards offers land owners a strong and steady stream of income for a
-                contract period, which can start at 3 years and extend on from there. We maintain
-                strong relationships with our land owners, some of which have been around for
-                over 20 years!
+                WA Billboards offers land owners a strong and steady stream of
+                income for a contract period, which can start at 3 years and
+                extend on from there. We maintain strong relationships with our
+                land owners, some of which have been around for over 20 years
+                with us.
               </p>
             </motion.div>
 
@@ -99,7 +107,10 @@ export default function LandOwners() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img src={galleryImages[2]} alt="WA Billboards rooftop billboard installed on commercial property" />
+              <img
+                src={galleryImages[2]}
+                alt="WA Billboards rooftop billboard installed on commercial property"
+              />
             </motion.div>
           </div>
         </div>
@@ -145,15 +156,25 @@ export default function LandOwners() {
                 Download our PDF for more information or contact Steve directly.
               </p>
               <div className="landowners-cta__contact">
-                <a href="tel:0892485070" className="landowners-cta__contact-item">
+                <a
+                  href="tel:0892485070"
+                  className="landowners-cta__contact-item"
+                >
                   <HiPhone /> 08 9248 5070
                 </a>
-                <a href="mailto:sales@wabillboards.com.au" className="landowners-cta__contact-item">
+                <a
+                  href="mailto:sales@wabillboards.com.au"
+                  className="landowners-cta__contact-item"
+                >
                   <HiMail /> sales@wabillboards.com.au
                 </a>
               </div>
               <div className="landowners-cta__actions">
-                <a href={landOwnersPdf} download="Land-Owners.pdf" className="btn btn-secondary btn-lg">
+                <a
+                  href={landOwnersPdf}
+                  download="Land-Owners.pdf"
+                  className="btn btn-secondary btn-lg"
+                >
                   <HiDownload /> Download PDF
                 </a>
                 <Link to="/contact" className="btn btn-outline btn-lg">
@@ -165,5 +186,5 @@ export default function LandOwners() {
         </div>
       </section>
     </main>
-  )
+  );
 }
