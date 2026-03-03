@@ -175,7 +175,7 @@ export default function Home() {
       />
       {/* Hero Section - Full Width Billboard Slideshow */}
       <section className="hero">
-        {/* Full-screen billboard slides */}
+        {/* Slider area with images */}
         <div className="hero__slideshow">
           {heroSlides.map((slide, i) => (
             <div
@@ -189,12 +189,33 @@ export default function Home() {
               />
             </div>
           ))}
+
+          {/* Slide navigation arrows - inside slideshow for mobile positioning */}
+          <button
+            className="hero__arrow hero__arrow--prev"
+            onClick={prevSlide}
+            aria-label="Previous slide"
+          >
+            <HiChevronLeft size={32} />
+          </button>
+          <button
+            className="hero__arrow hero__arrow--next"
+            onClick={nextSlide}
+            aria-label="Next slide"
+          >
+            <HiChevronRight size={32} />
+          </button>
+
+          {/* Slide label on image (mobile) */}
+          <div className="hero__slide-badge-mobile">
+            {heroSlides[currentSlide].label}
+          </div>
         </div>
 
-        {/* Bottom gradient for text readability */}
+        {/* Bottom gradient for text readability (desktop only) */}
         <div className="hero__gradient-bottom" />
 
-        {/* Content overlay at the bottom */}
+        {/* Content overlay at the bottom (desktop) / Content card below slider (mobile) */}
         <div className="hero__overlay-content">
           <div className="container">
             <motion.div
@@ -227,22 +248,6 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-
-        {/* Slide navigation arrows */}
-        <button
-          className="hero__arrow hero__arrow--prev"
-          onClick={prevSlide}
-          aria-label="Previous slide"
-        >
-          <HiChevronLeft size={32} />
-        </button>
-        <button
-          className="hero__arrow hero__arrow--next"
-          onClick={nextSlide}
-          aria-label="Next slide"
-        >
-          <HiChevronRight size={32} />
-        </button>
 
         {/* Slide dots + current label */}
         <div className="hero__slide-nav">

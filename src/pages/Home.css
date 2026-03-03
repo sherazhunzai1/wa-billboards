@@ -236,6 +236,11 @@
   letter-spacing: 0.05em;
 }
 
+/* Mobile slide label badge - hidden on desktop */
+.hero__slide-badge-mobile {
+  display: none;
+}
+
 /* ===== STATS BAR ===== */
 .stats-bar {
   padding: 60px 0;
@@ -790,57 +795,141 @@
 }
 
 @media (max-width: 600px) {
-  .hero__badge {
-    font-size: 0.72rem;
-    padding: 6px 14px;
-    margin-bottom: 14px;
-  }
-
-  .hero__title {
-    font-size: 1.6rem;
-    margin-bottom: 14px;
-  }
-
-  .hero__subtitle {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-bottom: 24px;
-  }
-
-  .hero__overlay-content {
-    top: 0;
-    bottom: 0;
-    padding-bottom: 0;
+  /* ---- Hero: stacked card layout on mobile ---- */
+  .hero {
+    height: auto;
     display: flex;
-    align-items: center;
+    flex-direction: column;
   }
 
-  .hero__text {
-    text-align: left;
-    max-width: 100%;
+  /* Slideshow becomes a contained block showing full images */
+  .hero__slideshow {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    overflow: hidden;
   }
 
-  .hero__title-highlight {
+  .hero__slide {
+    inset: 0;
+  }
+
+  .hero__slide-img {
+    object-fit: cover;
+    filter: none;
+  }
+
+  /* Remove zoom animation on mobile for cleaner feel */
+  .hero__slide--active .hero__slide-img {
+    animation: none;
+  }
+
+  /* Hide desktop gradient overlay */
+  .hero__gradient-bottom {
+    display: none;
+  }
+
+  /* Slide label badge on image corner (mobile only) */
+  .hero__slide-badge-mobile {
     display: block;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 4;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
-  .hero__actions {
-    justify-content: flex-start;
-  }
-
+  /* Navigation arrows smaller & positioned on the image */
   .hero__arrow {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     top: 50%;
     transform: translateY(-50%);
   }
 
   .hero__arrow--prev {
-    left: 16px;
+    left: 10px;
   }
 
   .hero__arrow--next {
-    right: 16px;
+    right: 10px;
+  }
+
+  .hero__arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Content card below the slider */
+  .hero__overlay-content {
+    position: relative;
+    inset: auto;
+    padding: 28px 20px 20px;
+    background: var(--gray-900);
+    border-left: 3px solid var(--orange);
+  }
+
+  .hero__text {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero__badge {
+    font-size: 0.7rem;
+    padding: 5px 14px;
+    margin-bottom: 14px;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--orange-light);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+  }
+
+  .hero__title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    text-shadow: none;
+  }
+
+  .hero__title-highlight {
+    display: inline;
+  }
+
+  .hero__subtitle {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: none;
+    max-width: 100%;
+  }
+
+  .hero__actions {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .hero__actions .btn-lg {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  /* Slide nav bar below content card */
+  .hero__slide-nav {
+    position: relative;
+    bottom: auto;
+    padding: 16px 20px;
+    background: var(--gray-900);
+    justify-content: center;
+    gap: 14px;
   }
 
   .hero__slide-label {
@@ -851,6 +940,20 @@
     display: none;
   }
 
+  .hero__dots {
+    gap: 8px;
+  }
+
+  .hero__dot {
+    width: 24px;
+    height: 3px;
+  }
+
+  .hero__dot--active {
+    width: 36px;
+  }
+
+  /* ---- Other mobile overrides ---- */
   .stats-bar__grid {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
