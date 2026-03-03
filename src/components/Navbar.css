@@ -11,10 +11,10 @@
 }
 
 .navbar--scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(20px);
   padding: 12px 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .navbar__container {
@@ -50,7 +50,7 @@
 }
 
 .navbar--scrolled .navbar__logo-img {
-  filter: none;
+  filter: brightness(1);
 }
 
 .navbar__links {
@@ -102,27 +102,27 @@
   width: 50%;
 }
 
-/* Scrolled state: switch links to dark */
+/* Scrolled state: keep links light on dark bg */
 .navbar--scrolled .navbar__link {
-  color: var(--gray-600);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .navbar--scrolled .navbar__link:hover {
   color: var(--orange);
-  background: rgba(255, 107, 53, 0.08);
+  background: rgba(255, 107, 53, 0.15);
 }
 
 .navbar--scrolled .navbar__link:hover::after {
-  background: var(--gradient-primary);
+  background: var(--gradient-warm);
 }
 
 .navbar--scrolled .navbar__link--active {
   color: var(--orange);
-  background: rgba(255, 107, 53, 0.1);
+  background: rgba(255, 107, 53, 0.15);
 }
 
 .navbar--scrolled .navbar__link--active::after {
-  background: var(--gradient-primary);
+  background: var(--gradient-warm);
 }
 
 /* Dropdown */
@@ -236,7 +236,7 @@
 }
 
 .navbar--scrolled .navbar__toggle {
-  color: var(--gray-800);
+  color: white;
 }
 
 /* Mobile */
