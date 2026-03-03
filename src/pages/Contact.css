@@ -303,7 +303,27 @@
 
 @media (max-width: 600px) {
   .contact-info__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-info__card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    padding: 18px 20px;
+  }
+
+  .contact-info__icon {
+    margin: 0;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+  }
+
+  .contact-info__card:hover {
+    transform: translateY(-4px);
   }
 
   .contact-form__row {
