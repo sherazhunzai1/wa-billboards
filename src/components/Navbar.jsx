@@ -23,17 +23,10 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef(null)
   const location = useLocation()
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     setMobileOpen(false)
@@ -53,7 +46,7 @@ export default function Navbar() {
   const isAboutActive = location.pathname === '/about' || location.pathname === '/about-billboards'
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+    <nav className="navbar">
       <div className="navbar__container container">
         <Link to="/" className="navbar__logo">
           <img src={wabLogo} alt="WA Billboards" className="navbar__logo-img" />
