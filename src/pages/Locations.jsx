@@ -19,8 +19,6 @@ const locations = [
   { id: 8, name: 'Kimberley', type: 'billboard', lat: -15.77, lng: 128.74, x: 55, y: 35, desc: 'Regional billboard coverage' },
   { id: 9, name: 'Goldfields', type: 'billboard', lat: -28.00, lng: 121.50, x: 43, y: 70, desc: 'Goldfields region billboard network' },
   { id: 10, name: 'South West', type: 'billboard', lat: -33.65, lng: 115.35, x: 31, y: 87, desc: 'Bunbury and South West regional coverage' },
-  { id: 11, name: 'Jandakot', type: 'billboard', lat: -32.10, lng: 115.88, x: 33, y: 83, desc: 'HQ - Sign manufacturing & aircraft hangar' },
-  { id: 12, name: 'Malaga', type: 'billboard', lat: -31.84, lng: 115.89, x: 33.5, y: 81.5, desc: 'Office - Sales, marketing & administration' },
 ]
 
 const filters = [

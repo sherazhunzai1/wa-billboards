@@ -70,7 +70,7 @@ const buildBotReply = (key, navigate) => {
         quickReplies: [
           { id: 'billboards', label: 'More on Billboards', icon: <FaBullhorn /> },
           { id: 'airports', label: 'More on Airports', icon: <FaPlane /> },
-          { id: 'contact', label: 'Get a Quote', icon: <FaPhoneAlt /> },
+          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
         ],
       };
 
@@ -79,7 +79,7 @@ const buildBotReply = (key, navigate) => {
         text: "Our billboard network spans the entire state of Western Australia — from Perth Metro to the Kimberley, Goldfields, and South West regions. With 200+ sites, we offer:\n\n- Metro and regional coverage\n- Cyclone-rated billboards built in-house\n- Competitive rates with flexible booking\n- Perfect audience targeting",
         quickReplies: [
           { id: 'locations', label: 'View Locations', icon: <FaMapMarkerAlt /> },
-          { id: 'contact', label: 'Get a Quote', icon: <FaPhoneAlt /> },
+          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
           { id: 'services', label: 'All Services', icon: <FaBullhorn /> },
         ],
         link: { text: 'View Billboard Details', path: '/services#billboards' },
@@ -90,7 +90,7 @@ const buildBotReply = (key, navigate) => {
         text: "We hold advertising rights to 6 regional airports across WA:\n\n1. Karratha Airport\n2. Port Hedland Airport\n3. Newman Airport\n4. Kalgoorlie-Boulder Airport\n5. Geraldton Airport\n6. Onslow Airport\n\nReach FIFO workers, tourists, commuters, and more with unmatched audience diversity!",
         quickReplies: [
           { id: 'digital', label: 'Digital Displays', icon: <FaDesktop /> },
-          { id: 'contact', label: 'Get a Quote', icon: <FaPhoneAlt /> },
+          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
           { id: 'locations', label: 'View Map', icon: <FaMapMarkerAlt /> },
         ],
         link: { text: 'View Airport Advertising', path: '/services#airports' },
@@ -101,7 +101,7 @@ const buildBotReply = (key, navigate) => {
         text: "Our growing digital display network includes:\n\n- 12-faced digital screen at Karratha Airport\n- 3-panelled digital screens in Newman\n- 3-panelled digital screens in Kalgoorlie\n\nDigital allows multiple clients per site, dynamic content scheduling, and we're constantly adding new locations!",
         quickReplies: [
           { id: 'billboards', label: 'Billboards', icon: <FaBullhorn /> },
-          { id: 'contact', label: 'Get a Quote', icon: <FaPhoneAlt /> },
+          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
         ],
         link: { text: 'View Digital Displays', path: '/services#digital' },
       };
@@ -171,7 +171,7 @@ const buildBotReply = (key, navigate) => {
       return {
         text: "Our rates are competitive and flexible! Pricing depends on:\n\n- Billboard location & size\n- Campaign duration\n- Type (static billboard, airport, or digital)\n\nWe'd love to put together a custom quote for your needs. Give us a call at 08 9248 5070 or send an email to sales@wabillboards.com.au!",
         quickReplies: [
-          { id: 'contact', label: 'Get a Quote', icon: <FaPhoneAlt /> },
+          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
           { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
         ],
         link: { text: 'Contact Us for Pricing', path: '/contact' },

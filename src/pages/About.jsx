@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiStar, HiShieldCheck, HiLightningBolt, HiHeart } from 'react-icons/hi'
-import { FaPlane, FaTools, FaHandshake } from 'react-icons/fa'
+import { HiStar, HiShieldCheck, HiLightningBolt, HiHeart, HiArrowRight } from 'react-icons/hi'
 import { galleryImages } from '../assets/billboardImages'
 import aboutHeroImg from '../assets/images/about us/IMG_6101-1-1536x624.jpg'
+import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
+import teamChristopher from '../assets/images/team/Christopher Robinson.jpeg'
+import teamRebecca from '../assets/images/team/Rebecca Zaubzer.jpeg'
 import SEO from '../components/SEO'
 import './About.css'
 
@@ -19,9 +22,33 @@ const values = [
   { icon: <HiHeart size={28} />, title: 'Family Values', desc: 'Proudly family-owned and operated since 1991, maintaining our independence and commitment to quality.' },
   { icon: <HiLightningBolt size={28} />, title: 'Quick Response', desc: 'Our independence means we can react quickly to client and landowner requirements without corporate delays.' },
   { icon: <HiShieldCheck size={28} />, title: 'Built to Last', desc: 'Our extreme condition billboards are built in-house to withstand cyclone-prone areas of WA.' },
-  { icon: <FaPlane size={28} />, title: 'Total Independence', desc: 'Own aircraft fleet with CASA approved maintenance ensures we\'re never dependent on outside suppliers.' },
-  { icon: <FaTools size={28} />, title: 'In-House Manufacturing', desc: 'Harvard Road, Jandakot Airport houses our sign manufacturing facilities and aircraft hangar.' },
-  { icon: <FaHandshake size={28} />, title: 'National Reach', desc: 'Australia-wide sales representation through oOh! Media and JCDecaux partnerships.' },
+]
+
+const teamMembers = [
+  {
+    name: 'Stephen Robinson',
+    role: 'Founder & Managing Director',
+    image: teamStephen,
+    color: '#FF6B35',
+  },
+  {
+    name: 'Christopher Robinson',
+    role: 'Operations Manager',
+    image: teamChristopher,
+    color: '#E040FB',
+  },
+  {
+    name: 'Mitchell Robinson',
+    role: 'Sales Manager',
+    image: null,
+    color: '#FFC857',
+  },
+  {
+    name: 'Rebecca Zaubzer',
+    role: 'Finance Officer',
+    image: teamRebecca,
+    color: '#00E5FF',
+  },
 ]
 
 export default function About() {
@@ -173,41 +200,48 @@ export default function About() {
         </div>
       </section>
 
-      {/* Aviation Section */}
-      <section className="about-aviation">
+      {/* Meet the Team */}
+      <section className="about-team">
         <div className="container">
-          <div className="about-aviation__layout">
-            <motion.div
-              className="about-aviation__images"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <img src={galleryImages[6]} alt="WA Billboards aircraft fleet at Jandakot Airport hangar" className="about-aviation__img" />
-            </motion.div>
-            <motion.div
-              className="about-aviation__content"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="section-tag">Aviation</span>
-              <h2 className="section-title">
-                Total <span className="gradient-text">Independence</span>
-              </h2>
-              <p className="about-aviation__text">
-                Our Harvard Road, Jandakot Airport location houses our sign manufacturing facilities,
-                as well as a hangar for our aircraft. With full CASA approved maintenance, WA Billboards
-                has total independence from outside suppliers which ensures our aircraft are always
-                available if required.
-              </p>
-              <p className="about-aviation__text">
-                Stephen holds a commercial pilot's license with an instrument rating for all weather
-                operations, whilst Christopher holds a full private pilot's license. All key staff hold
-                ASIC cards relieving our airports from the onus of supervising us on site, therefore
-                ensuring their commitment to aviation safety are maintained.
-              </p>
-            </motion.div>
+          <div className="about-team__header">
+            <span className="section-tag">Our People</span>
+            <h2 className="section-title">
+              Meet the Team
+            </h2>
+            <p className="section-subtitle">
+              The dedicated family and team behind Western Australia's largest privately owned outdoor media company.
+            </p>
+          </div>
+
+          <div className="about-team__grid">
+            {teamMembers.map((member, i) => (
+              <motion.div
+                key={i}
+                className="about-team__card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="about-team__photo" style={{ borderColor: member.color }}>
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} />
+                  ) : (
+                    <div className="about-team__initials" style={{ background: member.color }}>
+                      {member.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                  )}
+                </div>
+                <h3 className="about-team__name">{member.name}</h3>
+                <p className="about-team__role" style={{ color: member.color }}>{member.role}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <Link to="/team" className="btn btn-primary">
+              View Full Team <HiArrowRight />
+            </Link>
           </div>
         </div>
       </section>

@@ -30,11 +30,10 @@ export default function Footer() {
               <h4 className="footer__heading">Quick Links</h4>
               <Link to="/" className="footer__link">Home</Link>
               <Link to="/about" className="footer__link">About Us</Link>
-              <Link to="/services" className="footer__link">Services</Link>
+              <Link to="/services" className="footer__link">Products</Link>
               <Link to="/locations" className="footer__link">Locations</Link>
               <Link to="/team" className="footer__link">Our Team</Link>
               <Link to="/land-owners" className="footer__link">Land Owners</Link>
-              <Link to="/biosentry-ids" className="footer__link">Biosentry IDS</Link>
               <Link to="/contact" className="footer__link">Contact</Link>
             </div>
 

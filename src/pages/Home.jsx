@@ -17,7 +17,6 @@ import {
   galleryImages,
   heroImages,
 } from "../assets/billboardImages";
-import posts from "../data/posts";
 import SEO from "../components/SEO";
 import "./Home.css";
 
@@ -419,14 +418,14 @@ export default function Home() {
                 <div className="why-us__feature">
                   <div
                     className="why-us__feature-dot"
-                    style={{ background: "var(--orange)" }}
+                    style={{ background: "var(--gray-900)" }}
                   />
                   <span>Family-owned & operated since 1991</span>
                 </div>
                 <div className="why-us__feature">
                   <div
                     className="why-us__feature-dot"
-                    style={{ background: "var(--coral)" }}
+                    style={{ background: "var(--gray-900)" }}
                   />
                   <span>
                     Australia-wide representation via oOh! Media & JCDecaux
@@ -435,16 +434,9 @@ export default function Home() {
                 <div className="why-us__feature">
                   <div
                     className="why-us__feature-dot"
-                    style={{ background: "var(--magenta)" }}
+                    style={{ background: "var(--gray-900)" }}
                   />
                   <span>Cyclone-rated billboards built in-house</span>
-                </div>
-                <div className="why-us__feature">
-                  <div
-                    className="why-us__feature-dot"
-                    style={{ background: "var(--yellow)" }}
-                  />
-                  <span>Own aircraft fleet with CASA approved maintenance</span>
                 </div>
               </div>
 
@@ -492,53 +484,6 @@ export default function Home() {
                 {partner}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* News Highlights */}
-      <section className="home-news">
-        <div className="container">
-          <div className="home-news__header">
-            <span className="section-tag">News Highlights</span>
-            <h2 className="section-title">
-              Latest <span className="gradient-text">Updates</span>
-            </h2>
-            <p className="section-subtitle">
-              Stay informed with the latest projects and announcements from WA
-              Billboards.
-            </p>
-          </div>
-
-          <div className="home-news__grid">
-            {posts.slice(0, 3).map((post, i) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link to={`/news/${post.slug}`} className="home-news__card">
-                  <div className="home-news__img-wrap">
-                    <img src={post.image} alt={post.title} loading="lazy" />
-                  </div>
-                  <div className="home-news__body">
-                    <span className="home-news__date">{post.date}</span>
-                    <h3 className="home-news__title">{post.title}</h3>
-                    <span className="home-news__link">
-                      Read News <HiArrowRight />
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="home-news__cta">
-            <Link to="/news" className="btn btn-primary">
-              View All News <HiArrowRight />
-            </Link>
           </div>
         </div>
       </section>

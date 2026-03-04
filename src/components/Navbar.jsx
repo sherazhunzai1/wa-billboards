@@ -6,6 +6,10 @@ import './Navbar.css'
 
 const navLinks = [
   { path: '/', label: 'Home' },
+  { path: '/services', label: 'Products' },
+  { path: '/locations', label: 'Locations' },
+  { path: '/team', label: 'Team' },
+  { path: '/land-owners', label: 'Land Owners' },
   {
     label: 'About',
     dropdown: [
@@ -13,13 +17,6 @@ const navLinks = [
       { path: '/about-billboards', label: 'About Billboards' },
     ],
   },
-  { path: '/services', label: 'Services' },
-  { path: '/locations', label: 'Locations' },
-  { path: '/team', label: 'Team' },
-  { path: '/land-owners', label: 'Land Owners' },
-  { path: '/biosentry-ids', label: 'Biosentry IDS' },
-  { path: '/gallery', label: 'Gallery' },
-  { path: '/news', label: 'News' },
 ]
 
 export default function Navbar() {
@@ -90,7 +87,7 @@ export default function Navbar() {
             )
           )}
           <Link to="/contact" className="btn btn-primary navbar__cta">
-            Get a Quote
+            Contact Us
           </Link>
         </div>
 

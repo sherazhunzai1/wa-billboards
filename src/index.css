@@ -132,19 +132,7 @@ img {
 }
 
 .gradient-text {
-  background: linear-gradient(
-    90deg,
-    #FF6B35,
-    #FF4858,
-    #E040FB,
-    #FF4858,
-    #FF6B35
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
+  color: var(--gray-900);
 }
 
 /* Button Styles */

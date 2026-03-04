@@ -29,7 +29,7 @@ const teamMembers = [
   },
   {
     name: 'Mitchell Robinson',
-    role: 'Business Development',
+    role: 'Sales Manager',
     image: null,
     bio: 'Mitchell is the newest family member to join the WA Billboards team, contributing to the continued growth and expansion of the business. His fresh perspective brings new energy to the company\'s development initiatives.',
     highlights: ['Second generation team member', 'Business Growth & Expansion', 'Client Relations'],
@@ -37,9 +37,9 @@ const teamMembers = [
   },
   {
     name: 'Rebecca Zaubzer',
-    role: 'Sales & Marketing Manager',
+    role: 'Finance Officer',
     image: teamRebecca,
-    bio: 'Our dedicated Sales & Marketing Manager works closely with advertising agencies and direct clients at state level, managing campaigns and ensuring clients get the best return on their outdoor advertising investment.',
+    bio: 'Our dedicated Finance Officer manages the financial operations of WA Billboards, ensuring the business runs smoothly and efficiently.',
     highlights: ['State-level client management', 'Agency relationships', 'Campaign optimization'],
     color: '#00E5FF',
   },

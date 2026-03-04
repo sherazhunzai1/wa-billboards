@@ -14,12 +14,6 @@ const contactInfo = [
     color: '#FF6B35',
   },
   {
-    icon: <HiLocationMarker size={24} />,
-    title: 'Manufacturing',
-    lines: ['Harvard Road', 'Jandakot Airport, WA'],
-    color: '#FF4858',
-  },
-  {
     icon: <HiPhone size={24} />,
     title: 'Phone',
     lines: ['08 9248 5070'],
@@ -199,7 +193,7 @@ export default function Contact() {
                 </div>
               ) : (
                 <form className="contact-form" onSubmit={handleSubmit}>
-                  <h3 className="contact-form__title">Get a Free Quote</h3>
+                  <h3 className="contact-form__title">Contact Us</h3>
 
                   <div className="contact-form__row">
                     <div className="contact-form__field">
