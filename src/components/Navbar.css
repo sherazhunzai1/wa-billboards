@@ -2,8 +2,7 @@
   position: relative;
   z-index: 1000;
   padding: 6px 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  background: #000;
 }
 
 .navbar__container {
