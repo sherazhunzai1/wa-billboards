@@ -32,6 +32,11 @@
   color: #444;
 }
 
+.locations-map-section__airport-icon {
+  background: none !important;
+  border: none !important;
+}
+
 .locations-map-section__site-card-link {
   display: inline-block;
   margin-top: 8px;

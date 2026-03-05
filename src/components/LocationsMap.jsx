@@ -70,6 +70,21 @@ const markerIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
+const airportIcon = new L.DivIcon({
+  html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+    <circle cx="18" cy="18" r="16" fill="#FF4858" stroke="#fff" stroke-width="2"/>
+    <path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#fff"/>
+  </svg>`,
+  className: "locations-map-section__airport-icon",
+  iconSize: [36, 36],
+  iconAnchor: [18, 18],
+  popupAnchor: [0, -18],
+});
+
+function getIcon(point) {
+  return point.category === "Airport" ? airportIcon : markerIcon;
+}
+
 export default function LocationsMap() {
   const center = [-26.5, 119];
 
@@ -97,7 +112,7 @@ export default function LocationsMap() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {billboardPoints.map((point) => (
-              <Marker key={point.id} position={[point.lat, point.lng]} icon={markerIcon}>
+              <Marker key={point.id} position={[point.lat, point.lng]} icon={getIcon(point)}>
                 <Popup>
                   <div className="locations-map-section__popup">
                     <h4>{point.title}</h4>
