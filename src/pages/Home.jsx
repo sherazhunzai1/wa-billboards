@@ -18,6 +18,7 @@ import {
   heroImages,
 } from "../assets/billboardImages";
 import SEO from "../components/SEO";
+import LocationsMap from "../components/LocationsMap";
 import "./Home.css";
 
 const stats = [
@@ -299,6 +300,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Locations Map */}
+      <LocationsMap />
 
       {/* Services Preview */}
       <section className="home-services">
