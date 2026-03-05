@@ -173,6 +173,24 @@ export default function Locations() {
                         )}
                       </div>
                     </Tooltip>
+                    <Popup>
+                      <div className="locations-map__popup">
+                        <h4>{point.title}</h4>
+                        {point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}
+                        {point.size && <p><strong>Size:</strong> {point.size}</p>}
+                        {point.category && <p><strong>Category:</strong> {point.category}</p>}
+                        {point.site_card_url && (
+                          <a
+                            href={point.site_card_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="locations-map__site-card-link"
+                          >
+                            View Site Card (PDF)
+                          </a>
+                        )}
+                      </div>
+                    </Popup>
                   </Marker>
                 ))}
               </MapContainer>
