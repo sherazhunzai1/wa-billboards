@@ -32,6 +32,19 @@
   color: #444;
 }
 
+.locations-map-section__site-card-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange, #FF6B35);
+  text-decoration: none;
+}
+
+.locations-map-section__site-card-link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .locations-map-section {
     padding: 48px 0;
