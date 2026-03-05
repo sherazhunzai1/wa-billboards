@@ -198,6 +198,13 @@ export default function Locations() {
               </h3>
               <div className="locations-table__wrapper">
                 <table className="locations-table">
+                  <colgroup>
+                    <col style={{ width: '30%' }} />
+                    <col style={{ width: '18%' }} />
+                    <col style={{ width: '22%' }} />
+                    <col style={{ width: '15%' }} />
+                    <col style={{ width: '15%' }} />
+                  </colgroup>
                   <thead>
                     <tr>
                       <th>Location</th>
