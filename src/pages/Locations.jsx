@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiLocationMarker, HiArrowRight } from 'react-icons/hi'
 import { FaPlane, FaRoad } from 'react-icons/fa'
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, Tooltip, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { billboardPoints } from '../components/LocationsMap'
@@ -155,6 +155,10 @@ export default function Locations() {
                 )}
                 {filtered.map((point) => (
                   <Marker key={point.id} position={[point.lat, point.lng]} icon={getIcon(point)}>
+                    <Tooltip direction="top" offset={[0, -20]} opacity={0.95}>
+                      <strong>{point.title}</strong>
+                      {point.site_id && <span> — {point.site_id}</span>}
+                    </Tooltip>
                     <Popup>
                       <div className="locations-map__popup">
                         <h4>{point.title}</h4>
