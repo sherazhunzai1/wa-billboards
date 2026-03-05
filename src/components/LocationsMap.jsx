@@ -3,7 +3,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./LocationsMap.css";
 
-const billboardPoints = [
+export const billboardPoints = [
   { id: 51, title: "Bassendean", category: "Road", site_id: "WA020", size: "8.3m x 2.2m", site_card_url: "https://www.wabillboards.com.au/wp-content/uploads/2022/08/Bassendean-WA020.pdf", lat: -31.894872, lng: 115.944671 },
   { id: 57, title: "Bayswater", category: "Road", site_id: "WCO002", size: "12.6m x 3.3m", site_card_url: "https://www.wabillboards.com.au/wp-content/uploads/2022/08/Bayswater-WCO002.pdf", lat: -31.905141, lng: 115.920381 },
   { id: 50, title: "Bedford", category: "Road", site_id: "WA018", size: "6m x 3m", site_card_url: "https://www.wabillboards.com.au/wp-content/uploads/2022/08/Bedford-WA018.pdf", lat: -31.912497, lng: 115.8974 },
