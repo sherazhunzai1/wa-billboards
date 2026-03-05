@@ -156,10 +156,6 @@ export default function Locations() {
                 {filtered.map((point) => (
                   <Marker key={point.id} position={[point.lat, point.lng]} icon={getIcon(point)}>
                     <Tooltip direction="top" offset={[0, -20]} opacity={0.95}>
-                      <strong>{point.title}</strong>
-                      {point.site_id && <span> — {point.site_id}</span>}
-                    </Tooltip>
-                    <Popup>
                       <div className="locations-map__popup">
                         <h4>{point.title}</h4>
                         {point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}
@@ -176,7 +172,7 @@ export default function Locations() {
                           </a>
                         )}
                       </div>
-                    </Popup>
+                    </Tooltip>
                   </Marker>
                 ))}
               </MapContainer>
