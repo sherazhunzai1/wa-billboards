@@ -44,7 +44,7 @@ export default function Home() {
     <main className="bg-charcoal text-chalk min-h-screen">
       <SEO
         path="/"
-        description="WA Billboards — Perth & Western Australia's #1 billboard advertising company since 1991. 200+ outdoor billboard sites, 6 regional airport terminals & digital displays. Get a free quote: 08 9248 5070."
+        description="WA Billboards — Big Spaces for Big Ideas. Perth & Western Australia's #1 billboard advertising company since 1991. 200+ outdoor billboard sites, 6 regional airport terminals & digital displays. Get a free quote: 08 9248 5070."
         jsonLd={[
           {
             "@context": "https://schema.org",
@@ -119,8 +119,8 @@ export default function Home() {
           >
             <div className="stamp mb-8 inline-block">Since 1991</div>
             <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase leading-[0.9] tracking-tighter mb-8">
-              Your Brand,<br />
-              <span className="text-lime">Unmissable.</span>
+              Big Spaces<br />
+              <span className="text-lime">for Big Ideas.</span>
             </h1>
             <p className="text-lg md:text-xl text-ash max-w-xl mb-10 leading-relaxed">
               Western Australia's largest privately owned outdoor media company.
@@ -371,7 +371,8 @@ export default function Home() {
           <div className="bg-lime p-12 md:p-20 relative overflow-hidden">
             <div className="relative z-10">
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-charcoal mb-6 leading-[1.1]">
-                Ready to Make<br />an Impact?
+
+                Big Spaces<br />for Big Ideas.
               </h2>
               <p className="text-charcoal/70 text-lg max-w-xl mb-10">
                 Let's find the perfect billboard location for your business.
@@ -392,8 +393,8 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="absolute top-0 right-0 text-[20rem] font-black text-charcoal/5 leading-none select-none hidden md:block">
-              WAB
+            <div className="absolute top-0 right-0 text-[12rem] font-black text-charcoal/5 leading-none select-none hidden md:block uppercase tracking-tighter">
+              Big Ideas
             </div>
           </div>
         </div>

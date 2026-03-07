@@ -55,8 +55,7 @@ export default function LandOwners() {
             <span className="stamp mb-6 inline-block">Partner With Us</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-white mb-4">Land<br />Owners</h1>
             <p className="text-lg text-ash max-w-xl">
-              Turn your commercial property into a steady source of income with
-              a WA Billboards partnership.
+              Big Spaces for Big Ideas — turn your commercial property into a steady source of income with a WA Billboards partnership.
             </p>
           </motion.div>
         </div>
@@ -156,7 +155,7 @@ export default function LandOwners() {
       {/* CTA */}
       <section className="bg-lime p-12 md:p-20">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Interested in Becoming a Valued Land Owner?</h2>
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Big Spaces for Big Ideas</h2>
           <p className="text-charcoal/70 text-lg mb-8 max-w-xl">
             Download our PDF for more information or contact Steve directly.
           </p>

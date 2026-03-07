@@ -110,7 +110,7 @@ export default function Locations() {
             <span className="stamp mb-6 inline-block">Our Network</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-white mb-4">Billboard<br />Locations</h1>
             <p className="text-lg text-ash max-w-xl">
-              Explore our extensive network of outdoor advertising locations across Western Australia.
+              Big Spaces for Big Ideas — explore our extensive network of outdoor advertising locations across Western Australia.
             </p>
           </motion.div>
         </div>
@@ -313,8 +313,8 @@ export default function Locations() {
       {/* CTA */}
       <section className="bg-lime p-12 md:p-20">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Need a Billboard in a Specific Location?</h2>
-          <p className="text-charcoal/70 text-lg mb-8 max-w-xl mx-auto">Our team can help you find the perfect spot for your campaign.</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Big Spaces for Big Ideas</h2>
+          <p className="text-charcoal/70 text-lg mb-8 max-w-xl mx-auto">Need a billboard in a specific location? Our team can help you find the perfect spot.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-charcoal text-lime font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-charcoal-light">
             Talk to Our Team <HiArrowRight />
           </Link>

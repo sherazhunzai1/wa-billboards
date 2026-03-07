@@ -34,6 +34,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
+            <p className="text-xs tracking-[0.2em] uppercase text-lime/70 mb-4 font-bold">Big Spaces for Big Ideas</p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
               Let's put your brand<br />
               <span className="text-lime">where it matters.</span>
@@ -73,7 +74,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="px-6 md:px-12 py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-ash">&copy; {new Date().getFullYear()} WA Billboards. All rights reserved.</p>
-        <p className="text-xs text-ash">Family-owned since 1991</p>
+        <p className="text-xs text-ash">Big Spaces for Big Ideas — Family-owned since 1991</p>
       </div>
     </footer>
   )

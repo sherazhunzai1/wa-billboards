@@ -103,7 +103,7 @@ export default function Contact() {
             <span className="stamp mb-6 inline-block">Get In Touch</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-white mb-4">Contact Us</h1>
             <p className="text-lg text-ash max-w-xl">
-              Ready to boost your brand visibility? Let's talk about the perfect outdoor advertising solution for you.
+              Big Spaces for Big Ideas — ready to boost your brand visibility? Let's talk about the perfect outdoor advertising solution for you.
             </p>
           </motion.div>
         </div>

@@ -31,6 +31,7 @@ export default function NotFound() {
               404
             </span>
             <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4 -mt-4">Page Not Found</h1>
+            <p className="text-xs tracking-[0.2em] uppercase text-lime/60 mb-4 font-bold">Big Spaces for Big Ideas</p>
             <p className="text-lg text-ash max-w-md mx-auto mb-10">
               Sorry, the page you're looking for doesn't exist or has been moved.
               Let's get you back on track.

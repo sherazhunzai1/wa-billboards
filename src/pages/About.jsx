@@ -67,7 +67,7 @@ export default function About() {
             </h1>
             <div className="w-16 h-px bg-lime mb-5" />
             <p className="text-lg md:text-xl text-ash max-w-xl">
-              Western Australia's largest privately owned, dedicated outdoor media company since 1991.
+              Big Spaces for Big Ideas — Western Australia's largest privately owned, dedicated outdoor media company since 1991.
             </p>
           </motion.div>
         </div>
@@ -129,7 +129,7 @@ export default function About() {
             >
               <blockquote className="border-l-2 border-lime pl-6 py-4">
                 <p className="text-2xl md:text-3xl font-black uppercase tracking-tight leading-snug text-chalk">
-                  The last privately owned outdoor media company in Western Australia.
+                  Big Spaces for Big Ideas — the last privately owned outdoor media company in Western Australia.
                 </p>
                 <span className="w-6 h-px bg-lime inline-block mt-4" />
               </blockquote>
@@ -346,7 +346,7 @@ export default function About() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-charcoal leading-[0.95] mb-6">
-              Ready to Make<br />an Impact?
+              Big Spaces<br />for Big Ideas.
             </h2>
             <p className="text-charcoal/70 text-lg md:text-xl max-w-xl mb-10">
               Partner with Western Australia's most experienced outdoor media team.

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 const defaults = {
   siteName: 'WA Billboards',
   siteUrl: 'https://wabillboards.com.au',
-  defaultDescription: "WA Billboards — Western Australia's largest privately owned outdoor media company since 1991. 200+ billboard sites, 6 regional airports & digital displays across Perth metro, Karratha, Port Hedland, Kalgoorlie & more.",
+  defaultDescription: "WA Billboards — Big Spaces for Big Ideas. Western Australia's largest privately owned outdoor media company since 1991. 200+ billboard sites, 6 regional airports & digital displays across Perth metro, Karratha, Port Hedland, Kalgoorlie & more.",
   defaultImage: '/og-image.jpg',
 }
 
@@ -20,7 +20,7 @@ export default function SEO({
 }) {
   const fullTitle = title
     ? `${title} | ${defaults.siteName}`
-    : `${defaults.siteName} | Billboard Advertising Perth & Western Australia Since 1991`
+    : `${defaults.siteName} | Big Spaces for Big Ideas — Billboard Advertising Perth & WA Since 1991`
   const desc = description || defaults.defaultDescription
   const url = `${defaults.siteUrl}${path}`
   const ogImage = image

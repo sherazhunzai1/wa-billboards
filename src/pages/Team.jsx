@@ -87,7 +87,7 @@ export default function Team() {
             <span className="stamp mb-6 inline-block">Our People</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-white mb-4">Meet the<br />Team</h1>
             <p className="text-lg text-ash max-w-xl">
-              A dedicated family team driving Western Australia's outdoor media industry since 1991.
+              Big Spaces for Big Ideas — a dedicated family team driving Western Australia's outdoor media industry since 1991.
             </p>
           </motion.div>
         </div>
@@ -207,8 +207,8 @@ export default function Team() {
       {/* CTA */}
       <section className="bg-lime p-12 md:p-20">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Want to Work With Our Team?</h2>
-          <p className="text-charcoal/70 text-lg mb-8 max-w-xl mx-auto">Get in touch to discuss your outdoor advertising needs.</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Big Spaces for Big Ideas</h2>
+          <p className="text-charcoal/70 text-lg mb-8 max-w-xl mx-auto">Want to work with our team? Get in touch to discuss your outdoor advertising needs.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-charcoal text-lime font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-charcoal-light">
             Contact Us <HiArrowRight />
           </Link>
