@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { HiLocationMarker } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 
 export default function BillboardCard({ image, index = 0 }) {
@@ -13,30 +12,45 @@ export default function BillboardCard({ image, index = 0 }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.08, duration: 0.5 }}
-      whileHover={{ y: -8 }}
-      className="group relative rounded-2xl overflow-hidden bg-dark-light border border-white/5 hover:border-orange/20 transition-all duration-500"
+      transition={{ delay: index * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative overflow-hidden bg-charcoal-light"
       style={{ cursor: image.locationId ? 'pointer' : 'default' }}
       onClick={handleClick}
     >
-      <div className="aspect-[4/3] overflow-hidden">
+      {/* Image */}
+      <div className="aspect-[16/10] overflow-hidden">
         {imgError ? (
-          <div className="w-full h-full flex items-center justify-center text-white font-bold text-lg" style={{ background: image.fallbackColor || '#FF6B35' }}>WA Billboards</div>
+          <div className="w-full h-full flex items-center justify-center bg-charcoal-mid">
+            <span className="text-lime font-bold text-lg tracking-wider uppercase">WAB</span>
+          </div>
         ) : (
-          <img src={image.src} alt={image.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onError={() => setImgError(true)} loading="lazy"/>
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            onError={() => setImgError(true)}
+            loading="lazy"
+          />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"/>
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-          <span className="px-5 py-2 bg-white/10 backdrop-blur-md rounded-full text-white text-sm font-medium border border-white/20 transform scale-75 group-hover:scale-100 transition-transform duration-300">View</span>
+      </div>
+
+      {/* Overlay on hover */}
+      <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+        <div className="p-4 w-full">
+          {image.locationId && (
+            <span className="text-xs tracking-[0.15em] uppercase text-lime font-bold">View on map →</span>
+          )}
         </div>
       </div>
+
+      {/* Location label */}
       {image.location && (
-        <div className="px-4 py-3 flex items-center gap-2 text-slate-400 text-sm">
-          <HiLocationMarker className="w-4 h-4 text-orange"/>
-          <span>{image.location}</span>
+        <div className="px-4 py-3 border-t border-white/5 flex items-center justify-between">
+          <span className="text-sm text-chalk truncate">{image.location}</span>
+          <span className="w-1.5 h-1.5 bg-lime rounded-full flex-shrink-0 ml-2" />
         </div>
       )}
     </motion.div>
