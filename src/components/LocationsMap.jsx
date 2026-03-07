@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./LocationsMap.css";
@@ -113,6 +113,24 @@ export default function LocationsMap() {
             />
             {billboardPoints.map((point) => (
               <Marker key={point.id} position={[point.lat, point.lng]} icon={getIcon(point)}>
+                <Tooltip direction="top" offset={[0, -20]} opacity={0.95}>
+                  <div className="locations-map-section__popup">
+                    <h4>{point.title}</h4>
+                    {point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}
+                    {point.size && <p><strong>Size:</strong> {point.size}</p>}
+                    {point.category && <p><strong>Category:</strong> {point.category}</p>}
+                    {point.site_card_url && (
+                      <a
+                        href={point.site_card_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="locations-map-section__site-card-link"
+                      >
+                        View Site Card (PDF)
+                      </a>
+                    )}
+                  </div>
+                </Tooltip>
                 <Popup>
                   <div className="locations-map-section__popup">
                     <h4>{point.title}</h4>
