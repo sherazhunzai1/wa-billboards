@@ -1,25 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  HiArrowRight,
-  HiPlay,
-  HiLocationMarker,
-  HiStar,
-  HiGlobe,
-  HiChevronLeft,
-  HiChevronRight,
-} from "react-icons/hi";
+import { HiArrowRight, HiPlay, HiLocationMarker, HiStar, HiGlobe, HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { FaRoad, FaPlane, FaDesktop } from "react-icons/fa";
 import BillboardCard from "../components/BillboardCard";
-import {
-  billboardImages,
-  galleryImages,
-  heroImages,
-} from "../assets/billboardImages";
+import { billboardImages, galleryImages, heroImages } from "../assets/billboardImages";
 import SEO from "../components/SEO";
 import LocationsMap from "../components/LocationsMap";
-import "./Home.css";
 
 const stats = [
   { number: "30+", label: "Years Experience", icon: <HiStar /> },
@@ -29,30 +16,9 @@ const stats = [
 ];
 
 const services = [
-  {
-    icon: <FaRoad size={32} />,
-    title: "Billboards",
-    description:
-      "Extensive inventory across WA - from Kimberley through Goldfields to South West.",
-    color: "#FF6B35",
-    link: "/services#billboards",
-  },
-  {
-    icon: <FaPlane size={32} />,
-    title: "Airports",
-    description:
-      "Advertising rights to most of WA's regional airports for maximum exposure.",
-    color: "#FF4858",
-    link: "/services#airports",
-  },
-  {
-    icon: <FaDesktop size={32} />,
-    title: "Digital",
-    description:
-      "Moving to digital with multi-faced screens across regional WA locations.",
-    color: "#E040FB",
-    link: "/services#digital",
-  },
+  { icon: <FaRoad size={32} />, title: "Billboards", description: "Extensive inventory across WA - from Kimberley through Goldfields to South West.", color: "#FF6B35", link: "/services#billboards" },
+  { icon: <FaPlane size={32} />, title: "Airports", description: "Advertising rights to most of WA's regional airports for maximum exposure.", color: "#FF4858", link: "/services#airports" },
+  { icon: <FaDesktop size={32} />, title: "Digital", description: "Moving to digital with multi-faced screens across regional WA locations.", color: "#E040FB", link: "/services#digital" },
 ];
 
 const partners = ["oOh! Media", "JCDecaux"];
@@ -85,7 +51,7 @@ export default function Home() {
   }, [nextSlide]);
 
   return (
-    <main className="home">
+    <main className="bg-[#0a0a0f] text-white min-h-screen">
       <SEO
         path="/"
         description="WA Billboards — Perth & Western Australia's #1 billboard advertising company since 1991. 200+ outdoor billboard sites, 6 regional airport terminals & digital displays. Get a free quote: 08 9248 5070."
@@ -96,39 +62,15 @@ export default function Home() {
             "@id": "https://wabillboards.com.au/#organization",
             name: "WA Billboards",
             url: "https://wabillboards.com.au",
-            logo: {
-              "@type": "ImageObject",
-              url: "https://wabillboards.com.au/og-image.jpg",
-            },
-            description:
-              "Western Australia's largest privately owned outdoor media company. Billboard advertising, airport ads & digital displays since 1991.",
+            logo: { "@type": "ImageObject", url: "https://wabillboards.com.au/og-image.jpg" },
+            description: "Western Australia's largest privately owned outdoor media company. Billboard advertising, airport ads & digital displays since 1991.",
             foundingDate: "1991",
-            founder: {
-              "@type": "Person",
-              name: "Stephen Robinson",
-            },
-            areaServed: {
-              "@type": "State",
-              name: "Western Australia",
-            },
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "40B Boulder Road",
-              addressLocality: "Malaga",
-              addressRegion: "WA",
-              postalCode: "6090",
-              addressCountry: "AU",
-            },
+            founder: { "@type": "Person", name: "Stephen Robinson" },
+            areaServed: { "@type": "State", name: "Western Australia" },
+            address: { "@type": "PostalAddress", streetAddress: "40B Boulder Road", addressLocality: "Malaga", addressRegion: "WA", postalCode: "6090", addressCountry: "AU" },
             telephone: "+61-8-9248-5070",
             email: "sales@wabillboards.com.au",
-            contactPoint: {
-              "@type": "ContactPoint",
-              contactType: "sales",
-              telephone: "+61-8-9248-5070",
-              email: "sales@wabillboards.com.au",
-              areaServed: "AU",
-              availableLanguage: "English",
-            },
+            contactPoint: { "@type": "ContactPoint", contactType: "sales", telephone: "+61-8-9248-5070", email: "sales@wabillboards.com.au", areaServed: "AU", availableLanguage: "English" },
             sameAs: [],
           },
           {
@@ -141,33 +83,10 @@ export default function Home() {
             telephone: "+61-8-9248-5070",
             email: "sales@wabillboards.com.au",
             priceRange: "$$",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "40B Boulder Road",
-              addressLocality: "Malaga",
-              addressRegion: "WA",
-              postalCode: "6090",
-              addressCountry: "AU",
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: -31.8587,
-              longitude: 115.8985,
-            },
-            openingHoursSpecification: {
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-              ],
-              opens: "08:30",
-              closes: "17:00",
-            },
-            description:
-              "Western Australia's largest privately owned outdoor media company offering billboard advertising, airport advertising and digital displays since 1991.",
+            address: { "@type": "PostalAddress", streetAddress: "40B Boulder Road", addressLocality: "Malaga", addressRegion: "WA", postalCode: "6090", addressCountry: "AU" },
+            geo: { "@type": "GeoCoordinates", latitude: -31.8587, longitude: 115.8985 },
+            openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:30", closes: "17:00" },
+            description: "Western Australia's largest privately owned outdoor media company offering billboard advertising, airport advertising and digital displays since 1991.",
           },
           {
             "@context": "https://schema.org",
@@ -175,81 +94,84 @@ export default function Home() {
             "@id": "https://wabillboards.com.au/#website",
             name: "WA Billboards",
             url: "https://wabillboards.com.au",
-            publisher: {
-              "@id": "https://wabillboards.com.au/#organization",
-            },
+            publisher: { "@id": "https://wabillboards.com.au/#organization" },
           },
         ]}
       />
-      {/* Hero Section - Full Width Billboard Slideshow */}
-      <section className="hero">
-        {/* Slider area with images */}
-        <div className="hero__slideshow">
-          {heroSlides.map((slide, i) => (
-            <div
-              key={i}
-              className={`hero__slide ${currentSlide === i ? "hero__slide--active" : ""}`}
-            >
-              <img
-                src={slide.image}
-                alt={slide.label}
-                className="hero__slide-img"
-              />
-            </div>
-          ))}
 
-          {/* Slide navigation arrows - inside slideshow for mobile positioning */}
-          <button
-            className="hero__arrow hero__arrow--prev"
-            onClick={prevSlide}
-            aria-label="Previous slide"
+      {/* Hero Section - Full Screen Slideshow */}
+      <section className="relative min-h-screen flex items-end overflow-hidden">
+        {/* Background Slideshow */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            className="absolute inset-0 z-0"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
           >
-            <HiChevronLeft size={32} />
-          </button>
-          <button
-            className="hero__arrow hero__arrow--next"
-            onClick={nextSlide}
-            aria-label="Next slide"
-          >
-            <HiChevronRight size={32} />
-          </button>
+            <img
+              src={heroSlides[currentSlide].image}
+              alt={heroSlides[currentSlide].label}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
 
-          {/* Slide label on image (mobile) */}
-          <div className="hero__slide-badge-mobile">
-            {heroSlides[currentSlide].label}
-          </div>
-        </div>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/60 to-transparent" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0a0a0f]/80 to-transparent" />
 
-        {/* Bottom gradient for text readability (desktop only) */}
-        <div className="hero__gradient-bottom" />
+        {/* Navigation Arrows */}
+        <button
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all duration-300"
+          onClick={prevSlide}
+          aria-label="Previous slide"
+        >
+          <HiChevronLeft size={28} />
+        </button>
+        <button
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all duration-300"
+          onClick={nextSlide}
+          aria-label="Next slide"
+        >
+          <HiChevronRight size={28} />
+        </button>
 
-        {/* Content overlay at the bottom (desktop) / Content card below slider (mobile) */}
-        <div className="hero__overlay-content">
-          <div className="container">
+        {/* Hero Content */}
+        <div className="relative z-10 w-full pb-24 md:pb-32 pt-40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="hero__text"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.9, ease: "easeOut" }}
+              className="max-w-3xl"
             >
-              <span className="hero__badge">
+              <span className="inline-block px-4 py-2 rounded-full glass text-sm font-medium text-white/90 mb-6">
                 WA's Largest Outdoor Media Company
               </span>
-              <h1 className="hero__title">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 tracking-tight">
                 Make Your Brand
-                <span className="hero__title-highlight"> Impossible </span>
+                <span className="gradient-text"> Impossible </span>
                 to Ignore
               </h1>
-              <p className="hero__subtitle">
+              <p className="text-lg md:text-xl text-white/70 mb-8 max-w-2xl leading-relaxed">
                 Captivating billboard advertising across Western Australia. From
                 Perth metro to the Kimberley — we put your brand in front of the
                 right audience, every day.
               </p>
-              <div className="hero__actions">
-                <Link to="/contact" className="btn btn-primary btn-lg">
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF6B35] to-[#FF4858] rounded-xl text-white font-semibold text-lg hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all duration-300 hover:-translate-y-0.5"
+                >
                   Get Started <HiArrowRight />
                 </Link>
-                <Link to="/services" className="btn btn-outline btn-lg">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl glass text-white font-semibold text-lg hover:bg-white/15 transition-all duration-300"
+                >
                   <HiPlay /> Our Services
                 </Link>
               </div>
@@ -257,22 +179,26 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Slide dots + current label */}
-        <div className="hero__slide-nav">
-          <span className="hero__slide-label">
+        {/* Slide Navigation */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
+          <span className="text-sm text-white/60 hidden md:block">
             {heroSlides[currentSlide].label}
           </span>
-          <div className="hero__dots">
+          <div className="flex gap-2">
             {heroSlides.map((_, i) => (
               <button
                 key={i}
-                className={`hero__dot ${currentSlide === i ? "hero__dot--active" : ""}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === i
+                    ? "w-8 bg-gradient-to-r from-[#FF6B35] to-[#FF4858]"
+                    : "w-2 bg-white/30 hover:bg-white/50"
+                }`}
                 onClick={() => setCurrentSlide(i)}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}
           </div>
-          <span className="hero__slide-counter">
+          <span className="text-sm text-white/40 font-mono">
             {String(currentSlide + 1).padStart(2, "0")} /{" "}
             {String(heroSlides.length).padStart(2, "0")}
           </span>
@@ -280,21 +206,25 @@ export default function Home() {
       </section>
 
       {/* Stats Bar */}
-      <section className="stats-bar">
-        <div className="container">
-          <div className="stats-bar__grid">
+      <section className="relative z-10 -mt-16 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                className="stats-bar__item"
-                initial={{ opacity: 0, y: 20 }}
+                className="glass-dark rounded-2xl p-6 text-center hover-lift"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="stats-bar__icon">{stat.icon}</div>
-                <div className="stats-bar__number">{stat.number}</div>
-                <div className="stats-bar__label">{stat.label}</div>
+                <div className="text-2xl text-[#FF6B35] mb-2 flex justify-center">
+                  {stat.icon}
+                </div>
+                <div className="text-3xl md:text-4xl font-bold gradient-text">
+                  {stat.number}
+                </div>
+                <div className="text-sm text-white/50 mt-1">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -305,21 +235,23 @@ export default function Home() {
       <LocationsMap />
 
       {/* Services Preview */}
-      <section className="home-services">
-        <div className="container">
-          <div className="home-services__header">
-            <span className="section-tag">What We Offer</span>
-            <h2 className="section-title">
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full glass text-sm font-medium text-[#FF6B35] mb-4">
+              What We Offer
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Outdoor Advertising{" "}
               <span className="gradient-text">Solutions</span>
             </h2>
-            <p className="section-subtitle">
+            <p className="text-white/60 max-w-2xl mx-auto text-lg">
               From traditional billboards to cutting-edge digital displays, we
               have the perfect advertising solution for your business.
             </p>
           </div>
 
-          <div className="home-services__grid">
+          <div className="grid md:grid-cols-3 gap-6">
             {services.map((service, i) => (
               <motion.div
                 key={i}
@@ -328,9 +260,12 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
               >
-                <Link to={service.link} className="service-card">
+                <Link
+                  to={service.link}
+                  className="block glass-dark rounded-2xl p-8 hover-lift transition-all duration-300 group h-full"
+                >
                   <div
-                    className="service-card__icon"
+                    className="w-16 h-16 rounded-xl flex items-center justify-center mb-6"
                     style={{
                       background: `${service.color}15`,
                       color: service.color,
@@ -338,9 +273,14 @@ export default function Home() {
                   >
                     {service.icon}
                   </div>
-                  <h3 className="service-card__title">{service.title}</h3>
-                  <p className="service-card__desc">{service.description}</p>
-                  <span className="service-card__link">
+                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-white/60 mb-4 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <span
+                    className="inline-flex items-center gap-2 font-semibold text-sm group-hover:gap-3 transition-all duration-300"
+                    style={{ color: service.color }}
+                  >
                     Learn More <HiArrowRight />
                   </span>
                 </Link>
@@ -351,27 +291,32 @@ export default function Home() {
       </section>
 
       {/* Billboard Gallery */}
-      <section className="home-gallery">
-        <div className="container">
-          <div className="home-gallery__header">
-            <span className="section-tag">Our Billboard Network</span>
-            <h2 className="section-title">
+      <section className="py-24 bg-[#0d0d14]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full glass text-sm font-medium text-[#FF6B35] mb-4">
+              Our Billboard Network
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Featured <span className="gradient-text">Locations</span>
             </h2>
-            <p className="section-subtitle">
+            <p className="text-white/60 max-w-2xl mx-auto text-lg">
               Explore our extensive network of billboard locations across
               Western Australia.
             </p>
           </div>
 
-          <div className="home-gallery__grid">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {billboardImages.slice(0, 6).map((image, i) => (
               <BillboardCard key={image.id} image={image} index={i} />
             ))}
           </div>
 
-          <div className="home-gallery__cta">
-            <Link to="/locations" className="btn btn-primary">
+          <div className="text-center mt-12">
+            <Link
+              to="/locations"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF6B35] to-[#FF4858] rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all duration-300 hover:-translate-y-0.5"
+            >
               View All Locations <HiArrowRight />
             </Link>
           </div>
@@ -379,15 +324,19 @@ export default function Home() {
       </section>
 
       {/* Image Marquee */}
-      <section className="marquee-section">
-        <div className="marquee">
-          <div className="marquee__track">
+      <section className="py-16 overflow-hidden">
+        <div className="relative">
+          <div className="flex animate-marquee">
             {[...galleryImages, ...galleryImages].map((img, i) => (
-              <div key={i} className="marquee__item">
+              <div
+                key={i}
+                className="flex-shrink-0 w-72 md:w-96 h-48 md:h-64 mx-2 rounded-xl overflow-hidden"
+              >
                 <img
                   src={img}
                   alt={`WA Billboards outdoor advertising showcase ${i + 1}`}
                   loading="lazy"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>
             ))}
@@ -396,95 +345,99 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="why-us">
-        <div className="container">
-          <div className="why-us__layout">
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              className="why-us__content"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="section-tag">Why WA Billboards</span>
-              <h2 className="section-title">
+              <span className="inline-block px-4 py-1.5 rounded-full glass text-sm font-medium text-[#FF6B35] mb-4">
+                Why WA Billboards
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                 One of the Last{" "}
                 <span className="gradient-text">Privately Owned</span> Outdoor
                 Media Companies in WA
               </h2>
-              <p className="why-us__text">
+              <p className="text-white/60 text-lg mb-8 leading-relaxed">
                 Since 1991, WA Billboards has been the trusted name in outdoor
                 advertising. Our independence means we can react quickly to
                 client needs and offer competitive rates without corporate red
                 tape.
               </p>
 
-              <div className="why-us__features">
-                <div className="why-us__feature">
-                  <div
-                    className="why-us__feature-dot"
-                    style={{ background: "var(--gray-900)" }}
-                  />
-                  <span>Family-owned & operated since 1991</span>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#FF6B35] to-[#FF4858]" />
+                  <span className="text-white/80">
+                    Family-owned & operated since 1991
+                  </span>
                 </div>
-                <div className="why-us__feature">
-                  <div
-                    className="why-us__feature-dot"
-                    style={{ background: "var(--gray-900)" }}
-                  />
-                  <span>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#FF6B35] to-[#FF4858]" />
+                  <span className="text-white/80">
                     Australia-wide representation via oOh! Media & JCDecaux
                   </span>
                 </div>
-                <div className="why-us__feature">
-                  <div
-                    className="why-us__feature-dot"
-                    style={{ background: "var(--gray-900)" }}
-                  />
-                  <span>Cyclone-rated billboards built in-house</span>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#FF6B35] to-[#FF4858]" />
+                  <span className="text-white/80">
+                    Cyclone-rated billboards built in-house
+                  </span>
                 </div>
               </div>
 
-              <Link to="/about" className="btn btn-primary">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF6B35] to-[#FF4858] rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-[#FF6B35]/25 transition-all duration-300 hover:-translate-y-0.5"
+              >
                 Our Story <HiArrowRight />
               </Link>
             </motion.div>
 
             <motion.div
-              className="why-us__images"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="relative"
             >
-              <div className="why-us__image-grid">
+              <div className="grid grid-cols-2 gap-4">
                 <img
                   src={galleryImages[3]}
                   alt="Billboard advertising on busy Western Australia highway"
-                  className="why-us__img why-us__img--1"
+                  className="rounded-2xl object-cover w-full h-64 col-span-2"
                 />
                 <img
                   src={galleryImages[4]}
                   alt="WA Billboards regional billboard site at sunset"
-                  className="why-us__img why-us__img--2"
+                  className="rounded-2xl object-cover w-full h-48"
                 />
                 <img
                   src={galleryImages[5]}
                   alt="WA Billboards team servicing remote billboard location"
-                  className="why-us__img why-us__img--3"
+                  className="rounded-2xl object-cover w-full h-48"
                 />
-                <div className="why-us__img-accent" />
               </div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-full bg-gradient-to-r from-[#FF6B35]/20 to-[#FF4858]/20 blur-2xl" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Partners Strip */}
-      <section className="partners">
-        <div className="container">
-          <p className="partners__label">National Sales Representation</p>
-          <div className="partners__logos">
+      <section className="py-16 border-t border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm text-white/40 uppercase tracking-widest mb-8">
+            National Sales Representation
+          </p>
+          <div className="flex justify-center items-center gap-12">
             {partners.map((partner, i) => (
-              <div key={i} className="partners__logo">
+              <div
+                key={i}
+                className="glass-dark rounded-xl px-10 py-5 text-xl font-bold text-white/60 hover:text-white transition-colors duration-300"
+              >
                 {partner}
               </div>
             ))}
@@ -493,21 +446,30 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="home-cta">
-        <div className="container">
-          <div className="home-cta__card">
-            <div className="home-cta__bg" />
-            <div className="home-cta__content">
-              <h2 className="home-cta__title">Ready to Make an Impact?</h2>
-              <p className="home-cta__text">
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl overflow-hidden p-12 md:p-16">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B35] to-[#FF4858] opacity-90" />
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48L3N2Zz4=')] opacity-30" />
+            <div className="relative z-10 text-center">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                Ready to Make an Impact?
+              </h2>
+              <p className="text-white/90 text-lg max-w-2xl mx-auto mb-8">
                 Let's find the perfect billboard location for your business.
                 Contact us today for a free consultation.
               </p>
-              <div className="home-cta__actions">
-                <Link to="/contact" className="btn btn-secondary btn-lg">
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0a0a0f] rounded-xl font-semibold text-lg hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5"
+                >
                   Contact Us <HiArrowRight />
                 </Link>
-                <Link to="/locations" className="btn btn-outline btn-lg">
+                <Link
+                  to="/locations"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300"
+                >
                   View Locations
                 </Link>
               </div>

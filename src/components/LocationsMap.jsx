@@ -1,7 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import "./LocationsMap.css";
 
 export const billboardPoints = [
   { id: 51, title: "Bassendean", category: "Road", site_id: "WA020", size: "8.3m x 2.2m", site_card_url: "https://www.wabillboards.com.au/wp-content/uploads/2022/08/Bassendean-WA020.pdf", lat: -31.894872, lng: 115.944671 },
@@ -58,27 +57,15 @@ export const billboardPoints = [
 ];
 
 const markerIcon = new L.Icon({
-  iconUrl:
-    "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon.png",
-  iconRetinaUrl:
-    "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-  shadowUrl:
-    "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
+  iconUrl: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41],
 });
 
 const airportIcon = new L.DivIcon({
-  html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
-    <circle cx="18" cy="18" r="16" fill="#FF4858" stroke="#fff" stroke-width="2"/>
-    <path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#fff"/>
-  </svg>`,
-  className: "locations-map-section__airport-icon",
-  iconSize: [36, 36],
-  iconAnchor: [18, 18],
-  popupAnchor: [0, -18],
+  html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36"><circle cx="18" cy="18" r="16" fill="#FF4858" stroke="#fff" stroke-width="2"/><path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#fff"/></svg>',
+  className: "", iconSize: [36, 36], iconAnchor: [18, 18], popupAnchor: [0, -18],
 });
 
 function getIcon(point) {
@@ -87,67 +74,27 @@ function getIcon(point) {
 
 export default function LocationsMap() {
   const center = [-26.5, 119];
-
   return (
-    <section className="locations-map-section">
-      <div className="container">
-        <div className="locations-map-section__header">
-          <span className="section-tag">Our Locations</span>
-          <h2 className="section-title">
-            Billboard <span className="gradient-text">Locations Map</span>
-          </h2>
-          <p className="section-subtitle">
-            Explore our billboard locations across Perth and Western Australia.
-          </p>
+    <section className="py-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-orange/10 text-orange mb-4 uppercase tracking-wider">Our Locations</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Billboard <span className="gradient-text">Locations Map</span></h2>
+          <p className="text-slate-400 max-w-xl mx-auto">Explore our billboard locations across Perth and Western Australia.</p>
         </div>
-        <div className="locations-map-section__wrapper">
-          <MapContainer
-            center={center}
-            zoom={5}
-            scrollWheelZoom={false}
-            className="locations-map-section__map"
-          >
+        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/30" style={{ height: '500px' }}>
+          <MapContainer center={center} zoom={5} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
             <TileLayer
-              attribution='Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ'
+              attribution='Tiles &copy; Esri'
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
             />
             {billboardPoints.map((point) => (
               <Marker key={point.id} position={[point.lat, point.lng]} icon={getIcon(point)}>
                 <Tooltip direction="top" offset={[0, -20]} opacity={0.95}>
-                  <div className="locations-map-section__popup">
-                    <h4>{point.title}</h4>
-                    {point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}
-                    {point.size && <p><strong>Size:</strong> {point.size}</p>}
-                    {point.category && <p><strong>Category:</strong> {point.category}</p>}
-                    {point.site_card_url && (
-                      <a
-                        href={point.site_card_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="locations-map-section__site-card-link"
-                      >
-                        View Site Card (PDF)
-                      </a>
-                    )}
-                  </div>
+                  <div><h4 style={{ fontWeight: 'bold' }}>{point.title}</h4>{point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}{point.size && <p><strong>Size:</strong> {point.size}</p>}</div>
                 </Tooltip>
                 <Popup>
-                  <div className="locations-map-section__popup">
-                    <h4>{point.title}</h4>
-                    {point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}
-                    {point.size && <p><strong>Size:</strong> {point.size}</p>}
-                    {point.category && <p><strong>Category:</strong> {point.category}</p>}
-                    {point.site_card_url && (
-                      <a
-                        href={point.site_card_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="locations-map-section__site-card-link"
-                      >
-                        View Site Card (PDF)
-                      </a>
-                    )}
-                  </div>
+                  <div><h4 style={{ fontWeight: 'bold' }}>{point.title}</h4>{point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}{point.size && <p><strong>Size:</strong> {point.size}</p>}{point.category && <p><strong>Category:</strong> {point.category}</p>}{point.site_card_url && <a href={point.site_card_url} target="_blank" rel="noopener noreferrer" style={{ color: '#FF6B35' }}>View Site Card (PDF)</a>}</div>
                 </Popup>
               </Marker>
             ))}

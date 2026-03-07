@@ -4,7 +4,6 @@ import { HiLocationMarker, HiPhone, HiMail, HiClock, HiCheckCircle } from 'react
 
 import { galleryImages } from '../assets/billboardImages'
 import SEO from '../components/SEO'
-import './Contact.css'
 
 const contactInfo = [
   {

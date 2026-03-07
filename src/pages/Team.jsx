@@ -8,7 +8,6 @@ import teamChristopher from '../assets/images/team/Christopher Robinson.jpeg'
 import teamRebecca from '../assets/images/team/Rebecca Zaubzer.jpeg'
 import teamWhole from '../assets/images/team/whole team.jpeg'
 import SEO from '../components/SEO'
-import './Team.css'
 
 const teamMembers = [
   {
@@ -54,7 +53,7 @@ const qualities = [
 
 export default function Team() {
   return (
-    <main className="team">
+    <main className="bg-[#0a0a0f] min-h-screen">
       <SEO
         title="Our Team — The Robinson Family Behind WA's Largest Billboard Company"
         path="/team"
@@ -76,21 +75,22 @@ export default function Team() {
           ],
         }}
       />
+
       {/* Page Header */}
-      <section className="page-header">
-        <div className="page-header__bg">
-          <img src={galleryImages[5]} alt="WA Billboards team members at outdoor billboard site" />
-          <div className="page-header__overlay" />
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={galleryImages[5]} alt="WA Billboards team members at outdoor billboard site" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f]/80 via-[#0a0a0f]/60 to-[#0a0a0f]" />
         </div>
-        <div className="page-header__content container">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="hero__badge">Our People</span>
-            <h1 className="page-header__title">Meet the Team</h1>
-            <p className="page-header__subtitle">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-white/10 text-white/90 backdrop-blur-sm border border-white/10 mb-6">Our People</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Meet the Team</h1>
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
               A dedicated family team driving Western Australia's outdoor media industry since 1991.
             </p>
           </motion.div>
@@ -98,50 +98,59 @@ export default function Team() {
       </section>
 
       {/* Team Grid */}
-      <section className="team-grid-section">
-        <div className="container">
-          <div className="team-grid-section__header">
-            <span className="section-tag">The Robinson Family</span>
-            <h2 className="section-title">
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/5 text-orange-400 border border-orange-400/20 mb-4">The Robinson Family</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               The People Behind <span className="gradient-text">Your Billboards</span>
             </h2>
-            <p className="section-subtitle">
+            <p className="text-lg text-white/60 max-w-2xl mx-auto">
               Our tight-knit family team ensures personal attention and quick response to every client need.
             </p>
           </div>
 
-          <div className="team-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {teamMembers.map((member, i) => (
               <motion.div
                 key={i}
-                className="team-card"
+                className="glass rounded-2xl overflow-hidden hover-lift"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="team-card__image-wrap">
-                  {member.image ? (
-                    <img src={member.image} alt={member.name} className="team-card__image" />
-                  ) : (
-                    <div className="team-card__placeholder" style={{ background: `${member.color}15`, color: member.color }}>
-                      <span className="team-card__placeholder-initials">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
+                <div className="flex flex-col sm:flex-row">
+                  {/* Photo / Initials */}
+                  <div className="w-full sm:w-48 h-56 sm:h-auto relative flex-shrink-0">
+                    {member.image ? (
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center" style={{ background: `${member.color}15` }}>
+                        <span className="text-5xl font-bold" style={{ color: member.color }}>
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                    )}
+                    <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: member.color }} />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex-1 space-y-3">
+                    <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                    <span className="text-sm font-medium" style={{ color: member.color }}>{member.role}</span>
+                    <p className="text-white/60 text-sm leading-relaxed">{member.bio}</p>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {member.highlights.map((h, j) => (
+                        <span
+                          key={j}
+                          className="px-3 py-1 rounded-full text-xs font-medium"
+                          style={{ background: `${member.color}12`, color: member.color, border: `1px solid ${member.color}25` }}
+                        >
+                          {h}
+                        </span>
+                      ))}
                     </div>
-                  )}
-                  <div className="team-card__image-border" style={{ borderColor: member.color }} />
-                </div>
-                <div className="team-card__content">
-                  <h3 className="team-card__name">{member.name}</h3>
-                  <span className="team-card__role" style={{ color: member.color }}>{member.role}</span>
-                  <p className="team-card__bio">{member.bio}</p>
-                  <div className="team-card__highlights">
-                    {member.highlights.map((h, j) => (
-                      <span key={j} className="team-card__highlight">
-                        {h}
-                      </span>
-                    ))}
                   </div>
                 </div>
               </motion.div>
@@ -151,28 +160,28 @@ export default function Team() {
       </section>
 
       {/* Team Qualities */}
-      <section className="team-qualities">
-        <div className="container">
-          <div className="team-qualities__header">
-            <span className="section-tag">What Makes Us Different</span>
-            <h2 className="section-title">
+      <section className="py-20 md:py-28 bg-white/[0.02]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/5 text-orange-400 border border-orange-400/20 mb-4">What Makes Us Different</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
               A Team Built on <span className="gradient-text">Excellence</span>
             </h2>
           </div>
 
-          <div className="team-qualities__grid">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {qualities.map((q, i) => (
               <motion.div
                 key={i}
-                className="quality-card"
+                className="glass rounded-2xl p-6 hover-lift"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="quality-card__number">0{i + 1}</div>
-                <h3 className="quality-card__title">{q.title}</h3>
-                <p className="quality-card__desc">{q.desc}</p>
+                <div className="text-4xl font-bold gradient-text mb-4">0{i + 1}</div>
+                <h3 className="text-lg font-semibold text-white mb-2">{q.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed">{q.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -180,25 +189,31 @@ export default function Team() {
       </section>
 
       {/* Image Strip */}
-      <section className="team-images">
-        <div className="team-images__strip">
+      <section className="py-12">
+        <div className="flex gap-4 overflow-hidden">
           {[teamWhole, teamStephen, teamChristopher, teamRebecca].map((img, i) => (
-            <div key={i} className="team-images__item">
-              <img src={img} alt={`WA Billboards team member ${['group photo', 'Stephen Robinson', 'Christopher Robinson', 'Rebecca Zaubzer'][i]}`} loading="lazy" />
+            <div key={i} className="flex-shrink-0 w-1/2 md:w-1/4 h-64 overflow-hidden rounded-xl">
+              <img
+                src={img}
+                alt={`WA Billboards team member ${['group photo', 'Stephen Robinson', 'Christopher Robinson', 'Rebecca Zaubzer'][i]}`}
+                loading="lazy"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="team-cta">
-        <div className="container">
-          <div className="team-cta__card">
-            <div className="team-cta__bg" />
-            <div className="team-cta__content">
-              <h2>Want to Work With Our Team?</h2>
-              <p>Get in touch to discuss your outdoor advertising needs.</p>
-              <Link to="/contact" className="btn btn-secondary btn-lg">
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20" />
+            <div className="absolute inset-0 glass-dark" />
+            <div className="relative z-10 text-center py-16 px-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Want to Work With Our Team?</h2>
+              <p className="text-lg text-white/60 mb-8 max-w-xl mx-auto">Get in touch to discuss your outdoor advertising needs.</p>
+              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300">
                 Contact Us <HiArrowRight />
               </Link>
             </div>

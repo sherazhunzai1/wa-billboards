@@ -1,9 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaComments, FaTimes, FaPaperPlane, FaMapMarkerAlt, FaBullhorn, FaPlane, FaDesktop, FaUsers, FaPhoneAlt, FaEnvelope, FaLandmark, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
-import './Chatbot.css';
 
-/* ── Web Audio API sound effects ── */
 const audioCtx = () => {
   if (!window.__chatAudioCtx) {
     window.__chatAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -35,7 +33,6 @@ const sounds = {
   notification: () => { playTone(800, 0.08); setTimeout(() => playTone(1000, 0.08), 80); setTimeout(() => playTone(1200, 0.12), 160); },
 };
 
-/* ── Chatbot knowledge base ── */
 const QUICK_REPLIES = [
   { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
   { id: 'locations', label: 'Locations', icon: <FaMapMarkerAlt /> },
@@ -54,11 +51,7 @@ const SERVICE_OPTIONS = [
 const buildBotReply = (key, navigate) => {
   switch (key) {
     case 'greeting':
-      return {
-        text: "G'day! Welcome to WA Billboards — Western Australia's largest privately owned outdoor media company. How can I help you today?",
-        quickReplies: QUICK_REPLIES,
-      };
-
+      return { text: "G'day! Welcome to WA Billboards — Western Australia's largest privately owned outdoor media company. How can I help you today?", quickReplies: QUICK_REPLIES };
     case 'services':
       return {
         text: "We offer three powerful advertising solutions across Western Australia:",
@@ -73,119 +66,70 @@ const buildBotReply = (key, navigate) => {
           { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
         ],
       };
-
     case 'billboards':
       return {
         text: "Our billboard network spans the entire state of Western Australia — from Perth Metro to the Kimberley, Goldfields, and South West regions. With 200+ sites, we offer:\n\n- Metro and regional coverage\n- Cyclone-rated billboards built in-house\n- Competitive rates with flexible booking\n- Perfect audience targeting",
-        quickReplies: [
-          { id: 'locations', label: 'View Locations', icon: <FaMapMarkerAlt /> },
-          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
-          { id: 'services', label: 'All Services', icon: <FaBullhorn /> },
-        ],
+        quickReplies: [{ id: 'locations', label: 'View Locations', icon: <FaMapMarkerAlt /> }, { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> }, { id: 'services', label: 'All Services', icon: <FaBullhorn /> }],
         link: { text: 'View Billboard Details', path: '/services#billboards' },
       };
-
     case 'airports':
       return {
         text: "We hold advertising rights to 6 regional airports across WA:\n\n1. Karratha Airport\n2. Port Hedland Airport\n3. Newman Airport\n4. Kalgoorlie-Boulder Airport\n5. Geraldton Airport\n6. Onslow Airport\n\nReach FIFO workers, tourists, commuters, and more with unmatched audience diversity!",
-        quickReplies: [
-          { id: 'digital', label: 'Digital Displays', icon: <FaDesktop /> },
-          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
-          { id: 'locations', label: 'View Map', icon: <FaMapMarkerAlt /> },
-        ],
+        quickReplies: [{ id: 'digital', label: 'Digital Displays', icon: <FaDesktop /> }, { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> }, { id: 'locations', label: 'View Map', icon: <FaMapMarkerAlt /> }],
         link: { text: 'View Airport Advertising', path: '/services#airports' },
       };
-
     case 'digital':
       return {
         text: "Our growing digital display network includes:\n\n- 12-faced digital screen at Karratha Airport\n- 3-panelled digital screens in Newman\n- 3-panelled digital screens in Kalgoorlie\n\nDigital allows multiple clients per site, dynamic content scheduling, and we're constantly adding new locations!",
-        quickReplies: [
-          { id: 'billboards', label: 'Billboards', icon: <FaBullhorn /> },
-          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
-        ],
+        quickReplies: [{ id: 'billboards', label: 'Billboards', icon: <FaBullhorn /> }, { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> }],
         link: { text: 'View Digital Displays', path: '/services#digital' },
       };
-
     case 'locations':
       return {
         text: "We have billboard and advertising sites across all of Western Australia, including:\n\n- Perth Metro (Mitchell Freeway, Great Eastern Hwy & more)\n- Karratha, Port Hedland, Newman\n- Kalgoorlie, Geraldton, Onslow\n- Kimberley, Goldfields, South West\n- Jandakot (HQ & manufacturing)\n- Malaga (Office)",
-        quickReplies: [
-          { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
-          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
-        ],
+        quickReplies: [{ id: 'services', label: 'Our Services', icon: <FaBullhorn /> }, { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> }],
         link: { text: 'View All Locations on Map', path: '/locations' },
       };
-
     case 'about':
       return {
         text: "WA Billboards was founded in 1991 by Stephen and Kerry Robinson and has grown to become Western Australia's largest domestic outdoor media operator.\n\nKey facts:\n- 30+ years of experience\n- 200+ billboard sites\n- 6 regional airports\n- 100% WA family-owned\n- Own aircraft fleet with CASA approved maintenance\n- In-house sign manufacturing at Jandakot Airport\n- National reach through oOh! Media & JCDecaux partnerships",
-        quickReplies: [
-          { id: 'team', label: 'Meet the Team', icon: <FaUsers /> },
-          { id: 'why_us', label: 'Why Choose Us?', icon: <FaInfoCircle /> },
-          { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
-        ],
+        quickReplies: [{ id: 'team', label: 'Meet the Team', icon: <FaUsers /> }, { id: 'why_us', label: 'Why Choose Us?', icon: <FaInfoCircle /> }, { id: 'services', label: 'Our Services', icon: <FaBullhorn /> }],
         link: { text: 'Read Our Full Story', path: '/about' },
       };
-
     case 'why_us':
       return {
         text: "Why choose WA Billboards?\n\n- Family-owned & operated since 1991\n- Last privately owned outdoor media company in WA\n- Australia-wide representation via oOh! Media & JCDecaux\n- Cyclone-rated billboards built in-house\n- Own aircraft fleet with CASA approved maintenance\n- Quick response — no corporate delays\n- Competitive rates with flexible booking\n- Independence allows personalized service",
-        quickReplies: [
-          { id: 'contact', label: 'Get Started', icon: <FaPhoneAlt /> },
-          { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
-          { id: 'about', label: 'About Us', icon: <FaInfoCircle /> },
-        ],
+        quickReplies: [{ id: 'contact', label: 'Get Started', icon: <FaPhoneAlt /> }, { id: 'services', label: 'Our Services', icon: <FaBullhorn /> }, { id: 'about', label: 'About Us', icon: <FaInfoCircle /> }],
       };
-
     case 'team':
       return {
         text: "Meet the WA Billboards family:\n\n- Stephen Robinson — Founder & Managing Director (40+ years in outdoor media, Commercial Pilot)\n- Christopher Robinson — Operations Manager (joined 2010, Private Pilot, ASIC certified)\n- Mitchell Robinson — Business Development\n- Rebecca Zaubzer — Sales & Marketing Manager\n\nOur team holds pilot licenses to service remote locations and ASIC cards for airport access!",
-        quickReplies: [
-          { id: 'about', label: 'About Us', icon: <FaInfoCircle /> },
-          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
-        ],
+        quickReplies: [{ id: 'about', label: 'About Us', icon: <FaInfoCircle /> }, { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> }],
         link: { text: 'Meet the Full Team', path: '/team' },
       };
-
     case 'contact':
       return {
         text: "We'd love to hear from you!\n\nPhone: 08 9248 5070\nEmail: sales@wabillboards.com.au\nAddress: 40B Boulder Road, MALAGA 6090\n\nBusiness Hours:\nMon-Fri: 8:30am - 5pm\nSat-Sun: Closed",
-        quickReplies: [
-          { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
-          { id: 'locations', label: 'Locations', icon: <FaMapMarkerAlt /> },
-        ],
+        quickReplies: [{ id: 'services', label: 'Our Services', icon: <FaBullhorn /> }, { id: 'locations', label: 'Locations', icon: <FaMapMarkerAlt /> }],
         link: { text: 'Go to Contact Page', path: '/contact' },
       };
-
     case 'landowners':
       return {
         text: "Own commercial land on a busy road? Generate steady income with a WA Billboards site!\n\nBenefits:\n- Steady income stream for contract duration\n- Flexible contracts starting at 3 years\n- Long-term relationships — some over 20 years!\n\nIdeal properties: Busy roads, blank walls/roofs facing traffic, vacant blocks.\n\nContact us:\nPhone: 08 9248 5070\nEmail: sales@wabillboards.com.au",
-        quickReplies: [
-          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
-          { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
-        ],
+        quickReplies: [{ id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> }, { id: 'services', label: 'Our Services', icon: <FaBullhorn /> }],
         link: { text: 'Learn More About Land Owners', path: '/land-owners' },
       };
-
     case 'pricing':
       return {
         text: "Our rates are competitive and flexible! Pricing depends on:\n\n- Billboard location & size\n- Campaign duration\n- Type (static billboard, airport, or digital)\n\nWe'd love to put together a custom quote for your needs. Give us a call at 08 9248 5070 or send an email to sales@wabillboards.com.au!",
-        quickReplies: [
-          { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
-          { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
-        ],
+        quickReplies: [{ id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> }, { id: 'services', label: 'Our Services', icon: <FaBullhorn /> }],
         link: { text: 'Contact Us for Pricing', path: '/contact' },
       };
-
     case 'hours':
       return {
         text: "Our business hours are:\n\nMonday - Friday: 8:30am - 5pm\nSaturday & Sunday: Closed\n\nFeel free to reach out during business hours:\nPhone: 08 9248 5070\nEmail: sales@wabillboards.com.au",
-        quickReplies: [
-          { id: 'contact', label: 'Contact Page', icon: <FaPhoneAlt /> },
-          { id: 'services', label: 'Our Services', icon: <FaBullhorn /> },
-        ],
+        quickReplies: [{ id: 'contact', label: 'Contact Page', icon: <FaPhoneAlt /> }, { id: 'services', label: 'Our Services', icon: <FaBullhorn /> }],
       };
-
     default:
       return {
         text: "I'm not sure about that, but I'm here to help! You can ask me about:\n\n- Our advertising services (billboards, airports, digital)\n- Billboard locations across WA\n- Company info & team\n- Contact details & pricing\n- Land owner opportunities\n\nOr try one of the quick options below!",
@@ -194,10 +138,8 @@ const buildBotReply = (key, navigate) => {
   }
 };
 
-/* ── NLP keyword matching ── */
 const matchIntent = (input) => {
   const text = input.toLowerCase().trim();
-
   if (/\b(hi|hello|hey|g'?day|howdy|good\s*(morning|afternoon|evening))\b/.test(text)) return 'greeting';
   if (/\b(billboard|billboards|outdoor\s*media|signage|signs)\b/.test(text) && !/airport|digital|screen/.test(text)) return 'billboards';
   if (/\b(airport|airports|terminal|fly|flying|fifo)\b/.test(text)) return 'airports';
@@ -211,11 +153,9 @@ const matchIntent = (input) => {
   if (/\b(land\s*owner|landowner|property|site\s*(for|on)|lease|rent|income|my\s*land)\b/.test(text)) return 'landowners';
   if (/\b(price|pricing|cost|rate|how\s*much|quote|budget|afford)\b/.test(text)) return 'pricing';
   if (/\b(hour|hours|open|close|when|time|business\s*hour|trading)\b/.test(text)) return 'hours';
-
   return 'fallback';
 };
 
-/* ── Chatbot Component ── */
 export default function Chatbot() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -231,11 +171,8 @@ export default function Chatbot() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, isTyping, scrollToBottom]);
+  useEffect(() => { scrollToBottom(); }, [messages, isTyping, scrollToBottom]);
 
-  /* Auto-greet after 3 seconds */
   useEffect(() => {
     if (hasGreeted) return;
     const timer = setTimeout(() => {
@@ -249,15 +186,8 @@ export default function Chatbot() {
   }, [hasGreeted, navigate]);
 
   const toggleChat = () => {
-    if (isOpen) {
-      sounds.close();
-      setIsOpen(false);
-    } else {
-      sounds.open();
-      setIsOpen(true);
-      setUnreadCount(0);
-      setTimeout(() => inputRef.current?.focus(), 300);
-    }
+    if (isOpen) { sounds.close(); setIsOpen(false); }
+    else { sounds.open(); setIsOpen(true); setUnreadCount(0); setTimeout(() => inputRef.current?.focus(), 300); }
   };
 
   const addBotReply = useCallback((key) => {
@@ -268,152 +198,115 @@ export default function Chatbot() {
       setMessages(prev => [...prev, { id: Date.now(), sender: 'bot', ...reply }]);
       setIsTyping(false);
       sounds.receive();
-      if (!isOpen) {
-        setUnreadCount(prev => prev + 1);
-        sounds.notification();
-      }
+      if (!isOpen) { setUnreadCount(prev => prev + 1); sounds.notification(); }
     }, delay);
   }, [navigate, isOpen]);
 
   const handleSend = () => {
     const text = input.trim();
     if (!text) return;
-
     sounds.send();
     setMessages(prev => [...prev, { id: Date.now(), sender: 'user', text }]);
     setInput('');
-
     const intent = matchIntent(text);
     addBotReply(intent);
   };
 
   const handleQuickReply = (id) => {
     sounds.send();
-    const label = [...QUICK_REPLIES, ...SERVICE_OPTIONS,
-      { id: 'why_us', label: 'Why Choose Us?' },
-      { id: 'pricing', label: 'Pricing Info' },
-      { id: 'hours', label: 'Business Hours' },
-    ].find(q => q.id === id)?.label || id;
-
+    const label = [...QUICK_REPLIES, ...SERVICE_OPTIONS, { id: 'why_us', label: 'Why Choose Us?' }, { id: 'pricing', label: 'Pricing Info' }, { id: 'hours', label: 'Business Hours' }].find(q => q.id === id)?.label || id;
     setMessages(prev => [...prev, { id: Date.now(), sender: 'user', text: label }]);
     addBotReply(id);
   };
 
-  const handleNavigate = (path) => {
-    navigate(path);
-    setIsOpen(false);
-    sounds.close();
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSend();
-    }
-  };
+  const handleNavigate = (path) => { navigate(path); setIsOpen(false); sounds.close(); };
+  const handleKeyDown = (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } };
 
   return (
-    <div className="chatbot">
-      {/* Floating toggle button */}
+    <div className="fixed bottom-6 right-6 z-50">
+      {/* Toggle */}
       <button
-        className={`chatbot__toggle ${isOpen ? 'chatbot__toggle--open' : ''}`}
+        className={`relative w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 ${
+          isOpen ? 'bg-slate-700 rotate-0' : 'bg-gradient-to-r from-orange to-coral hover:shadow-orange/40 hover:scale-110'
+        }`}
         onClick={toggleChat}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
-        <span className="chatbot__toggle-icon">
-          {isOpen ? <FaTimes /> : <FaComments />}
-        </span>
+        <span className="text-xl">{isOpen ? <FaTimes /> : <FaComments />}</span>
         {!isOpen && unreadCount > 0 && (
-          <span className="chatbot__badge">{unreadCount}</span>
+          <span className="absolute -top-1 -right-1 w-5 h-5 bg-coral text-white text-xs font-bold rounded-full flex items-center justify-center animate-bounce">{unreadCount}</span>
         )}
-        {!isOpen && <span className="chatbot__toggle-pulse" />}
+        {!isOpen && <span className="absolute inset-0 rounded-full bg-orange/30 animate-ping" />}
       </button>
 
-      {/* Chat panel */}
-      <div className={`chatbot__panel ${isOpen ? 'chatbot__panel--open' : ''}`}>
+      {/* Panel */}
+      <div className={`absolute bottom-20 right-0 w-[380px] max-h-[520px] rounded-2xl overflow-hidden shadow-2xl shadow-black/40 transition-all duration-300 origin-bottom-right ${
+        isOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0 pointer-events-none'
+      }`} style={{ background: '#0f1729' }}>
         {/* Header */}
-        <div className="chatbot__header">
-          <div className="chatbot__header-avatar">
-            <FaComments />
-          </div>
-          <div className="chatbot__header-info">
-            <h4>WA Billboards</h4>
-            <span className="chatbot__header-status">
-              <span className="chatbot__status-dot" />
+        <div className="bg-gradient-to-r from-orange to-coral px-5 py-4 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white"><FaComments /></div>
+          <div className="flex-1">
+            <h4 className="text-white font-semibold text-sm">WA Billboards</h4>
+            <span className="text-white/70 text-xs flex items-center gap-1.5">
+              <span className="w-2 h-2 bg-green-400 rounded-full inline-block" />
               Online — Ready to help
             </span>
           </div>
-          <button className="chatbot__header-close" onClick={toggleChat}>
-            <FaTimes />
-          </button>
+          <button className="text-white/70 hover:text-white transition-colors" onClick={toggleChat}><FaTimes /></button>
         </div>
 
         {/* Messages */}
-        <div className="chatbot__messages">
+        <div className="h-[340px] overflow-y-auto p-4 space-y-3" style={{ scrollbarWidth: 'thin' }}>
           {messages.map((msg) => (
-            <div key={msg.id} className={`chatbot__msg chatbot__msg--${msg.sender}`}>
+            <div key={msg.id} className={`flex gap-2 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
               {msg.sender === 'bot' && (
-                <div className="chatbot__msg-avatar">
-                  <FaComments />
-                </div>
+                <div className="w-7 h-7 rounded-full bg-orange/20 flex items-center justify-center text-orange text-xs shrink-0 mt-1"><FaComments /></div>
               )}
-              <div className="chatbot__msg-bubble">
-                {msg.text && <p className="chatbot__msg-text">{msg.text}</p>}
-
-                {/* Service / info cards */}
-                {msg.cards && (
-                  <div className="chatbot__cards">
-                    {msg.cards.map((card, i) => (
-                      <button
-                        key={i}
-                        className="chatbot__card"
-                        onClick={() => handleNavigate(card.link)}
-                      >
-                        <span className="chatbot__card-icon">{card.icon}</span>
-                        <div>
-                          <strong>{card.title}</strong>
-                          <p>{card.desc}</p>
-                        </div>
-                        <FaChevronRight className="chatbot__card-arrow" />
+              <div className={`max-w-[80%] ${msg.sender === 'user' ? 'bg-gradient-to-r from-orange to-coral text-white rounded-2xl rounded-br-sm px-4 py-2.5' : ''}`}>
+                {msg.sender === 'bot' && (
+                  <div className="bg-slate-800/80 rounded-2xl rounded-bl-sm px-4 py-2.5 border border-white/5">
+                    {msg.text && <p className="text-slate-300 text-sm whitespace-pre-line">{msg.text}</p>}
+                    {msg.cards && (
+                      <div className="mt-3 space-y-2">
+                        {msg.cards.map((card, i) => (
+                          <button key={i} className="w-full flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors text-left" onClick={() => handleNavigate(card.link)}>
+                            <span className="text-orange">{card.icon}</span>
+                            <div className="flex-1 min-w-0"><strong className="text-white text-xs block">{card.title}</strong><p className="text-slate-400 text-xs truncate">{card.desc}</p></div>
+                            <FaChevronRight className="text-slate-500 text-xs shrink-0" />
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {msg.link && (
+                      <button className="mt-3 text-orange text-xs font-medium flex items-center gap-1 hover:gap-2 transition-all" onClick={() => handleNavigate(msg.link.path)}>
+                        {msg.link.text} <FaChevronRight className="text-[10px]" />
                       </button>
-                    ))}
+                    )}
+                    {msg.quickReplies && (
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        {msg.quickReplies.map((qr) => (
+                          <button key={qr.id} className="px-3 py-1.5 rounded-full bg-orange/10 text-orange text-xs font-medium hover:bg-orange/20 transition-colors flex items-center gap-1.5" onClick={() => handleQuickReply(qr.id)}>
+                            {qr.icon} {qr.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
-
-                {/* Navigation link */}
-                {msg.link && (
-                  <button
-                    className="chatbot__link-btn"
-                    onClick={() => handleNavigate(msg.link.path)}
-                  >
-                    {msg.link.text} <FaChevronRight />
-                  </button>
-                )}
-
-                {/* Quick replies */}
-                {msg.quickReplies && (
-                  <div className="chatbot__quick-replies">
-                    {msg.quickReplies.map((qr) => (
-                      <button
-                        key={qr.id}
-                        className="chatbot__quick-btn"
-                        onClick={() => handleQuickReply(qr.id)}
-                      >
-                        {qr.icon} {qr.label}
-                      </button>
-                    ))}
-                  </div>
-                )}
+                {msg.sender === 'user' && <p className="text-sm">{msg.text}</p>}
               </div>
             </div>
           ))}
-
-          {/* Typing indicator */}
           {isTyping && (
-            <div className="chatbot__msg chatbot__msg--bot">
-              <div className="chatbot__msg-avatar"><FaComments /></div>
-              <div className="chatbot__msg-bubble chatbot__typing">
-                <span /><span /><span />
+            <div className="flex gap-2">
+              <div className="w-7 h-7 rounded-full bg-orange/20 flex items-center justify-center text-orange text-xs shrink-0"><FaComments /></div>
+              <div className="bg-slate-800/80 rounded-2xl rounded-bl-sm px-4 py-3 border border-white/5">
+                <div className="flex gap-1.5">
+                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0s' }} />
+                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0.2s' }} />
+                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0.4s' }} />
+                </div>
               </div>
             </div>
           )}
@@ -421,22 +314,24 @@ export default function Chatbot() {
         </div>
 
         {/* Input */}
-        <div className="chatbot__input-area">
+        <div className="p-3 border-t border-white/5 flex gap-2">
           <input
             ref={inputRef}
             type="text"
-            className="chatbot__input"
+            className="flex-1 bg-slate-800/50 text-white text-sm rounded-xl px-4 py-2.5 border border-white/5 focus:border-orange/30 focus:outline-none placeholder-slate-500 transition-colors"
             placeholder="Type a message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
           />
           <button
-            className={`chatbot__send ${input.trim() ? 'chatbot__send--active' : ''}`}
+            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
+              input.trim() ? 'bg-gradient-to-r from-orange to-coral text-white' : 'bg-slate-800/50 text-slate-500'
+            }`}
             onClick={handleSend}
             disabled={!input.trim()}
           >
-            <FaPaperPlane />
+            <FaPaperPlane className="text-sm" />
           </button>
         </div>
       </div>

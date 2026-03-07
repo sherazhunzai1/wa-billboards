@@ -8,7 +8,6 @@ import imgSupersite from '../assets/images/billboards/Supersite.png'
 import imgSpectacular from '../assets/images/billboards/Spectacular.png'
 import imgDigital from '../assets/images/billboards/Digital.png'
 import SEO from '../components/SEO'
-import './AboutBillboards.css'
 
 const formats = [
   {
@@ -60,7 +59,7 @@ const formats = [
 
 export default function AboutBillboards() {
   return (
-    <main className="about-billboards">
+    <main className="bg-[#0a0a0f] min-h-screen">
       <SEO
         title="Billboard Sizes & Formats — 24 Sheet, Super 8, Supersite, Spectacular & Digital"
         path="/about-billboards"
@@ -118,20 +117,20 @@ export default function AboutBillboards() {
       />
 
       {/* Page Header */}
-      <section className="page-header">
-        <div className="page-header__bg">
-          <img src={galleryImages[1]} alt="Billboard formats and sizes offered by WA Billboards across Western Australia" />
-          <div className="page-header__overlay" />
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={galleryImages[1]} alt="Billboard formats and sizes offered by WA Billboards across Western Australia" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f]/80 via-[#0a0a0f]/60 to-[#0a0a0f]" />
         </div>
-        <div className="page-header__content container">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="hero__badge">Billboard Knowledge</span>
-            <h1 className="page-header__title">About Billboards</h1>
-            <p className="page-header__subtitle">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-white/10 text-white/90 backdrop-blur-sm border border-white/10 mb-6">Billboard Knowledge</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">About Billboards</h1>
+            <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
               From classic 24 Sheets to spectacular digital displays — understand the billboard formats that make outdoor advertising so powerful.
             </p>
           </motion.div>
@@ -139,19 +138,19 @@ export default function AboutBillboards() {
       </section>
 
       {/* Intro */}
-      <section className="ab-intro">
-        <div className="container">
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="ab-intro__content"
+            className="max-w-3xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="section-tag">The Evolution</span>
-            <h2 className="section-title">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/5 text-orange-400 border border-orange-400/20 mb-4">The Evolution</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               What Is a <span className="gradient-text">Billboard?</span>
             </h2>
-            <p className="ab-intro__text">
+            <p className="text-lg text-white/60 leading-relaxed">
               Traditionally billboards were seen as fixed advertising panels located in various areas to exhibit an advertiser's message, and were displayed in standardised sizes and formats. In more recent years the definition of 'billboard' has evolved to include a wide variety of layouts, designs and styles including bus shelters, electronic and digital signage. This transformation has revolutionised the industry, resulting in businesses re-branding themselves to become overall Out of Home media providers.
             </p>
           </motion.div>
@@ -159,47 +158,52 @@ export default function AboutBillboards() {
       </section>
 
       {/* Formats */}
-      <section className="ab-formats">
-        <div className="container">
-          <div className="ab-formats__header">
-            <span className="section-tag">Billboard Formats</span>
-            <h2 className="section-title">
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/5 text-orange-400 border border-orange-400/20 mb-4">Billboard Formats</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Our <span className="gradient-text">Formats</span>
             </h2>
-            <p className="section-subtitle">
+            <p className="text-lg text-white/60 max-w-2xl mx-auto">
               WA Billboards offers a range of billboard sizes to suit every campaign and budget.
             </p>
           </div>
 
-          <div className="ab-formats__list">
+          <div className="space-y-20">
             {formats.map((format, i) => (
               <motion.div
                 key={format.name}
-                className={`ab-format ${i % 2 !== 0 ? 'ab-format--reverse' : ''}`}
+                className={`flex flex-col ${i % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 lg:gap-16 items-center`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
               >
-                <div className="ab-format__image-wrap">
-                  <img src={format.image} alt={`${format.name} billboard format — ${format.width} wide x ${format.height} high`} className="ab-format__image" />
+                <div className="w-full lg:w-1/2">
+                  <div className="glass rounded-2xl overflow-hidden hover-lift">
+                    <img src={format.image} alt={`${format.name} billboard format — ${format.width} wide x ${format.height} high`} className="w-full h-auto object-cover" />
+                  </div>
                 </div>
-                <div className="ab-format__content">
-                  <div className="ab-format__badge" style={{ background: `${format.color}18`, color: format.color }}>
+                <div className="w-full lg:w-1/2 space-y-6">
+                  <div
+                    className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold"
+                    style={{ background: `${format.color}18`, color: format.color, border: `1px solid ${format.color}30` }}
+                  >
                     {format.name}
                   </div>
-                  <div className="ab-format__dimensions">
-                    <div className="ab-format__dim">
-                      <span className="ab-format__dim-label">Width</span>
-                      <span className="ab-format__dim-value" style={{ color: format.color }}>{format.width}</span>
+                  <div className="flex items-center gap-6">
+                    <div className="text-center">
+                      <span className="block text-xs uppercase tracking-wider text-white/40 mb-1">Width</span>
+                      <span className="block text-2xl font-bold" style={{ color: format.color }}>{format.width}</span>
                     </div>
-                    <div className="ab-format__dim-divider" />
-                    <div className="ab-format__dim">
-                      <span className="ab-format__dim-label">Height</span>
-                      <span className="ab-format__dim-value" style={{ color: format.color }}>{format.height}</span>
+                    <div className="w-px h-12 bg-white/10" />
+                    <div className="text-center">
+                      <span className="block text-xs uppercase tracking-wider text-white/40 mb-1">Height</span>
+                      <span className="block text-2xl font-bold" style={{ color: format.color }}>{format.height}</span>
                     </div>
                   </div>
-                  <p className="ab-format__desc">{format.description}</p>
+                  <p className="text-white/60 leading-relaxed text-lg">{format.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -208,18 +212,19 @@ export default function AboutBillboards() {
       </section>
 
       {/* CTA */}
-      <section className="ab-cta">
-        <div className="container">
-          <div className="ab-cta__card">
-            <div className="ab-cta__bg" />
-            <div className="ab-cta__content">
-              <h2>Ready to Choose the Right Billboard?</h2>
-              <p>Our team can help you pick the perfect format for your campaign goals and budget.</p>
-              <div className="ab-cta__actions">
-                <Link to="/contact" className="btn btn-secondary btn-lg">
+      <section className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-3xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20" />
+            <div className="absolute inset-0 glass-dark" />
+            <div className="relative z-10 text-center py-16 px-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Choose the Right Billboard?</h2>
+              <p className="text-lg text-white/60 mb-8 max-w-xl mx-auto">Our team can help you pick the perfect format for your campaign goals and budget.</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300">
                   Get in Touch <HiArrowRight />
                 </Link>
-                <Link to="/services" className="btn btn-outline btn-lg">
+                <Link to="/services" className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/20 text-white font-semibold hover:bg-white/5 transition-all duration-300">
                   View Our Services <HiArrowRight />
                 </Link>
               </div>
