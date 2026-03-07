@@ -19,7 +19,6 @@ const aboutLinks = [
 const allMobileLinks = [
   ...navLinks,
   ...aboutLinks,
-  { path: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -172,23 +171,6 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link
-              to="/contact"
-              className={`relative px-4 py-2 text-[13px] tracking-[0.12em] uppercase font-medium transition-colors duration-200 ${
-                location.pathname === '/contact'
-                  ? 'text-lime'
-                  : 'text-chalk/80 hover:text-lime'
-              }`}
-            >
-              Contact
-              {location.pathname === '/contact' && (
-                <motion.span
-                  layoutId="nav-underline"
-                  className="absolute bottom-0 left-4 right-4 h-[2px] bg-lime"
-                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                />
-              )}
-            </Link>
           </div>
 
           {/* ── Right Side: CTA + Hamburger ── */}
@@ -204,7 +186,7 @@ export default function Navbar() {
               to="/contact"
               className="hidden sm:block text-xs tracking-[0.15em] uppercase text-charcoal bg-lime px-5 py-2.5 font-bold hover:bg-lime-dark transition-colors"
             >
-              Get a Quote
+              Contact Us
             </Link>
 
             {/* Hamburger - Mobile Only */}
