@@ -44,7 +44,7 @@ export default function LandOwners() {
             alt="Billboard site on commercial property in Western Australia"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-charcoal/80" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
           <motion.div
@@ -75,7 +75,7 @@ export default function LandOwners() {
                 <div className="w-6 h-px bg-lime" />
                 <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">Opportunity</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk">
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
                 Your Property, Our Billboards
               </h2>
               <p className="text-ash leading-relaxed">
@@ -128,7 +128,7 @@ export default function LandOwners() {
               <div className="w-6 h-px bg-lime" />
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">Why Partner With Us</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
               Benefits for Land Owners
             </h2>
           </div>
@@ -137,14 +137,14 @@ export default function LandOwners() {
             {benefits.map((b, i) => (
               <motion.div
                 key={i}
-                className="bg-charcoal p-8 border-r border-black/5 last:border-r-0"
+                className="bg-charcoal p-8 border-r border-white/5 last:border-r-0"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
                 <div className="text-xs font-mono text-lime mb-4">{b.num}</div>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-chalk mb-3">{b.title}</h3>
+                <h3 className="text-xl font-bold uppercase tracking-tight text-white mb-3">{b.title}</h3>
                 <p className="text-ash leading-relaxed">{b.desc}</p>
               </motion.div>
             ))}

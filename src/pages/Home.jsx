@@ -108,7 +108,7 @@ export default function Home() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-charcoal/20" />
 
         <div className="relative z-10 w-full pb-20 md:pb-28 px-6 md:px-12">
           <motion.div
@@ -164,12 +164,12 @@ export default function Home() {
       </section>
 
       {/* ═══ STATS STRIP ═══ */}
-      <section className="border-y border-black/5">
+      <section className="border-y border-white/5">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              className="py-12 px-6 md:px-8 text-center border-r border-black/5 last:border-r-0"
+              className="py-12 px-6 md:px-8 text-center border-r border-white/5 last:border-r-0"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -193,7 +193,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
               <span className="stamp mb-4 inline-block">What We Do</span>
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-chalk">
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
                 Advertising<br />Solutions
               </h2>
             </div>
@@ -203,7 +203,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-px bg-black/5">
+          <div className="grid md:grid-cols-3 gap-px bg-white/5">
             {services.map((service, i) => (
               <motion.div
                 key={i}
@@ -217,7 +217,7 @@ export default function Home() {
                   className="block bg-charcoal p-8 md:p-10 h-full group hover:bg-charcoal-light transition-colors duration-300"
                 >
                   <span className="text-xs font-mono text-lime mb-6 block">{service.tag}</span>
-                  <h3 className="text-2xl md:text-3xl font-bold text-chalk mb-4 group-hover:text-lime transition-colors uppercase tracking-tight">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-lime transition-colors uppercase tracking-tight">
                     {service.title}
                   </h3>
                   <p className="text-ash text-sm leading-relaxed mb-8">{service.description}</p>
@@ -237,7 +237,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <span className="stamp mb-4 inline-block">Our Network</span>
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-chalk">
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
                 Featured<br />Locations
               </h2>
             </div>
@@ -251,7 +251,7 @@ export default function Home() {
         </div>
 
         <div className="px-6 md:px-12 max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
             {billboardImages.slice(0, 6).map((image, i) => (
               <BillboardCard key={image.id} image={image} index={i} />
             ))}
@@ -260,7 +260,7 @@ export default function Home() {
       </section>
 
       {/* ═══ IMAGE TICKER ═══ */}
-      <section className="py-2 overflow-hidden bg-charcoal border-y border-black/5">
+      <section className="py-2 overflow-hidden bg-charcoal border-y border-white/5">
         <div className="flex animate-ticker">
           {[...galleryImages, ...galleryImages].map((img, i) => (
             <div key={i} className="flex-shrink-0 w-72 md:w-96 h-48 md:h-56 mx-1">
@@ -285,7 +285,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <span className="stamp mb-6 inline-block">Why Us</span>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk mb-8 leading-[1.1]">
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-8 leading-[1.1]">
                 The Last Privately<br />
                 Owned Outdoor<br />
                 Media Company<br />
@@ -347,7 +347,7 @@ export default function Home() {
       </section>
 
       {/* ═══ PARTNERS ═══ */}
-      <section className="border-y border-black/10">
+      <section className="border-y border-white/5">
         <div className="px-6 md:px-12 py-12">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
             <span className="text-xs tracking-[0.2em] uppercase text-ash">National Sales Representation</span>
@@ -355,7 +355,7 @@ export default function Home() {
               {["oOh! Media", "JCDecaux"].map((partner, i) => (
                 <span
                   key={i}
-                  className="px-8 py-4 border border-black/10 text-xl font-bold text-chalk/60 hover:text-lime hover:border-lime/30 transition-all duration-300"
+                  className="px-8 py-4 border border-white/10 text-xl font-bold text-white/60 hover:text-lime hover:border-lime/30 transition-all duration-300"
                 >
                   {partner}
                 </span>
@@ -381,7 +381,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-lime font-bold text-sm uppercase tracking-[0.1em] hover:bg-white/90 transition-colors"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-charcoal font-bold text-sm uppercase tracking-[0.1em] hover:bg-white/90 transition-colors"
                 >
                   Contact Us <span className="text-lg">→</span>
                 </Link>
@@ -393,7 +393,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="absolute top-0 right-0 text-[12rem] font-black text-black/5 leading-none select-none hidden md:block uppercase tracking-tighter">
+            <div className="absolute top-0 right-0 text-[12rem] font-black text-white/5 leading-none select-none hidden md:block uppercase tracking-tighter">
               Big Ideas
             </div>
           </div>

@@ -92,7 +92,7 @@ export default function Contact() {
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={galleryImages[7]} alt="Contact WA Billboards for outdoor advertising enquiries" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-charcoal/80" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
           <motion.div
@@ -110,9 +110,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Info Strip */}
-      <section className="border-y border-black/10">
+      <section className="border-y border-white/10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-black/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
             {contactInfo.map((item, i) => (
               <motion.div
                 key={i}
@@ -124,7 +124,7 @@ export default function Contact() {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-lime">{item.icon}</span>
-                  <h3 className="text-chalk font-bold uppercase tracking-[0.1em] text-sm">{item.title}</h3>
+                  <h3 className="text-white font-bold uppercase tracking-[0.1em] text-sm">{item.title}</h3>
                 </div>
                 {item.lines.map((line, j) => (
                   <p key={j} className="text-ash text-sm">{line}</p>
@@ -150,7 +150,7 @@ export default function Contact() {
                 <div className="w-6 h-px bg-lime" />
                 <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">Send a Message</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk">
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
                 Let's Start Your Campaign
               </h2>
               <p className="text-ash leading-relaxed">
@@ -174,11 +174,11 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="bg-charcoal-light border border-black/5 p-8">
+              <div className="bg-charcoal-light border border-white/5 p-8">
                 {submitted ? (
                   <div className="text-center py-12 space-y-4">
                     <div className="text-6xl font-black text-lime mb-4">SENT</div>
-                    <h3 className="text-2xl font-black uppercase tracking-tighter text-chalk">Message Sent!</h3>
+                    <h3 className="text-2xl font-black uppercase tracking-tighter text-white">Message Sent!</h3>
                     <p className="text-ash">Thank you for your enquiry. Our team will get back to you within 24 hours.</p>
                     <button
                       className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90 mt-4"
@@ -192,7 +192,7 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    <h3 className="text-xl font-black uppercase tracking-tighter text-chalk mb-2">Contact Us</h3>
+                    <h3 className="text-xl font-black uppercase tracking-tighter text-white mb-2">Contact Us</h3>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
@@ -205,7 +205,7 @@ export default function Contact() {
                           onChange={handleChange}
                           placeholder="Your full name"
                           required
-                          className="w-full px-4 py-3 bg-white border border-black/10 text-chalk placeholder-black/30 focus:outline-none focus:border-lime transition-colors"
+                          className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-lime transition-colors"
                         />
                       </div>
                       <div>
@@ -218,7 +218,7 @@ export default function Contact() {
                           onChange={handleChange}
                           placeholder="you@company.com"
                           required
-                          className="w-full px-4 py-3 bg-white border border-black/10 text-chalk placeholder-black/30 focus:outline-none focus:border-lime transition-colors"
+                          className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-lime transition-colors"
                         />
                       </div>
                     </div>
@@ -233,7 +233,7 @@ export default function Contact() {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="(08) XXXX XXXX"
-                          className="w-full px-4 py-3 bg-white border border-black/10 text-chalk placeholder-black/30 focus:outline-none focus:border-lime transition-colors"
+                          className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-lime transition-colors"
                         />
                       </div>
                       <div>
@@ -245,7 +245,7 @@ export default function Contact() {
                           value={formData.company}
                           onChange={handleChange}
                           placeholder="Your company name"
-                          className="w-full px-4 py-3 bg-white border border-black/10 text-chalk placeholder-black/30 focus:outline-none focus:border-lime transition-colors"
+                          className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-lime transition-colors"
                         />
                       </div>
                     </div>
@@ -257,14 +257,14 @@ export default function Contact() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-white border border-black/10 text-chalk focus:outline-none focus:border-lime transition-colors appearance-none"
+                        className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white focus:outline-none focus:border-lime transition-colors appearance-none"
                       >
-                        <option value="" className="bg-white">Select a service...</option>
-                        <option value="billboards" className="bg-white">Billboards</option>
-                        <option value="airports" className="bg-white">Airport Advertising</option>
-                        <option value="digital" className="bg-white">Digital Displays</option>
-                        <option value="multiple" className="bg-white">Multiple Services</option>
-                        <option value="other" className="bg-white">Other</option>
+                        <option value="" className="bg-charcoal">Select a service...</option>
+                        <option value="billboards" className="bg-charcoal">Billboards</option>
+                        <option value="airports" className="bg-charcoal">Airport Advertising</option>
+                        <option value="digital" className="bg-charcoal">Digital Displays</option>
+                        <option value="multiple" className="bg-charcoal">Multiple Services</option>
+                        <option value="other" className="bg-charcoal">Other</option>
                       </select>
                     </div>
 
@@ -278,7 +278,7 @@ export default function Contact() {
                         placeholder="Tell us about your advertising needs..."
                         rows="5"
                         required
-                        className="w-full px-4 py-3 bg-white border border-black/10 text-chalk placeholder-black/30 focus:outline-none focus:border-lime transition-colors resize-none"
+                        className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-lime transition-colors resize-none"
                       />
                     </div>
 
@@ -299,11 +299,11 @@ export default function Contact() {
       {/* Map Placeholder */}
       <section className="py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border border-black/10 p-12 text-center">
+          <div className="border border-white/10 p-12 text-center">
             <div className="text-lime mb-4">
               <HiLocationMarker size={32} className="mx-auto" />
             </div>
-            <h3 className="text-2xl font-black uppercase tracking-tighter text-chalk mb-2">Our Office Location</h3>
+            <h3 className="text-2xl font-black uppercase tracking-tighter text-white mb-2">Our Office Location</h3>
             <p className="text-ash mb-1">40B Boulder Road, MALAGA 6090</p>
             <p className="text-ash/60 text-sm">
               Sales, Marketing, Operations & Administration

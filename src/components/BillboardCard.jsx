@@ -38,7 +38,7 @@ export default function BillboardCard({ image, index = 0 }) {
       </div>
 
       {/* Overlay on hover */}
-      <div className="absolute inset-0 bg-white/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+      <div className="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
         <div className="p-4 w-full">
           {image.locationId && (
             <span className="text-xs tracking-[0.15em] uppercase text-lime font-bold">View on map →</span>
@@ -48,7 +48,7 @@ export default function BillboardCard({ image, index = 0 }) {
 
       {/* Location label */}
       {image.location && (
-        <div className="px-4 py-3 border-t border-black/5 flex items-center justify-between">
+        <div className="px-4 py-3 border-t border-white/5 flex items-center justify-between">
           <span className="text-sm text-chalk truncate">{image.location}</span>
           <span className="w-1.5 h-1.5 bg-lime rounded-full flex-shrink-0 ml-2" />
         </div>

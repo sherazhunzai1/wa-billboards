@@ -79,8 +79,8 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-black/5 shadow-sm'
-            : 'bg-white/80 backdrop-blur-sm'
+            ? 'bg-charcoal/95 backdrop-blur-md border-b border-white/5'
+            : 'bg-charcoal/80 backdrop-blur-sm'
         }`}
       >
         <div className="flex items-center justify-between h-[72px] px-6 lg:px-12">
@@ -98,7 +98,7 @@ export default function Navbar() {
                 className={`relative px-4 py-2 text-[13px] tracking-[0.12em] uppercase font-medium transition-colors duration-200 ${
                   location.pathname === link.path
                     ? 'text-lime'
-                    : 'text-chalk/70 hover:text-lime'
+                    : 'text-chalk/80 hover:text-lime'
                 }`}
               >
                 {link.label}
@@ -122,7 +122,7 @@ export default function Navbar() {
               <button
                 onClick={() => setAboutOpen(!aboutOpen)}
                 className={`flex items-center gap-1.5 px-4 py-2 text-[13px] tracking-[0.12em] uppercase font-medium transition-colors duration-200 ${
-                  isAboutActive ? 'text-lime' : 'text-chalk/70 hover:text-lime'
+                  isAboutActive ? 'text-lime' : 'text-chalk/80 hover:text-lime'
                 }`}
               >
                 About
@@ -151,7 +151,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.15, ease: 'easeOut' }}
-                    className="absolute top-full left-0 mt-1 min-w-[200px] bg-white border border-black/10 shadow-xl overflow-hidden"
+                    className="absolute top-full left-0 mt-1 min-w-[200px] bg-charcoal border border-white/10 shadow-2xl overflow-hidden"
                   >
                     {aboutLinks.map((link) => (
                       <Link
@@ -159,8 +159,8 @@ export default function Navbar() {
                         to={link.path}
                         className={`block px-5 py-3 text-[13px] tracking-[0.08em] uppercase transition-colors duration-150 ${
                           location.pathname === link.path
-                            ? 'text-lime bg-charcoal-light'
-                            : 'text-chalk/70 hover:text-lime hover:bg-charcoal-light'
+                            ? 'text-lime bg-white/5'
+                            : 'text-chalk/70 hover:text-lime hover:bg-white/5'
                         }`}
                       >
                         {link.label}
@@ -197,12 +197,12 @@ export default function Navbar() {
             >
               <div className="w-7 h-7 flex flex-col items-end justify-center gap-1.5">
                 <span
-                  className={`block h-[2px] bg-chalk transition-all duration-300 ${
+                  className={`block h-[2px] bg-white transition-all duration-300 ${
                     menuOpen ? 'w-7 rotate-45 translate-y-[5px]' : 'w-7'
                   }`}
                 />
                 <span
-                  className={`block h-[2px] bg-chalk transition-all duration-300 ${
+                  className={`block h-[2px] bg-white transition-all duration-300 ${
                     menuOpen ? 'w-7 -rotate-45 -translate-y-[5px]' : 'w-4'
                   }`}
                 />
@@ -216,7 +216,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[55] bg-white lg:hidden"
+            className="fixed inset-0 z-[55] bg-charcoal lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -240,7 +240,7 @@ export default function Navbar() {
                       className={`group flex items-center gap-4 py-3 transition-colors duration-200 ${
                         location.pathname === link.path
                           ? 'text-lime'
-                          : 'text-chalk hover:text-lime'
+                          : 'text-white hover:text-lime'
                       }`}
                     >
                       <span className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight uppercase">
@@ -256,7 +256,7 @@ export default function Navbar() {
 
               {/* Mobile Contact Info */}
               <motion.div
-                className="mt-12 pt-8 border-t border-black/10"
+                className="mt-12 pt-8 border-t border-white/10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
@@ -268,7 +268,7 @@ export default function Navbar() {
                   >
                     08 9248 5070
                   </a>
-                  <span className="hidden sm:block text-black/20">|</span>
+                  <span className="hidden sm:block text-white/20">|</span>
                   <a
                     href="mailto:sales@wabillboards.com.au"
                     className="hover:text-lime transition-colors"
