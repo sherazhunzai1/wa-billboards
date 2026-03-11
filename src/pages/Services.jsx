@@ -135,7 +135,7 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
                 Enquire Now <HiArrowRight />
               </Link>
             </motion.div>
@@ -194,7 +194,7 @@ export default function Services() {
                   ))}
                 </div>
               </div>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
                 Enquire Now <HiArrowRight />
               </Link>
             </motion.div>
@@ -251,7 +251,7 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
                 Enquire Now <HiArrowRight />
               </Link>
             </motion.div>
@@ -302,9 +302,9 @@ export default function Services() {
       {/* CTA */}
       <section className="bg-lime p-12 md:p-20">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-charcoal/70 text-lg mb-8 max-w-xl mx-auto">Talk to our team about the best outdoor advertising options for your campaign.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-charcoal text-lime font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-charcoal-light">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
+          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">Talk to our team about the best outdoor advertising options for your campaign.</p>
+          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
             Get in Touch <HiArrowRight />
           </Link>
         </div>

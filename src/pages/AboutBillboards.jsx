@@ -208,13 +208,13 @@ export default function AboutBillboards() {
       {/* CTA */}
       <section className="bg-lime p-12 md:p-20">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-charcoal/70 text-lg mb-8 max-w-xl">Our team can help you pick the perfect format for your campaign goals and budget.</p>
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
+          <p className="text-white/70 text-lg mb-8 max-w-xl">Our team can help you pick the perfect format for your campaign goals and budget.</p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-charcoal text-lime font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-charcoal-light">
+            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
               Get in Touch <HiArrowRight />
             </Link>
-            <Link to="/services" className="inline-flex items-center gap-2 px-8 py-3 border border-charcoal/30 text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-charcoal/10">
+            <Link to="/services" className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/10">
               View Our Services <HiArrowRight />
             </Link>
           </div>

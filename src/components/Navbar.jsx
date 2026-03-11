@@ -184,7 +184,7 @@ export default function Navbar() {
 
             <Link
               to="/contact"
-              className="hidden sm:block text-xs tracking-[0.15em] uppercase text-charcoal bg-lime px-5 py-2.5 font-bold hover:bg-lime-dark transition-colors"
+              className="hidden sm:block text-xs tracking-[0.15em] uppercase text-white bg-lime px-5 py-2.5 font-bold hover:bg-lime-dark transition-colors"
             >
               Contact Us
             </Link>

@@ -129,7 +129,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-lime text-charcoal font-bold text-sm uppercase tracking-[0.1em] hover:bg-lime-dark transition-colors"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-lime text-white font-bold text-sm uppercase tracking-[0.1em] hover:bg-lime-dark transition-colors"
               >
                 Get Started <span className="text-lg">→</span>
               </Link>
@@ -311,7 +311,7 @@ export default function Home() {
 
               <Link
                 to="/about"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-lime text-charcoal font-bold text-sm uppercase tracking-[0.1em] hover:bg-lime-dark transition-colors"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-lime text-white font-bold text-sm uppercase tracking-[0.1em] hover:bg-lime-dark transition-colors"
               >
                 Our Story <span className="text-lg">→</span>
               </Link>
@@ -370,30 +370,30 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="bg-lime p-12 md:p-20 relative overflow-hidden">
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-charcoal mb-6 leading-[1.1]">
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-6 leading-[1.1]">
 
                 Big Spaces<br />for Big Ideas.
               </h2>
-              <p className="text-charcoal/70 text-lg max-w-xl mb-10">
+              <p className="text-white/70 text-lg max-w-xl mb-10">
                 Let's find the perfect billboard location for your business.
                 Contact us today for a free consultation.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-charcoal text-lime font-bold text-sm uppercase tracking-[0.1em] hover:bg-charcoal-light transition-colors"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-charcoal font-bold text-sm uppercase tracking-[0.1em] hover:bg-white/90 transition-colors"
                 >
                   Contact Us <span className="text-lg">→</span>
                 </Link>
                 <Link
                   to="/locations"
-                  className="inline-flex items-center gap-3 px-8 py-4 border-2 border-charcoal text-charcoal font-bold text-sm uppercase tracking-[0.1em] hover:bg-charcoal/10 transition-colors"
+                  className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-bold text-sm uppercase tracking-[0.1em] hover:bg-white/10 transition-colors"
                 >
                   View Locations
                 </Link>
               </div>
             </div>
-            <div className="absolute top-0 right-0 text-[12rem] font-black text-charcoal/5 leading-none select-none hidden md:block uppercase tracking-tighter">
+            <div className="absolute top-0 right-0 text-[12rem] font-black text-white/5 leading-none select-none hidden md:block uppercase tracking-tighter">
               Big Ideas
             </div>
           </div>

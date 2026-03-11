@@ -24,7 +24,7 @@ export default function NotFound() {
             <span
               className="block text-[10rem] md:text-[14rem] font-black leading-none select-none uppercase tracking-tighter"
               style={{
-                WebkitTextStroke: '2px #CDFF00',
+                WebkitTextStroke: '2px #60A5FA',
                 WebkitTextFillColor: 'transparent',
               }}
             >
@@ -37,7 +37,7 @@ export default function NotFound() {
               Let's get you back on track.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
+              <Link to="/" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
                 <HiHome /> Back to Home
               </Link>
               <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/5">

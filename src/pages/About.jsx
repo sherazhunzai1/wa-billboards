@@ -328,7 +328,7 @@ export default function About() {
           <div className="mt-12">
             <Link
               to="/team"
-              className="inline-block bg-lime text-charcoal font-bold uppercase tracking-[0.1em] px-8 py-4 text-sm hover:bg-lime-dark transition-colors"
+              className="inline-block bg-lime text-white font-bold uppercase tracking-[0.1em] px-8 py-4 text-sm hover:bg-lime-dark transition-colors"
             >
               View Full Team
             </Link>
@@ -345,22 +345,22 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-charcoal leading-[0.95] mb-6">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-white leading-[0.95] mb-6">
               Big Spaces<br />for Big Ideas.
             </h2>
-            <p className="text-charcoal/70 text-lg md:text-xl max-w-xl mb-10">
+            <p className="text-white/70 text-lg md:text-xl max-w-xl mb-10">
               Partner with Western Australia's most experienced outdoor media team.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="inline-block bg-charcoal text-lime font-bold uppercase tracking-[0.1em] px-8 py-4 text-sm hover:bg-charcoal-light transition-colors"
+                className="inline-block bg-white text-charcoal font-bold uppercase tracking-[0.1em] px-8 py-4 text-sm hover:bg-white/90 transition-colors"
               >
                 Get in Touch
               </Link>
               <Link
                 to="/locations"
-                className="inline-block border border-charcoal/30 text-charcoal font-bold uppercase tracking-[0.1em] px-8 py-4 text-sm hover:bg-charcoal/10 transition-colors"
+                className="inline-block border border-white/30 text-white font-bold uppercase tracking-[0.1em] px-8 py-4 text-sm hover:bg-white/10 transition-colors"
               >
                 View Locations
               </Link>

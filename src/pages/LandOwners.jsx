@@ -155,20 +155,20 @@ export default function LandOwners() {
       {/* CTA */}
       <section className="bg-lime p-12 md:p-20">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-charcoal/70 text-lg mb-8 max-w-xl">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
+          <p className="text-white/70 text-lg mb-8 max-w-xl">
             Download our PDF for more information or contact Steve directly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <a
               href="tel:0892485070"
-              className="inline-flex items-center gap-2 text-charcoal/80 hover:text-charcoal transition-colors font-bold"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold"
             >
               <HiPhone /> 08 9248 5070
             </a>
             <a
               href="mailto:sales@wabillboards.com.au"
-              className="inline-flex items-center gap-2 text-charcoal/80 hover:text-charcoal transition-colors font-bold"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold"
             >
               <HiMail /> sales@wabillboards.com.au
             </a>
@@ -177,11 +177,11 @@ export default function LandOwners() {
             <a
               href={landOwnersPdf}
               download="Land-Owners.pdf"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-charcoal text-lime font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-charcoal-light"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90"
             >
               <HiDownload /> Download PDF
             </a>
-            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 border border-charcoal/30 text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-charcoal/10">
+            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/10">
               Contact Us <HiArrowRight />
             </Link>
           </div>

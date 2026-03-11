@@ -181,7 +181,7 @@ export default function Contact() {
                     <h3 className="text-2xl font-black uppercase tracking-tighter text-white">Message Sent!</h3>
                     <p className="text-ash">Thank you for your enquiry. Our team will get back to you within 24 hours.</p>
                     <button
-                      className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90 mt-4"
+                      className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90 mt-4"
                       onClick={() => {
                         setSubmitted(false)
                         setFormData({ name: '', email: '', phone: '', company: '', service: '', message: '' })
@@ -284,7 +284,7 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      className="w-full py-3 bg-lime text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90"
+                      className="w-full py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90"
                     >
                       Send Message
                     </button>

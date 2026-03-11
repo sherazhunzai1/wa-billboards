@@ -23,7 +23,7 @@ const markerIcon = new L.Icon({
 
 const airportIcon = new L.DivIcon({
   html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
-    <circle cx="18" cy="18" r="16" fill="#CDFF00" stroke="#111111" stroke-width="2"/>
+    <circle cx="18" cy="18" r="16" fill="#60A5FA" stroke="#111111" stroke-width="2"/>
     <path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#111111"/>
   </svg>`,
   className: '',
@@ -136,7 +136,7 @@ export default function Locations() {
                 key={f.key}
                 className={`px-5 py-2.5 text-sm font-bold uppercase tracking-[0.1em] transition-all duration-300 ${
                   activeFilter === f.key
-                    ? 'bg-lime text-charcoal'
+                    ? 'bg-lime text-white'
                     : 'border border-white/10 text-ash hover:text-white hover:border-white/20'
                 }`}
                 onClick={() => { setActiveFilter(f.key); setSelectedPoint(null); setFlyTarget(null); }}
@@ -313,9 +313,9 @@ export default function Locations() {
       {/* CTA */}
       <section className="bg-lime p-12 md:p-20">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-charcoal mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-charcoal/70 text-lg mb-8 max-w-xl mx-auto">Need a billboard in a specific location? Our team can help you find the perfect spot.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-charcoal text-lime font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-charcoal-light">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
+          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">Need a billboard in a specific location? Our team can help you find the perfect spot.</p>
+          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
             Talk to Our Team <HiArrowRight />
           </Link>
         </div>
