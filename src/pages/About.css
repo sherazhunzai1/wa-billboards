@@ -267,6 +267,10 @@
   margin-bottom: 48px;
 }
 
+.about-team__header .section-subtitle {
+  margin: 0 auto;
+}
+
 .about-team__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

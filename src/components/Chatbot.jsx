@@ -42,7 +42,6 @@ const QUICK_REPLIES = [
   { id: 'about', label: 'About Us', icon: <FaInfoCircle /> },
   { id: 'contact', label: 'Contact', icon: <FaPhoneAlt /> },
   { id: 'landowners', label: 'Land Owners', icon: <FaLandmark /> },
-  { id: 'team', label: 'Our Team', icon: <FaUsers /> },
 ];
 
 const SERVICE_OPTIONS = [
@@ -144,7 +143,7 @@ const buildBotReply = (key, navigate) => {
           { id: 'about', label: 'About Us', icon: <FaInfoCircle /> },
           { id: 'contact', label: 'Contact Us', icon: <FaPhoneAlt /> },
         ],
-        link: { text: 'Meet the Full Team', path: '/team' },
+        link: { text: 'Meet the Full Team', path: '/about' },
       };
 
     case 'contact':

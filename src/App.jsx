@@ -6,7 +6,6 @@ import About from "./pages/About";
 import AboutBillboards from "./pages/AboutBillboards";
 import Services from "./pages/Services";
 import Locations from "./pages/Locations";
-import Team from "./pages/Team";
 import LandOwners from "./pages/LandOwners";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -24,7 +23,6 @@ function App() {
         <Route path="/about-billboards" element={<AboutBillboards />} />
         <Route path="/services" element={<Services />} />
         <Route path="/locations" element={<Locations />} />
-        <Route path="/team" element={<Team />} />
         <Route path="/land-owners" element={<LandOwners />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />

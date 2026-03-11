@@ -5,6 +5,8 @@ import wabLogo from '../assets/images/logo/WAB-Grey-Logo-Small.png'
 import './Footer.css'
 
 export default function Footer() {
+  const scrollTop = () => window.scrollTo(0, 0)
+
   return (
     <footer className="footer">
       <div className="footer__wave">
@@ -28,22 +30,21 @@ export default function Footer() {
 
             <div className="footer__section">
               <h4 className="footer__heading">Quick Links</h4>
-              <Link to="/" className="footer__link">Home</Link>
-              <Link to="/about" className="footer__link">About Us</Link>
-              <Link to="/services" className="footer__link">Products</Link>
-              <Link to="/locations" className="footer__link">Locations</Link>
-              <Link to="/team" className="footer__link">Our Team</Link>
-              <Link to="/land-owners" className="footer__link">Land Owners</Link>
-              <Link to="/contact" className="footer__link">Contact</Link>
+              <Link to="/" className="footer__link" onClick={scrollTop}>Home</Link>
+              <Link to="/about" className="footer__link" onClick={scrollTop}>About Us</Link>
+              <Link to="/services" className="footer__link" onClick={scrollTop}>Products</Link>
+              <Link to="/locations" className="footer__link" onClick={scrollTop}>Locations</Link>
+              <Link to="/land-owners" className="footer__link" onClick={scrollTop}>Land Owners</Link>
+              <Link to="/contact" className="footer__link" onClick={scrollTop}>Contact</Link>
             </div>
 
             <div className="footer__section">
               <h4 className="footer__heading">Services</h4>
-              <Link to="/services" className="footer__link">Billboards</Link>
-              <Link to="/services" className="footer__link">Airport Advertising</Link>
-              <Link to="/services" className="footer__link">Digital Displays</Link>
-              <Link to="/locations" className="footer__link">Regional Coverage</Link>
-              <Link to="/contact" className="footer__link">Custom Solutions</Link>
+              <Link to="/services#billboards" className="footer__link" onClick={scrollTop}>Billboards</Link>
+              <Link to="/services#airports" className="footer__link" onClick={scrollTop}>Airport Advertising</Link>
+              <Link to="/services#digital" className="footer__link" onClick={scrollTop}>Digital Displays</Link>
+              <Link to="/locations" className="footer__link" onClick={scrollTop}>Regional Coverage</Link>
+              <Link to="/contact" className="footer__link" onClick={scrollTop}>Custom Solutions</Link>
             </div>
 
             <div className="footer__section">

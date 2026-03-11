@@ -8,6 +8,10 @@
   margin-bottom: 40px;
 }
 
+.locations-map-section__header .section-subtitle {
+  margin: 0 auto;
+}
+
 .locations-map-section__wrapper {
   border-radius: 16px;
   overflow: hidden;

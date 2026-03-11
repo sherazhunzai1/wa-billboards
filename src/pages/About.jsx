@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiStar, HiShieldCheck, HiLightningBolt, HiHeart, HiArrowRight } from 'react-icons/hi'
+import { HiStar, HiShieldCheck, HiLightningBolt, HiHeart } from 'react-icons/hi'
 import { galleryImages } from '../assets/billboardImages'
 import aboutHeroImg from '../assets/images/about us/IMG_6101-1-1536x624.jpg'
 import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
@@ -238,11 +237,6 @@ export default function About() {
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <Link to="/team" className="btn btn-primary">
-              View Full Team <HiArrowRight />
-            </Link>
-          </div>
         </div>
       </section>
     </main>
