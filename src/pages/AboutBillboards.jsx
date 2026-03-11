@@ -27,7 +27,7 @@ const formats = [
     image: imgSuper8,
     description:
       "Super 8's have become popular in recent years as they offer an alternative option to the full size Supersites. This format is very similar at a 4:1 ratio, however it boasts a lower price point. A true Super 8 is placed on a major highway, and will include flood lighting.",
-    color: '#FF4858',
+    color: '#3B82F6',
   },
   {
     name: 'Supersite',
@@ -36,7 +36,7 @@ const formats = [
     image: imgSupersite,
     description:
       'Supersites are the standard fare for large format advertising and always include flood lighting for night time viewing. This format is often situated in urban, metropolitan and high traffic locations.',
-    color: '#E040FB',
+    color: '#6366F1',
   },
   {
     name: 'Spectacular',

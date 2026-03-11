@@ -188,7 +188,7 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="service-section__icon-wrap" style={{ background: 'rgba(255,72,88,0.1)', color: 'var(--coral)' }}>
+              <div className="service-section__icon-wrap" style={{ background: 'rgba(59,130,246,0.1)', color: 'var(--coral)' }}>
                 <FaPlane size={32} />
               </div>
               <h2 className="section-title">
@@ -232,7 +232,7 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="service-section__icon-wrap" style={{ background: 'rgba(224,64,251,0.1)', color: 'var(--magenta)' }}>
+              <div className="service-section__icon-wrap" style={{ background: 'rgba(99,102,241,0.1)', color: 'var(--magenta)' }}>
                 <FaDesktop size={32} />
               </div>
               <h2 className="section-title">

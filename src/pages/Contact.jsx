@@ -17,7 +17,7 @@ const contactInfo = [
     icon: <HiPhone size={24} />,
     title: 'Phone',
     lines: ['08 9248 5070'],
-    color: '#E040FB',
+    color: '#6366F1',
   },
   {
     icon: <HiMail size={24} />,

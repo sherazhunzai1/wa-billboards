@@ -42,7 +42,7 @@ const services = [
     title: "Airports",
     description:
       "Advertising rights to most of WA's regional airports for maximum exposure.",
-    color: "#FF4858",
+    color: "#3B82F6",
     link: "/services#airports",
   },
   {
@@ -50,7 +50,7 @@ const services = [
     title: "Digital",
     description:
       "Moving to digital with multi-faced screens across regional WA locations.",
-    color: "#E040FB",
+    color: "#6366F1",
     link: "/services#digital",
   },
 ];

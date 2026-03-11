@@ -35,7 +35,7 @@ const teamMembers = [
     name: 'Christopher Robinson',
     role: 'Operations Manager',
     image: teamChristopher,
-    color: '#E040FB',
+    color: '#6366F1',
   },
   {
     name: 'Mitchell Robinson',

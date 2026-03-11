@@ -30,7 +30,7 @@ export const billboardImages = [
     alt: 'Regional Billboard - Karratha WA',
     location: 'Karratha, WA',
     locationId: 2,
-    fallbackColor: '#FF4858',
+    fallbackColor: '#3B82F6',
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const billboardImages = [
     alt: 'RAC Billboard - Northbridge Perth',
     location: 'Northbridge, Perth',
     locationId: 1,
-    fallbackColor: '#E040FB',
+    fallbackColor: '#6366F1',
   },
   {
     id: 4,

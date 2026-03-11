@@ -25,7 +25,7 @@ const teamMembers = [
     image: teamChristopher,
     bio: 'Christopher joined the WA Billboards team in 2010 and runs the operational aspects of the business including site maintenance and material changes. He holds a full private pilot\'s license and ASIC card for airport access.',
     highlights: ['Joined the team in 2010', 'Full Private Pilot\'s License', 'Site Maintenance & Operations'],
-    color: '#E040FB',
+    color: '#6366F1',
   },
   {
     name: 'Mitchell Robinson',

@@ -5,8 +5,8 @@
   --orange-dark: #E55A25;
   --yellow: #FFC857;
   --yellow-light: #FFD980;
-  --coral: #FF4858;
-  --magenta: #E040FB;
+  --coral: #3B82F6;
+  --magenta: #6366F1;
   --cyan: #00E5FF;
   --teal: #1DE9B6;
 
@@ -27,8 +27,8 @@
   --gradient-primary: linear-gradient(135deg, #FF6B35, #FF4858, #E040FB);
   --gradient-warm: linear-gradient(135deg, #FF6B35, #FFC857);
   --gradient-cool: linear-gradient(135deg, #00E5FF, #1DE9B6);
-  --gradient-sunset: linear-gradient(135deg, #FF4858, #FF6B35, #FFC857);
-  --gradient-hero: linear-gradient(135deg, #FF6B35 0%, #FF4858 40%, #E040FB 100%);
+  --gradient-sunset: linear-gradient(135deg, #3B82F6, #2563EB, #1D4ED8);
+  --gradient-hero: linear-gradient(135deg, #2563EB 0%, #3B82F6 40%, #6366F1 100%);
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
@@ -36,7 +36,7 @@
   --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
   --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
   --shadow-orange: 0 8px 30px rgba(255,107,53,0.3);
-  --shadow-coral: 0 8px 30px rgba(255,72,88,0.3);
+  --shadow-coral: 0 8px 30px rgba(59,130,246,0.3);
 
   /* Typography */
   --font-heading: 'Space Grotesk', sans-serif;
@@ -101,7 +101,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,72,88,0.1));
+  background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(59,130,246,0.1));
   color: var(--orange);
   font-weight: 600;
   font-size: 0.85rem;
@@ -284,6 +284,7 @@ img {
   0%, 100% { border-color: var(--orange); }
   33% { border-color: var(--coral); }
   66% { border-color: var(--magenta); }
+
 }
 
 @keyframes slide-in-left {

@@ -249,7 +249,7 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,72,88,0.1));
+  background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(59,130,246,0.1));
   color: var(--orange);
   border-radius: var(--radius-sm);
   flex-shrink: 0;
@@ -276,7 +276,7 @@
 }
 
 .locations-table__badge--airport {
-  background: rgba(255, 72, 88, 0.1);
+  background: rgba(59, 130, 246, 0.1);
   color: var(--coral);
 }
 
