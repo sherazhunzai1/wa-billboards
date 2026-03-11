@@ -24,13 +24,13 @@ export default function NotFound() {
             <span
               className="block text-[10rem] md:text-[14rem] font-black leading-none select-none uppercase tracking-tighter"
               style={{
-                WebkitTextStroke: '2px #60A5FA',
+                WebkitTextStroke: '2px #2563EB',
                 WebkitTextFillColor: 'transparent',
               }}
             >
               404
             </span>
-            <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4 -mt-4">Page Not Found</h1>
+            <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-chalk mb-4 -mt-4">Page Not Found</h1>
             <p className="text-xs tracking-[0.2em] uppercase text-lime/60 mb-4 font-bold">Big Spaces for Big Ideas</p>
             <p className="text-lg text-ash max-w-md mx-auto mb-10">
               Sorry, the page you're looking for doesn't exist or has been moved.
@@ -40,7 +40,7 @@ export default function NotFound() {
               <Link to="/" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
                 <HiHome /> Back to Home
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/5">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 border border-black/20 text-chalk font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-black/5">
                 Contact Us <HiArrowRight />
               </Link>
             </div>

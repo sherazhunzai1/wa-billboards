@@ -76,7 +76,7 @@ export default function Team() {
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={galleryImages[5]} alt="WA Billboards team members at outdoor billboard site" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-charcoal/80" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
           <motion.div
@@ -101,7 +101,7 @@ export default function Team() {
               <div className="w-6 h-px bg-lime" />
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">The Robinson Family</span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-chalk mb-4">
               The People Behind Your Billboards
             </h2>
             <p className="text-lg text-ash max-w-2xl">
@@ -113,7 +113,7 @@ export default function Team() {
             {teamMembers.map((member, i) => (
               <motion.div
                 key={i}
-                className="bg-charcoal-light border border-white/5 overflow-hidden"
+                className="bg-charcoal-light border border-black/5 overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -136,7 +136,7 @@ export default function Team() {
                   {/* Content */}
                   <div className="p-8 lg:p-10 flex-1 space-y-4">
                     <div>
-                      <h3 className="text-2xl font-black uppercase tracking-tighter text-white">{member.name}</h3>
+                      <h3 className="text-2xl font-black uppercase tracking-tighter text-chalk">{member.name}</h3>
                       <span className="text-sm font-bold uppercase tracking-[0.1em] text-lime">{member.role}</span>
                     </div>
                     <p className="text-ash leading-relaxed">{member.bio}</p>
@@ -164,7 +164,7 @@ export default function Team() {
               <div className="w-6 h-px bg-lime" />
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">What Makes Us Different</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk">
               A Team Built on Excellence
             </h2>
           </div>
@@ -173,14 +173,14 @@ export default function Team() {
             {qualities.map((q, i) => (
               <motion.div
                 key={i}
-                className="bg-charcoal p-8 border-r border-white/5 last:border-r-0"
+                className="bg-charcoal p-8 border-r border-black/5 last:border-r-0"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
                 <div className="text-xs font-mono text-lime mb-4">0{i + 1}</div>
-                <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-2">{q.title}</h3>
+                <h3 className="text-lg font-bold uppercase tracking-tight text-chalk mb-2">{q.title}</h3>
                 <p className="text-ash text-sm leading-relaxed">{q.desc}</p>
               </motion.div>
             ))}

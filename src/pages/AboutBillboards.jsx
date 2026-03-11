@@ -115,7 +115,7 @@ export default function AboutBillboards() {
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={galleryImages[1]} alt="Billboard formats and sizes offered by WA Billboards across Western Australia" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-charcoal/80" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
           <motion.div
@@ -145,7 +145,7 @@ export default function AboutBillboards() {
               <div className="w-6 h-px bg-lime" />
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">The Evolution</span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-chalk mb-6">
               What Is a Billboard?
             </h2>
             <p className="text-lg text-ash leading-relaxed">
@@ -162,7 +162,7 @@ export default function AboutBillboards() {
             <div className="w-6 h-px bg-lime" />
             <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">Billboard Formats</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-chalk mb-4">
             Our Formats
           </h2>
           <p className="text-lg text-ash max-w-2xl">
@@ -191,7 +191,7 @@ export default function AboutBillboards() {
                       <span className="block text-xs uppercase tracking-[0.15em] text-ash mb-1">Width</span>
                       <span className="block text-4xl md:text-5xl font-mono font-bold text-lime">{format.width}</span>
                     </div>
-                    <div className="w-px h-16 bg-white/10" />
+                    <div className="w-px h-16 bg-black/10" />
                     <div>
                       <span className="block text-xs uppercase tracking-[0.15em] text-ash mb-1">Height</span>
                       <span className="block text-4xl md:text-5xl font-mono font-bold text-lime">{format.height}</span>

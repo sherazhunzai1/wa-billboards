@@ -53,7 +53,7 @@ export default function About() {
           transition={{ duration: 1.2, ease: 'easeOut' }}
         />
         {/* Dark scrim — no gradient overlay */}
-        <div className="absolute inset-0 bg-charcoal/70" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative z-10 flex items-end h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <motion.div
@@ -62,7 +62,7 @@ export default function About() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="stamp mb-6 inline-block">Our Story</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-5">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-5 text-white">
               About<br />WA Billboards
             </h1>
             <div className="w-16 h-px bg-lime mb-5" />
@@ -138,7 +138,7 @@ export default function About() {
 
           {/* Image grid — 1px gaps, no rounded corners */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/5"
+            className="grid grid-cols-2 md:grid-cols-3 gap-px bg-black/5"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -168,7 +168,7 @@ export default function About() {
           </motion.div>
 
           {/* Stats bar */}
-          <div className="grid grid-cols-3 border-t border-white/5 mt-0">
+          <div className="grid grid-cols-3 border-t border-black/5 mt-0">
             {[
               { stat: '30+', label: 'Years' },
               { stat: '200+', label: 'Sites' },
@@ -176,7 +176,7 @@ export default function About() {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                className={`py-8 text-center ${i < 2 ? 'border-r border-white/5' : ''}`}
+                className={`py-8 text-center ${i < 2 ? 'border-r border-black/5' : ''}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -211,7 +211,7 @@ export default function About() {
             {timeline.map((item, i) => (
               <motion.div
                 key={i}
-                className="border-l border-lime/40 pl-6 pr-12 py-6 min-w-[220px] md:min-w-[260px]"
+                className="border-l border-lime/30 pl-6 pr-12 py-6 min-w-[220px] md:min-w-[260px]"
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -247,7 +247,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 divide-x divide-white/5">
+          <div className="grid md:grid-cols-3 divide-x divide-black/5">
             {values.map((value, i) => (
               <motion.div
                 key={i}
@@ -257,7 +257,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.5 }}
               >
-                <span className="block text-5xl md:text-6xl font-black text-lime/20 font-mono leading-none mb-6">
+                <span className="block text-5xl md:text-6xl font-black text-lime/15 font-mono leading-none mb-6">
                   {value.num}
                 </span>
                 <div className="w-6 h-px bg-lime mb-6" />
@@ -289,7 +289,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="divide-y divide-white/5">
+          <div className="divide-y divide-black/5">
             {teamMembers.map((member, i) => (
               <motion.div
                 key={i}
@@ -300,7 +300,7 @@ export default function About() {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
               >
                 {/* Image — square, no border-radius */}
-                <div className="w-32 h-32 md:w-[200px] md:h-[200px] overflow-hidden bg-charcoal border border-white/5">
+                <div className="w-32 h-32 md:w-[200px] md:h-[200px] overflow-hidden bg-charcoal border border-black/5">
                   {member.image ? (
                     <img
                       src={member.image}
@@ -308,7 +308,7 @@ export default function About() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-3xl md:text-4xl font-black text-lime/30 bg-charcoal-light font-mono">
+                    <div className="w-full h-full flex items-center justify-center text-3xl md:text-4xl font-black text-lime/20 bg-charcoal-light font-mono">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </div>
                   )}

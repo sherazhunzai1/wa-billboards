@@ -85,7 +85,7 @@ export default function Services() {
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={galleryImages[1]} alt="Billboard and outdoor advertising services across Western Australia" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-charcoal/80" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
           <motion.div
@@ -112,8 +112,8 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/20">01</span>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white -mt-4">
+              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/15">01</span>
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk -mt-4">
                 Billboards
               </h2>
               <p className="text-ash leading-relaxed">
@@ -146,12 +146,12 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="grid grid-cols-2 gap-px bg-white/5">
+              <div className="grid grid-cols-2 gap-px bg-black/5">
                 {billboardImages.slice(0, 4).map((img, i) => (
                   <div key={i} className="group relative overflow-hidden">
                     <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-48 object-cover" />
-                    <div className="absolute bottom-0 left-0 right-0 bg-charcoal/80 p-3">
-                      <span className="text-chalk text-sm font-medium">{img.location}</span>
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-3">
+                      <span className="text-white text-sm font-medium">{img.location}</span>
                     </div>
                   </div>
                 ))}
@@ -171,8 +171,8 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/20">02</span>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white -mt-4">
+              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/15">02</span>
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk -mt-4">
                 Airports
               </h2>
               <p className="text-ash leading-relaxed">
@@ -185,10 +185,10 @@ export default function Services() {
                 national and international tourists, and farmers — giving you unmatched audience diversity.
               </p>
               <div>
-                <h4 className="text-white font-bold uppercase tracking-[0.1em] text-sm mb-4">Airport Terminals</h4>
+                <h4 className="text-chalk font-bold uppercase tracking-[0.1em] text-sm mb-4">Airport Terminals</h4>
                 <div className="grid grid-cols-2 gap-px">
                   {airportFeatures.map((airport, i) => (
-                    <div key={i} className="bg-charcoal border border-white/5 px-4 py-3 text-chalk text-sm">
+                    <div key={i} className="bg-charcoal border border-black/5 px-4 py-3 text-chalk text-sm">
                       {airport}
                     </div>
                   ))}
@@ -205,12 +205,12 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="grid grid-cols-2 gap-px bg-white/5">
+              <div className="grid grid-cols-2 gap-px bg-black/5">
                 {airportImages.slice(0, 4).map((img, i) => (
                   <div key={i} className="group relative overflow-hidden">
                     <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-48 object-cover" />
-                    <div className="absolute bottom-0 left-0 right-0 bg-charcoal/80 p-3">
-                      <span className="text-chalk text-sm font-medium">{img.name}</span>
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-3">
+                      <span className="text-white text-sm font-medium">{img.name}</span>
                     </div>
                   </div>
                 ))}
@@ -230,8 +230,8 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/20">03</span>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white -mt-4">
+              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/15">03</span>
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk -mt-4">
                 Digital
               </h2>
               <p className="text-ash leading-relaxed">
@@ -262,12 +262,12 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="grid grid-cols-2 gap-px bg-white/5">
+              <div className="grid grid-cols-2 gap-px bg-black/5">
                 {digitalImages.map((img, i) => (
                   <div key={i} className="group relative overflow-hidden">
                     <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-48 object-cover" />
-                    <div className="absolute bottom-0 left-0 right-0 bg-charcoal/80 p-3">
-                      <span className="text-chalk text-sm font-medium">
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-3">
+                      <span className="text-white text-sm font-medium">
                         {img.name} — {img.location}
                       </span>
                     </div>
@@ -287,7 +287,7 @@ export default function Services() {
               <div className="w-6 h-px bg-lime" />
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">Our Inventory</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-chalk">
               Billboard Showcase
             </h2>
           </div>

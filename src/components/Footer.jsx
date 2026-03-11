@@ -12,9 +12,9 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal border-t border-white/5">
+    <footer className="bg-charcoal border-t border-black/5">
       {/* Ticker Strip */}
-      <div className="overflow-hidden py-6 border-b border-white/5">
+      <div className="overflow-hidden py-6 border-b border-black/5">
         <div className="flex animate-ticker whitespace-nowrap">
           {[...Array(8)].map((_, i) => (
             <span key={i} className="text-6xl md:text-8xl font-black uppercase tracking-tighter text-outline-white mx-8 select-none">
@@ -34,8 +34,8 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-xs tracking-[0.2em] uppercase text-lime/70 mb-4 font-bold">Big Spaces for Big Ideas</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+            <p className="text-xs tracking-[0.2em] uppercase text-lime/90 mb-4 font-bold">Big Spaces for Big Ideas</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-chalk leading-tight mb-6">
               Let's put your brand<br />
               <span className="text-lime">where it matters.</span>
             </h2>
@@ -72,7 +72,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="px-6 md:px-12 py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="px-6 md:px-12 py-6 border-t border-black/5 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-ash">&copy; {new Date().getFullYear()} WA Billboards. All rights reserved.</p>
         <p className="text-xs text-ash">Big Spaces for Big Ideas — Family-owned since 1991</p>
       </div>
