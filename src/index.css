@@ -5,10 +5,10 @@
   --color-lime: #60A5FA;
   --color-lime-dark: #3B82F6;
   --color-lime-muted: #2563EB;
-  --color-charcoal: #1E293B;
-  --color-charcoal-light: #253347;
-  --color-charcoal-mid: #2D3D53;
-  --color-smoke: #334155;
+  --color-charcoal: #1F2023;
+  --color-charcoal-light: #27282B;
+  --color-charcoal-mid: #2F3033;
+  --color-smoke: #3A3B3E;
   --color-ash: #888888;
   --color-chalk: #e5e5e5;
 
@@ -27,7 +27,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    background: #1E293B;
+    background: #1F2023;
     color: #e5e5e5;
   }
 
@@ -44,7 +44,7 @@
     width: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: #1E293B;
+    background: #1F2023;
   }
   ::-webkit-scrollbar-thumb {
     background: #60A5FA;
@@ -164,8 +164,8 @@
   }
 
   .card-brutal {
-    background: #253347;
-    border: 1px solid #334155;
+    background: #27282B;
+    border: 1px solid #3A3B3E;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .card-brutal:hover {
@@ -194,7 +194,7 @@
 
   .section-line {
     height: 1px;
-    background: linear-gradient(90deg, transparent, #475569, transparent);
+    background: linear-gradient(90deg, transparent, #4B4C4F, transparent);
   }
 }
 
@@ -206,14 +206,14 @@
 
 .leaflet-popup-content-wrapper {
   border-radius: 0 !important;
-  background: #253347 !important;
+  background: #27282B !important;
   color: #e5e5e5 !important;
   box-shadow: 0 10px 40px rgba(0,0,0,0.6) !important;
-  border: 1px solid #475569 !important;
+  border: 1px solid #4B4C4F !important;
 }
 
 .leaflet-popup-tip {
-  background: #253347 !important;
+  background: #27282B !important;
 }
 
 .leaflet-popup-content a {

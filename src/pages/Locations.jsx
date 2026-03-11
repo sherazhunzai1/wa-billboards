@@ -23,8 +23,8 @@ const markerIcon = new L.Icon({
 
 const airportIcon = new L.DivIcon({
   html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
-    <circle cx="18" cy="18" r="16" fill="#60A5FA" stroke="#1E293B" stroke-width="2"/>
-    <path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#1E293B"/>
+    <circle cx="18" cy="18" r="16" fill="#60A5FA" stroke="#1F2023" stroke-width="2"/>
+    <path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#1F2023"/>
   </svg>`,
   className: '',
   iconSize: [36, 36],
