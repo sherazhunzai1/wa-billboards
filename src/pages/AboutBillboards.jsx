@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiArrowRight } from 'react-icons/hi'
+import CtaSection from '../components/CtaSection'
+import { SectionHeading, Sticker, bouncy, staggerParent, popChild } from '../components/Playful'
 import { galleryImages } from '../assets/billboardImages'
 import img24Sheet from '../assets/images/billboards/24-Sheet.png'
 import imgSuper8 from '../assets/images/billboards/super 8.png'
@@ -54,7 +54,7 @@ const formats = [
 
 export default function AboutBillboards() {
   return (
-    <main className="bg-charcoal min-h-screen">
+    <main className="bg-cream min-h-screen text-ink">
       <SEO
         title="Billboard Sizes & Formats — 24 Sheet, Super 8, Supersite, Spectacular & Digital"
         path="/about-billboards"
@@ -112,114 +112,110 @@ export default function AboutBillboards() {
       />
 
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
+      <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={galleryImages[1]} alt="Billboard formats and sizes offered by WA Billboards across Western Australia" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-charcoal/80" />
+          <div className="absolute inset-0 bg-ink/50" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={staggerParent}
+            initial="hidden"
+            animate="show"
           >
-            <span className="stamp mb-6 inline-block">Billboard Knowledge</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-white mb-4">About<br />Billboards</h1>
-            <p className="text-lg text-ash max-w-xl">
+            <motion.div variants={popChild} className="mb-6">
+              <span className="inline-block rounded-full bg-sun px-5 py-2 text-sm font-extrabold uppercase tracking-wider text-ink shadow-lg -rotate-2">
+                Billboard Knowledge
+              </span>
+            </motion.div>
+            <motion.h1 variants={popChild} className="text-5xl md:text-7xl font-semibold text-white leading-[1.02] mb-4">About<br />Billboards</motion.h1>
+            <motion.p variants={popChild} className="text-lg text-white/90 font-semibold max-w-xl">
               Big Spaces for Big Ideas — from classic 24 Sheets to spectacular digital displays, understand the billboard formats that make outdoor advertising so powerful.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
+        <svg
+          className="absolute bottom-0 left-0 w-full text-cream pointer-events-none"
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          aria-hidden
+        >
+          <path d="M0,55 C240,95 480,20 720,45 C960,70 1200,25 1440,55 L1440,90 L0,90 Z" fill="currentColor" />
+        </svg>
       </section>
 
       {/* Intro */}
       <section className="py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="max-w-3xl"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-6 h-px bg-lime" />
-              <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">The Evolution</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white mb-6">
-              What Is a Billboard?
-            </h2>
-            <p className="text-lg text-ash leading-relaxed">
-              Traditionally billboards were seen as fixed advertising panels located in various areas to exhibit an advertiser's message, and were displayed in standardised sizes and formats. In more recent years the definition of 'billboard' has evolved to include a wide variety of layouts, designs and styles including bus shelters, electronic and digital signage. This transformation has revolutionised the industry, resulting in businesses re-branding themselves to become overall Out of Home media providers.
-            </p>
-          </motion.div>
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionHeading
+            eyebrow="The Evolution"
+            title={<>What is a <span className="text-primary">billboard?</span></>}
+            sub="Traditionally billboards were seen as fixed advertising panels located in various areas to exhibit an advertiser's message, and were displayed in standardised sizes and formats. In more recent years the definition of 'billboard' has evolved to include a wide variety of layouts, designs and styles including bus shelters, electronic and digital signage. This transformation has revolutionised the industry, resulting in businesses re-branding themselves to become overall Out of Home media providers."
+          />
         </div>
       </section>
 
       {/* Formats */}
-      <section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-6 h-px bg-lime" />
-            <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">Billboard Formats</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white mb-4">
-            Our Formats
-          </h2>
-          <p className="text-lg text-ash max-w-2xl">
-            WA Billboards offers a range of billboard sizes to suit every campaign and budget.
-          </p>
-        </div>
+      <section className="pb-20 md:pb-28">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionHeading
+            eyebrow="Billboard Formats"
+            title={<>Our <span className="text-primary">Formats</span></>}
+            sub="WA Billboards offers a range of billboard sizes to suit every campaign and budget."
+          />
 
-        <div>
-          {formats.map((format, i) => (
-            <motion.div
-              key={format.name}
-              className={`${i % 2 === 0 ? 'bg-charcoal' : 'bg-charcoal-light'}`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className={`max-w-7xl mx-auto flex flex-col ${i % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center`}>
-                <div className="w-full lg:w-1/2">
-                  <img src={format.image} alt={`${format.name} billboard format — ${format.width} wide x ${format.height} high`} className="w-full h-auto object-cover" />
-                </div>
-                <div className="w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 py-12 space-y-6">
-                  <span className="stamp inline-block">{format.name}</span>
-                  <div className="flex items-center gap-8">
-                    <div>
-                      <span className="block text-xs uppercase tracking-[0.15em] text-ash mb-1">Width</span>
-                      <span className="block text-4xl md:text-5xl font-mono font-bold text-lime">{format.width}</span>
-                    </div>
-                    <div className="w-px h-16 bg-white/10" />
-                    <div>
-                      <span className="block text-xs uppercase tracking-[0.15em] text-ash mb-1">Height</span>
-                      <span className="block text-4xl md:text-5xl font-mono font-bold text-lime">{format.height}</span>
-                    </div>
+          <motion.div
+            className="space-y-8"
+            variants={staggerParent}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-60px' }}
+          >
+            {formats.map((format, i) => (
+              <motion.div
+                key={format.name}
+                variants={popChild}
+                whileHover={{ y: -6 }}
+                transition={bouncy}
+                className="bg-white rounded-[2rem] border-2 border-ink/5 shadow-soft overflow-hidden"
+              >
+                <div className={`flex flex-col ${i % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-stretch`}>
+                  <div className="w-full lg:w-1/2 bg-peach/40 flex items-center justify-center p-6">
+                    <motion.img
+                      src={format.image}
+                      alt={`${format.name} billboard format — ${format.width} wide x ${format.height} high`}
+                      className={`w-full h-auto object-contain rounded-2xl ${i % 2 === 0 ? '-rotate-1' : 'rotate-1'}`}
+                      whileHover={{ rotate: 0, scale: 1.02 }}
+                      transition={bouncy}
+                    />
                   </div>
-                  <p className="text-ash leading-relaxed text-lg">{format.description}</p>
+                  <div className="w-full lg:w-1/2 p-8 md:p-12 space-y-6">
+                    <Sticker className="bg-peach text-primary-deep">{format.name}</Sticker>
+                    <div className="flex items-center gap-6">
+                      <div className="rounded-2xl bg-cream px-5 py-4 text-center">
+                        <span className="block text-xs font-extrabold uppercase tracking-wider text-ink-soft mb-1">Width</span>
+                        <span className="block text-3xl md:text-4xl font-semibold text-primary">{format.width}</span>
+                      </div>
+                      <div className="rounded-2xl bg-cream px-5 py-4 text-center">
+                        <span className="block text-xs font-extrabold uppercase tracking-wider text-ink-soft mb-1">Height</span>
+                        <span className="block text-3xl md:text-4xl font-semibold text-accent">{format.height}</span>
+                      </div>
+                    </div>
+                    <p className="text-ink-soft font-semibold leading-relaxed text-lg">{format.description}</p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-lime p-12 md:p-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl">Our team can help you pick the perfect format for your campaign goals and budget.</p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
-              Get in Touch <HiArrowRight />
-            </Link>
-            <Link to="/services" className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/10">
-              View Our Services <HiArrowRight />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        subtitle="Our team can help you pick the perfect format for your campaign goals and budget."
+        primary={{ to: '/contact', label: 'Get in Touch' }}
+        secondary={{ to: '/services', label: 'View Our Services' }}
+      />
     </main>
   )
 }

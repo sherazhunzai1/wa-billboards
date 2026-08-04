@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { FaComments, FaTimes, FaPaperPlane, FaMapMarkerAlt, FaBullhorn, FaPlane, FaDesktop, FaUsers, FaPhoneAlt, FaEnvelope, FaLandmark, FaInfoCircle, FaChevronRight } from 'react-icons/fa';
 
 const audioCtx = () => {
@@ -225,68 +226,82 @@ export default function Chatbot() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {/* Toggle */}
-      <button
-        className={`relative w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 ${
-          isOpen ? 'bg-slate-700 rotate-0' : 'bg-gradient-to-r from-orange to-coral hover:shadow-orange/40 hover:scale-110'
+      <motion.button
+        className={`relative w-14 h-14 rounded-full flex items-center justify-center text-white shadow-pop transition-colors duration-300 ${
+          isOpen ? 'bg-ink' : 'bg-gradient-to-br from-primary to-primary-dark'
         }`}
         onClick={toggleChat}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
+        whileHover={{ scale: 1.1, rotate: isOpen ? 0 : -6 }}
+        whileTap={{ scale: 0.88 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
       >
         <span className="text-xl">{isOpen ? <FaTimes /> : <FaComments />}</span>
         {!isOpen && unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-coral text-white text-xs font-bold rounded-full flex items-center justify-center animate-bounce">{unreadCount}</span>
+          <span className="absolute -top-1.5 -right-1.5 min-w-5 h-5 px-1 bg-accent text-white text-[11px] font-extrabold rounded-full flex items-center justify-center animate-bounce shadow-md">{unreadCount}</span>
         )}
-        {!isOpen && <span className="absolute inset-0 rounded-full bg-orange/30 animate-ping" />}
-      </button>
+        {!isOpen && <span className="absolute inset-0 rounded-full bg-primary/40 animate-ping pointer-events-none" />}
+      </motion.button>
 
       {/* Panel */}
-      <div className={`absolute bottom-20 right-0 w-[380px] max-h-[520px] rounded-2xl overflow-hidden shadow-2xl shadow-black/40 transition-all duration-300 origin-bottom-right ${
-        isOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0 pointer-events-none'
-      }`} style={{ background: '#0f1729' }}>
+      <motion.div
+        className="absolute bottom-20 right-0 w-[380px] max-w-[calc(100vw-3rem)] max-h-[520px] rounded-[1.75rem] overflow-hidden bg-white border-2 border-peach shadow-soft-lg origin-bottom-right"
+        initial={false}
+        animate={isOpen ? { scale: 1, opacity: 1 } : { scale: 0.7, opacity: 0 }}
+        transition={{ type: 'spring', stiffness: 320, damping: 22 }}
+        style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
+        aria-hidden={!isOpen}
+      >
         {/* Header */}
-        <div className="bg-gradient-to-r from-orange to-coral px-5 py-4 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white"><FaComments /></div>
+        <div className="bg-gradient-to-r from-primary to-primary-dark px-5 py-4 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-white/25 flex items-center justify-center text-white"><FaComments /></div>
           <div className="flex-1">
             <h4 className="text-white font-semibold text-sm">WA Billboards</h4>
-            <span className="text-white/70 text-xs flex items-center gap-1.5">
-              <span className="w-2 h-2 bg-green-400 rounded-full inline-block" />
+            <span className="text-white/85 text-xs font-bold flex items-center gap-1.5">
+              <span className="w-2 h-2 bg-mint rounded-full inline-block" />
               Online — Ready to help
             </span>
           </div>
-          <button className="text-white/70 hover:text-white transition-colors" onClick={toggleChat}><FaTimes /></button>
+          <button className="text-white/80 hover:text-white transition-colors" onClick={toggleChat} aria-label="Close chat"><FaTimes /></button>
         </div>
 
         {/* Messages */}
-        <div className="h-[340px] overflow-y-auto p-4 space-y-3" style={{ scrollbarWidth: 'thin' }}>
+        <div className="h-[340px] overflow-y-auto p-4 space-y-3 bg-cream/60" style={{ scrollbarWidth: 'thin' }}>
           {messages.map((msg) => (
-            <div key={msg.id} className={`flex gap-2 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <motion.div
+              key={msg.id}
+              initial={{ opacity: 0, y: 12, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 380, damping: 22 }}
+              className={`flex gap-2 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+            >
               {msg.sender === 'bot' && (
-                <div className="w-7 h-7 rounded-full bg-orange/20 flex items-center justify-center text-orange text-xs shrink-0 mt-1"><FaComments /></div>
+                <div className="w-7 h-7 rounded-full bg-peach flex items-center justify-center text-primary-deep text-xs shrink-0 mt-1"><FaComments /></div>
               )}
-              <div className={`max-w-[80%] ${msg.sender === 'user' ? 'bg-gradient-to-r from-orange to-coral text-white rounded-2xl rounded-br-sm px-4 py-2.5' : ''}`}>
+              <div className={`max-w-[80%] ${msg.sender === 'user' ? 'bg-primary-dark text-white rounded-2xl rounded-br-md px-4 py-2.5 shadow-sm' : ''}`}>
                 {msg.sender === 'bot' && (
-                  <div className="bg-slate-800/80 rounded-2xl rounded-bl-sm px-4 py-2.5 border border-white/5">
-                    {msg.text && <p className="text-slate-300 text-sm whitespace-pre-line">{msg.text}</p>}
+                  <div className="bg-white rounded-2xl rounded-bl-md px-4 py-2.5 border-2 border-peach shadow-sm">
+                    {msg.text && <p className="text-ink text-sm font-semibold whitespace-pre-line">{msg.text}</p>}
                     {msg.cards && (
                       <div className="mt-3 space-y-2">
                         {msg.cards.map((card, i) => (
-                          <button key={i} className="w-full flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors text-left" onClick={() => handleNavigate(card.link)}>
-                            <span className="text-orange">{card.icon}</span>
-                            <div className="flex-1 min-w-0"><strong className="text-white text-xs block">{card.title}</strong><p className="text-slate-400 text-xs truncate">{card.desc}</p></div>
-                            <FaChevronRight className="text-slate-500 text-xs shrink-0" />
+                          <button key={i} className="w-full flex items-center gap-3 p-3 rounded-2xl bg-cream border-2 border-peach hover:border-primary/40 hover:-translate-y-0.5 transition-all text-left" onClick={() => handleNavigate(card.link)}>
+                            <span className="text-primary">{card.icon}</span>
+                            <div className="flex-1 min-w-0"><strong className="text-ink text-xs font-extrabold block">{card.title}</strong><p className="text-ink-soft text-xs truncate">{card.desc}</p></div>
+                            <FaChevronRight className="text-ink-soft text-xs shrink-0" />
                           </button>
                         ))}
                       </div>
                     )}
                     {msg.link && (
-                      <button className="mt-3 text-orange text-xs font-medium flex items-center gap-1 hover:gap-2 transition-all" onClick={() => handleNavigate(msg.link.path)}>
+                      <button className="mt-3 text-primary-deep text-xs font-extrabold flex items-center gap-1 hover:gap-2 transition-all" onClick={() => handleNavigate(msg.link.path)}>
                         {msg.link.text} <FaChevronRight className="text-[10px]" />
                       </button>
                     )}
                     {msg.quickReplies && (
                       <div className="mt-3 flex flex-wrap gap-1.5">
                         {msg.quickReplies.map((qr) => (
-                          <button key={qr.id} className="px-3 py-1.5 rounded-full bg-orange/10 text-orange text-xs font-medium hover:bg-orange/20 transition-colors flex items-center gap-1.5" onClick={() => handleQuickReply(qr.id)}>
+                          <button key={qr.id} className="px-3 py-1.5 rounded-full border-2 border-primary/25 text-primary-deep text-xs font-extrabold hover:bg-peach transition-colors flex items-center gap-1.5" onClick={() => handleQuickReply(qr.id)}>
                             {qr.icon} {qr.label}
                           </button>
                         ))}
@@ -294,18 +309,18 @@ export default function Chatbot() {
                     )}
                   </div>
                 )}
-                {msg.sender === 'user' && <p className="text-sm">{msg.text}</p>}
+                {msg.sender === 'user' && <p className="text-sm font-bold">{msg.text}</p>}
               </div>
-            </div>
+            </motion.div>
           ))}
           {isTyping && (
             <div className="flex gap-2">
-              <div className="w-7 h-7 rounded-full bg-orange/20 flex items-center justify-center text-orange text-xs shrink-0"><FaComments /></div>
-              <div className="bg-slate-800/80 rounded-2xl rounded-bl-sm px-4 py-3 border border-white/5">
+              <div className="w-7 h-7 rounded-full bg-peach flex items-center justify-center text-primary-deep text-xs shrink-0"><FaComments /></div>
+              <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 border-2 border-peach shadow-sm">
                 <div className="flex gap-1.5">
-                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0s' }} />
-                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0.2s' }} />
-                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0.4s' }} />
+                  <span className="w-2 h-2 bg-primary/60 rounded-full" style={{ animation: 'typing 1.2s infinite 0s' }} />
+                  <span className="w-2 h-2 bg-primary/60 rounded-full" style={{ animation: 'typing 1.2s infinite 0.2s' }} />
+                  <span className="w-2 h-2 bg-primary/60 rounded-full" style={{ animation: 'typing 1.2s infinite 0.4s' }} />
                 </div>
               </div>
             </div>
@@ -314,27 +329,29 @@ export default function Chatbot() {
         </div>
 
         {/* Input */}
-        <div className="p-3 border-t border-white/5 flex gap-2">
+        <div className="p-3 border-t-2 border-peach bg-white flex gap-2">
           <input
             ref={inputRef}
             type="text"
-            className="flex-1 bg-slate-800/50 text-white text-sm rounded-xl px-4 py-2.5 border border-white/5 focus:border-orange/30 focus:outline-none placeholder-slate-500 transition-colors"
+            className="flex-1 bg-cream text-ink text-sm font-bold rounded-full px-4 py-2.5 border-2 border-peach focus:border-primary focus:outline-none placeholder-ink-soft/60 transition-colors"
             placeholder="Type a message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
           />
-          <button
-            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
-              input.trim() ? 'bg-gradient-to-r from-orange to-coral text-white' : 'bg-slate-800/50 text-slate-500'
+          <motion.button
+            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 ${
+              input.trim() ? 'bg-primary-dark text-white shadow-pop' : 'bg-peach text-ink-soft'
             }`}
             onClick={handleSend}
             disabled={!input.trim()}
+            aria-label="Send message"
+            whileTap={{ scale: 0.85 }}
           >
             <FaPaperPlane className="text-sm" />
-          </button>
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

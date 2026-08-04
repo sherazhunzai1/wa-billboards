@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { MotionLink, SectionHeading, bouncy } from "./Playful";
 
 export const billboardPoints = [
   { id: 51, title: "Bassendean", category: "Road", site_id: "WA020", size: "8.3m x 2.2m", site_card_url: "https://www.wabillboards.com.au/wp-content/uploads/2022/08/Bassendean-WA020.pdf", lat: -31.894872, lng: 115.944671 },
@@ -64,7 +65,7 @@ const markerIcon = new L.Icon({
 });
 
 const airportIcon = new L.DivIcon({
-  html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36"><circle cx="18" cy="18" r="16" fill="#FF4858" stroke="#fff" stroke-width="2"/><path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#fff"/></svg>',
+  html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36"><circle cx="18" cy="18" r="16" fill="#F97316" stroke="#fff" stroke-width="3"/><path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#fff"/></svg>',
   className: "", iconSize: [36, 36], iconAnchor: [18, 18], popupAnchor: [0, -18],
 });
 
@@ -75,14 +76,26 @@ function getIcon(point) {
 export default function LocationsMap() {
   const center = [-26.5, 119];
   return (
-    <section className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-orange/10 text-orange mb-4 uppercase tracking-wider">Our Locations</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Billboard <span className="gradient-text">Locations Map</span></h2>
-          <p className="text-slate-400 max-w-xl mx-auto">Explore our billboard locations across Perth and Western Australia.</p>
+    <section className="py-20 md:py-28 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <SectionHeading
+            eyebrow="Our Locations"
+            title={<>Explore the <span className="text-primary">Network</span></>}
+            sub="50+ mapped billboard and airport sites across Perth and regional Western Australia — hover or tap any marker for site details."
+          />
+          <MotionLink
+            to="/locations"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.93 }}
+            transition={bouncy}
+            className="btn-pop bg-white text-primary-deep px-6 py-3 text-sm shadow-soft border-2 border-peach hover:border-sand shrink-0 mb-12 md:mb-16"
+          >
+            Open Full Map →
+          </MotionLink>
         </div>
-        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/30" style={{ height: '500px' }}>
+
+        <div className="rounded-[2rem] overflow-hidden border-4 border-white shadow-soft-lg relative" style={{ height: '500px' }}>
           <MapContainer center={center} zoom={5} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
             <TileLayer
               attribution='Tiles &copy; Esri'
@@ -94,11 +107,23 @@ export default function LocationsMap() {
                   <div><h4 style={{ fontWeight: 'bold' }}>{point.title}</h4>{point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}{point.size && <p><strong>Size:</strong> {point.size}</p>}</div>
                 </Tooltip>
                 <Popup>
-                  <div><h4 style={{ fontWeight: 'bold' }}>{point.title}</h4>{point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}{point.size && <p><strong>Size:</strong> {point.size}</p>}{point.category && <p><strong>Category:</strong> {point.category}</p>}{point.site_card_url && <a href={point.site_card_url} target="_blank" rel="noopener noreferrer" style={{ color: '#FF6B35' }}>View Site Card (PDF)</a>}</div>
+                  <div><h4 style={{ fontWeight: 'bold' }}>{point.title}</h4>{point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}{point.size && <p><strong>Size:</strong> {point.size}</p>}{point.category && <p><strong>Category:</strong> {point.category}</p>}{point.site_card_url && <a href={point.site_card_url} target="_blank" rel="noopener noreferrer">View Site Card (PDF)</a>}</div>
                 </Popup>
               </Marker>
             ))}
           </MapContainer>
+
+          {/* Legend */}
+          <div className="absolute bottom-4 left-4 z-[1000] bg-white/95 rounded-full shadow-md px-5 py-2.5 flex items-center gap-4">
+            <div className="flex items-center gap-2 text-xs font-extrabold text-ink">
+              <span className="w-3 h-3 bg-accent rounded-full" />
+              Billboards
+            </div>
+            <div className="flex items-center gap-2 text-xs font-extrabold text-ink">
+              <span className="w-3 h-3 bg-primary rounded-full" />
+              Airports
+            </div>
+          </div>
         </div>
       </div>
     </section>

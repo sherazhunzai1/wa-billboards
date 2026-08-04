@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiArrowRight } from 'react-icons/hi'
+import { HiCheckCircle, HiOutlineHeart, HiOutlineAcademicCap, HiOutlinePaperAirplane, HiOutlineShieldCheck } from 'react-icons/hi'
+import CtaSection from '../components/CtaSection'
+import { SectionHeading, Floater, bouncy, staggerParent, popChild } from '../components/Playful'
 
 import { galleryImages } from '../assets/billboardImages'
 import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
@@ -41,15 +42,15 @@ const teamMembers = [
 ]
 
 const qualities = [
-  { title: 'Family-First Culture', desc: 'Our family values drive everything we do, creating a supportive and dedicated team environment.' },
-  { title: 'Industry Expertise', desc: 'With combined decades of experience in outdoor media, our team brings unmatched knowledge to every project.' },
-  { title: 'Licensed Pilots', desc: 'Multiple team members hold pilot\'s licenses, enabling us to service remote locations with our own aircraft.' },
-  { title: 'ASIC Certified', desc: 'All key staff hold ASIC cards, ensuring seamless airport access and maintaining aviation safety standards.' },
+  { icon: <HiOutlineHeart />, title: 'Family-First Culture', desc: 'Our family values drive everything we do, creating a supportive and dedicated team environment.' },
+  { icon: <HiOutlineAcademicCap />, title: 'Industry Expertise', desc: 'With combined decades of experience in outdoor media, our team brings unmatched knowledge to every project.' },
+  { icon: <HiOutlinePaperAirplane />, title: 'Licensed Pilots', desc: 'Multiple team members hold pilot\'s licenses, enabling us to service remote locations with our own aircraft.' },
+  { icon: <HiOutlineShieldCheck />, title: 'ASIC Certified', desc: 'All key staff hold ASIC cards, ensuring seamless airport access and maintaining aviation safety standards.' },
 ]
 
 export default function Team() {
   return (
-    <main className="bg-charcoal min-h-screen">
+    <main className="bg-cream min-h-screen text-ink">
       <SEO
         title="Our Team — The Robinson Family Behind WA's Largest Billboard Company"
         path="/team"
@@ -73,60 +74,70 @@ export default function Team() {
       />
 
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
+      <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={galleryImages[5]} alt="WA Billboards team members at outdoor billboard site" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-charcoal/80" />
+          <div className="absolute inset-0 bg-ink/50" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={staggerParent}
+            initial="hidden"
+            animate="show"
           >
-            <span className="stamp mb-6 inline-block">Our People</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-white mb-4">Meet the<br />Team</h1>
-            <p className="text-lg text-ash max-w-xl">
+            <motion.div variants={popChild} className="mb-6">
+              <span className="inline-block rounded-full bg-sun px-5 py-2 text-sm font-extrabold uppercase tracking-wider text-ink shadow-lg -rotate-2">
+                Our People
+              </span>
+            </motion.div>
+            <motion.h1 variants={popChild} className="text-5xl md:text-7xl font-semibold text-white leading-[1.02] mb-4">Meet the<br />Team</motion.h1>
+            <motion.p variants={popChild} className="text-lg text-white/90 font-semibold max-w-xl">
               Big Spaces for Big Ideas — a dedicated family team driving Western Australia's outdoor media industry since 1991.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
+        <svg
+          className="absolute bottom-0 left-0 w-full text-cream pointer-events-none"
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          aria-hidden
+        >
+          <path d="M0,55 C240,95 480,20 720,45 C960,70 1200,25 1440,55 L1440,90 L0,90 Z" fill="currentColor" />
+        </svg>
       </section>
 
       {/* Team Members */}
       <section className="py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-6 h-px bg-lime" />
-              <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">The Robinson Family</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-white mb-4">
-              The People Behind Your Billboards
-            </h2>
-            <p className="text-lg text-ash max-w-2xl">
-              Our tight-knit family team ensures personal attention and quick response to every client need.
-            </p>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionHeading
+            eyebrow="The Robinson Family"
+            title={<>The people behind <span className="text-primary">your billboards</span></>}
+            sub="Our tight-knit family team ensures personal attention and quick response to every client need."
+          />
 
-          <div className="space-y-px">
+          <motion.div
+            className="space-y-6"
+            variants={staggerParent}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-60px' }}
+          >
             {teamMembers.map((member, i) => (
               <motion.div
                 key={i}
-                className="bg-charcoal-light border border-white/5 overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                variants={popChild}
+                whileHover={{ y: -6 }}
+                transition={bouncy}
+                className="bg-white rounded-[2rem] border-2 border-ink/5 shadow-soft overflow-hidden"
               >
                 <div className="flex flex-col lg:flex-row">
                   {/* Photo / Initials */}
-                  <div className="w-full lg:w-72 h-64 lg:h-auto relative flex-shrink-0">
+                  <div className="w-full lg:w-72 h-64 lg:h-auto relative flex-shrink-0 bg-peach">
                     {member.image ? (
                       <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-charcoal">
-                        <span className="text-6xl font-black text-lime/30">
+                      <div className="w-full h-full flex items-center justify-center">
+                        <span className="text-6xl font-semibold text-primary">
                           {member.name.split(' ').map(n => n[0]).join('')}
                         </span>
                       </div>
@@ -136,14 +147,14 @@ export default function Team() {
                   {/* Content */}
                   <div className="p-8 lg:p-10 flex-1 space-y-4">
                     <div>
-                      <h3 className="text-2xl font-black uppercase tracking-tighter text-white">{member.name}</h3>
-                      <span className="text-sm font-bold uppercase tracking-[0.1em] text-lime">{member.role}</span>
+                      <h3 className="text-2xl md:text-3xl font-semibold text-ink">{member.name}</h3>
+                      <span className="inline-block mt-2 rounded-full bg-peach px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-primary-deep">{member.role}</span>
                     </div>
-                    <p className="text-ash leading-relaxed">{member.bio}</p>
-                    <ul className="space-y-2 pt-2">
+                    <p className="text-ink-soft font-semibold leading-relaxed">{member.bio}</p>
+                    <ul className="space-y-2.5 pt-2">
                       {member.highlights.map((h, j) => (
-                        <li key={j} className="flex items-center gap-3 text-chalk text-sm">
-                          <span className="text-lime">—</span>
+                        <li key={j} className="flex items-center gap-3 text-ink text-sm font-bold">
+                          <HiCheckCircle className="w-5 h-5 text-mint flex-shrink-0" />
                           {h}
                         </li>
                       ))}
@@ -152,68 +163,81 @@ export default function Team() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Team Qualities */}
-      <section className="py-20 md:py-28 bg-charcoal-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-6 h-px bg-lime" />
-              <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">What Makes Us Different</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
-              A Team Built on Excellence
-            </h2>
-          </div>
+      <section className="py-20 md:py-28 bg-peach/50 relative overflow-hidden">
+        <Floater className="top-16 right-10 hidden lg:block" duration={8}>
+          <div className="w-16 h-16 rounded-2xl bg-sun/50 rotate-12" />
+        </Floater>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
+          <SectionHeading
+            eyebrow="What Makes Us Different"
+            title={<>A team built on <span className="text-primary">excellence</span></>}
+          />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={staggerParent}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-60px' }}
+          >
             {qualities.map((q, i) => (
               <motion.div
                 key={i}
-                className="bg-charcoal p-8 border-r border-white/5 last:border-r-0"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                variants={popChild}
+                whileHover={{ y: -8, rotate: i % 2 === 0 ? -1 : 1 }}
+                transition={bouncy}
+                className="bg-white rounded-[2rem] border-2 border-ink/5 shadow-soft p-8"
               >
-                <div className="text-xs font-mono text-lime mb-4">0{i + 1}</div>
-                <h3 className="text-lg font-bold uppercase tracking-tight text-white mb-2">{q.title}</h3>
-                <p className="text-ash text-sm leading-relaxed">{q.desc}</p>
+                <span className="inline-flex w-14 h-14 rounded-2xl bg-peach text-primary items-center justify-center text-3xl mb-6">
+                  {q.icon}
+                </span>
+                <h3 className="text-lg font-semibold text-ink mb-2">{q.title}</h3>
+                <p className="text-ink-soft text-sm font-semibold leading-relaxed">{q.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Image Strip */}
-      <section>
-        <div className="flex gap-px overflow-hidden">
+      <section className="py-10">
+        <motion.div
+          className="flex gap-4 px-6 md:px-12 overflow-hidden"
+          variants={staggerParent}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-40px' }}
+        >
           {[teamWhole, teamStephen, teamChristopher, teamRebecca].map((img, i) => (
-            <div key={i} className="flex-shrink-0 w-1/2 md:w-1/4 h-64 overflow-hidden">
+            <motion.div
+              key={i}
+              variants={popChild}
+              whileHover={{ scale: 1.04, rotate: 0 }}
+              transition={bouncy}
+              className={`flex-shrink-0 w-1/2 md:w-1/4 h-64 overflow-hidden rounded-3xl border-4 border-white shadow-soft ${i % 2 === 0 ? '-rotate-1' : 'rotate-1'}`}
+            >
               <img
                 src={img}
                 alt={`WA Billboards team member ${['group photo', 'Stephen Robinson', 'Christopher Robinson', 'Rebecca Zaubzer'][i]}`}
                 loading="lazy"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* CTA */}
-      <section className="bg-lime p-12 md:p-20">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">Want to work with our team? Get in touch to discuss your outdoor advertising needs.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
-            Contact Us <HiArrowRight />
-          </Link>
-        </div>
-      </section>
+      <CtaSection
+        align="center"
+        subtitle="Want to work with our team? Get in touch to discuss your outdoor advertising needs."
+        primary={{ to: '/contact', label: 'Contact Us' }}
+      />
     </main>
   )
 }
