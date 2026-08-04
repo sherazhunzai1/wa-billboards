@@ -226,34 +226,34 @@ export default function Chatbot() {
     <div className="fixed bottom-6 right-6 z-50">
       {/* Toggle */}
       <button
-        className={`relative w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 ${
-          isOpen ? 'bg-slate-700 rotate-0' : 'bg-gradient-to-r from-orange to-coral hover:shadow-orange/40 hover:scale-110'
+        className={`relative w-14 h-14 flex items-center justify-center text-white shadow-lg shadow-black/40 transition-all duration-300 ${
+          isOpen ? 'bg-charcoal-mid border border-white/10' : 'bg-lime hover:bg-lime-dark hover:-translate-y-0.5 shadow-glow'
         }`}
         onClick={toggleChat}
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         <span className="text-xl">{isOpen ? <FaTimes /> : <FaComments />}</span>
         {!isOpen && unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-coral text-white text-xs font-bold rounded-full flex items-center justify-center animate-bounce">{unreadCount}</span>
+          <span className="absolute -top-1.5 -right-1.5 min-w-5 h-5 px-1 bg-white text-charcoal text-[11px] font-bold flex items-center justify-center border border-charcoal animate-bounce">{unreadCount}</span>
         )}
-        {!isOpen && <span className="absolute inset-0 rounded-full bg-orange/30 animate-ping" />}
+        {!isOpen && <span className="absolute inset-0 bg-lime/40 animate-ping pointer-events-none" />}
       </button>
 
       {/* Panel */}
-      <div className={`absolute bottom-20 right-0 w-[380px] max-h-[520px] rounded-2xl overflow-hidden shadow-2xl shadow-black/40 transition-all duration-300 origin-bottom-right ${
+      <div className={`absolute bottom-20 right-0 w-[380px] max-w-[calc(100vw-3rem)] max-h-[520px] overflow-hidden bg-charcoal-light border border-white/10 shadow-2xl shadow-black/60 transition-all duration-300 origin-bottom-right ${
         isOpen ? 'scale-100 opacity-100' : 'scale-75 opacity-0 pointer-events-none'
-      }`} style={{ background: '#0f1729' }}>
+      }`}>
         {/* Header */}
-        <div className="bg-gradient-to-r from-orange to-coral px-5 py-4 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white"><FaComments /></div>
+        <div className="bg-charcoal border-b border-white/10 px-5 py-4 flex items-center gap-3">
+          <div className="w-10 h-10 bg-lime flex items-center justify-center text-white"><FaComments /></div>
           <div className="flex-1">
-            <h4 className="text-white font-semibold text-sm">WA Billboards</h4>
-            <span className="text-white/70 text-xs flex items-center gap-1.5">
-              <span className="w-2 h-2 bg-green-400 rounded-full inline-block" />
+            <h4 className="text-white font-bold text-sm uppercase tracking-[0.08em]">WA Billboards</h4>
+            <span className="text-ash text-xs flex items-center gap-1.5">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full inline-block" />
               Online — Ready to help
             </span>
           </div>
-          <button className="text-white/70 hover:text-white transition-colors" onClick={toggleChat}><FaTimes /></button>
+          <button className="text-ash hover:text-white transition-colors" onClick={toggleChat} aria-label="Close chat"><FaTimes /></button>
         </div>
 
         {/* Messages */}
@@ -261,32 +261,32 @@ export default function Chatbot() {
           {messages.map((msg) => (
             <div key={msg.id} className={`flex gap-2 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
               {msg.sender === 'bot' && (
-                <div className="w-7 h-7 rounded-full bg-orange/20 flex items-center justify-center text-orange text-xs shrink-0 mt-1"><FaComments /></div>
+                <div className="w-7 h-7 bg-lime/15 flex items-center justify-center text-lime text-xs shrink-0 mt-1"><FaComments /></div>
               )}
-              <div className={`max-w-[80%] ${msg.sender === 'user' ? 'bg-gradient-to-r from-orange to-coral text-white rounded-2xl rounded-br-sm px-4 py-2.5' : ''}`}>
+              <div className={`max-w-[80%] ${msg.sender === 'user' ? 'bg-lime text-white px-4 py-2.5' : ''}`}>
                 {msg.sender === 'bot' && (
-                  <div className="bg-slate-800/80 rounded-2xl rounded-bl-sm px-4 py-2.5 border border-white/5">
-                    {msg.text && <p className="text-slate-300 text-sm whitespace-pre-line">{msg.text}</p>}
+                  <div className="bg-charcoal px-4 py-2.5 border border-white/10">
+                    {msg.text && <p className="text-chalk/90 text-sm whitespace-pre-line">{msg.text}</p>}
                     {msg.cards && (
                       <div className="mt-3 space-y-2">
                         {msg.cards.map((card, i) => (
-                          <button key={i} className="w-full flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors text-left" onClick={() => handleNavigate(card.link)}>
-                            <span className="text-orange">{card.icon}</span>
-                            <div className="flex-1 min-w-0"><strong className="text-white text-xs block">{card.title}</strong><p className="text-slate-400 text-xs truncate">{card.desc}</p></div>
-                            <FaChevronRight className="text-slate-500 text-xs shrink-0" />
+                          <button key={i} className="w-full flex items-center gap-3 p-3 bg-white/5 border border-white/5 hover:border-lime/40 hover:bg-white/10 transition-colors text-left" onClick={() => handleNavigate(card.link)}>
+                            <span className="text-lime">{card.icon}</span>
+                            <div className="flex-1 min-w-0"><strong className="text-white text-xs block">{card.title}</strong><p className="text-ash text-xs truncate">{card.desc}</p></div>
+                            <FaChevronRight className="text-ash text-xs shrink-0" />
                           </button>
                         ))}
                       </div>
                     )}
                     {msg.link && (
-                      <button className="mt-3 text-orange text-xs font-medium flex items-center gap-1 hover:gap-2 transition-all" onClick={() => handleNavigate(msg.link.path)}>
+                      <button className="mt-3 text-lime text-xs font-bold uppercase tracking-[0.08em] flex items-center gap-1 hover:gap-2 transition-all" onClick={() => handleNavigate(msg.link.path)}>
                         {msg.link.text} <FaChevronRight className="text-[10px]" />
                       </button>
                     )}
                     {msg.quickReplies && (
                       <div className="mt-3 flex flex-wrap gap-1.5">
                         {msg.quickReplies.map((qr) => (
-                          <button key={qr.id} className="px-3 py-1.5 rounded-full bg-orange/10 text-orange text-xs font-medium hover:bg-orange/20 transition-colors flex items-center gap-1.5" onClick={() => handleQuickReply(qr.id)}>
+                          <button key={qr.id} className="px-3 py-1.5 border border-lime/30 text-lime text-xs font-medium hover:bg-lime/10 transition-colors flex items-center gap-1.5" onClick={() => handleQuickReply(qr.id)}>
                             {qr.icon} {qr.label}
                           </button>
                         ))}
@@ -300,12 +300,12 @@ export default function Chatbot() {
           ))}
           {isTyping && (
             <div className="flex gap-2">
-              <div className="w-7 h-7 rounded-full bg-orange/20 flex items-center justify-center text-orange text-xs shrink-0"><FaComments /></div>
-              <div className="bg-slate-800/80 rounded-2xl rounded-bl-sm px-4 py-3 border border-white/5">
+              <div className="w-7 h-7 bg-lime/15 flex items-center justify-center text-lime text-xs shrink-0"><FaComments /></div>
+              <div className="bg-charcoal px-4 py-3 border border-white/10">
                 <div className="flex gap-1.5">
-                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0s' }} />
-                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0.2s' }} />
-                  <span className="w-2 h-2 bg-slate-500 rounded-full" style={{ animation: 'typing 1.2s infinite 0.4s' }} />
+                  <span className="w-2 h-2 bg-lime/70 rounded-full" style={{ animation: 'typing 1.2s infinite 0s' }} />
+                  <span className="w-2 h-2 bg-lime/70 rounded-full" style={{ animation: 'typing 1.2s infinite 0.2s' }} />
+                  <span className="w-2 h-2 bg-lime/70 rounded-full" style={{ animation: 'typing 1.2s infinite 0.4s' }} />
                 </div>
               </div>
             </div>
@@ -314,22 +314,23 @@ export default function Chatbot() {
         </div>
 
         {/* Input */}
-        <div className="p-3 border-t border-white/5 flex gap-2">
+        <div className="p-3 border-t border-white/10 bg-charcoal flex gap-2">
           <input
             ref={inputRef}
             type="text"
-            className="flex-1 bg-slate-800/50 text-white text-sm rounded-xl px-4 py-2.5 border border-white/5 focus:border-orange/30 focus:outline-none placeholder-slate-500 transition-colors"
+            className="flex-1 bg-charcoal-light text-white text-sm px-4 py-2.5 border border-white/10 focus:border-lime focus:outline-none placeholder-ash/60 transition-colors"
             placeholder="Type a message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
           />
           <button
-            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
-              input.trim() ? 'bg-gradient-to-r from-orange to-coral text-white' : 'bg-slate-800/50 text-slate-500'
+            className={`w-10 h-10 flex items-center justify-center transition-all duration-200 ${
+              input.trim() ? 'bg-lime text-white hover:bg-lime-dark' : 'bg-charcoal-light border border-white/10 text-ash'
             }`}
             onClick={handleSend}
             disabled={!input.trim()}
+            aria-label="Send message"
           >
             <FaPaperPlane className="text-sm" />
           </button>

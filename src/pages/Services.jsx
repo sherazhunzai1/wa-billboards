@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { HiArrowRight } from 'react-icons/hi'
 import { billboardImages, airportImages, digitalImages, galleryImages } from '../assets/billboardImages'
 import BillboardCard from '../components/BillboardCard'
+import CtaSection from '../components/CtaSection'
 import SEO from '../components/SEO'
 
 const billboardFeatures = [
@@ -300,15 +301,11 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="bg-lime p-12 md:p-20">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">Talk to our team about the best outdoor advertising options for your campaign.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
-            Get in Touch <HiArrowRight />
-          </Link>
-        </div>
-      </section>
+      <CtaSection
+        align="center"
+        subtitle="Talk to our team about the best outdoor advertising options for your campaign."
+        primary={{ to: '/contact', label: 'Get in Touch' }}
+      />
     </main>
   )
 }

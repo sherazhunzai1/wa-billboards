@@ -153,38 +153,59 @@ export default function LandOwners() {
       </section>
 
       {/* CTA */}
-      <section className="bg-lime p-12 md:p-20">
+      <section className="py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl">
-            Download our PDF for more information or contact Steve directly.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <a
-              href="tel:0892485070"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="relative overflow-hidden bg-gradient-to-br from-lime-muted via-lime-dark to-lime p-12 md:p-20"
+          >
+            <div className="relative z-10">
+              <p className="text-xs tracking-[0.2em] uppercase text-white/60 font-bold mb-6">
+                WA Billboards — Since 1991
+              </p>
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-6 leading-[1.05]">
+                Big Spaces<br />for Big Ideas.
+              </h2>
+              <p className="text-white/70 text-lg mb-8 max-w-xl">
+                Download our PDF for more information or contact Steve directly.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                <a
+                  href="tel:0892485070"
+                  className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold"
+                >
+                  <HiPhone /> 08 9248 5070
+                </a>
+                <a
+                  href="mailto:sales@wabillboards.com.au"
+                  className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold"
+                >
+                  <HiMail /> sales@wabillboards.com.au
+                </a>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={landOwnersPdf}
+                  download="Land-Owners.pdf"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-charcoal font-bold text-sm uppercase tracking-[0.1em] transition-colors hover:bg-white/90"
+                >
+                  <HiDownload /> Download PDF
+                </a>
+                <Link to="/contact" className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-bold text-sm uppercase tracking-[0.1em] transition-colors hover:bg-white/10">
+                  Contact Us <HiArrowRight />
+                </Link>
+              </div>
+            </div>
+            <div
+              aria-hidden
+              className="absolute top-0 right-0 text-[12rem] font-black text-white/5 leading-none select-none hidden md:block uppercase tracking-tighter pointer-events-none"
             >
-              <HiPhone /> 08 9248 5070
-            </a>
-            <a
-              href="mailto:sales@wabillboards.com.au"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors font-bold"
-            >
-              <HiMail /> sales@wabillboards.com.au
-            </a>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href={landOwnersPdf}
-              download="Land-Owners.pdf"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90"
-            >
-              <HiDownload /> Download PDF
-            </a>
-            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/10">
-              Contact Us <HiArrowRight />
-            </Link>
-          </div>
+              Land Owners
+            </div>
+          </motion.div>
         </div>
       </section>
     </main>

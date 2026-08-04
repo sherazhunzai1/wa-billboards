@@ -1,9 +1,24 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { HiLocationMarker, HiPhone, HiMail, HiClock } from 'react-icons/hi'
+import { HiLocationMarker, HiPhone, HiMail, HiClock, HiChevronDown } from 'react-icons/hi'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
 
 import { galleryImages } from '../assets/billboardImages'
 import SEO from '../components/SEO'
+
+const OFFICE = { lat: -31.8587, lng: 115.8985 }
+
+const officeMarker = new L.Icon({
+  iconUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon.png',
+  iconRetinaUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+  shadowUrl: 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+})
 
 const contactInfo = [
   {
@@ -252,20 +267,23 @@ export default function Contact() {
 
                     <div>
                       <label htmlFor="service" className="block text-sm font-bold uppercase tracking-[0.1em] text-ash mb-1.5">Service Interest</label>
-                      <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 bg-charcoal border border-white/10 text-white focus:outline-none focus:border-lime transition-colors appearance-none"
-                      >
-                        <option value="" className="bg-charcoal">Select a service...</option>
-                        <option value="billboards" className="bg-charcoal">Billboards</option>
-                        <option value="airports" className="bg-charcoal">Airport Advertising</option>
-                        <option value="digital" className="bg-charcoal">Digital Displays</option>
-                        <option value="multiple" className="bg-charcoal">Multiple Services</option>
-                        <option value="other" className="bg-charcoal">Other</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="service"
+                          name="service"
+                          value={formData.service}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 pr-10 bg-charcoal border border-white/10 text-white focus:outline-none focus:border-lime transition-colors appearance-none cursor-pointer"
+                        >
+                          <option value="" className="bg-charcoal">Select a service...</option>
+                          <option value="billboards" className="bg-charcoal">Billboards</option>
+                          <option value="airports" className="bg-charcoal">Airport Advertising</option>
+                          <option value="digital" className="bg-charcoal">Digital Displays</option>
+                          <option value="multiple" className="bg-charcoal">Multiple Services</option>
+                          <option value="other" className="bg-charcoal">Other</option>
+                        </select>
+                        <HiChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-ash pointer-events-none" size={18} />
+                      </div>
                     </div>
 
                     <div>
@@ -296,18 +314,67 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="py-20 md:py-28">
+      {/* Office Map */}
+      <section className="py-20 md:py-28 bg-charcoal-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border border-white/10 p-12 text-center">
-            <div className="text-lime mb-4">
-              <HiLocationMarker size={32} className="mx-auto" />
+          <div className="mb-12">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-6 h-px bg-lime" />
+              <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">Visit Us</span>
             </div>
-            <h3 className="text-2xl font-black uppercase tracking-tighter text-white mb-2">Our Office Location</h3>
-            <p className="text-ash mb-1">40B Boulder Road, MALAGA 6090</p>
-            <p className="text-ash/60 text-sm">
-              Sales, Marketing, Operations & Administration
-            </p>
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
+              Our Office Location
+            </h2>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-px border border-white/10">
+            <div className="w-full lg:w-2/3" style={{ height: '420px' }}>
+              <MapContainer
+                center={[OFFICE.lat, OFFICE.lng]}
+                zoom={13}
+                scrollWheelZoom={false}
+                style={{ height: '100%', width: '100%' }}
+              >
+                <TileLayer
+                  attribution='Tiles &copy; Esri'
+                  url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
+                />
+                <Marker position={[OFFICE.lat, OFFICE.lng]} icon={officeMarker}>
+                  <Popup>
+                    <div>
+                      <h4 style={{ fontWeight: 'bold' }}>WA Billboards — Office</h4>
+                      <p>40B Boulder Road, MALAGA WA 6090</p>
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=40B+Boulder+Road+Malaga+WA+6090"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Get Directions
+                      </a>
+                    </div>
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
+            <div className="w-full lg:w-1/3 bg-charcoal p-8 lg:p-10 flex flex-col justify-center">
+              <div className="text-lime mb-4">
+                <HiLocationMarker size={28} />
+              </div>
+              <h3 className="text-xl font-black uppercase tracking-tighter text-white mb-3">Malaga Office</h3>
+              <p className="text-chalk text-sm mb-1">40B Boulder Road</p>
+              <p className="text-chalk text-sm mb-4">MALAGA WA 6090</p>
+              <p className="text-ash text-sm leading-relaxed mb-6">
+                Sales, Marketing, Operations &amp; Administration — all under one roof.
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=40B+Boulder+Road+Malaga+WA+6090"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-lime font-bold hover:gap-4 transition-all"
+              >
+                Get Directions →
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -75,6 +75,16 @@ export default function Footer() {
       <div className="px-6 md:px-12 py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-ash">&copy; {new Date().getFullYear()} WA Billboards. All rights reserved.</p>
         <p className="text-xs text-ash">Big Spaces for Big Ideas — Family-owned since 1991</p>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="group flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-ash hover:text-lime transition-colors"
+          aria-label="Back to top"
+        >
+          Back to top
+          <span className="w-8 h-8 border border-white/10 flex items-center justify-center group-hover:border-lime group-hover:-translate-y-0.5 transition-all">
+            ↑
+          </span>
+        </button>
       </div>
     </footer>
   )

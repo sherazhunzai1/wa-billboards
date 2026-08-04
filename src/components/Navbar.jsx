@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import wabLogo from '../assets/images/logo/WAB-Grey-Logo-Small.png'
 
 const navLinks = [
@@ -28,6 +28,8 @@ export default function Navbar() {
   const location = useLocation()
   const aboutRef = useRef(null)
   const aboutTimeout = useRef(null)
+  const { scrollYProgress } = useScroll()
+  const progressScaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 })
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -83,6 +85,13 @@ export default function Navbar() {
             : 'bg-charcoal/80 backdrop-blur-sm'
         }`}
       >
+        {/* Scroll progress */}
+        <motion.div
+          style={{ scaleX: progressScaleX }}
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-lime origin-left"
+          aria-hidden
+        />
+
         <div className="flex items-center justify-between h-[72px] px-6 lg:px-12">
           {/* Logo */}
           <Link to="/" className="relative z-[60] shrink-0">
@@ -194,6 +203,7 @@ export default function Navbar() {
               className="lg:hidden relative z-[60] flex items-center gap-3 group p-2"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
               <div className="w-7 h-7 flex flex-col items-end justify-center gap-1.5">
                 <span
@@ -216,7 +226,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[55] bg-charcoal lg:hidden"
+            className="fixed inset-0 z-40 bg-charcoal lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

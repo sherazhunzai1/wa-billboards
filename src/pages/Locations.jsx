@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiArrowRight } from 'react-icons/hi'
 import { FaPlane, FaRoad } from 'react-icons/fa'
 import { MapContainer, TileLayer, Marker, Popup, Tooltip, useMap } from 'react-leaflet'
 import L from 'leaflet'
@@ -9,6 +8,7 @@ import 'leaflet/dist/leaflet.css'
 import { billboardPoints } from '../components/LocationsMap'
 import { billboardImages, galleryImages } from '../assets/billboardImages'
 import BillboardCard from '../components/BillboardCard'
+import CtaSection from '../components/CtaSection'
 import SEO from '../components/SEO'
 
 const markerIcon = new L.Icon({
@@ -311,15 +311,11 @@ export default function Locations() {
       </section>
 
       {/* CTA */}
-      <section className="bg-lime p-12 md:p-20">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">Need a billboard in a specific location? Our team can help you find the perfect spot.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
-            Talk to Our Team <HiArrowRight />
-          </Link>
-        </div>
-      </section>
+      <CtaSection
+        align="center"
+        subtitle="Need a billboard in a specific location? Our team can help you find the perfect spot."
+        primary={{ to: '/contact', label: 'Talk to Our Team' }}
+      />
     </main>
   )
 }

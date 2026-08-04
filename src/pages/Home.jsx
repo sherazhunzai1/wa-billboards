@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import BillboardCard from "../components/BillboardCard";
+import CtaSection from "../components/CtaSection";
 import { billboardImages, galleryImages, heroImages } from "../assets/billboardImages";
 import SEO from "../components/SEO";
 import LocationsMap from "../components/LocationsMap";
@@ -140,26 +141,52 @@ export default function Home() {
                 Our Services
               </Link>
             </div>
-          </motion.div>
 
-          <div className="absolute bottom-20 md:bottom-28 right-6 md:right-12 flex items-center gap-4">
-            <span className="text-xs text-ash hidden md:block">{heroSlides[currentSlide].label}</span>
-            <div className="flex gap-1">
-              {heroSlides.map((_, i) => (
-                <button
-                  key={i}
-                  className={`h-1 transition-all duration-500 ${
-                    currentSlide === i ? "w-8 bg-lime" : "w-3 bg-white/20"
-                  }`}
-                  onClick={() => setCurrentSlide(i)}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
-              ))}
+            {/* Slide controls */}
+            <div className="mt-10 flex items-center gap-4 md:gap-6">
+              <span className="text-xs font-mono text-ash">
+                {String(currentSlide + 1).padStart(2, "0")}/{String(heroSlides.length).padStart(2, "0")}
+              </span>
+              <div className="flex gap-1.5">
+                {heroSlides.map((_, i) => (
+                  <button
+                    key={i}
+                    className="group relative h-5 flex items-center"
+                    onClick={() => setCurrentSlide(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                  >
+                    <span
+                      className={`block h-[3px] overflow-hidden transition-all duration-500 ${
+                        currentSlide === i ? "w-10 bg-white/25" : "w-5 bg-white/20 group-hover:bg-white/40"
+                      }`}
+                    >
+                      {currentSlide === i && (
+                        <motion.span
+                          key={currentSlide}
+                          className="block h-full bg-lime"
+                          initial={{ width: "0%" }}
+                          animate={{ width: "100%" }}
+                          transition={{ duration: 5, ease: "linear" }}
+                        />
+                      )}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentSlide}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-xs tracking-[0.2em] uppercase text-chalk/70 hidden sm:block"
+                >
+                  {heroSlides[currentSlide].label}
+                </motion.span>
+              </AnimatePresence>
             </div>
-            <span className="text-xs font-mono text-ash">
-              {String(currentSlide + 1).padStart(2, "0")}/{String(heroSlides.length).padStart(2, "0")}
-            </span>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -366,39 +393,11 @@ export default function Home() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="py-24 md:py-32 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-lime p-12 md:p-20 relative overflow-hidden">
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-6 leading-[1.1]">
-
-                Big Spaces<br />for Big Ideas.
-              </h2>
-              <p className="text-white/70 text-lg max-w-xl mb-10">
-                Let's find the perfect billboard location for your business.
-                Contact us today for a free consultation.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-charcoal font-bold text-sm uppercase tracking-[0.1em] hover:bg-white/90 transition-colors"
-                >
-                  Contact Us <span className="text-lg">→</span>
-                </Link>
-                <Link
-                  to="/locations"
-                  className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-bold text-sm uppercase tracking-[0.1em] hover:bg-white/10 transition-colors"
-                >
-                  View Locations
-                </Link>
-              </div>
-            </div>
-            <div className="absolute top-0 right-0 text-[12rem] font-black text-white/5 leading-none select-none hidden md:block uppercase tracking-tighter">
-              Big Ideas
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        subtitle="Let's find the perfect billboard location for your business. Contact us today for a free consultation."
+        primary={{ to: "/contact", label: "Contact Us" }}
+        secondary={{ to: "/locations", label: "View Locations" }}
+      />
     </main>
   );
 }

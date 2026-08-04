@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -64,7 +65,7 @@ const markerIcon = new L.Icon({
 });
 
 const airportIcon = new L.DivIcon({
-  html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36"><circle cx="18" cy="18" r="16" fill="#FF4858" stroke="#fff" stroke-width="2"/><path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#fff"/></svg>',
+  html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36"><circle cx="18" cy="18" r="16" fill="#60A5FA" stroke="#1F2023" stroke-width="2"/><path d="M18 8l-2 7h-6l-1.5 3 7 2v5l-2 2h4l1.5-2 1.5 2h4l-2-2v-5l7-2L28 15h-6l-2-7h-2z" fill="#1F2023"/></svg>',
   className: "", iconSize: [36, 36], iconAnchor: [18, 18], popupAnchor: [0, -18],
 });
 
@@ -75,14 +76,29 @@ function getIcon(point) {
 export default function LocationsMap() {
   const center = [-26.5, 119];
   return (
-    <section className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-orange/10 text-orange mb-4 uppercase tracking-wider">Our Locations</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Billboard <span className="gradient-text">Locations Map</span></h2>
-          <p className="text-slate-400 max-w-xl mx-auto">Explore our billboard locations across Perth and Western Australia.</p>
+    <section className="py-24 md:py-32 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div>
+            <span className="stamp mb-4 inline-block">Our Locations</span>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
+              Explore the<br />Network
+            </h2>
+          </div>
+          <div className="max-w-md">
+            <p className="text-ash text-sm leading-relaxed mb-4">
+              50+ mapped billboard and airport sites across Perth and regional Western Australia — hover or tap any marker for site details.
+            </p>
+            <Link
+              to="/locations"
+              className="inline-flex items-center gap-2 text-sm tracking-[0.15em] uppercase text-lime font-bold hover:gap-4 transition-all"
+            >
+              Open Full Map →
+            </Link>
+          </div>
         </div>
-        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/30" style={{ height: '500px' }}>
+
+        <div className="border border-white/10 overflow-hidden relative" style={{ height: '500px' }}>
           <MapContainer center={center} zoom={5} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
             <TileLayer
               attribution='Tiles &copy; Esri'
@@ -94,11 +110,23 @@ export default function LocationsMap() {
                   <div><h4 style={{ fontWeight: 'bold' }}>{point.title}</h4>{point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}{point.size && <p><strong>Size:</strong> {point.size}</p>}</div>
                 </Tooltip>
                 <Popup>
-                  <div><h4 style={{ fontWeight: 'bold' }}>{point.title}</h4>{point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}{point.size && <p><strong>Size:</strong> {point.size}</p>}{point.category && <p><strong>Category:</strong> {point.category}</p>}{point.site_card_url && <a href={point.site_card_url} target="_blank" rel="noopener noreferrer" style={{ color: '#FF6B35' }}>View Site Card (PDF)</a>}</div>
+                  <div><h4 style={{ fontWeight: 'bold' }}>{point.title}</h4>{point.site_id && <p><strong>Site ID:</strong> {point.site_id}</p>}{point.size && <p><strong>Size:</strong> {point.size}</p>}{point.category && <p><strong>Category:</strong> {point.category}</p>}{point.site_card_url && <a href={point.site_card_url} target="_blank" rel="noopener noreferrer">View Site Card (PDF)</a>}</div>
                 </Popup>
               </Marker>
             ))}
           </MapContainer>
+
+          {/* Legend */}
+          <div className="absolute bottom-4 left-4 z-[1000] bg-charcoal/90 border border-white/10 px-4 py-3 flex items-center gap-4">
+            <div className="flex items-center gap-2 text-sm text-chalk">
+              <span className="w-3 h-3 bg-lime" />
+              Billboards
+            </div>
+            <div className="flex items-center gap-2 text-sm text-chalk">
+              <span className="w-3 h-3 bg-white" />
+              Airports
+            </div>
+          </div>
         </div>
       </div>
     </section>

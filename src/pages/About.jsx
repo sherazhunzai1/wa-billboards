@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import CtaSection from '../components/CtaSection'
 import { galleryImages } from '../assets/billboardImages'
 import aboutHeroImg from '../assets/images/about us/IMG_6101-1-1536x624.jpg'
 import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
@@ -336,38 +337,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── CTA — Full-width lime ── */}
-      <section className="bg-lime">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <motion.div
-            initial={{ opacity: 0, clipPath: 'inset(0 100% 0 0)' }}
-            whileInView={{ opacity: 1, clipPath: 'inset(0 0% 0 0)' }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-white leading-[0.95] mb-6">
-              Big Spaces<br />for Big Ideas.
-            </h2>
-            <p className="text-white/70 text-lg md:text-xl max-w-xl mb-10">
-              Partner with Western Australia's most experienced outdoor media team.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="inline-block bg-white text-charcoal font-bold uppercase tracking-[0.1em] px-8 py-4 text-sm hover:bg-white/90 transition-colors"
-              >
-                Get in Touch
-              </Link>
-              <Link
-                to="/locations"
-                className="inline-block border border-white/30 text-white font-bold uppercase tracking-[0.1em] px-8 py-4 text-sm hover:bg-white/10 transition-colors"
-              >
-                View Locations
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* ── CTA ── */}
+      <CtaSection
+        subtitle="Partner with Western Australia's most experienced outdoor media team."
+        primary={{ to: '/contact', label: 'Get in Touch' }}
+        secondary={{ to: '/locations', label: 'View Locations' }}
+      />
     </main>
   )
 }

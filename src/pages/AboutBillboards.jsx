@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiArrowRight } from 'react-icons/hi'
+import CtaSection from '../components/CtaSection'
 import { galleryImages } from '../assets/billboardImages'
 import img24Sheet from '../assets/images/billboards/24-Sheet.png'
 import imgSuper8 from '../assets/images/billboards/super 8.png'
@@ -206,20 +205,11 @@ export default function AboutBillboards() {
       </section>
 
       {/* CTA */}
-      <section className="bg-lime p-12 md:p-20">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl">Our team can help you pick the perfect format for your campaign goals and budget.</p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
-              Get in Touch <HiArrowRight />
-            </Link>
-            <Link to="/services" className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/10">
-              View Our Services <HiArrowRight />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection
+        subtitle="Our team can help you pick the perfect format for your campaign goals and budget."
+        primary={{ to: '/contact', label: 'Get in Touch' }}
+        secondary={{ to: '/services', label: 'View Our Services' }}
+      />
     </main>
   )
 }

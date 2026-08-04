@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiArrowRight } from 'react-icons/hi'
+import CtaSection from '../components/CtaSection'
 
 import { galleryImages } from '../assets/billboardImages'
 import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
@@ -205,15 +204,11 @@ export default function Team() {
       </section>
 
       {/* CTA */}
-      <section className="bg-lime p-12 md:p-20">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">Big Spaces for Big Ideas</h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">Want to work with our team? Get in touch to discuss your outdoor advertising needs.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-charcoal font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-white/90">
-            Contact Us <HiArrowRight />
-          </Link>
-        </div>
-      </section>
+      <CtaSection
+        align="center"
+        subtitle="Want to work with our team? Get in touch to discuss your outdoor advertising needs."
+        primary={{ to: '/contact', label: 'Contact Us' }}
+      />
     </main>
   )
 }
