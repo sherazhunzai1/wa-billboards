@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -15,7 +16,7 @@ import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <ScrollToTop />
       <Navbar />
       <Routes>
@@ -31,7 +32,7 @@ function App() {
       </Routes>
       <Footer />
       <Chatbot />
-    </>
+    </MotionConfig>
   );
 }
 

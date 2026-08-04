@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { HiArrowRight } from 'react-icons/hi'
+import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
 import { billboardImages, airportImages, digitalImages, galleryImages } from '../assets/billboardImages'
 import BillboardCard from '../components/BillboardCard'
 import CtaSection from '../components/CtaSection'
+import { MotionLink, SectionHeading, Sticker, Floater, bouncy, springy, staggerParent, popChild } from '../components/Playful'
 import SEO from '../components/SEO'
 
 const billboardFeatures = [
@@ -47,7 +48,7 @@ export default function Services() {
   }, [hash])
 
   return (
-    <main className="bg-charcoal min-h-screen">
+    <main className="bg-cream min-h-screen text-ink">
       <SEO
         title="Billboard Advertising Services — Billboards, Airport Ads & Digital Displays"
         path="/services"
@@ -83,78 +84,110 @@ export default function Services() {
       />
 
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
+      <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img src={galleryImages[1]} alt="Billboard and outdoor advertising services across Western Australia" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-charcoal/80" />
+          <div className="absolute inset-0 bg-ink/50" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pb-20 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={staggerParent}
+            initial="hidden"
+            animate="show"
           >
-            <span className="stamp mb-6 inline-block">Our Services</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-white mb-4">Advertising<br />Solutions</h1>
-            <p className="text-lg text-ash max-w-xl">
+            <motion.div variants={popChild} className="mb-6">
+              <span className="inline-block rounded-full bg-sun px-5 py-2 text-sm font-extrabold uppercase tracking-wider text-ink shadow-lg -rotate-2">
+                Our Services
+              </span>
+            </motion.div>
+            <motion.h1 variants={popChild} className="text-5xl md:text-7xl font-semibold text-white leading-[1.02] mb-4">Advertising<br />Solutions</motion.h1>
+            <motion.p variants={popChild} className="text-lg text-white/90 font-semibold max-w-xl">
               Big Spaces for Big Ideas — comprehensive outdoor media options to reach your target audience across Western Australia.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
+        <svg
+          className="absolute bottom-0 left-0 w-full text-cream pointer-events-none"
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          aria-hidden
+        >
+          <path d="M0,55 C240,95 480,20 720,45 C960,70 1200,25 1440,55 L1440,90 L0,90 Z" fill="currentColor" />
+        </svg>
       </section>
 
       {/* Billboards Service */}
-      <section className="py-20 md:py-28" id="billboards">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-28 relative overflow-hidden" id="billboards">
+        <Floater className="top-24 right-8 hidden lg:block" duration={8}>
+          <div className="w-16 h-16 rounded-full bg-peach/80" />
+        </Floater>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
             <motion.div
               className="w-full lg:w-1/2 space-y-6"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              variants={staggerParent}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-60px' }}
             >
-              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/20">01</span>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white -mt-4">
+              <motion.div variants={popChild}>
+                <Sticker className="bg-peach text-primary-deep">01 — Billboards</Sticker>
+              </motion.div>
+              <motion.h2 variants={popChild} className="text-4xl md:text-5xl font-semibold text-ink">
                 Billboards
-              </h2>
-              <p className="text-ash leading-relaxed">
+              </motion.h2>
+              <motion.p variants={popChild} className="text-ink-soft font-semibold leading-relaxed">
                 WA Billboards has an extensive inventory all over Western Australia — from the
                 Kimberley, through the Goldfields and down to the South West. Having this broad
                 coverage of both regional and metro billboards ensures that there is a perfect spot
                 for your company to reach your desired target audience.
-              </p>
-              <p className="text-ash leading-relaxed">
+              </motion.p>
+              <motion.p variants={popChild} className="text-ink-soft font-semibold leading-relaxed">
                 This includes extreme condition billboards that are built in-house to withstand
                 cyclone prone areas, ensuring your advertising remains visible in even the harshest
                 conditions.
-              </p>
-              <ul className="space-y-3">
+              </motion.p>
+              <motion.ul variants={popChild} className="space-y-3">
                 {billboardFeatures.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-chalk">
-                    <span className="w-6 h-px bg-lime flex-shrink-0" />
+                  <li key={i} className="flex items-center gap-3 text-ink font-bold">
+                    <HiCheckCircle className="w-5 h-5 text-mint flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
-              </ul>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
-                Enquire Now <HiArrowRight />
-              </Link>
+              </motion.ul>
+              <motion.div variants={popChild}>
+                <MotionLink
+                  to="/contact"
+                  whileHover={{ scale: 1.06, rotate: -1 }}
+                  whileTap={{ scale: 0.92 }}
+                  transition={bouncy}
+                  className="btn-pop bg-primary-dark text-white px-8 py-4 shadow-pop hover:bg-primary"
+                >
+                  Enquire Now <HiArrowRight />
+                </MotionLink>
+              </motion.div>
             </motion.div>
 
             <motion.div
               className="w-full lg:w-1/2"
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={springy}
             >
-              <div className="grid grid-cols-2 gap-px bg-white/5">
+              <div className="grid grid-cols-2 gap-4">
                 {billboardImages.slice(0, 4).map((img, i) => (
-                  <div key={i} className="group relative overflow-hidden">
+                  <motion.div
+                    key={i}
+                    whileHover={{ scale: 1.04, rotate: 0 }}
+                    transition={bouncy}
+                    className={`group relative overflow-hidden rounded-3xl border-4 border-white shadow-soft ${i % 2 === 0 ? '-rotate-1' : 'rotate-1'}`}
+                  >
                     <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-48 object-cover" />
-                    <div className="absolute bottom-0 left-0 right-0 bg-charcoal/80 p-3">
-                      <span className="text-chalk text-sm font-medium">{img.location}</span>
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <span className="inline-block rounded-full bg-white/95 px-3 py-1 text-xs font-extrabold text-ink shadow">{img.location}</span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -163,57 +196,79 @@ export default function Services() {
       </section>
 
       {/* Airports Service */}
-      <section className="py-20 md:py-28 bg-charcoal-light" id="airports">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-28 bg-peach/50" id="airports">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row-reverse gap-12 lg:gap-16 items-start">
             <motion.div
               className="w-full lg:w-1/2 space-y-6"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              variants={staggerParent}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-60px' }}
             >
-              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/20">02</span>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white -mt-4">
+              <motion.div variants={popChild}>
+                <Sticker className="bg-white text-primary-deep shadow-sm">02 — Airports</Sticker>
+              </motion.div>
+              <motion.h2 variants={popChild} className="text-4xl md:text-5xl font-semibold text-ink">
                 Airports
-              </h2>
-              <p className="text-ash leading-relaxed">
+              </motion.h2>
+              <motion.p variants={popChild} className="text-ink-soft font-semibold leading-relaxed">
                 WA Billboards holds the advertising rights to most of WA's regional airports,
                 including Kalgoorlie-Boulder, Newman, Karratha, Port Hedland, Onslow and Geraldton.
                 This allows our clients to reach their target audience in a large capacity.
-              </p>
-              <p className="text-ash leading-relaxed">
+              </motion.p>
+              <motion.p variants={popChild} className="text-ink-soft font-semibold leading-relaxed">
                 Advertising in these locations catches the attention of FIFO workers, city commuters,
                 national and international tourists, and farmers — giving you unmatched audience diversity.
-              </p>
-              <div>
-                <h4 className="text-white font-bold uppercase tracking-[0.1em] text-sm mb-4">Airport Terminals</h4>
-                <div className="grid grid-cols-2 gap-px">
+              </motion.p>
+              <motion.div variants={popChild}>
+                <h4 className="text-ink font-semibold text-lg mb-4">Airport Terminals</h4>
+                <div className="grid grid-cols-2 gap-3">
                   {airportFeatures.map((airport, i) => (
-                    <div key={i} className="bg-charcoal border border-white/5 px-4 py-3 text-chalk text-sm">
+                    <motion.div
+                      key={i}
+                      whileHover={{ y: -3, rotate: i % 2 === 0 ? -1 : 1 }}
+                      transition={bouncy}
+                      className="bg-white rounded-2xl border-2 border-ink/5 shadow-sm px-4 py-3 text-ink text-sm font-bold"
+                    >
                       {airport}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
-                Enquire Now <HiArrowRight />
-              </Link>
+              </motion.div>
+              <motion.div variants={popChild}>
+                <MotionLink
+                  to="/contact"
+                  whileHover={{ scale: 1.06, rotate: -1 }}
+                  whileTap={{ scale: 0.92 }}
+                  transition={bouncy}
+                  className="btn-pop bg-primary-dark text-white px-8 py-4 shadow-pop hover:bg-primary"
+                >
+                  Enquire Now <HiArrowRight />
+                </MotionLink>
+              </motion.div>
             </motion.div>
 
             <motion.div
               className="w-full lg:w-1/2"
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={springy}
             >
-              <div className="grid grid-cols-2 gap-px bg-white/5">
+              <div className="grid grid-cols-2 gap-4">
                 {airportImages.slice(0, 4).map((img, i) => (
-                  <div key={i} className="group relative overflow-hidden">
+                  <motion.div
+                    key={i}
+                    whileHover={{ scale: 1.04, rotate: 0 }}
+                    transition={bouncy}
+                    className={`group relative overflow-hidden rounded-3xl border-4 border-white shadow-soft ${i % 2 === 0 ? 'rotate-1' : '-rotate-1'}`}
+                  >
                     <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-48 object-cover" />
-                    <div className="absolute bottom-0 left-0 right-0 bg-charcoal/80 p-3">
-                      <span className="text-chalk text-sm font-medium">{img.name}</span>
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <span className="inline-block rounded-full bg-white/95 px-3 py-1 text-xs font-extrabold text-ink shadow">{img.name}</span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -223,56 +278,73 @@ export default function Services() {
 
       {/* Digital Service */}
       <section className="py-20 md:py-28" id="digital">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
             <motion.div
               className="w-full lg:w-1/2 space-y-6"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              variants={staggerParent}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-60px' }}
             >
-              <span className="text-6xl md:text-7xl font-mono font-bold text-lime/20">03</span>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white -mt-4">
+              <motion.div variants={popChild}>
+                <Sticker className="bg-peach text-primary-deep">03 — Digital</Sticker>
+              </motion.div>
+              <motion.h2 variants={popChild} className="text-4xl md:text-5xl font-semibold text-ink">
                 Digital
-              </h2>
-              <p className="text-ash leading-relaxed">
+              </motion.h2>
+              <motion.p variants={popChild} className="text-ink-soft font-semibold leading-relaxed">
                 With the constant developments in technology, WA Billboards are moving to digital.
                 We have installed a 12-faced screen at Karratha Airport and two 3-panelled screens
                 in Newman and Kalgoorlie.
-              </p>
-              <p className="text-ash leading-relaxed">
+              </motion.p>
+              <motion.p variants={popChild} className="text-ink-soft font-semibold leading-relaxed">
                 Acquiring new digital sites will increase the number of clients on each site, as
                 well as create more diverse advertising opportunities for businesses of all sizes.
-              </p>
-              <ul className="space-y-3">
+              </motion.p>
+              <motion.ul variants={popChild} className="space-y-3">
                 {digitalFeatures.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-chalk">
-                    <span className="w-6 h-px bg-lime flex-shrink-0" />
+                  <li key={i} className="flex items-center gap-3 text-ink font-bold">
+                    <HiCheckCircle className="w-5 h-5 text-mint flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
-              </ul>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-lime text-white font-bold uppercase tracking-[0.1em] transition-all duration-300 hover:bg-lime/90">
-                Enquire Now <HiArrowRight />
-              </Link>
+              </motion.ul>
+              <motion.div variants={popChild}>
+                <MotionLink
+                  to="/contact"
+                  whileHover={{ scale: 1.06, rotate: -1 }}
+                  whileTap={{ scale: 0.92 }}
+                  transition={bouncy}
+                  className="btn-pop bg-primary-dark text-white px-8 py-4 shadow-pop hover:bg-primary"
+                >
+                  Enquire Now <HiArrowRight />
+                </MotionLink>
+              </motion.div>
             </motion.div>
 
             <motion.div
               className="w-full lg:w-1/2"
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={springy}
             >
-              <div className="grid grid-cols-2 gap-px bg-white/5">
+              <div className="grid grid-cols-2 gap-4">
                 {digitalImages.map((img, i) => (
-                  <div key={i} className="group relative overflow-hidden">
+                  <motion.div
+                    key={i}
+                    whileHover={{ scale: 1.04, rotate: 0 }}
+                    transition={bouncy}
+                    className={`group relative overflow-hidden rounded-3xl border-4 border-white shadow-soft ${i % 2 === 0 ? '-rotate-1' : 'rotate-1'}`}
+                  >
                     <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-48 object-cover" />
-                    <div className="absolute bottom-0 left-0 right-0 bg-charcoal/80 p-3">
-                      <span className="text-chalk text-sm font-medium">
+                    <div className="absolute bottom-2 left-2 right-2">
+                      <span className="inline-block rounded-full bg-white/95 px-3 py-1 text-xs font-extrabold text-ink shadow">
                         {img.name} — {img.location}
                       </span>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -281,18 +353,13 @@ export default function Services() {
       </section>
 
       {/* Billboard Showcase */}
-      <section className="py-20 md:py-28 bg-charcoal-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-6 h-px bg-lime" />
-              <span className="text-xs font-bold uppercase tracking-[0.15em] text-lime">Our Inventory</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
-              Billboard Showcase
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px">
+      <section className="py-20 md:py-28 bg-peach/50">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionHeading
+            eyebrow="Our Inventory"
+            title={<>Billboard <span className="text-primary">Showcase</span></>}
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {billboardImages.map((img, i) => (
               <BillboardCard key={img.id} image={img} index={i} />
             ))}
