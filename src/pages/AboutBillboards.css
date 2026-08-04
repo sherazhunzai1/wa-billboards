@@ -22,15 +22,6 @@
   background: var(--gray-50);
 }
 
-.ab-formats__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.ab-formats__header .section-subtitle {
-  margin: 0 auto;
-}
-
 .ab-formats__list {
   display: flex;
   flex-direction: column;

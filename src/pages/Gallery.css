@@ -8,15 +8,6 @@
   background: var(--gray-50);
 }
 
-.gallery-section__header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.gallery-section__header .section-subtitle {
-  margin: 0 auto;
-}
-
 /* Grid: featured left + thumbnails right */
 .gallery-section__grid {
   display: grid;

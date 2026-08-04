@@ -1,14 +1,14 @@
 :root {
-  /* Primary Colors - Vibrant & Bright */
+  /* Primary Colors - Warm Sunset Family */
   --orange: #FF6B35;
   --orange-light: #FF8F5E;
   --orange-dark: #E55A25;
+  --orange-text: #C2410C; /* AA-safe on white at small sizes */
   --yellow: #FFC857;
   --yellow-light: #FFD980;
   --coral: #FF4858;
-  --magenta: #E040FB;
-  --cyan: #00E5FF;
-  --teal: #1DE9B6;
+  --amber: #D97706;
+  --green: #0E9F6E;
 
   /* Neutrals */
   --white: #FFFFFF;
@@ -24,11 +24,10 @@
   --gray-900: #0F172A;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #FF6B35, #FF4858, #E040FB);
+  --gradient-primary: linear-gradient(135deg, #FF6B35, #FF4858);
   --gradient-warm: linear-gradient(135deg, #FF6B35, #FFC857);
-  --gradient-cool: linear-gradient(135deg, #00E5FF, #1DE9B6);
   --gradient-sunset: linear-gradient(135deg, #FF4858, #FF6B35, #FFC857);
-  --gradient-hero: linear-gradient(135deg, #FF6B35 0%, #FF4858 40%, #E040FB 100%);
+  --gradient-hero: linear-gradient(135deg, #FF6B35 0%, #FF4858 55%, #FFC857 115%);
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
@@ -43,7 +42,7 @@
   --font-body: 'Inter', sans-serif;
 
   /* Spacing */
-  --section-padding: 100px 0;
+  --section-padding: clamp(64px, 9vw, 110px) 0;
   --container-max: 1280px;
 
   /* Border Radius */
@@ -60,8 +59,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -85,6 +86,12 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -102,7 +109,7 @@ img {
   align-items: center;
   gap: 8px;
   background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(255,72,88,0.1));
-  color: var(--orange);
+  color: var(--orange-text);
   font-weight: 600;
   font-size: 0.85rem;
   padding: 8px 18px;
@@ -111,11 +118,6 @@ img {
   text-transform: uppercase;
   margin-bottom: 16px;
   animation: bounce-in 0.6s ease both;
-  transition: transform 0.3s ease;
-}
-
-.section-tag:hover {
-  animation: wiggle 0.6s ease;
 }
 
 .section-title {
@@ -131,8 +133,96 @@ img {
   line-height: 1.7;
 }
 
+/* Shared page hero (used by all inner pages) */
+.page-header {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.page-header__bg {
+  position: absolute;
+  inset: 0;
+}
+
+.page-header__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+.page-header__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 53, 0.92) 0%,
+    rgba(255, 72, 88, 0.9) 55%,
+    rgba(194, 65, 12, 0.9) 100%
+  );
+}
+
+.page-header__content {
+  position: relative;
+  z-index: 1;
+  padding: 160px 24px 80px;
+}
+
+.page-header__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: white;
+  margin-bottom: 16px;
+}
+
+.page-header__subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Shared pill badge used on page heroes */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 107, 53, 0.85);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: bounce-in 0.8s ease 0.3s both;
+}
+
+.section-header {
+  margin-bottom: 60px;
+}
+
+.section-header--center {
+  text-align: center;
+}
+
+.section-header--center .section-subtitle {
+  margin: 0 auto;
+}
+
 .gradient-text {
-  color: var(--gray-900);
+  background: linear-gradient(120deg, var(--orange-dark), var(--coral));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Button Styles */
@@ -212,19 +302,9 @@ img {
 }
 
 /* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
 @keyframes float-gentle {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(255,107,53,0.3); }
-  50% { box-shadow: 0 0 40px rgba(255,107,53,0.6); }
 }
 
 @keyframes slide-up {
@@ -245,59 +325,23 @@ img {
   100% { transform: scale(1); opacity: 1; }
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  15% { transform: rotate(5deg); }
-  30% { transform: rotate(-5deg); }
-  45% { transform: rotate(3deg); }
-  60% { transform: rotate(-2deg); }
-  75% { transform: rotate(1deg); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.12); }
-  100% { transform: scale(1); }
-}
-
-@keyframes rubber-band {
-  0% { transform: scaleX(1); }
-  30% { transform: scaleX(1.2) scaleY(0.8); }
-  40% { transform: scaleX(0.8) scaleY(1.2); }
-  50% { transform: scaleX(1.1) scaleY(0.9); }
-  65% { transform: scaleX(0.95) scaleY(1.05); }
-  75% { transform: scaleX(1.03) scaleY(0.97); }
-  100% { transform: scaleX(1) scaleY(1); }
-}
-
-@keyframes glow-pulse {
-  0%, 100% { filter: drop-shadow(0 0 3px rgba(255,107,53,0.3)); }
-  50% { filter: drop-shadow(0 0 12px rgba(255,107,53,0.7)); }
-}
-
-@keyframes border-dance {
-  0%, 100% { border-color: var(--orange); }
-  33% { border-color: var(--coral); }
-  66% { border-color: var(--magenta); }
-}
-
-@keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
 @keyframes slide-in-right {
   from { opacity: 0; transform: translateX(30px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes tilt-shake {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(2deg); }
-  75% { transform: rotate(-2deg); }
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+/* Honour reduced-motion preferences site-wide */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

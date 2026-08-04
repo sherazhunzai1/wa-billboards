@@ -3,11 +3,6 @@
   background: var(--gray-50, #f9fafb);
 }
 
-.locations-map-section__header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
 .locations-map-section__wrapper {
   border-radius: 16px;
   overflow: hidden;

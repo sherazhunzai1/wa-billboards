@@ -38,7 +38,7 @@ export const billboardImages = [
     alt: 'RAC Billboard - Northbridge Perth',
     location: 'Northbridge, Perth',
     locationId: 1,
-    fallbackColor: '#E040FB',
+    fallbackColor: '#D97706',
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ export const billboardImages = [
     alt: 'Regional Highway Billboard',
     location: 'Port Hedland, WA',
     locationId: 3,
-    fallbackColor: '#00E5FF',
+    fallbackColor: '#E55A25',
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ export const billboardImages = [
     alt: 'City Billboard Display',
     location: 'Great Eastern Highway, Perth',
     locationId: 1,
-    fallbackColor: '#1DE9B6',
+    fallbackColor: '#334155',
   },
   {
     id: 7,
