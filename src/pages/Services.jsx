@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
 import { FaRoad, FaPlane, FaDesktop } from 'react-icons/fa'
 import { billboardImages, airportImages, digitalImages, galleryImages } from '../assets/billboardImages'
 import BillboardCard from '../components/BillboardCard'
+import SectionHeader from '../components/SectionHeader'
 import SEO from '../components/SEO'
 import './Services.css'
 
@@ -34,19 +34,6 @@ const digitalFeatures = [
 ]
 
 export default function Services() {
-  const { hash } = useLocation()
-
-  useEffect(() => {
-    if (hash) {
-      setTimeout(() => {
-        const el = document.querySelector(hash)
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }, 100)
-    }
-  }, [hash])
-
   return (
     <main className="services">
       <SEO
@@ -232,7 +219,7 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="service-section__icon-wrap" style={{ background: 'rgba(224,64,251,0.1)', color: 'var(--magenta)' }}>
+              <div className="service-section__icon-wrap" style={{ background: 'rgba(217,119,6,0.1)', color: 'var(--amber)' }}>
                 <FaDesktop size={32} />
               </div>
               <h2 className="section-title">
@@ -284,12 +271,14 @@ export default function Services() {
       {/* Billboard Showcase */}
       <section className="services-showcase">
         <div className="container">
-          <div className="services-showcase__header">
-            <span className="section-tag">Our Inventory</span>
-            <h2 className="section-title">
-              Billboard <span className="gradient-text">Showcase</span>
-            </h2>
-          </div>
+          <SectionHeader
+            tag="Our Inventory"
+            title={
+              <>
+                Billboard <span className="gradient-text">Showcase</span>
+              </>
+            }
+          />
           <div className="services-showcase__grid">
             {billboardImages.map((img, i) => (
               <BillboardCard key={img.id} image={img} index={i} />

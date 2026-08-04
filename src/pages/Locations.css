@@ -3,11 +3,6 @@
   padding: var(--section-padding);
 }
 
-.locations-map__header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
 .locations-map__filters {
   display: flex;
   justify-content: center;
@@ -124,7 +119,6 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  animation: glow-pulse 2s ease-in-out infinite;
 }
 
 /* Location Table Panel */
@@ -303,11 +297,6 @@
 .locations-gallery {
   padding: var(--section-padding);
   background: var(--gray-50);
-}
-
-.locations-gallery__header {
-  text-align: center;
-  margin-bottom: 48px;
 }
 
 .locations-gallery__grid {

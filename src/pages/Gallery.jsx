@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { HiX, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { galleryImages } from '../assets/billboardImages'
 import SEO from '../components/SEO'
+import SectionHeader from '../components/SectionHeader'
 import './Gallery.css'
 
 // Metro Billboards
@@ -204,17 +205,20 @@ export default function Gallery() {
         >
           <div className="container">
             <motion.div
-              className="gallery-section__header"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="section-tag">{section.title} {section.highlight}</span>
-              <h2 className="section-title">
-                {section.title}{' '}
-                <span className="gradient-text">{section.highlight}</span>
-              </h2>
-              <p className="section-subtitle">{section.description}</p>
+              <SectionHeader
+                tag={`${section.title} ${section.highlight}`}
+                title={
+                  <>
+                    {section.title}{' '}
+                    <span className="gradient-text">{section.highlight}</span>
+                  </>
+                }
+                subtitle={section.description}
+              />
             </motion.div>
 
             <div className="gallery-section__grid">

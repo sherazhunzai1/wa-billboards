@@ -8,6 +8,7 @@ import imgSupersite from '../assets/images/billboards/Supersite.png'
 import imgSpectacular from '../assets/images/billboards/Spectacular.png'
 import imgDigital from '../assets/images/billboards/Digital.png'
 import SEO from '../components/SEO'
+import SectionHeader from '../components/SectionHeader'
 import './AboutBillboards.css'
 
 const formats = [
@@ -36,7 +37,7 @@ const formats = [
     image: imgSupersite,
     description:
       'Supersites are the standard fare for large format advertising and always include flood lighting for night time viewing. This format is often situated in urban, metropolitan and high traffic locations.',
-    color: '#E040FB',
+    color: '#D97706',
   },
   {
     name: 'Spectacular',
@@ -54,7 +55,7 @@ const formats = [
     image: imgDigital,
     description:
       'Digital billboards offer a strong and diverse advertising option for clients. This format is versatile and can display still images as well as video. Advertisers have the ability to be selective, reactive and creative.',
-    color: '#00E5FF',
+    color: '#E55A25',
   },
 ]
 
@@ -161,15 +162,15 @@ export default function AboutBillboards() {
       {/* Formats */}
       <section className="ab-formats">
         <div className="container">
-          <div className="ab-formats__header">
-            <span className="section-tag">Billboard Formats</span>
-            <h2 className="section-title">
-              Our <span className="gradient-text">Formats</span>
-            </h2>
-            <p className="section-subtitle">
-              WA Billboards offers a range of billboard sizes to suit every campaign and budget.
-            </p>
-          </div>
+          <SectionHeader
+            tag="Billboard Formats"
+            title={
+              <>
+                Our <span className="gradient-text">Formats</span>
+              </>
+            }
+            subtitle="WA Billboards offers a range of billboard sizes to suit every campaign and budget."
+          />
 
           <div className="ab-formats__list">
             {formats.map((format, i) => (

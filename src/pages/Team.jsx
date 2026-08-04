@@ -8,6 +8,7 @@ import teamChristopher from '../assets/images/team/Christopher Robinson.jpeg'
 import teamRebecca from '../assets/images/team/Rebecca Zaubzer.jpeg'
 import teamWhole from '../assets/images/team/whole team.jpeg'
 import SEO from '../components/SEO'
+import SectionHeader from '../components/SectionHeader'
 import './Team.css'
 
 const teamMembers = [
@@ -25,7 +26,7 @@ const teamMembers = [
     image: teamChristopher,
     bio: 'Christopher joined the WA Billboards team in 2010 and runs the operational aspects of the business including site maintenance and material changes. He holds a full private pilot\'s license and ASIC card for airport access.',
     highlights: ['Joined the team in 2010', 'Full Private Pilot\'s License', 'Site Maintenance & Operations'],
-    color: '#E040FB',
+    color: '#FF4858',
   },
   {
     name: 'Mitchell Robinson',
@@ -41,7 +42,7 @@ const teamMembers = [
     image: teamRebecca,
     bio: 'Our dedicated Finance Officer manages the financial operations of WA Billboards, ensuring the business runs smoothly and efficiently.',
     highlights: ['State-level client management', 'Agency relationships', 'Campaign optimization'],
-    color: '#00E5FF',
+    color: '#D97706',
   },
 ]
 
@@ -100,15 +101,15 @@ export default function Team() {
       {/* Team Grid */}
       <section className="team-grid-section">
         <div className="container">
-          <div className="team-grid-section__header">
-            <span className="section-tag">The Robinson Family</span>
-            <h2 className="section-title">
-              The People Behind <span className="gradient-text">Your Billboards</span>
-            </h2>
-            <p className="section-subtitle">
-              Our tight-knit family team ensures personal attention and quick response to every client need.
-            </p>
-          </div>
+          <SectionHeader
+            tag="The Robinson Family"
+            title={
+              <>
+                The People Behind <span className="gradient-text">Your Billboards</span>
+              </>
+            }
+            subtitle="Our tight-knit family team ensures personal attention and quick response to every client need."
+          />
 
           <div className="team-grid">
             {teamMembers.map((member, i) => (
@@ -153,12 +154,14 @@ export default function Team() {
       {/* Team Qualities */}
       <section className="team-qualities">
         <div className="container">
-          <div className="team-qualities__header">
-            <span className="section-tag">What Makes Us Different</span>
-            <h2 className="section-title">
-              A Team Built on <span className="gradient-text">Excellence</span>
-            </h2>
-          </div>
+          <SectionHeader
+            tag="What Makes Us Different"
+            title={
+              <>
+                A Team Built on <span className="gradient-text">Excellence</span>
+              </>
+            }
+          />
 
           <div className="team-qualities__grid">
             {qualities.map((q, i) => (

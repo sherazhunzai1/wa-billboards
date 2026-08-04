@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   HiArrowRight,
   HiPlay,
@@ -12,11 +12,13 @@ import {
 } from "react-icons/hi";
 import { FaRoad, FaPlane, FaDesktop } from "react-icons/fa";
 import BillboardCard from "../components/BillboardCard";
+import SectionHeader from "../components/SectionHeader";
 import {
   billboardImages,
   galleryImages,
   heroImages,
 } from "../assets/billboardImages";
+import posts from "../data/posts";
 import SEO from "../components/SEO";
 import LocationsMap from "../components/LocationsMap";
 import "./Home.css";
@@ -50,7 +52,7 @@ const services = [
     title: "Digital",
     description:
       "Moving to digital with multi-faced screens across regional WA locations.",
-    color: "#E040FB",
+    color: "#D97706",
     link: "/services#digital",
   },
 ];
@@ -194,6 +196,9 @@ export default function Home() {
                 src={slide.image}
                 alt={slide.label}
                 className="hero__slide-img"
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "auto"}
+                decoding="async"
               />
             </div>
           ))}
@@ -307,17 +312,16 @@ export default function Home() {
       {/* Services Preview */}
       <section className="home-services">
         <div className="container">
-          <div className="home-services__header">
-            <span className="section-tag">What We Offer</span>
-            <h2 className="section-title">
-              Outdoor Advertising{" "}
-              <span className="gradient-text">Solutions</span>
-            </h2>
-            <p className="section-subtitle">
-              From traditional billboards to cutting-edge digital displays, we
-              have the perfect advertising solution for your business.
-            </p>
-          </div>
+          <SectionHeader
+            tag="What We Offer"
+            title={
+              <>
+                Outdoor Advertising{" "}
+                <span className="gradient-text">Solutions</span>
+              </>
+            }
+            subtitle="From traditional billboards to cutting-edge digital displays, we have the perfect advertising solution for your business."
+          />
 
           <div className="home-services__grid">
             {services.map((service, i) => (
@@ -353,16 +357,15 @@ export default function Home() {
       {/* Billboard Gallery */}
       <section className="home-gallery">
         <div className="container">
-          <div className="home-gallery__header">
-            <span className="section-tag">Our Billboard Network</span>
-            <h2 className="section-title">
-              Featured <span className="gradient-text">Locations</span>
-            </h2>
-            <p className="section-subtitle">
-              Explore our extensive network of billboard locations across
-              Western Australia.
-            </p>
-          </div>
+          <SectionHeader
+            tag="Our Billboard Network"
+            title={
+              <>
+                Featured <span className="gradient-text">Locations</span>
+              </>
+            }
+            subtitle="Explore our extensive network of billboard locations across Western Australia."
+          />
 
           <div className="home-gallery__grid">
             {billboardImages.slice(0, 6).map((image, i) => (
@@ -488,6 +491,53 @@ export default function Home() {
                 {partner}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News Highlights */}
+      <section className="home-news">
+        <div className="container">
+          <SectionHeader
+            tag="Latest Updates"
+            title={
+              <>
+                News & <span className="gradient-text">Insights</span>
+              </>
+            }
+            subtitle="Recent projects and installations from across Western Australia."
+          />
+
+          <div className="home-news__grid">
+            {posts.map((post) => (
+              <Link
+                key={post.slug}
+                to={`/news/${post.slug}`}
+                className="home-news__card"
+              >
+                <div className="home-news__img-wrap">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="home-news__body">
+                  <p className="home-news__date">{post.date}</p>
+                  <h3 className="home-news__title">{post.title}</h3>
+                  <span className="home-news__link">
+                    Read More <HiArrowRight />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="home-news__cta">
+            <Link to="/news" className="btn btn-primary">
+              View All News <HiArrowRight />
+            </Link>
           </div>
         </div>
       </section>

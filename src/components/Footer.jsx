@@ -32,6 +32,8 @@ export default function Footer() {
               <Link to="/about" className="footer__link">About Us</Link>
               <Link to="/services" className="footer__link">Products</Link>
               <Link to="/locations" className="footer__link">Locations</Link>
+              <Link to="/gallery" className="footer__link">Gallery</Link>
+              <Link to="/news" className="footer__link">News</Link>
               <Link to="/team" className="footer__link">Our Team</Link>
               <Link to="/land-owners" className="footer__link">Land Owners</Link>
               <Link to="/contact" className="footer__link">Contact</Link>
@@ -39,9 +41,9 @@ export default function Footer() {
 
             <div className="footer__section">
               <h4 className="footer__heading">Services</h4>
-              <Link to="/services" className="footer__link">Billboards</Link>
-              <Link to="/services" className="footer__link">Airport Advertising</Link>
-              <Link to="/services" className="footer__link">Digital Displays</Link>
+              <Link to="/services#billboards" className="footer__link">Billboards</Link>
+              <Link to="/services#airports" className="footer__link">Airport Advertising</Link>
+              <Link to="/services#digital" className="footer__link">Digital Displays</Link>
               <Link to="/locations" className="footer__link">Regional Coverage</Link>
               <Link to="/contact" className="footer__link">Custom Solutions</Link>
             </div>

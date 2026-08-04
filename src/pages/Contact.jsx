@@ -17,7 +17,7 @@ const contactInfo = [
     icon: <HiPhone size={24} />,
     title: 'Phone',
     lines: ['08 9248 5070'],
-    color: '#E040FB',
+    color: '#FF4858',
   },
   {
     icon: <HiMail size={24} />,
@@ -29,7 +29,7 @@ const contactInfo = [
     icon: <HiClock size={24} />,
     title: 'Hours',
     lines: ['Mon - Fri: 8:30am - 5:00pm', 'Sat - Sun: Closed'],
-    color: '#00E5FF',
+    color: '#D97706',
   },
 ]
 

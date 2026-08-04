@@ -28,11 +28,6 @@
   animation: slow-zoom 8s ease-out forwards;
 }
 
-@keyframes slow-zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
-}
-
 .hero__slide-img {
   width: 100%;
   height: 100%;
@@ -73,23 +68,6 @@
   max-width: 640px;
 }
 
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 107, 53, 0.85);
-  backdrop-filter: blur(10px);
-  color: white;
-  font-weight: 600;
-  font-size: 0.85rem;
-  padding: 8px 20px;
-  border-radius: var(--radius-full);
-  letter-spacing: 0.03em;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  animation: bounce-in 0.8s ease 0.3s both;
-}
-
 .hero__title {
   font-size: clamp(2.5rem, 5.5vw, 4.2rem);
   color: white;
@@ -102,7 +80,6 @@
   position: relative;
   display: inline-block;
   color: var(--yellow);
-  animation: glow-pulse 3s ease-in-out infinite;
 }
 
 .hero__title-highlight::after {
@@ -207,16 +184,18 @@
   border-radius: 2px;
   border: none;
   background: rgba(255, 255, 255, 0.3);
+  background-clip: content-box;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0;
+  /* Enlarge the hit area while keeping the slim visual bar */
+  padding: 10px 0;
 }
 
 .hero__dot--active {
   background: var(--orange);
+  background-clip: content-box;
   width: 48px;
   box-shadow: 0 0 12px rgba(255, 107, 53, 0.5);
-  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .hero__dot:hover {
@@ -264,11 +243,8 @@
 }
 
 .stats-bar__item:hover .stats-bar__icon {
-  animation: wiggle 0.6s ease;
-}
-
-.stats-bar__item:hover .stats-bar__number {
-  animation: rubber-band 0.6s ease;
+  transform: scale(1.12);
+  color: var(--coral);
 }
 
 .stats-bar__icon {
@@ -296,15 +272,6 @@
 /* ===== HOME SERVICES ===== */
 .home-services {
   padding: var(--section-padding);
-}
-
-.home-services__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.home-services__header .section-subtitle {
-  margin: 0 auto;
 }
 
 .home-services__grid {
@@ -395,15 +362,6 @@
 .home-gallery {
   padding: var(--section-padding);
   background: var(--gray-50);
-}
-
-.home-gallery__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.home-gallery__header .section-subtitle {
-  margin: 0 auto;
 }
 
 .home-gallery__grid {
@@ -512,7 +470,7 @@
 }
 
 .why-us__feature:hover .why-us__feature-dot {
-  animation: pop 0.4s ease;
+  transform: scale(1.3);
   box-shadow: 0 0 10px currentColor;
 }
 
@@ -609,15 +567,6 @@
 .home-news {
   padding: var(--section-padding);
   background: var(--gray-50);
-}
-
-.home-news__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.home-news__header .section-subtitle {
-  margin: 0 auto;
 }
 
 .home-news__grid {
@@ -884,12 +833,12 @@
     text-align: left;
   }
 
-  .hero__badge {
+  .hero .hero__badge {
     font-size: 0.7rem;
     padding: 5px 14px;
     margin-bottom: 14px;
     background: rgba(255, 107, 53, 0.15);
-    color: var(--orange);
+    color: var(--orange-text);
     border: 1px solid rgba(255, 107, 53, 0.3);
   }
 
@@ -958,16 +907,20 @@
   .hero__dot {
     width: 24px;
     height: 3px;
+    padding: 10px 0;
     background: var(--gray-300);
+    background-clip: content-box;
   }
 
   .hero__dot:hover {
     background: var(--gray-400);
+    background-clip: content-box;
   }
 
   .hero__dot--active {
     width: 36px;
     background: var(--orange);
+    background-clip: content-box;
   }
 
   .hero__dot--active:hover {

@@ -91,5 +91,5 @@
 }
 
 .billboard-card:hover .billboard-card__icon {
-  animation: wiggle 0.5s ease;
+  transform: scale(1.2);
 }

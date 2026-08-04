@@ -6,9 +6,10 @@ import { FaPlane, FaRoad } from 'react-icons/fa'
 import { MapContainer, TileLayer, Marker, Popup, Tooltip, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import { billboardPoints } from '../components/LocationsMap'
+import { billboardPoints } from '../data/billboardPoints'
 import { billboardImages, galleryImages } from '../assets/billboardImages'
 import BillboardCard from '../components/BillboardCard'
+import SectionHeader from '../components/SectionHeader'
 import SEO from '../components/SEO'
 import './Locations.css'
 
@@ -56,23 +57,26 @@ function FlyToLocation({ lat, lng, zoom }) {
 export default function Locations() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [activeFilter, setActiveFilter] = useState('all')
-  const [selectedPoint, setSelectedPoint] = useState(null)
-  const [flyTarget, setFlyTarget] = useState(null)
+  const [initialPoint] = useState(() => {
+    const locationId = searchParams.get('location')
+    if (!locationId) return null
+    return billboardPoints.find(p => p.id === Number(locationId)) ?? null
+  })
+  const [selectedPoint, setSelectedPoint] = useState(initialPoint)
+  const [flyTarget, setFlyTarget] = useState(
+    initialPoint ? { lat: initialPoint.lat, lng: initialPoint.lng } : null
+  )
   const mapRef = useRef(null)
 
   useEffect(() => {
-    const locationId = searchParams.get('location')
-    if (locationId) {
-      const point = billboardPoints.find(p => p.id === Number(locationId))
-      if (point) {
-        setSelectedPoint(point)
-        setFlyTarget({ lat: point.lat, lng: point.lng })
-        setTimeout(() => {
-          mapRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 100)
-      }
-      setSearchParams({}, { replace: true })
-    }
+    if (!initialPoint) return
+    const timer = setTimeout(() => {
+      mapRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
+    setSearchParams({}, { replace: true })
+    return () => clearTimeout(timer)
+    // Mount-only: consume the ?location= param once, then strip it from the URL
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const filtered = activeFilter === 'all'
@@ -119,12 +123,14 @@ export default function Locations() {
       {/* Map Section */}
       <section className="locations-map" ref={mapRef}>
         <div className="container">
-          <div className="locations-map__header">
-            <span className="section-tag">Interactive Map</span>
-            <h2 className="section-title">
-              Find Us Across <span className="gradient-text">Western Australia</span>
-            </h2>
-          </div>
+          <SectionHeader
+            tag="Interactive Map"
+            title={
+              <>
+                Find Us Across <span className="gradient-text">Western Australia</span>
+              </>
+            }
+          />
 
           <div className="locations-map__filters">
             {filters.map(f => (
@@ -280,12 +286,14 @@ export default function Locations() {
       {/* Gallery */}
       <section className="locations-gallery">
         <div className="container">
-          <div className="locations-gallery__header">
-            <span className="section-tag">Our Sites</span>
-            <h2 className="section-title">
-              Billboard <span className="gradient-text">Gallery</span>
-            </h2>
-          </div>
+          <SectionHeader
+            tag="Our Sites"
+            title={
+              <>
+                Billboard <span className="gradient-text">Gallery</span>
+              </>
+            }
+          />
           <div className="locations-gallery__grid">
             {billboardImages.map((img, i) => (
               <BillboardCard key={img.id} image={img} index={i} />

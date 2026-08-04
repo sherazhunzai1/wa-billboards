@@ -51,7 +51,7 @@ const SERVICE_OPTIONS = [
   { id: 'digital', label: 'Digital Displays', icon: <FaDesktop /> },
 ];
 
-const buildBotReply = (key, navigate) => {
+const buildBotReply = (key) => {
   switch (key) {
     case 'greeting':
       return {
@@ -239,14 +239,14 @@ export default function Chatbot() {
   useEffect(() => {
     if (hasGreeted) return;
     const timer = setTimeout(() => {
-      const reply = buildBotReply('greeting', navigate);
+      const reply = buildBotReply('greeting');
       setMessages([{ id: Date.now(), sender: 'bot', ...reply }]);
       setUnreadCount(1);
       sounds.notification();
       setHasGreeted(true);
     }, 3000);
     return () => clearTimeout(timer);
-  }, [hasGreeted, navigate]);
+  }, [hasGreeted]);
 
   const toggleChat = () => {
     if (isOpen) {
@@ -264,7 +264,7 @@ export default function Chatbot() {
     setIsTyping(true);
     const delay = 600 + Math.random() * 600;
     setTimeout(() => {
-      const reply = buildBotReply(key, navigate);
+      const reply = buildBotReply(key);
       setMessages(prev => [...prev, { id: Date.now(), sender: 'bot', ...reply }]);
       setIsTyping(false);
       sounds.receive();
@@ -273,7 +273,7 @@ export default function Chatbot() {
         sounds.notification();
       }
     }, delay);
-  }, [navigate, isOpen]);
+  }, [isOpen]);
 
   const handleSend = () => {
     const text = input.trim();

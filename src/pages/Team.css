@@ -3,15 +3,6 @@
   padding: var(--section-padding);
 }
 
-.team-grid-section__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.team-grid-section__header .section-subtitle {
-  margin: 0 auto;
-}
-
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -145,11 +136,6 @@
   background: var(--gray-50);
 }
 
-.team-qualities__header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
 .team-qualities__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -184,7 +170,7 @@
 }
 
 .quality-card:hover .quality-card__number {
-  animation: rubber-band 0.6s ease;
+  transform: scale(1.08);
 }
 
 .quality-card__title {

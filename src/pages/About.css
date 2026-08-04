@@ -1,57 +1,3 @@
-/* Page Header (shared across pages) */
-.page-header {
-  position: relative;
-  min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-.page-header__bg {
-  position: absolute;
-  inset: 0;
-}
-
-.page-header__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: slow-zoom 20s ease-in-out infinite alternate;
-}
-
-.page-header__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 107, 53, 0.92) 0%,
-    rgba(255, 72, 88, 0.88) 40%,
-    rgba(224, 64, 251, 0.85) 100%
-  );
-}
-
-.page-header__content {
-  position: relative;
-  z-index: 1;
-  padding: 160px 24px 80px;
-}
-
-.page-header__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: white;
-  margin-bottom: 16px;
-}
-
-.page-header__subtitle {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 560px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
 /* About Story */
 .about-story {
   padding: var(--section-padding);
@@ -133,11 +79,6 @@
   background: var(--gray-50);
 }
 
-.about-timeline__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
 .about-timeline__track {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -197,15 +138,6 @@
   padding: var(--section-padding);
 }
 
-.about-values__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.about-values__header .section-subtitle {
-  margin: 0 auto;
-}
-
 .about-values__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -260,11 +192,6 @@
 .about-team {
   padding: var(--section-padding);
   background: var(--gray-50);
-}
-
-.about-team__header {
-  text-align: center;
-  margin-bottom: 48px;
 }
 
 .about-team__grid {

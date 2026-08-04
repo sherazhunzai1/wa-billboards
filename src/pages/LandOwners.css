@@ -37,11 +37,6 @@
   background: var(--gray-50);
 }
 
-.landowners-benefits__header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
 .landowners-benefits__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

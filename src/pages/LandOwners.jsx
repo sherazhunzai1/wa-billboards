@@ -5,6 +5,7 @@ import { FaHandshake, FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { galleryImages } from "../assets/billboardImages";
 import landOwnersPdf from "../assets/pdf/Land-Owners.pdf";
 import SEO from "../components/SEO";
+import SectionHeader from "../components/SectionHeader";
 import "./LandOwners.css";
 
 const benefits = [
@@ -119,12 +120,14 @@ export default function LandOwners() {
       {/* Benefits */}
       <section className="landowners-benefits">
         <div className="container">
-          <div className="landowners-benefits__header">
-            <span className="section-tag">Why Partner With Us</span>
-            <h2 className="section-title">
-              Benefits for <span className="gradient-text">Land Owners</span>
-            </h2>
-          </div>
+          <SectionHeader
+            tag="Why Partner With Us"
+            title={
+              <>
+                Benefits for <span className="gradient-text">Land Owners</span>
+              </>
+            }
+          />
 
           <div className="landowners-benefits__grid">
             {benefits.map((b, i) => (
