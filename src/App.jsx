@@ -6,6 +6,9 @@ import About from "./pages/About";
 import AboutBillboards from "./pages/AboutBillboards";
 import Services from "./pages/Services";
 import Locations from "./pages/Locations";
+import Gallery from "./pages/Gallery";
+import News from "./pages/News";
+import NewsPost from "./pages/NewsPost";
 import Team from "./pages/Team";
 import LandOwners from "./pages/LandOwners";
 import Contact from "./pages/Contact";
@@ -24,6 +27,9 @@ function App() {
         <Route path="/about-billboards" element={<AboutBillboards />} />
         <Route path="/services" element={<Services />} />
         <Route path="/locations" element={<Locations />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/news/:slug" element={<NewsPost />} />
         <Route path="/team" element={<Team />} />
         <Route path="/land-owners" element={<LandOwners />} />
         <Route path="/contact" element={<Contact />} />

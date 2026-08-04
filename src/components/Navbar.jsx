@@ -15,20 +15,35 @@ const navLinks = [
     dropdown: [
       { path: '/about', label: 'Our Story' },
       { path: '/about-billboards', label: 'About Billboards' },
+      { path: '/gallery', label: 'Gallery' },
+      { path: '/news', label: 'News' },
     ],
   },
 ]
 
+const aboutPaths = ['/about', '/about-billboards', '/gallery']
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const dropdownRef = useRef(null)
   const location = useLocation()
 
-  useEffect(() => {
+  // Close menus on route change (render-phase state adjustment)
+  const [prevLocation, setPrevLocation] = useState(location)
+  if (prevLocation !== location) {
+    setPrevLocation(location)
     setMobileOpen(false)
     setDropdownOpen(false)
-  }, [location])
+  }
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 8)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -40,10 +55,30 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const isAboutActive = location.pathname === '/about' || location.pathname === '/about-billboards'
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        setDropdownOpen(false)
+        setMobileOpen(false)
+      }
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
+  const isAboutActive =
+    aboutPaths.includes(location.pathname) ||
+    location.pathname.startsWith('/news')
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container container">
         <Link to="/" className="navbar__logo">
           <img src={wabLogo} alt="WA Billboards" className="navbar__logo-img" />
@@ -61,6 +96,7 @@ export default function Navbar() {
                   className={`navbar__link navbar__dropdown-trigger ${isAboutActive ? 'navbar__link--active' : ''}`}
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   aria-expanded={dropdownOpen}
+                  aria-haspopup="true"
                 >
                   {link.label} <HiChevronDown className="navbar__dropdown-arrow" />
                 </button>
@@ -95,6 +131,7 @@ export default function Navbar() {
           className={`navbar__toggle ${mobileOpen ? 'navbar__toggle--open' : ''}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
         </button>

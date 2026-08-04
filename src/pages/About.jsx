@@ -7,6 +7,7 @@ import teamStephen from '../assets/images/team/Stephen Robinson.jpeg'
 import teamChristopher from '../assets/images/team/Christopher Robinson.jpeg'
 import teamRebecca from '../assets/images/team/Rebecca Zaubzer.jpeg'
 import SEO from '../components/SEO'
+import SectionHeader from '../components/SectionHeader'
 import './About.css'
 
 const timeline = [
@@ -35,7 +36,7 @@ const teamMembers = [
     name: 'Christopher Robinson',
     role: 'Operations Manager',
     image: teamChristopher,
-    color: '#E040FB',
+    color: '#FF4858',
   },
   {
     name: 'Mitchell Robinson',
@@ -47,7 +48,7 @@ const teamMembers = [
     name: 'Rebecca Zaubzer',
     role: 'Finance Officer',
     image: teamRebecca,
-    color: '#00E5FF',
+    color: '#D97706',
   },
 ]
 
@@ -139,12 +140,14 @@ export default function About() {
       {/* Timeline */}
       <section className="about-timeline">
         <div className="container">
-          <div className="about-timeline__header">
-            <span className="section-tag">Our Journey</span>
-            <h2 className="section-title">
-              Key <span className="gradient-text">Milestones</span>
-            </h2>
-          </div>
+          <SectionHeader
+            tag="Our Journey"
+            title={
+              <>
+                Key <span className="gradient-text">Milestones</span>
+              </>
+            }
+          />
 
           <div className="about-timeline__track">
             {timeline.map((item, i) => (
@@ -171,15 +174,15 @@ export default function About() {
       {/* Values */}
       <section className="about-values">
         <div className="container">
-          <div className="about-values__header">
-            <span className="section-tag">What Sets Us Apart</span>
-            <h2 className="section-title">
-              Our <span className="gradient-text">Strengths</span>
-            </h2>
-            <p className="section-subtitle">
-              Independence, quality, and quick response — the pillars that make WA Billboards the market leader.
-            </p>
-          </div>
+          <SectionHeader
+            tag="What Sets Us Apart"
+            title={
+              <>
+                Our <span className="gradient-text">Strengths</span>
+              </>
+            }
+            subtitle="Independence, quality, and quick response — the pillars that make WA Billboards the market leader."
+          />
 
           <div className="about-values__grid">
             {values.map((value, i) => (
@@ -203,15 +206,11 @@ export default function About() {
       {/* Meet the Team */}
       <section className="about-team">
         <div className="container">
-          <div className="about-team__header">
-            <span className="section-tag">Our People</span>
-            <h2 className="section-title">
-              Meet the Team
-            </h2>
-            <p className="section-subtitle">
-              The dedicated family and team behind Western Australia's largest privately owned outdoor media company.
-            </p>
-          </div>
+          <SectionHeader
+            tag="Our People"
+            title="Meet the Team"
+            subtitle="The dedicated family and team behind Western Australia's largest privately owned outdoor media company."
+          />
 
           <div className="about-team__grid">
             {teamMembers.map((member, i) => (
